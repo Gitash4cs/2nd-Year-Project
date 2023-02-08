@@ -1,0 +1,600 @@
+*{
+    font-family: 'Poppins',sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    background: rgb(208, 238, 247);
+}
+
+.container{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding-bottom: 60px;
+}
+
+.container .content{
+    text-align: center;
+    
+}
+
+.container .content h3{
+    font-size: 35px;
+    color: #333;
+    
+}
+
+.container .content h3 span{
+    background-color: crimson;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 15px;
+}
+
+.container .content h1{
+    font-size: 50px;
+    color: #333;
+    padding: 5px ;
+}
+
+.container .content h1 span{
+    color: crimson;
+    
+}
+
+.container .content p{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.container .content .btn{
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    margin: 5px 5px;
+    text-transform: capitalize;
+}
+
+.container .content .btn:hover{
+    background: crimson;
+}
+
+
+
+
+/* form */
+
+.form-container{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    
+}
+
+.form-container form{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    background: #fff;
+    text-align: center;
+    width: 500px;
+}
+
+.form-container form h3{
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #333;
+    background: #fff;
+}
+
+.form-container form input, select{
+    font-size: 20px;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    color: #333;
+    background: #eee;
+    border-radius: 5px;
+}
+
+
+.form-container form .form-btn{
+    display: inline-block;
+    background: #fbd0d9;
+    color: crimson;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.form-container form .form-btn:hover{
+    background: crimson;
+    color: #fff;
+}
+
+.form-container a{
+    background: #fff;
+}
+
+.form-container form .errorMsg{
+    margin: 10px 0;
+    display: block;
+    background: crimson;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+}
+
+
+
+/* profile */
+
+.profile-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+.profile-container table{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    background: #fff;
+    text-align: center;
+    width: 800px;
+}
+
+.profile-container table td{
+    padding: 13px 15px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.05);
+    text-align: left;
+    width: 600px;
+}
+
+.profile-container table th{
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.05);
+    text-transform: capitalize;
+    text-align: left;
+    width: 250px;
+}
+
+.profile-container .profile-gender{
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: left;
+    width: 500px;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container .table-content h1{
+    font-size: 50px;
+    color: #333;
+    padding: 5px ;
+    
+}
+
+.profile-container .table-content form input{
+    font-size: 20px;
+    width: 500px;
+    color: #333;
+    background: #eee;
+    border-radius: 5px;
+}
+
+.profile-container .table-content .save-btn:hover{
+    background: crimson;
+    color: #fff;
+}
+
+.profile-container .table-content .save-btn{
+    display: inline-block;
+    background: #fbd0d9;
+    color: #333;
+    font-size: 20px;
+    text-transform: capitalize;
+    width: 100px;
+    padding: 10px;
+}
+
+.profile-container .img-container{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    background: #fff;
+    text-align: center;
+    align-items: center;
+    margin: 15px;
+    border: 1px solid #ddd;
+    
+}
+
+.profile-container .img-container img{
+    background: #fff;
+    border-radius: 5px;
+}
+
+.profile-container .profile-btn, .profile-btn a, label, .upload-btn-wrapper, img{
+
+    background: #fff;
+}
+
+
+.profile-container .table-content .back-button a{
+
+    background: rgb(208, 238, 247)fff;
+}
+
+
+.profile-container button, lable{
+    display: inline-block;
+    background: #fbd0d9;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-size: 20px;
+    padding: 10px 15px;
+    margin: 8px 8px;
+    color: #333;
+    border-radius: 5px;
+}
+
+.profile-container button:hover,lable:hover{
+    background: crimson;
+    color: #fff;
+}
+
+
+
+/* file upload */
+
+.profile-container .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-container .file-btn {
+    border: 2px solid gray;
+    background-color: white;
+    background: crimson;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.profile-container .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.profile-container span{
+    color: crimson;
+    
+}
+
+
+
+/* view pumper */
+
+.view-container{
+    justify-content: center;
+    display: flex;
+}
+
+.view-row{
+    margin-top: 40px;
+}
+
+.view-col .btn{
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    
+    margin-left: 20px;
+    text-transform: capitalize;
+}
+
+.view-col .btn:hover{
+    background: crimson;
+}
+
+
+.view-card-header h2{
+    text-align: center;
+    font-size: 40px;
+    color: #333;
+    padding: 5px ;
+}
+
+.view-card-body{
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    margin: 20px;
+    margin-bottom: 30px;
+   
+}
+
+.view-card-body table,.view-card-body td,.view-card-body th{
+    border: 0.1px solid;
+    font-size: 15px;
+    margin-top: 10px;
+    background: #fff; 
+}
+
+
+.view-card-body td, .view-card-body th{
+    text-transform: capitalize;
+    padding: 8px 25px;   
+}
+
+
+.view-card-body th{
+    font-size: 17px;
+    padding: 5px 15px;
+    background: #333;
+    color: #eee;
+}
+
+.view-card-body a{
+    background: crimson;
+    color: #eee;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.view-card-body .view{
+    background: #04AA6D;
+   
+}
+
+
+
+/* logo and nev bar */
+
+header{
+    display: flex;
+    background-color: #24252A;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+}
+
+header li, header a, header button{
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+    background-color: #24252A;
+}
+
+.logo{
+    cursor: pointer;
+    width: 10%;
+    border-radius: 50px;
+}
+
+.nav_link{
+    list-style: none;
+}
+
+.nav_link li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_link li a{
+    transition: all 0.3s ease 0s;
+}
+
+header button{
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+}
+
+header button:hover{
+    background-color: rgba(0,136,169,0.8);
+}
+
+
+/* Complints */
+
+.view-card-body td select, .view-card-body td input{
+    font-size: 15px;
+    width: 100%;
+    padding: 10px 0px;
+    margin: 2px 0;
+    color: #333;
+    background: #eee;
+    border-radius: 5px;
+}
+
+
+.view-card-body td textarea{
+    font-size: 15px;
+    width: 300px;
+    height: 60px;
+    padding: 5px 5px;
+    margin: 2px 0;
+    color: #333;
+    background: #eee;
+    border-radius: 5px;
+}
+
+.view-card-body .com-table td {
+    
+    padding: 5px 10px;
+    margin: 2px 0;
+    
+}
+
+
+/* home-page */
+
+.login-cat{
+    text-align: center;
+    align-items: center;
+}
+.cat-list-all{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.cat-list h3{
+   
+    background: #fff;
+    color: crimson;
+    font-size: 30px;
+
+}
+
+.cat-list-all .img-container{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    background: #fff;
+    text-align: center;
+    align-items: center;
+    margin: 15px 30px;
+    border: 1px solid #ddd;
+    
+}
+
+.cat-list-all .img-container:hover, .login-cat h3:hover{
+    
+    background: #fbd0d9;
+    
+    
+}
+
+.login-cat h1{
+    font-size: 50px;
+    color: #333;
+    margin: 40px 20px;
+    margin-top: 80px;
+    
+}
+
+.login-cat h1 span{
+    background-color: crimson;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 15px;
+}
+
+/* assign pumper */
+
+.mashine-cat{
+    text-align: center;
+    align-items: center;
+}
+
+.cat-list-all .mashine-container{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    background: #fff;
+    text-align: center;
+    align-items: center;
+    margin: 15px 30px;
+    border: 1px solid #ddd;
+    
+}
+
+.cat-list-all .mashine-container table{
+    padding: 20px;
+    border-radius: 5px;
+    background: #fff;
+    
+}
+
+.mashine-container td, .mashine-container th{
+    background: #fff;
+}
+
+.mashine-cat span{
+    background-color: crimson;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 15px;
+}
+
+.mashine-cat h1{
+    font-size: 40px;
+    color: #333;
+    margin: 30px 20px;
+    margin-top: 40px;
+    
+}
+
+.mashine-cat select{
+    font-size: 18px;
+    
+    
+}
+
+.mashine-cat .btn{
+    display: inline-block;
+    position: relative;
+    right: 460px;
+    padding: 10px 30px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 20px;
+    text-transform: capitalize;
+}
+
+.mashine-cat .btn:hover{
+    background: crimson;
+}
+
+
+.back .btn{
+    display: inline-block;
+    position: relative;
+    left: 480px;
+    bottom: 130px;
+    padding: 10px 30px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 20px;
+    text-transform: capitalize;
+}
+
+.back .btn:hover{
+    background: crimson;
+}
