@@ -18,7 +18,7 @@
                 <li><a href="#">ABOUT</a></li>
             </ul>
         </Nav>
-        <a href="../logout.php" class="cnt"><button>LOGOUT</button></a>
+        <a href="<?php echo ROOT ?>/Staff-manager/Logout" class="cnt"><button>LOGOUT</button></a>
     </header>
     <!-- if found a given user id -->
     
@@ -28,7 +28,7 @@
             <div class = "img-container">
                 <?php echo "<img src='http://localhost/PETRO/public/image/noprofile.png' style ='width:180px; height:180px; object-fit:cover;''>" ?>
                 <div class="profile-btn">
-                    <a href="profile_edit.php">
+                    <a href="<?php echo ROOT ?>/Staff-manager/Edit_profile">
                         <button >Edit</button>
                     </a>
                     <a href="../logout.php">
@@ -50,7 +50,7 @@
 
                 </table>
                 <div>
-                    <a href="../staffManager_page.php" class="back-button">
+                    <a href="<?php echo ROOT ?>/Staff-manager/Home" class="back-button">
                         <lable>back</lable>
                     </a>
                 </div>

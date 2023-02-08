@@ -17,16 +17,16 @@
                 <li><a href="#">ABOUT</a></li>
             </ul>
         </Nav>
-        <a href="<?php echo ROOT ?>/staff-manger/Home/logout" class="cnt"><button>LOGOUT</button></a>
+        <a href="<?php echo ROOT ?>/staff-manger/logout" class="cnt"><button>LOGOUT</button></a>
     </header>
     
     <div class="container">
         <div class = "content">
             <h3> Hi, <span>Staff Manager</span></h3>
             <h1>Welcome<span> <?php echo $_SESSION['manager_name'] ?></span></h1>
-           
+            
             <p>This is an Staff Manger Page</p>
-            <a href = "profile/profile_view.php" class="btn">My Profile</a>
+            <a href = "<?php echo ROOT ?>/Staff-manager/Profile" class="btn">My Profile</a>
             <a href = "view_pumpers.php" class="btn">View Pumpers</a>
             <a href = "view_customer.php" class="btn">View Customer</a>
             <a href = "complain.php" class="btn">Complaint</a>
