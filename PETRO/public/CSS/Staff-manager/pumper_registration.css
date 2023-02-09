@@ -109,8 +109,8 @@
 
 .form-container form .form-btn{
     display: inline-block;
-    background: #fbd0d9;
-    color: #3498db;
+    background: #a7d1f2;
+    color: #1787d2;
     font-size: 20px;
     text-transform: capitalize;
 }
@@ -245,13 +245,13 @@
 
 .profile-container button, lable{
     display: inline-block;
-    background: #fbd0d9;
+    background: #bedbf0;
     font-size: 20px;
     text-transform: capitalize;
     font-size: 20px;
     padding: 10px 15px;
     margin: 8px 8px;
-    color: #333;
+    color: #3498db;
     border-radius: 5px;
 }
 

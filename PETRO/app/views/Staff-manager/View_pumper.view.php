@@ -60,7 +60,7 @@
                     
                 </div>
                 <a href = "<?php echo ROOT ?>/Staff-manager/Home" class="btn">Back</a>
-                <a href = "pumper-registration.php" class="btn">Add Pumpers</a>
+                <a href = "<?php echo ROOT ?>/Staff-manager/Pumper_registration" class="btn">Add Pumpers</a>
                 
             </div>
         </div>

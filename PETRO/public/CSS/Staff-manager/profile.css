@@ -28,7 +28,7 @@
 }
 
 .container .content h3 span{
-    background-color: crimson;
+    background-color: #3498db;
     color: #fff;
     border-radius: 5px;
     padding: 3px 15px;
@@ -41,7 +41,7 @@
 }
 
 .container .content h1 span{
-    color: crimson;
+    color: #3498db;
     
 }
 
@@ -62,7 +62,7 @@
 }
 
 .container .content .btn:hover{
-    background: crimson;
+    background: #3498db;
 }
 
 
@@ -110,13 +110,13 @@
 .form-container form .form-btn{
     display: inline-block;
     background: #fbd0d9;
-    color: crimson;
+    color: #3498db;
     font-size: 20px;
     text-transform: capitalize;
 }
 
 .form-container form .form-btn:hover{
-    background: crimson;
+    background: #3498db;
     color: #fff;
 }
 
@@ -127,7 +127,7 @@
 .form-container form .errorMsg{
     margin: 10px 0;
     display: block;
-    background: crimson;
+    background: #3498db;
     color: #fff;
     border-radius: 5px;
     font-size: 20px;
@@ -200,7 +200,7 @@
 }
 
 .profile-container .table-content .save-btn:hover{
-    background: crimson;
+    background: #3498db;
     color: #fff;
 }
 
@@ -256,7 +256,7 @@
 }
 
 .profile-container button:hover,lable:hover{
-    background: crimson;
+    background: #3498db;
     color: #fff;
 }
 
@@ -272,7 +272,7 @@
 .profile-container .file-btn {
     border: 2px solid gray;
     background-color: white;
-    background: crimson;
+    background: #3498db;
     color: #fff;
     padding: 8px 10px;
     border-radius: 8px;
@@ -289,7 +289,7 @@
 }
 
 .profile-container span{
-    color: crimson;
+    color: #3498db;
     
 }
 
@@ -319,7 +319,7 @@
 }
 
 .view-col .btn:hover{
-    background: crimson;
+    background: #3498db;
 }
 
 
@@ -361,7 +361,7 @@
 }
 
 .view-card-body a{
-    background: crimson;
+    background: #3498db;
     color: #eee;
     padding: 5px;
     border-radius: 5px;
@@ -473,7 +473,7 @@ header button:hover{
 .cat-list h3{
    
     background: #fff;
-    color: crimson;
+    color: #3498db;
     font-size: 30px;
 
 }
@@ -506,7 +506,7 @@ header button:hover{
 }
 
 .login-cat h1 span{
-    background-color: crimson;
+    background-color: #3498db;
     color: #fff;
     border-radius: 5px;
     padding: 3px 15px;
@@ -543,7 +543,7 @@ header button:hover{
 }
 
 .mashine-cat span{
-    background-color: crimson;
+    background-color: #3498db;
     color: #fff;
     border-radius: 5px;
     padding: 3px 15px;
@@ -577,7 +577,7 @@ header button:hover{
 }
 
 .mashine-cat .btn:hover{
-    background: crimson;
+    background: #3498db;
 }
 
 
@@ -596,5 +596,5 @@ header button:hover{
 }
 
 .back .btn:hover{
-    background: crimson;
+    background: #3498db;
 }
