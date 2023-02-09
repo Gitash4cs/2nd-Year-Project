@@ -30,7 +30,7 @@
             <a href = "<?php echo ROOT ?>/Staff-manager/view_pumper" class="btn">View Pumpers</a>
             <a href = "<?php echo ROOT ?>/Staff-manager/view_customer" class="btn">View Customer</a>
             <a href = "<?php echo ROOT ?>/Staff-manager/Complain" class="btn">Complaint</a>
-            <a href = "assign_pumpper.php" class="btn">Assign Pumper</a>
+            <a href = "<?php echo ROOT ?>/Staff-manager/Assign_pumpper" class="btn">Assign Pumper</a>
         </div>
     </div>
 
