@@ -19,19 +19,11 @@ class Profile extends Controller
 
         if($result){
             $this->view('Staff-manager/profile',$result);
+
         }
         else{
             $this->view('Staff-manager/profile',$data);
         }
-    }
-
-    //get image foe profile
-    function get_image($path = ''):string{
-        if(file_exists($path)){
-            return $path;
-        }else{
-            return 'noprofile';
-        }  
     }
 
 }

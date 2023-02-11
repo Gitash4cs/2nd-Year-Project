@@ -1,76 +1,113 @@
+
+<?php
+    $flag='';
+    if(empty($data['error'])){
+        $flag=true;
+    }
+    else{
+        $flag=false;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Admin/email.css" text="text/css">
-    <title>Document</title>
-</head>
-<body>
-<div class="navbartop">
-<p class="mail">petro@gmail.com &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <a href="" class="petro">Petro.lk</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   0717787990</p>
-	
 
-</div>
-<br><br>
-<div class="header">
-<h2>Distribution Manager Details</h2></div>
-<div class="work">
-            <table style="width:100%">
-            <thead>
-            <tr>
+<head>
+    <meta charset="UTF-8" />
+    <title>Add Distribution Manager</title>
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/price.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+            <li><a href="<?php echo ROOT ?>/Admin/Home" class="logo">
+                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
+                        <span class="nav-item"></span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Add D_Manager</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Add C_Manager</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">View D_Manager</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">View C_Manager</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">View Customer</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">View Complain</span>
+                    </a></li>
+
+            </ul>
+        </nav>
+
+        <section class="main">
+            <div class="main-top">
+                <h1>View Distribution Manager</h1>
+            </div><br><br>
+
+            <table class="table">
+        <thead>
+        <tr>
                 <th>Manager ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>NIC</th>
                 <th>Email</th>
-            </tr>
-            </thead>
-            <tbody>
-            <form action="<?php echo ROOT?>/Admin/View_dis" method="get">
+            
+        </tr>
+        </thead>
+    <tbody>
         <?php
-            if (mysqli_num_rows($data['result']) > 0) {
-                while($row = mysqli_fetch_assoc($data['result'])) {
-                    echo "<tr>
-                    <td>".$row['distribution_manager_id']."</td>
-                    <td>".$row['First_name']."</td>
-                    <td>".$row['Last_name']."</td>
-                    <td>".$row['NIC']."</td>
-                    <td>".$row['email']."</td>
-                    </tr>";
+            if($flag==true){
+                if (mysqli_num_rows($data['result']) > 0) {
+                    while($row = mysqli_fetch_assoc($data['result'])) {
+                        echo "<tr>
+                        <td>".$row['distribution_manager_id']."</td>
+                        <td>".$row['First_name']."</td>
+                        <td>".$row['Last_name']."</td>
+                        <td>".$row['NIC']."</td>
+                        <td>".$row['email']."</td>
+                        </tr>";
+                    }
                 }
-            } else {
-                echo "0 results";
             }
         ?>
+    </tbody>
+    </table>
+    
+    <div class="wrapper">
+                <div class="form-container">
 
-        </tbody>
-        </table>
-        </form>
-        <br>
-        <div class="delete">
-        <label for="delete">Remove Customer Manager:</label>
-        <form action="<?php echo ROOT?>/Admin/Delete_dis" method="post">
-            <br><input type="text" name="delete"  placeholder="Enter Manager ID" required></div><br>
-            <div class="back"> <button type="submit">SUBMIT</button></div>
-           
-        </form>
+                    <div class="form-inner">
+                    
+                    <form action="<?php echo ROOT?>/Admin/Delete_dis" method="post">
+                        <div class="field">
+                        <input type="text" name="delete"  placeholder="Enter Manager ID" class="box"required></div><br>
+                        </div>
+                        <button type="submit" class="back">Remove</button></div>
+                    </form>
+                    </div>
+                </div>
+            </div>
     </div>
-    <label class="error"><?php echo $data['error']?></label>&nbsp;<br><br>
-        <div class="back">
-        <a href="<?php echo ROOT ?>/Admin/Home" class="same">Back</a>
-        </div>
-    </div>
+    
+
 </body>
+
 </html>

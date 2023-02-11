@@ -3,7 +3,7 @@ class M_Hours extends Model{
     protected $table = 'working_time';
     public function details(){
         $result = $this->connection();
-        $pumper_id = $_SESSION['pump_id'];
+        $pumper_id = $_SESSION['pumper_id'];
         date_default_timezone_set('Europe/London');
         $date = date('y-m-d');
         $sql="select *from $this->table where Pumper_id='".$pumper_id."' AND Date = '".$date."' LIMIT 50";
@@ -31,7 +31,7 @@ class M_Hours extends Model{
     public function previous1($data){
         $result = $this->connection();
 
-        $pumper_id = $_SESSION['pump_id'];
+        $pumper_id = $_SESSION['pumper_id'];
 
         date_default_timezone_set('Asia/Kolkata');
         $date = $data['date'];

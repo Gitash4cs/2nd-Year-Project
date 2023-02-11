@@ -14,13 +14,14 @@
     <title>Admin</title>
 </head>
 <body>
+    <br><br><br>
 <div class="wrapper">
         <form method="POST" action="<?php echo ROOT?>/Admin/Send">
             <h2>Gmail Sender App</h2><br>
             Email To :<br>
-            <input type="email" name="email" value="<?php echo $data['email'] ?>" readonly="readonly" class="box"><br>
+            <input type="email" name="email" value="<?php echo $data['email'] ?>" readonly="readonly" class="box"><br><br>
             Subject :<br>
-            <input type="text" name="subject" placeholder="Account Details" readonly="readonly"  class="box"><br>
+            <input type="text" name="subject" placeholder="Account Details" readonly="readonly"  class="box"><br><br><br>
             Body :<br>
             <textarea name="message">Hi <?php echo $data['first'] ?><?php echo " ",$data['last'] ?>&#013;
             Your Manger ID:<?php echo $_SESSION['customer_manager_id'] ?>&#013;

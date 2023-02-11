@@ -74,7 +74,7 @@
         <div class="pre">
         <form action="<?php echo ROOT ?>/Pumper/Working_salary/previous" method="post">
             <label class="pre1">PREVIOUS SALARY REPORT:</label>
-            <input class="box" type="date" id="date" name="date" required>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="month" id="bdaymonth" name="bdaymonth">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp

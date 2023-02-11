@@ -6,7 +6,7 @@ class M_salary extends Model{
 
     public function loading($data){
         $result=$this->connection();
-        $pumper_id = $_SESSION['pump_id'];
+        $pumper_id = $_SESSION['pumper_id'];
 
         date_default_timezone_set('Europe/London');
         $date = date('y-m-d');
@@ -26,7 +26,7 @@ class M_salary extends Model{
         }
         $hours =(int)(($total)/3600);
 
-        $sql="select *from $this->table where Pumper_id = '".$pumper_id."'";
+        $sql="select *from $this->table where Pumper_id = '".$pumper_id."' AND (month='".$month."' AND year='".$year."')";
         $query=$result->query($sql);
         if($query->num_rows>0){
             while($row = $query->fetch_array()){
@@ -89,7 +89,7 @@ class M_salary extends Model{
         }
         $hours =(int)(($total)/3600);
 
-        $sql="select *from $this->table where Pumper_id = '".$pumper_id."'";
+        $sql="select *from $this->table where Pumper_id = '".$pumper_id."' AND (month = '".$month."' AND year = '".$year."')";
         $query=$result->query($sql);
         if($query->num_rows>0){
             while($row = $query->fetch_array()){

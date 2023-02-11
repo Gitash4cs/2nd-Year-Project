@@ -4,7 +4,7 @@ class M_Working extends Model
 {
     protected $table = 'complete_order';
     public function details_working($data){
-        $pumper_id = $_SESSION['pump_id'];
+        $pumper_id = $_SESSION['pumper_id'];
         $result = $this->connection();
         $sql="select *from $this->table where pumper_id = '".$pumper_id."' LIMIT 20";
         $query = $result->query($sql);

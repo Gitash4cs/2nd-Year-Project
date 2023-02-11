@@ -7,7 +7,7 @@ class Profile extends Controller{
     }
     public function index(){
         $data=[
-            'pumper_id'=>$_SESSION['pump_id'],
+            'pumper_id'=>$_SESSION['pumper_id'],
             'Email'=>'',
 
         ];
@@ -20,7 +20,7 @@ class Profile extends Controller{
     public function logout(){
         $result=$this->profile->logout();
         if($result){
-            header('location:http://localhost/PETRO/public/Pumper/Login');
+            header('location:http://localhost/PETRO/public/Home/Login');
         }
     }
 }

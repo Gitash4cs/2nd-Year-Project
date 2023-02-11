@@ -4,7 +4,7 @@ class Database{
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "PETRO";
+        $dbname = "final_petro";
         $conn = new mysqli($servername, $username, $password, $dbname);
         return $conn;
     }

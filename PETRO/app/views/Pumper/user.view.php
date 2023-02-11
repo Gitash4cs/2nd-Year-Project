@@ -15,11 +15,11 @@ if(empty($data['err'])){
     </head>
     <body>
     <div class="navbar">
-  <a href="home.php" class="">Home</a>
-  <a href="#">Contact Us</a>
-  <a href="#">About Us</a>
-  <div class="right1">
-  <a href="<?php echo ROOT ?>/Pumper/Profile/logout">Logout</a>
+    <a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
+  <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
+  <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
+  <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
+  <a href="<?php echo ROOT ?>/Pumper/Profile" class="right"><img src="<?php echo ROOT ?>/image/pro.png" width="40px" height="40px"></a>
   </div>
 
 
@@ -30,7 +30,8 @@ if(empty($data['err'])){
           <h1 class="available"> Order Validation
           </h1>
           <div class="photo">
-          <a href="<?php echo ROOT ?>/Pumper/Profile/"> <img class="round"  src="https://randomuser.me/api/portraits/women/79.jpg"  /></a>
+        
+          
           </div>
          
 
@@ -63,8 +64,8 @@ if(empty($data['err'])){
     <div class="columns6">
   <ul class="price2">
     <li class="header"><h3>92-Octane</h3></li>
-    <li class><h2>Rs.370</h2></li>
-    <li class="grey"><h2>10500 L</h2></li>
+    <li class><h2>RS.<?php echo $data['price_92'] ?></h2></li>
+    <li class="grey"><h2><?php echo $data['remain_92'] ?>L</h2></li>
 
   </ul>
 </div>
@@ -72,8 +73,8 @@ if(empty($data['err'])){
 <div class="columns6">
   <ul class="price2">
     <li class="header"><h3>95-Octane</h3></li>
-    <li class><h2>Rs.390</h2></li>
-    <li class="grey"><h2>11000 L</h2></li>
+    <li class><h2>RS.<?php echo $data['price_95'] ?></h2></li>
+    <li class="grey"><h2><?php echo $data['remain_95'] ?>L</h2></li>
 
  
   </ul>
@@ -82,8 +83,8 @@ if(empty($data['err'])){
 <div class="columns6">
   <ul class="price2">
     <li class="header"><h3>Super-Diesel</h3></li>
-    <li class><h2>Rs.420</h2></li>
-    <li class="grey"><h2>9900 L</h2></li>
+    <li class><h2>RS.<?php echo $data['price_super'] ?></h2></li>
+    <li class="grey"><h2><?php echo $data['remain_super'] ?>L</h2></li>
  
 
   </ul>
@@ -92,8 +93,8 @@ if(empty($data['err'])){
 <div class="columns6">
   <ul class="price2">
     <li class="header"><h3>Auto-Diesel</h3></li>
-    <li class><h2>Rs.400</h2></li>
-    <li class="grey"><h2>10000 L</h2></li>
+    <li class><h2>RS.<?php echo $data['price_auto'] ?></h2></li>
+    <li class="grey"><h2><?php echo $data['remain_auto'] ?>L</h2></li>
 
 
   </ul>

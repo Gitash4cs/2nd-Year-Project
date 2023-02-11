@@ -4,6 +4,7 @@
         $flag=true;
     }
     else{
+        $data['total']= NULL;
         $flag=false;
     }
 ?>
@@ -42,6 +43,7 @@
         </thead>
         <tbody>
     <?php
+    if($flag==true){
         if (mysqli_num_rows($data['result'])> 0) {
             while($row = mysqli_fetch_assoc($data['result'])) {
                 $seconds=($row['working_hours'])%60;
@@ -56,9 +58,11 @@
             </tr>";
             }
         }
-        else{
+
+    }
+    else{
             echo $data['error'];
-        }
+    }
     ?>
     </tbody>
     </table>

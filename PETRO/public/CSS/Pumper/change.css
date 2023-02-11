@@ -1,7 +1,7 @@
 .change{
     margin-top:2%;
     margin-bottom: 5%;
-    margin-left: 25%;
+    margin-left: 35%;
     margin-right: 25%;
     border-top: 20px;
     border-radius: 10px;
@@ -10,7 +10,8 @@
     border-right: 20px;
     padding-left: 10px;
     padding-bottom: 100px;
-    background-color:rgb(242, 241, 241);
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
     text-align: center;
     width:400px;
     display: flex;
@@ -48,21 +49,27 @@
     color:black;
     margin:10px 0;
     background-color: white;
-    border:3px  #04AA6D ;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #3498db;
  }
 button{
     border: 10px;
     text-align: center;
     width: 150px;
     font-weight: 600;
-    background-color:#ddd;
+    background-color:#3498db;
     height:30px;
     border-radius: 10px;
     cursor: pointer;
+    transition: transform .5s;
 }
 button:hover {
-    background-color:coral;
+    background-color:#3498db;
     color:black;
+    -ms-transform: scale(1.2);
+    -webkit-transform: scale(1.2); 
+    transform: scale(1.2);
 }
 .footer{
     margin-top: 1%;
@@ -81,6 +88,8 @@ button:hover {
 }
 body{
     background-color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
 }
 .password{
     border: solid thin #aaa;
@@ -94,7 +103,7 @@ body{
     overflow: hidden;
     position: sticky;
     top: 0;
-    background-color:#808080;
+    background-color:#3498db;
     height:60px;
   }
   
@@ -112,13 +121,13 @@ body{
   }
   
   .navbar a:hover {
-    background-color:  #04AA6D;
+    background-color:  #3498db;
     color: black;
       height:60px;
   }
   
   .navbar a.active {
-    background-color:  #04AA6D;
+    background-color:  #3498db;
     color: white;
     height:60px;
   }

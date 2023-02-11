@@ -58,10 +58,16 @@
       <div class="col col-4" data-label="Payment Status"><?php echo $data["vehicle_no"] ?></div>
     </li>
     <li class="table-row">
+      <div class="col col-1" data-label="Job Id">Vehicle Type</div>
+   
+      <div class="col col-4" data-label="Payment Status"><?php echo $data["class"] ?></div>
+    </li>
+    <li class="table-row">
       <div class="col col-1" data-label="Job Id">Fuel Type</div>
    
-      <div class="col col-4" data-label="Payment Status"><?php echo $data["Fuel_Type"] ?>-&nbsp;<?php echo $data["class"] ?></div>
+      <div class="col col-4" data-label="Payment Status"><?php echo $data["Fuel_Type"] ?></div>
     </li>
+    
     <li class="table-row">
       <div class="col col-1" data-label="Job Id">Amount</div>
 

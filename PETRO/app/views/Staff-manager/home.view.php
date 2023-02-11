@@ -17,20 +17,20 @@
                 <li><a href="#">ABOUT</a></li>
             </ul>
         </Nav>
-        <a href="<?php echo ROOT ?>/staff-manger/Home/logout" class="cnt"><button>LOGOUT</button></a>
+        <a href="<?php echo ROOT ?>/Home/Login" class="cnt"><button>LOGOUT</button></a>
     </header>
     
     <div class="container">
         <div class = "content">
             <h3> Hi, <span>Staff Manager</span></h3>
             <h1>Welcome<span> <?php echo $_SESSION['manager_name'] ?></span></h1>
-           
+            
             <p>This is an Staff Manger Page</p>
-            <a href = "profile/profile_view.php" class="btn">My Profile</a>
-            <a href = "view_pumpers.php" class="btn">View Pumpers</a>
-            <a href = "view_customer.php" class="btn">View Customer</a>
-            <a href = "complain.php" class="btn">Complaint</a>
-            <a href = "assign_pumpper.php" class="btn">Assign Pumper</a>
+            <a href = "<?php echo ROOT ?>/Staff-manager/Profile" class="btn">My Profile</a>
+            <a href = "<?php echo ROOT ?>/Staff-manager/view_pumper" class="btn">View Pumpers</a>
+            <a href = "<?php echo ROOT ?>/Staff-manager/view_customer" class="btn">View Customer</a>
+            <a href = "<?php echo ROOT ?>/Staff-manager/Complain" class="btn">Complaint</a>
+            <a href = "<?php echo ROOT ?>/Staff-manager/Assign_pumpper" class="btn">Assign Pumper</a>
         </div>
     </div>
 

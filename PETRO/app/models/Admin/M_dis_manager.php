@@ -4,6 +4,8 @@ class M_dis_manager extends Model{
 
     protected $table = 'distribution_manager';
 
+    protected $table1 = 'total_user';
+
     public function register($data){
         $result=$this->connection();
         $id = $data['id'];
@@ -39,6 +41,8 @@ class M_dis_manager extends Model{
             $_SESSION['password']=$password;
             $hash = password_hash($password,PASSWORD_DEFAULT);
             $sql="insert into $this->table(distribution_manager_id,First_name,Last_name,NIC,email,password,status)values('$id','$first','$last','$nic','$email','$hash','$active')";
+            $query = $result->query($sql);
+            $sql = "insert into $this->table1 (email,password,role,status)values('$email','$hash','manager',1)";
             $query = $result->query($sql);
             $_SESSION['distribution_manager_id']=$id;
             $data=[

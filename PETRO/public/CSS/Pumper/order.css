@@ -92,10 +92,7 @@ table#display tr{
    float: right;
 }
 
-body{
-    font-size: 20px;
-    height: 95vh;
-}
+
 .inline{
     display: flex;
     margin: 1%;
@@ -116,14 +113,14 @@ body {
     overflow: hidden;
     position: sticky;
     top: 0;
-    background-color:#808080;
+    background-color:#3498db;
     height:60px;
   }
   
   .navbar a {
     float: left;
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
@@ -134,18 +131,12 @@ body {
   }
   
   .navbar a:hover {
-    background-color:  #04AA6D;
-    color: black;
-      height:60px;
+    border-bottom: 3px solid white;
   }
   
   .navbar a.active {
-    background-color:  #04AA6D;
-    color: white;
-    height:60px;
+    border-bottom: 3px solid white;
   }
-
-
 
   .footer{
     background: #666;
@@ -294,7 +285,7 @@ body {
 }
 
 .btn{
-    background-color: #04AA6D;
+    background-color: #3498db;
     width:120px;
     height:32px;
     font-size:16px;
@@ -311,7 +302,7 @@ body {
  }
 
  .btn:hover{
-    background-color: #04AA6D;
+    background-color: #3498db;
         -ms-transform: scale(1.2);
    -webkit-transform: scale(1.2); 
    transform: scale(1.2);

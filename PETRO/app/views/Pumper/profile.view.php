@@ -30,19 +30,21 @@
 
 
 </div>
+<div class="row">
+  <div class="side">
 
-
+  <a href="<?php echo ROOT ?>/Pumper/Working_salary">Working Salary</a>
+   <a href="<?php echo ROOT ?>/Pumper/Working_hours">Working Hours</a>
+  <a href="<?php echo ROOT ?>/Pumper/Working" class=""><i class="fa-solid fa-user"></i> Pumping History</a>
+ 
+  </div>
+  
   
    <div class="main">
 
   <h1 class="userprofile"> PUMPER  PROFILE </h1>   
    
 
-   
-   
-
-
-</div>
 <br><br>
 
 
@@ -50,23 +52,20 @@
 <div class="card-container">
 	
 	<img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
-	<h2><?php echo  $data['First_name'] ?></h2>
-	<h3><?php echo $data['pumper_id']; ?></h3><br>
-	<h4><?php echo $data['Email']; ?></h4>
-	<h4><?php echo $data['contact']; ?></h4>
+	<br>
+	<input class="textarea" type="text" id="order_id" name="order_id" value="<?php echo  $data['First_name'] ?>" readonly><br>
+	<input class="textarea" type="text" id="order_id" name="order_id" value="<?php echo  $data['pumper_id'] ?>" readonly><br>
+	<input class="textarea" type="text" id="order_id" name="order_id" value="<?php echo  $data['Email'] ?>" readonly><br>
+	<input class="textarea" type="text" id="order_id" name="order_id" value="<?php echo  $data['contact'] ?>" readonly><br>
+	<br>
 	<div class="buttons">
 	<a href="<?php echo ROOT ?>/Pumper/Change_password" class="edit"><b>Change Password</b></a>
 	</div>
-	<div class="skills">
+	<br>
+	<div class="same1">
+    <a href="<?php echo ROOT ?>/Pumper/User/" class="back">Back</a>
+</div>
 
-		<ul>
-		&nbsp&nbsp   &nbsp&nbsp   
-			<li> <a href="<?php echo ROOT ?>/Pumper/Working_salary" class="card"><b>Salary Report</b></a></li>
-			<li> <a href="<?php echo ROOT ?>/Pumper/Working_hours" class="card"><b>Working Report</b></a></li>
-			<li> <a href="<?php echo ROOT ?>/Pumper/Working" class="card"><b>Pumped History</b></a></li>
-		
-		</ul>
-	</div>
 </div>
 
 
@@ -74,8 +73,7 @@
 
 
 
-<div class="same1">
-    <a href="<?php echo ROOT ?>/Pumper/User/" class="back">Back</a>
+
 </div>
 
 <br><br>

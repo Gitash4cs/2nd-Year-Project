@@ -17,6 +17,8 @@ class customer_manager extends Controller{
             $last = trim($_POST['Last_name']);
             $nic = trim($_POST['customer_manager_NIC']);
             $password = trim ($_POST['password']);
+            $phone_number = trim($_POST['number']);
+            $gender = trim($_POST['gender']);
             $email = trim($_POST['customer_manager_email']);
 
             $data=[
@@ -24,6 +26,8 @@ class customer_manager extends Controller{
                 'first'=>$first,
                 'last'=>$last,
                 'nic'=>$nic,
+                'number'=>$phone_number,
+                'gender'=>$gender,
                 'password'=>$password,
                 'email'=>$email,
             ];

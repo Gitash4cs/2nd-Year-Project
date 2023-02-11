@@ -35,7 +35,7 @@
   padding-right: 5%;
 }
 .btn{
-    background-color: #111;
+    background-color: #3498db;;
     width:100px;
     height:38px;
     font-size:15px;
@@ -49,7 +49,7 @@
  }
 
  .btn:hover{
-    background-color: #111;
+    background-color: #3498db;
         -ms-transform: scale(1.2);
    -webkit-transform: scale(1.2); 
    transform: scale(1.2);
@@ -63,6 +63,9 @@
     color:black;
     margin:10px 0;
     background-color: white;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: #3498db;
  }
  
  
@@ -73,7 +76,8 @@
     border: 20px;
     padding-bottom: 6px;
     border-radius: 10px;
-    background: #eee;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
     text-align: center;
     padding:20px;
     text-align: center;
@@ -168,14 +172,14 @@ body{
     overflow: hidden;
     position: sticky;
     top: 0;
-    background-color:#808080;
+    background-color:#3498db;
     height:60px;
   }
   
   .navbar a {
     float: left;
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
@@ -186,17 +190,12 @@ body{
   }
   
   .navbar a:hover {
-    background-color:  #04AA6D;
-    color: black;
-      height:60px;
+    border-bottom: 3px solid white;
   }
   
   .navbar a.active {
-    background-color:  #04AA6D;
-    color: white;
-    height:60px;
+    border-bottom: 3px solid white;
   }
-
 
 
 
@@ -416,7 +415,7 @@ width:100px;
 }
 
 .price2 .header {
-  background-color: #111;
+  background-color: #3498db;
   color: white;
   font-size: 25px;
 }

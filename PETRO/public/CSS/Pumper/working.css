@@ -87,7 +87,7 @@ table.center {
 
 
   a.btn{
-    background-color: #ddd;
+    background-color: #3498db;;
     width:110px;
     height:22px;
     font-size:15px;
@@ -106,14 +106,14 @@ table.center {
  }
 
  a.btn:hover{
-    background-color: #ddd;
+    background-color: #3498db;;
         -ms-transform: scale(1.2);
    -webkit-transform: scale(1.2); 
    transform: scale(1.2);
  }
 
  .btn{
-  background-color: #ddd;
+  background-color: #3498db;
   box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
   width:200px;
   height:40px;
@@ -129,7 +129,7 @@ table.center {
 }
 
 .btn:hover{
-  background-color: #ddd;
+  background-color: #3498db;
       -ms-transform: scale(1.2);
  -webkit-transform: scale(1.2); 
  transform: scale(1.2);
@@ -234,14 +234,14 @@ body {
   overflow: hidden;
   position: sticky;
   top: 0;
-  background-color:#808080;
+  background-color:#3498db;
   height:60px;
 }
 
 .navbar a {
   float: left;
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
@@ -251,17 +251,15 @@ body {
   float: right;
 }
 
+
 .navbar a:hover {
-  background-color:  #04AA6D;
-  color: black;
-    height:60px;
+  border-bottom: 3px solid white;
 }
 
 .navbar a.active {
-  background-color:  #04AA6D;
-  color: white;
-  height:60px;
+  border-bottom: 3px solid white;
 }
+
 
 
 
@@ -446,10 +444,11 @@ h2 {
   }
 
   .table-header {
-      background-color: #95A5A6;
+      background-color: #3498db;
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.03em;
+      color: white;
     }
     .table-row {
       background-color: #ffffff;

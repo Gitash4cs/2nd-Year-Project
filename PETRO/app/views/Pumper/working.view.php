@@ -34,8 +34,8 @@
         <tr>
             <th>Order ID</th>
             <th>Date & Time</th>
+            <th>Vehicle_No</th>
             <th>Fuel Type</th>
-            <th>Category</th>
             <th>No of Liters</th>
             <th>Payment</th>
             <th>Account Balance</th>
@@ -50,8 +50,8 @@
             echo "<tr>
             <td>".$row['order_id']."</td>
             <td>".$row['time']."</td>
+            <td>".$row['vehicle_no']."</td>
             <td>".$row['Fuel_Type']."</td>
-            <td>".$row['class']."</td>
             <td>".$row['pumped_liters']."</td>
             <td>".$row['pay']."</td>
             <td>".$row['balance']."</td>

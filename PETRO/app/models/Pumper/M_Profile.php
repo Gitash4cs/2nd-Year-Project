@@ -1,7 +1,7 @@
 <?php
 
 class M_profile extends Model{
-    protected $table='fuel_pumper';
+    protected $table='pumper';
     protected $table2 = 'working_time';
 
     protected $table3 = 'ot';
@@ -9,13 +9,13 @@ class M_profile extends Model{
     public function pumper_details($data){
         $pumper_id = $data['pumper_id'];
         $result=$this->connection();
-        $sql = "select * from $this->table where pumper_id='".$pumper_id."'";
+        $sql = "select * from $this->table where id='".$pumper_id."'";
         $query=$result->query($sql);
         while($row = $query->fetch_array()){
-            $Email= $row['Email'];
-            $First_name = $row['First_name'];
-            $Last_name = $row['Last_name'];
-            $contact = $row['Contact_number'];
+            $Email= $row['email'];
+            $First_name = $row['first_name'];
+            $Last_name = $row['last_name'];
+            $contact = $row['phone_no'];
         }
         
 
@@ -32,7 +32,7 @@ class M_profile extends Model{
     public function logout(){
         $result=$this->connection();
         $login = $_SESSION['login_time'];
-        $pumper_id = $_SESSION['pump_id'];
+        $pumper_id = $_SESSION['pumper_id'];
 
         date_default_timezone_set('Europe/London');
        

@@ -17,7 +17,7 @@ class working_salary extends Controller{
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
 
             $data=[
-                'date'=>trim($_POST['date']),
+                'date'=>trim($_POST['bdaymonth']),
                 'err'=>'',
             ];
             $result=$this->salary->previous($data);

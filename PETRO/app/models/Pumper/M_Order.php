@@ -2,25 +2,33 @@
 
 class M_Order extends Model{
 
-    protected $table = 'order_details';
+    protected $table = 'ordert';
+
+    protected $table1 = 'fuel_availability';
+
+    protected $table2 = "complete_order";
+
+   
     public $send_mail;
     public function __construct(){
         $this->send_mail=$this->mail('Library');
     }
+
+    
       
     public function order_validation($data){
         $result = $this->connection();
         $order_id=$_SESSION['order_id'];
-        $sql="select *from $this->table where order_id='".$order_id."'";
+        $sql="select *from $this->table where Oid='".$order_id."'";
         $query = $result->query($sql);
         if($query->num_rows>0){
             while($row = $query->fetch_array()){
-                $vehicle_no = $row['vehicle_no'];
-                $Fuel_Type = $row['Fuel_Type'];
-                $class = $row['class'];
-                $Amount = $row['Amount'];
-                $payment = $row['payment'];
-                $method = $row['method'];
+                $vehicle_no = $row['VMno'];
+                $Fuel_Type = $row['ftype'];
+                $class = $row['vtype'];
+                $Amount = $row['amount'];
+                $payment = $row['price'];
+                $method = $row['pmethod'];
                 $points = $row['points'];
             }
             $arr =array(
@@ -45,36 +53,49 @@ class M_Order extends Model{
         $pumped_liters=$data['pumped'];
         $result = $this->connection();
         $order_id=$_SESSION['order_id'];
-        $pump_id=$_SESSION['pump_id'];
-        $sql="select *from $this->table where order_id='".$order_id."'";
+        $pump_id=$_SESSION['pumper_id'];
+        $sql="select *from $this->table where Oid='".$order_id."'";
         $query = $result->query($sql);
         if($query->num_rows>0){
             while($row = $query->fetch_array()){
-                $vehicle_no = $row['vehicle_no'];
-                $Fuel_Type = $row['Fuel_Type'];
-                $class = $row['class'];
-                $Amount = $row['Amount'];
-                $payment = $row['payment'];
-                $method = $row['method'];
+                $vehicle_no = $row['VMno'];
+                $Fuel_Type = $row['ftype'];
+                $class = $row['vtype'];
+                $Amount = $row['amount'];
+                $payment = $row['price'];
+                $method = $row['pmethod'];
                 $points=$row['points'];
             }
             $remaining_liters=$Amount-$pumped_liters;
             if($remaining_liters>=0){
-                $sql="update $this->table set Amount ='".$remaining_liters."' where order_id = '".$order_id."'";
+                $sql="update $this->table set amount ='".$remaining_liters."' where Oid = '".$order_id."'";
                 $query=$result->query($sql);
-                $sql="select *from $this->table where order_id='".$order_id."'";
+                $sql="select *from $this->table where Oid='".$order_id."'";
                 $query=$result->query($sql);
                 while($row =$query->fetch_array()){
-                    $category=$row['class'];
-                    $payment=$row['payment'];
+                    $category=$row['ftype'];
+                    $payment=$row['price'];
                 }
-                if($category==92){
-                    $price=380*$pumped_liters;
+                $sql="select *from $this->table1 where fuel_type='".$category."'";
+                $query=$result->query($sql);
+                while($row =$query->fetch_array()){
+                    $price_petro=$row['price'];
+                    $eligible = $row['eligible_amount'];
                 }
-                elseif($category==95){
-                    $price=450*$pumped_liters;
+                if($category=="octane 92"){
+                    $price=$price_petro*$pumped_liters;
                 }
-                if($method=='CARD PAYMENT'){
+                elseif($category=="octane 95"){
+                    $price=$price_petro*$pumped_liters;
+                }
+                elseif($category=="super diesel"){
+                    $price = $price_petro * $pumped_liters;
+
+                }
+                elseif($category=="auto diesel"){
+                    $price = $price_petro * $pumped_liters;
+                }
+                if($method=='Cash'){
                     $balance=$payment-$price;
 
                 }
@@ -82,13 +103,13 @@ class M_Order extends Model{
                     $balance=0.00;
                 }
                 $points=$points+$pumped_liters*5;
-                $sql="update $this->table set points ='".$points."' where order_id = '".$order_id."'";
+                $sql="update $this->table set points ='".$points."' where Oid = '".$order_id."'";
                 $query=$result->query($sql);
                 $arr =array(
                     'vehicle_no'=> $vehicle_no,
                     'Fuel_Type' => $Fuel_Type,
                     'class' => $class,
-                    'Amount' => $remaining_liters,
+                    'Amount' => $Amount,
                     'payment' =>$payment,
                     'method'=> $method,
                     'balance'=>$balance,
@@ -99,14 +120,18 @@ class M_Order extends Model{
                     'points'=>$points,
                     'err'=>'YOU ORDER HAS BEEN SUCCESSFULLY COMPLETED!'
                 );
-                $sql="insert into complete_order(order_id,pumper_id,Fuel_Type,class,Remaining,pumped_liters,pay,balance)values('$order_id','$pump_id','$Fuel_Type','$category','$remaining_liters','$pumped_liters','$price','$balance')";
+                $sql="insert into $this->table2(order_id,pumper_id,Fuel_Type,vehicle_no,Remaining,pumped_liters,pay,balance)values('$order_id','$pump_id','$Fuel_Type','$vehicle_no','$remaining_liters','$pumped_liters','$price','$balance')";
                 $query=$result->query($sql);
 
-                $sql="update $this->table set payment ='".$balance."' where order_id = '".$order_id."'";
+                $sql="update $this->table set price ='".$balance."' where Oid = '".$order_id."'";
+                $query=$result->query($sql);
+
+                $total_eligible = $remaining_liters + $eligible;
+                $sql="update $this->table1 set eligible_amount ='".$total_eligible."' where fuel_type = '".$category."'";
                 $query=$result->query($sql);
                 // this part is related to the email message sender to the customer 
 
-                $sql1="select *from $this->table where order_id = '".$order_id."'";
+                $sql1="select *from $this->table where Oid = '".$order_id."'";
                 $query1 = $result->query($sql1);
 
                 if($query1 -> num_rows>0){
@@ -128,13 +153,10 @@ class M_Order extends Model{
                     'message' => $message,
                 ];
                 $check=$this->send_mail->send_Mail($data);
-                if($check){
-                    return $arr; 
+                if ($check) {
+                    return $arr;
 
                 }
-
-               
-               
             }
             else{
                 $arr=array(

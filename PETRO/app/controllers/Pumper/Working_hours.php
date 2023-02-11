@@ -6,9 +6,18 @@ class working_hours extends Controller{
         $this->hours=$this->model('M_Hours');
     }
     public function index(){
+       
+        $data=[
+            'error'=>'',
+        ];
         $result = $this->hours->details();
         if($result){
             $this->view("Pumper/hours",$result);
+        }
+        else{
+            $data['error']="No Records";
+            $this->view("Pumper/hours",$data);
+
         }
     }
     public function previous(){
@@ -18,13 +27,14 @@ class working_hours extends Controller{
 
             $data=[
                 'date'=>trim($_POST['date']),
-                'err'=>'',
+                'error'=>'',
             ];
             $result=$this->hours->previous1($data);
             if($result){
                 $this->view('Pumper/hours',$result);
             }
             else{
+                $data['err'] = "No Records!!";
                 $this->view('Pumper/hours',$data);
             }
         }

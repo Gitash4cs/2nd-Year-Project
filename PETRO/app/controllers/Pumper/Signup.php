@@ -15,18 +15,20 @@ class Signup extends Controller
 
             $data=[
                 'Email'=>trim($_POST['Email']),
-                'pumper_id'=>trim($_POST['pump_id']),
-                'First_name'=>trim($_POST['First_name']),
-                'Last_name'=>trim($_POST['Last_name']),
+                'pumper_id'=>trim($_POST['id']),
+                'First_name'=>trim($_POST['firstName']),
+                'Last_name'=>trim($_POST['lastName']),
                 'password'=>trim($_POST['password']),
-                'contact'=>trim($_POST['phone_number']),
-                'confirm_password'=>trim($_POST['confirm_password']),
+                'contact'=>trim($_POST['phoneNumber']),
+                'nic'=>trim($_POST['nic']),
+                'gender'=>trim($_POST['gender']),
+                'confirm_password'=>trim($_POST['cpassword']),
                 'err'=>'',
 
             ];
 
-            if(empty($this->RegisterModel->register($data))){
-                    header('location:http://localhost/PETRO/public/Pumper/Login');
+            if(empty($this->RegisterModel->pumper_register($data))){
+                    header('location:http://localhost/PETRO/public/Staff-manager/View_pumper');
             }
             else{
                     $error_message=$this->RegisterModel->register($data);

@@ -8,7 +8,6 @@ class Reset extends Controller
     }
     public function index(){
         $this->view('Pumper/reset_password');
-
     }
     public function details(){
         if($_SERVER['REQUEST_METHOD']=='POST'){

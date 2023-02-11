@@ -10,14 +10,8 @@ class User extends Controller
 
     public function index()
     {
-        $data=[
-            'date'=>'',
-            'time'=>'',
-        ];
-        $helper=new Helpers;
-        $data['date']=$helper->date();
-        $data['time']=$helper->time();
-        $this->view('Pumper/user',$data);
+        $result = $this->order->load();
+        $this->view('Pumper/user',$result);
     }
     public function order_verify(){
         if($_SERVER['REQUEST_METHOD']=='POST'){

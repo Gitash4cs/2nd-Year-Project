@@ -8,7 +8,7 @@ class Working extends Controller
     }
     public function index(){
         $data=[
-            'pumper_id'=>$_SESSION['pump_id'],
+            'pumper_id'=>$_SESSION['pumper_id'],
             'error'=>'',
         ];
         $result=($this->working->details_working($data));
