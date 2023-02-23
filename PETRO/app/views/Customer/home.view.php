@@ -1,5 +1,4 @@
 
-<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -200,23 +199,7 @@
 </div>
 </div>
 
-<div class="a">
-<h1 class="ml1">
-  <span class="text-wrapper">
-    <span class="line line1"></span>
-    <span class="letters">ADVANCED FUEL FOR ADVANCED VEHICLES
-    </span>
-    <span class="line line2"></span>
-  </span>
-</h1>
 
-
-  <br>  
-   <h2 class="ax"> CONTACT US -011-2898767</h2>
-   
-  
-
-</div><br><br>
 
 
 
