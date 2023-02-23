@@ -1,9 +1,9 @@
 <?php
-    // (change162)
 
 class M_Profileedit extends Model
 {
     protected $table = 'user_form';
+
 
     public function profileedit($data){
     
@@ -41,6 +41,34 @@ class M_Profileedit extends Model
         return $arr;
               
             }
+
+
+
+            
+    public function add($data){
+     
+        $id = $_SESSION['id'];
+        $result=$this->connection();
+    
+        $fname = $data['fname'];
+        $lname = $data['lname'];
+        $email = $data['email'];
+        $NIC = $data['NIC'];
+      
+   
+       
+        $sql1= "UPDATE $this->table SET fname='$fname' WHERE id='".$id."'";
+        $query1 = $result->query($sql1);
+
+
+        if($query1){
+
+            return true;
+        }
+        else{
+            echo "vvvvvvvvv";
+        }
+    }
            
           }
           
