@@ -1,4 +1,3 @@
-<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,50 +34,6 @@
 </div>
 
 <div class="main">
-<div class="form-container">
-
-
-<form action="<?php echo ROOT ?>/Customer/Complaint/add " method="POST">
-
-   <div class="container">
-   <h1> Complaint Box </h1>
-   <br>
-   <input type="hidden" name="id" value="<?php echo $data['id']; ?>" class="box" readonly> 
-    <input type="hidden" name="email" value="<?php echo $data['email']; ?>" class="box" readonly> 
-    
-     <label>Order ID</label>
-     <select name="Oid" class="box1">
-        <option value="">Order-ID</option>
-         <?php
-            
-             while ($category = mysqli_fetch_array(
-                     $all_categories,MYSQLI_ASSOC)):;
-         ?>
-             <option value="<?php echo $category["Oid"];
-                 
-             ?>">
-                 OID <?php echo $category["Oid"];
-                 
-                 ?>
-             </option>
-         <?php
-             endwhile;
-          
-         ?>
-     </select>
-     <br>
-       <label>Complaint:</label>
-     <textarea name="complaint" required class="box2"  rows="4" cols="50"></textarea><br>
-     <br><br><br>
-     <input type="submit" value="submit" name="submit" class="btn">
-           
-     </div>  
-  
- 
-</form>
-
-
-</div>
 
 
 <br><br>
