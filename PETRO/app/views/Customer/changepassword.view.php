@@ -1,5 +1,4 @@
 
-<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +28,7 @@
 <div class="row">
   <div class="side">
 
-  <a class="active" href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-user icon"></i> View Profile</a>
+
   <a href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-car"></i> Place an Order</a>
     <a href="<?php echo ROOT ?>/Customer/Pendingpetrol"> <i class="fa fa-car"></i> Pending Orders</a>
    <a href="<?php echo ROOT ?>/Customer/Pumphistory"><i class="fa fa-user icon"></i> View Pumped History</a>
@@ -47,46 +46,45 @@
 
    
 
-   <form action="" method="post" enctype="multipart/form-data">
     
    
       <div class="container">
 	  
-	 <h2> Update Profile </h2>
 	
-	     
-       <br>
-     
-       
-		
-            <input type="text" name="update_name" value="<?php echo $data['name']; ?>" class="box">
-			<br>
-         
-            <input type="email" name="update_email" value="<?php echo $data['email']; ?>" class="box" readonly >
-			<br>
-			
-            <input type="text" name="update_NIC" value="<?php echo $data['NIC']; ?>" class="box" readonly>
-            
-     
-            <input type="hidden" name="old_pass" value="<?php echo $data['password']; ?>" readonly><br>
-			
-		
-            <input type="password" name="update_pass" placeholder="enter previous password" class="box">
-			<br>
-           
-            <input type="password" name="new_pass" placeholder="enter new password" class="box">
-			<br>
+	
+
+            <form  method="POST" action="<?php echo ROOT ?>/Customer/Changepassword/change">
+                <h2> Change Password </h2><br>
           
-            <input type="password" name="confirm_pass" placeholder="confirm new password" class="box">
-         </div><br>
-		   <input type="submit" value="update profile" name="update_profile" class="btn"><br><br>
-		<a href="profile.php" class="back">Back</a>
+                <p>Existing password<br />
+                <input type="password" class="box" name="current_password" required /></p>
+                <p>New password<br/>
+                <input type="password" class="box"name="new_password" id="t1" required/>
+                </p>
+                <p>Confirm password<br />
+                <input type="password" name="confirm_password" class="box"required/>
+                </p>
+                <div class="list">
+                    <ul type="Square">
+                            <li>At least 1 uppercase character.</li>
+                            <li>At least 1 lowercase character.</li>
+                            <li>At least 1 digit.</li>
+                            <li>At least 1 special character.</li>
+                            <li>Minimum 8 characters.</li>
+
+                    </ul>
+                </div>
+          <br><br>
+          
+                <button name="submit" type="submit" onclick="test_str()">Save Password</button>
+            </form>
+     
      
 	  
 	    </div>  
      
     
-   </form>
+</div>
    
    
    

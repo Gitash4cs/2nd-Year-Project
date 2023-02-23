@@ -1,4 +1,5 @@
 
+<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +22,10 @@
 <div class="navbar">
   <a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
   <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
+  <a href="<?php echo ROOT ?>/Customer/Mv" class="">Place an Order</a>
   <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
   <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/pro.png" width="40px" height="40px"></a> 
+  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/xx.png" width="40px" height="40px"></a> 
 
 </div>
 

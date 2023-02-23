@@ -1,10 +1,9 @@
 <?php
-    // (change162)
 
-class Orderticketvehicle extends Controller
+class Orderticketmachine extends Controller
 {
     public function __construct(){
-        $this->orderticketvehicle=$this->model('M_Orderticketvehicle');
+        $this->orderticketmachine=$this->model('M_Orderticketmachine');
         
     }
     
@@ -14,9 +13,9 @@ class Orderticketvehicle extends Controller
         
 
         ];
-        $result=$this->orderticketvehicle->orderticketvehicle($data);
+        $result=$this->orderticketmachine->orderticketmachine($data);
         if($result){
-            $this->view('Customer/orderticketvehicle',$result);
+            $this->view('Customer/orderticketmachine',$result);
         }
     }
 
@@ -47,7 +46,7 @@ class Orderticketvehicle extends Controller
 
             ];
 
-          $insert= $this->orderticketvehicle->add($data);
+          $insert= $this->orderticketmachine->add($data);
         if($insert==1){
               header('location:http://localhost/PETRO/public/Customer/Payment');
 

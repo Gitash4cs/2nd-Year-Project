@@ -1,3 +1,4 @@
+<!-- // (change162) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
                 <li><a href="#">ABOUT</a></li>
             </ul>
         </Nav>
-        <a href="<?php echo ROOT ?>/Home/Login" class="cnt"><button>LOGOUT</button></a>
+        <a href="<?php echo ROOT ?>/staff-manger/logout" class="cnt"><button>LOGOUT</button></a>
     </header>
     
     <div class="container">

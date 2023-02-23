@@ -1,4 +1,5 @@
 <?php
+    // (change162)
 
 class M_Profile extends Model
 {
@@ -20,6 +21,7 @@ class M_Profile extends Model
             $vno2 = $row['vno2'];
             $sNo = $row['sNo'];
             $phone = $row['phone'];
+            $balance = $row['balance'];
             $password = $row['password'];
         }
 
@@ -33,6 +35,7 @@ class M_Profile extends Model
             'vno2'=> $vno2,
             'sNo'=> $sNo,
             'phone'=> $phone,
+            'balance'=> $balance,
             'password'=> $password,
         );
         return $arr;

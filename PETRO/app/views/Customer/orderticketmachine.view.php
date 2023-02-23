@@ -1,4 +1,3 @@
-<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,18 +54,8 @@ else
 	$price=$data['amount']*100;
  
  if($data['balance']>0){
-	 	$price=$price-$balance;
+	 	$price=$price-$data['balance'];
 		$n_balance=0;
-  if ($price <= $data['balance']){
-    $n_balance=$data['balance'] - $price;
-    $price=0;
-    
-  }
-  else{
-    $price=$price-$data['balance'];
-		$n_balance=0;
-  }
-	 	
  }
 	 
 	 
@@ -89,7 +78,7 @@ else
              <label for="orderID"><b> Order ID:</b> </label>
             <input type="text" name="Oid" value="<?php echo $data['Oid']; ?>" class="box" readonly>
 			<br>
-          <label for="vno"> Vehicle No: </label>
+          <label for="vno"> Machine No: </label>
             <input type="text" name="vno" value="<?php echo $data['VMno']; ?>" class="box" readonly>
 			<br>
 			 <label for="vtype"> Vehicle Type: </label>

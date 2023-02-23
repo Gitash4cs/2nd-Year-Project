@@ -1,4 +1,5 @@
 <?php
+    // (change162)
 
 class M_Profileedit extends Model
 {
@@ -13,7 +14,8 @@ class M_Profileedit extends Model
         $query=$result->query($sql);
         while($row = $query->fetch_array()){
             $email= $row['email'];
-            $name = $row['name'];
+            $fname = $row['fname'];
+            $lname = $row['lname'];
             $NIC = $row['NIC'];
             $vno = $row['vno'];
             $vno1 = $row['vno1'];
@@ -26,7 +28,8 @@ class M_Profileedit extends Model
         $arr=array(
             'id' => $id,
             'email'=>$email,
-            'name'=>$name,
+            'fname'=>$fname,
+            'lname'=>$lname,
             'NIC'=>$NIC,
             'vno'=> $vno,
             'vno1'=> $vno1,

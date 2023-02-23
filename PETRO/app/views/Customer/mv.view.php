@@ -1,3 +1,4 @@
+<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,9 +20,10 @@
 <div class="navbar">
 <a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
   <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
+  <a href="<?php echo ROOT ?>/Customer/Mv" class="">Place an Order</a>
   <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
   <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/pro.png" width="40px" height="40px"></a>
+  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/xx.png" width="40px" height="40px"></a> 
 
 </div>
 
@@ -29,7 +31,7 @@
   <div class="side">
 
 
-  <a href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-car"></i> Place an Order</a>
+  <a href="<?php echo ROOT ?>/Customer/Mv" class="active"> <i class="fa fa-car"></i> Place an Order</a>
     <a href="<?php echo ROOT ?>/Customer/Pendingpetrol"> <i class="fa fa-car"></i> Pending Orders</a>
    <a href="<?php echo ROOT ?>/Customer/Pumphistory"><i class="fa fa-user icon"></i> View Pumped History</a>
   <a href="<?php echo ROOT ?>/Customer/Complaint" class=""><i class="fa fa-user icon"></i> Add a Complaint</a>
@@ -76,20 +78,35 @@
   </div>
 
   <div class="column">
+<<<<<<< HEAD
+=======
+  <br><br>  <br><br>  <br><br>  
+>>>>>>> master
   <h1> Machine </h1>
 	     <?php 
   if($data['sNo']!=""){?>
         <a href="<?php echo ROOT ?>/Customer/Ordermachine" class="card"><b><?php echo $data['sNo']?></b><br><br><img src="<?php echo ROOT ?>/image/m.png" width="150px" height="150px"></a><?php } ?>
       
+<<<<<<< HEAD
    
+=======
+        <br><br>  <br><br>
+>>>>>>> master
   </div>
   
 
   
 </div>
 
+<<<<<<< HEAD
 
   </div>
+=======
+<br><br>  <br><br>  <br><br>  <br><br>
+  </div>
+  
+  
+>>>>>>> master
   </div>
 
 

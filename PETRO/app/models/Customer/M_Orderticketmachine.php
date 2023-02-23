@@ -1,12 +1,11 @@
 <?php
-    // (change162)
 
-class M_Orderticketvehicle extends Model
+class M_Orderticketmachine extends Model
 {
     protected $table = 'porder';
     protected $table1='ordert';
 
-    public function orderticketvehicle($data){
+    public function orderticketmachine($data){
     
 
         $id = $data['id'];

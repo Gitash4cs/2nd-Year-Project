@@ -1,3 +1,4 @@
+<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +61,7 @@
                     
                 </div>
                 <a href = "<?php echo ROOT ?>/Staff-manager/Home" class="btn">Back</a>
-                <a href = "<?php echo ROOT ?>/Pumper/Signup" class="btn">Add Pumpers</a>
+                <a href = "<?php echo ROOT ?>/Staff-manager/Pumper_registration" class="btn">Add Pumpers</a>
                 
             </div>
         </div>

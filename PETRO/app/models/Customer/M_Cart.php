@@ -1,4 +1,5 @@
 <?php
+    // (change162)
 
 class M_Cart extends Model
 {
@@ -10,7 +11,7 @@ class M_Cart extends Model
         public function cart($data){
             $id = $_SESSION['id'];
             $result = $this->connection();
-            $sql="select *from $this->table where id = '".$id."'";
+            $sql="select * from $this->table where id = '".$id."'";
             $query = $result->query($sql);
             
             if($query->num_rows>0){
