@@ -1,11 +1,10 @@
 <?php
-    // (change162)
 
 class M_Complaint extends Model
 {
     protected $table = 'user_form';
     protected $table1='comp';
-    protected $table2 = 'ordert';
+
     
     public function complaint($data){
     
