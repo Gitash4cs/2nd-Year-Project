@@ -1,5 +1,4 @@
 
-<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +28,7 @@
 <div class="row">
   <div class="side">
 
-  <a class="active" href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-user icon"></i> View Profile</a>
+
   <a href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-car"></i> Place an Order</a>
     <a href="<?php echo ROOT ?>/Customer/Pendingpetrol"> <i class="fa fa-car"></i> Pending Orders</a>
    <a href="<?php echo ROOT ?>/Customer/Pumphistory"><i class="fa fa-user icon"></i> View Pumped History</a>
@@ -47,7 +46,7 @@
 
    
 
-   <form action="" method="post" enctype="multipart/form-data">
+<form action="<?php echo ROOT?>/Customer/Profileedit/add" method="POST">
     
    
       <div class="container">
@@ -59,22 +58,26 @@
      
        
 		
-            <input type="text" name="update_name" value="<?php echo $data['name']; ?>" class="box">
+            <input type="text" name="fname" value="<?php echo $data['fname']; ?>" class="box">
+			<br>
+
+      <input type="text" name="lname" value="<?php echo $data['lname']; ?>" class="box">
 			<br>
          
-            <input type="email" name="update_email" value="<?php echo $data['email']; ?>" class="box" readonly >
+            <input type="email" name="email" value="<?php echo $data['email']; ?>" class="box" readonly >
 			<br>
 			
-            <input type="text" name="update_NIC" value="<?php echo $data['NIC']; ?>" class="box" readonly>
+            <input type="text" name="NIC" value="<?php echo $data['NIC']; ?>" class="box" readonly>
             
      
-            <input type="hidden" name="old_pass" value="<?php echo $data['password']; ?>" readonly><br>
+            <input type="hidden" name="id" value="<?php echo $data['id']; ?>" readonly><br>
 			
 		
             <input type="password" name="update_pass" placeholder="enter previous password" class="box">
 			<br>
            
             <input type="password" name="new_pass" placeholder="enter new password" class="box">
+		
 			<br>
           
             <input type="password" name="confirm_pass" placeholder="confirm new password" class="box">
