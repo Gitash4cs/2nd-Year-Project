@@ -1,6 +1,5 @@
 
 
-<!-- // (change162) -->
 
 
 <!DOCTYPE html>
@@ -45,8 +44,7 @@
 <div class="form-container">
 
    
-
-   <form action="" method="post" enctype="multipart/form-data">
+<form action="<?php echo ROOT?>/Customer/Updatevehicle1/add" method="POST">
     
    
       <div class="container">
@@ -63,19 +61,21 @@
       ?>
        
 		
-            <input type="text" name="update_vno" value="<?php echo $data['vno']; ?>" class="box">
+            <input type="text" name="vno" value="<?php echo $data['vno']; ?>" class="box">
 			<br>
-         	   <select name="update_vtype" class="box" id="vno1" value="<?php echo $data['vtype']; ?>"  >
+         	   <select name="vtype" class="box" id="vno1" value="<?php echo $data['vtype']; ?>"  >
                                    
                                     <option value="car">Car</option>
                                     <option value="van">Van</option>
                                 </select>
         
 			<br>
-			  <select name="update_ftype" class="box" id="vno1" value="<?php echo $data['ftype']; ?>"  >
+			  <select name="ftype" class="box" id="vno1" value="<?php echo $data['ftype']; ?>"  >
                                    
-                                    <option value="92-Octane">92 Petrol</option>
+			  <option value="<?php echo $data['ftype']; ?>"><?php echo $data['ftype']; ?></option>
                                     <option value="95-Octane">95 Petrol</option>
+									<option value="92-Octane">92 Petrol</option>
+								
 									  <option value="Super-Diesel">Super Diesel</option>
                                     <option value="Diesel">Diesel</option>
                                 </select>
@@ -87,7 +87,7 @@
      
          </div><br>
 		   <input type="submit" value="Update" name="Update vehicle" class="btn"><br><br>
-         <input type="submit" value="Delete " name="Delete vehicle" class="btn"><br><br>
+       
 		<a href="profile.php">Back</a>
      
 	  
