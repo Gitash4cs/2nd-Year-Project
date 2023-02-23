@@ -1,4 +1,3 @@
-<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,8 +54,6 @@ else
 	$price=$data['amount']*100;
  
  if($data['balance']>0){
-	 	$price=$price-$balance;
-		$n_balance=0;
   if ($price <= $data['balance']){
     $n_balance=$data['balance'] - $price;
     $price=0;
