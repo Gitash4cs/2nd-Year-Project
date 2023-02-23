@@ -8,6 +8,10 @@
  
 }
 
+body {
+	background: linear-gradient(90deg, #ccd8e2, #718d99);
+}
+
  .form-container form .box{
    width: 60%;
    border-radius: 5px;
@@ -18,9 +22,13 @@
    background-color: white;
    outline: 0;
    border-width: 0 0 2px;
-   border-color: #3498db;
+   border-color: #091d2a;
 }
 
+
+.reg{
+   color: #091d2a;
+}
 .btn{
    
    width:50px;
@@ -38,7 +46,7 @@
    background-color: white;
    outline: 0;
    border-width: 0 0 2px;
-   border-color: #3498db;
+   border-color: #091d2a;
 }
 
  .form-container form{
@@ -66,12 +74,16 @@ height:120px;
 .btn{
    width:100px;
    height:40px;
-   font-size:15px;
-   background-color: #3498db;
-   border: #3498db;
+   background-color: #eee;
+   background-color:1px solid #eee;
+
+
+ 
 }
+
 .btn:hover{
-   background-color: #5ca4d3;
+   background-color: #091d2a;
+   color: white;
 }
 
 

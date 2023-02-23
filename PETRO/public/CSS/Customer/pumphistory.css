@@ -48,25 +48,25 @@
 
    
  .btn{
-  background-color: #3498db;
+  background-color:#091d2a;
   width:120px;
   height:35px;
   font-size:15px;
   transition: transform .4s;
   display: inline-block;
-  border-color: #3498db;
+  border-color: #091d2a;
   
 }
 
 .btn:hover{
-  background-color: #3498db;
+  background-color: #091d2a;
       -ms-transform: scale(1.2);
  -webkit-transform: scale(1.2); 
  transform: scale(1.2);
 }
 
 .btn1{
-  background-color: #3498db;
+  background-color: #091d2a;
   width:90px;
   height:24px;
   font-size:16px;
@@ -81,7 +81,7 @@
 }
 
 .btn1:hover{
-  background-color: #3498db;
+  background-color: #091d2a;
       -ms-transform: scale(1.2);
  -webkit-transform: scale(1.2); 
  transform: scale(1.2);
