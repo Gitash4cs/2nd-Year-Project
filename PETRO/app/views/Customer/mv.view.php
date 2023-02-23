@@ -1,4 +1,3 @@
-<!-- // (change162) -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -78,35 +77,23 @@
   </div>
 
   <div class="column">
-<<<<<<< HEAD
-=======
   <br><br>  <br><br>  <br><br>  
->>>>>>> master
   <h1> Machine </h1>
 	     <?php 
   if($data['sNo']!=""){?>
         <a href="<?php echo ROOT ?>/Customer/Ordermachine" class="card"><b><?php echo $data['sNo']?></b><br><br><img src="<?php echo ROOT ?>/image/m.png" width="150px" height="150px"></a><?php } ?>
       
-<<<<<<< HEAD
-   
-=======
         <br><br>  <br><br>
->>>>>>> master
   </div>
   
 
   
 </div>
 
-<<<<<<< HEAD
-
-  </div>
-=======
 <br><br>  <br><br>  <br><br>  <br><br>
   </div>
   
   
->>>>>>> master
   </div>
 
 
