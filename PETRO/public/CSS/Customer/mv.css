@@ -8,7 +8,7 @@
   .side {
    
     flex: 12%;
-    background-color: #f0efef;
+    background-color: #091d2a;
     padding: 20px;
     width:30px; 
     
@@ -71,18 +71,19 @@
       font-size:25px;
       color:black;
     text-align: center;
-    background-color: white;
+    background-color: #091d2a;
     width:320px;
     height:190px;
     display: inline-block;
     margin: 0 auto;
+    margin-left: 30px;
     transition: transform .5s;
     
    
   }
   
   a.card:hover, a.card:active {
-    background-color:  white;
+    background-color:  #091d2a;
        -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2); 
     transform: scale(1.2);

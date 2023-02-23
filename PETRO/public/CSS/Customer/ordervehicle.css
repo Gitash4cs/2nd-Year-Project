@@ -1,6 +1,6 @@
 
  .btn{
-    background-color: #3498db;
+    background-color: #091d2a;
     width:150px;
     height:45px;
     font-size:15px;
@@ -16,7 +16,7 @@
  }
  
  .btn:hover{
-    background-color: #3498db;
+    background-color: #091d2a;
         -ms-transform: scale(1.2);
    -webkit-transform: scale(1.2); 
    transform: scale(1.2);
@@ -78,7 +78,7 @@
    
      outline: 0;
      border-width: 0 0 2px;
-     border-color: #3498db;
+     border-color:#091d2a;
   }
   
   .form-container form .box:focus{

@@ -40,18 +40,21 @@
      color:black;
      margin:10px 0;
      background-color: #ffffff;
-     border: #ffffff;
+     
+     outline: 0;
+    
+     border-color:#091d2a;
   }
   
   
   .btn{
-     background-color: #3498db;
+     background-color: #091d2a;
      width:150px;
      height:45px;
      font-size:15px;
      transition: transform .4s;
      display: inline-block;
-     color: black;
+     color: white;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;
@@ -61,7 +64,7 @@
   }
   
   .btn:hover{
-     background-color: #3498db;
+     background-color:#091d2a;
          -ms-transform: scale(1.2);
     -webkit-transform: scale(1.2); 
     transform: scale(1.2);

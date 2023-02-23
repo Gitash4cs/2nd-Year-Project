@@ -1,136 +1,3 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    font-family: poppins;
-    box-sizing: border-box;
-}
-a{
-    text-decoration: none;
-}
-#testimonials{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width:100%;
-}
-.testimonial-heading{
-    letter-spacing: 1px;
-    margin: 30px 0px;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.testimonial-heading h1{
-    font-size: 2.2rem;
-    font-weight: 500;
-    background-color: #202020;
-    color: #ffffff;
-    padding: 10px 20px;
-}
-.testimonial-heading span{
-    font-size: 1.3rem;
-    color: #252525;
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-.testimonial-box-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width:100%;
-}
-.testimonial-box{
-    width:500px;
-    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    padding: 20px;
-    margin: 15px;
-    cursor: pointer;
-}
-.profile-img{
-    width:50px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 10px;
-}
-.profile-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-.profile{
-    display: flex;
-    align-items: center;
-}
-.name-user{
-    display: flex;
-    flex-direction: column;
-}
-.name-user strong{
-    color: #3d3d3d;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-}
-.name-user span{
-    color: #979797;
-    font-size: 0.8rem;
-}
-.reviews{
-    color: #f9d71c;
-}
-.box-top{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.client-comment p{
-    font-size: 0.9rem;
-    color: #4b4b4b;
-}
-.testimonial-box:hover{
-    transform: translateY(-10px);
-    transition: all ease 0.3s;
-}
- 
-@media(max-width:1060px){
-    .testimonial-box{
-        width:45%;
-        padding: 10px;
-    }
-}
-@media(max-width:790px){
-    .testimonial-box{
-        width:100%;
-    }
-    .testimonial-heading h1{
-        font-size: 1.4rem;
-    }
-}
-@media(max-width:340px){
-    .box-top{
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-    }
-    .reviews{
-        margin-top: 10px;
-    }
-}
-::selection{
-    color: #ffffff;
-    background-color: #252525;
-}
- 
-
-
-
 
 
 .form-container{
@@ -147,7 +14,7 @@ a{
     background-color: var(--white);
     box-shadow: var(--box-shadow);
     text-align: center;
-    width: 900px;
+    width: 600px;
     height:500px;
     border-radius: 5px;
     background-color: #ffffff;
@@ -159,8 +26,8 @@ a{
          
     }
 
-    .form-container form .box{
-    width: 30%;
+    .form-container form .box1{
+    width: 50%;
     border-radius: 5px;
     padding:12px 14px;
     font-size: 18px;
@@ -186,7 +53,11 @@ a{
     border-color: #3498db;
     }
     
-  
+    label {
+         display: inline-block;
+         width: 150px;
+         text-align: left;
+       }
     .btn{
   
     background-color: #3498db;
@@ -196,6 +67,7 @@ a{
       display: inline-block;
     transition: transform .5s;
     color: #ffffff;
+    border: #3498db;
     
     }
     
@@ -206,10 +78,213 @@ a{
     transform: scale(1.2);
     }
 
-    label {
-        display: inline-block;
-        width: 150px;
-        text-align: left;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+    .container {
+      
+      margin: auto;
+      padding: 10px;
+      width:800px;
+    
+    }
+    
+    .screen {
+      
+      background: #ffffff;
+      border-radius: 15px;
+      height: 300px;
+      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    }
+    
+    .screen:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 20px;
+      right: 20px;
+      bottom: 0;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+      z-index: -1;
+    }
+    
+    .screen-header {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      background:#091d2a;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    
+    .screen-header-left {
+      margin-right: auto;
+    }
+    
+    .screen-header-button {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 3px;
+      border-radius: 8px;
+      background: white;
+    }
+
+    .screen-header-right {
+      display: flex;
+    }
+    
+    .screen-header-ellipsis {
+      width: 3px;
+      height: 3px;
+      margin-left: 2px;
+      border-radius: 8px;
+      background: #999;
+    }
+    
+    .screen-body {
+      display: flex;
+    }
+    
+    .screen-body-item {
+      flex: 1;
+      padding: 50px;
+    }
+    
+    .screen-body-item.left {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .app-title {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      color: #091d2a;
+      font-size: 26px;
+    }
+    
+    .app-title:after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 25px;
+      height: 4px;
+      background: #091d2a;
+    }
+    
+    .app-contact {
+      margin-top: auto;
+      font-size: 8px;
+      color: #888;
+    }
+    
+    .app-form-group {
+      margin-bottom: 15px;
+    }
+    
+    .app-form-group.message {
+      margin-top: 40px;
+    }
+    
+    .app-form-group.buttons {
+      margin-bottom: 0;
+      text-align: right;
+    }
+    
+    .app-form-control {
+      width: 100%;
+      padding: 10px 0;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #091d2a;
+      color:black;
+      font-size: 14px;
+      text-transform: uppercase;
+      outline: none;
+      transition: border-color .2s;
+    }
+    
+    .app-form-control::placeholder {
+      color: #666;
+    }
+    
+    .app-form-control:focus {
+      border-bottom-color: #ddd;
+    }
+    
+    .app-form-button {
+      background: none;
+      border: none;
+      color: #091d2a;
+      font-size: 14px;
+      cursor: pointer;
+      outline: none;
+    }
+    
+    .app-form-button:hover {
+      color: #3498db;
+    }
+    
+
+    
+    .dribbble {
+      width: 20px;
+      height: 20px;
+      margin: 0 5px;
+    }
+    
+    @media screen and (max-width: 520px) {
+      .screen-body {
+        flex-direction: column;
       }
-
-
+    
+      .screen-body-item.left {
+        margin-bottom: 30px;
+      }
+    
+      .app-title {
+        flex-direction: row;
+      }
+    
+      .app-title span {
+        margin-right: 12px;
+      }
+    
+      .app-title:after {
+        display: none;
+      }
+    }
+    
+    @media screen and (max-width: 600px) {
+      .screen-body {
+        padding: 40px;
+      }
+    
+      .screen-body-item {
+        padding: 0;
+      }
+    }
+    
