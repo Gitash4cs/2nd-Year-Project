@@ -20,10 +20,8 @@ public $Updatevehicle1;
             $this->view('Customer/updatevehicle1',$result);
         }
     }
-    
-    // (ERR162)
 
-    public function update(){
+
 
     public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -31,38 +29,13 @@ public $Updatevehicle1;
             $id= $_SESSION['id'];
 
             $data=[
-
-                'vno' => trim( $_POST['vno']),
-                'vtype' => trim( $_POST['vtype']),
-                'ftype' => trim( $_POST['ftype']),
-               
-               
-        
-                'err'=>'',
-
-            ];
-            echo $vno;
-
-          $insert= $this->addvehicle1->update($data);
-        if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Home');
-
-           }
-           else{
-           
-            $this->view('Customer/Addvehicle1',$data);
-
-           }
-                
-        }
-
-    }
                 'vno' => trim($_POST['vno']),
                 'vtype'=>trim($_POST['vtype']),
                 'ftype'=>trim($_POST['ftype']),
                 'err'=>'',
 
             ];
+            echo $data['ftype'];
             $result = $this->updatevehicle1->add($data);
             if($result){
                 header('location:http://localhost/PETRO/public/Customer/Profile');
