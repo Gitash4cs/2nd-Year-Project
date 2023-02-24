@@ -10,7 +10,7 @@ class Home extends Controller{
     public function logout(){
         $result=$this->home->logout();
         if($result){
-            header('location:http://localhost/PETRO/public/Home/Login');
+            header('location:http://localhost/PETRO/public/Pumper/Login');
         }
     }
 }
