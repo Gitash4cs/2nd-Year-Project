@@ -4,14 +4,22 @@ if(empty($data['err'])){
 }
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Pumper/change.css" text="text/css">
-        <title>Fuel_Pumper</title>
-        <script type="text/javascript">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Pumper/change.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript">
         function test_str() {
             var res;
             var str =
@@ -25,24 +33,62 @@ if(empty($data['err'])){
                 alert("Boundary rules are not matched!Check the conditions.");
         }
     </script>
-    </head>
-    <body>
-    <div class="navbar">
-  <a href="home.php" class="">Home</a>
-  <a href="#">Contact Us</a>
-  <a href="#">About Us</a>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <ul>
+            <li><a href="<?php echo ROOT ?>/Admin/Home" class="logo">
+                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
+                        <span class="nav-item">Pasindu</span><br>
+                        <span class="nav-item"></span>
+                    </a></li>
+
+                 
+           
+                <li><a href="<?php echo ROOT ?>/Pumper/Working">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Working Report</span>
+                    </a></li>
+                <li><a href="<?php echo ROOT ?>/Pumper/Working_hours">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Working Hours</span>
+                    </a></li>
+                <li><a href="<?php echo ROOT ?>/Pumper/Working_salary">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Salary Report</span>
+                    </a></li>
+                    <li><a href="<?php echo ROOT ?>/Pumper/Change_password">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Change Password</span>
+                    </a></li>
 
 
-</div>
+
+                <li><a href="#" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <section class="main">
+        
+
+
         <div class="change">
+            
             <form  method="POST" action="<?php echo ROOT ?>/Pumper/Change_password/change">
+                
+                
                 <p>Existing password<br />
                 <input type="password" class="box" name="current_password" required /></p>
                 <p>New password<br/>
                 <input type="password" class="box"name="new_password" id="t1" required/>
                 </p>
                 <p>Confirm password<br />
-                <input type="password" name="confirm_password" required/>
+                <input type="password" name="confirm_password" class="box"required/>
                 </p>
                 <div class="list">
                     <ul type="Square">
@@ -54,66 +100,23 @@ if(empty($data['err'])){
 
                     </ul>
                 </div>
-                <button><a href="<?php echo ROOT ?>/Pumper/Profile" class="same">Back</a></button>
-                <button name="submit" type="submit" onclick="test_str()">Save Password</button>
+          <br><br>
+                <button name="submit" type="submit">Save Password</button>
             </form>
         </div>
         <div class="footer1">
         <label class="error"><?php echo $data['err'] ?></label>
     </div>
-        <footer class="footer">
-<div class="footer-left">
 
-				<p class="footer-links">
-					<a href="#" class="link-1">Home</a><br>
-					
-					<a href="#">Contact Us</a><br>
-				
-					<a href="#">Profile</a><br>
-				
-					<a href="logout.php">Logout</a>
-					
-		
-				</p>
 
-			</div>
-   
-    
-			<div class="footer-center">
-
-<div>
-    <i class="fa fa-map-marker"></i>
-    <p><span>222/A,Colombo 07</span></p>
+  </div>
 </div>
 
-<div>
-    <i class="fa fa-phone"></i>
-    <p>0717787990</p>
-</div>
 
-<div>
-    <i class="fa fa-envelope"></i>
-    <p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-</div>
 
-</div>
 
-<div class="footer-right">
 
-<p class="about">
-    <span>About the company</span>
-    
-</p>
 
-<div class="footer-icons">
+</body>
 
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-
-</div>
-
-</div>
-
-</footer>
-    </body>
 </html>

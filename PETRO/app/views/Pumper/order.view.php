@@ -14,6 +14,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Pumper/order.css" text="text/css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Fuel Pumper</title>
     </head>
     <script>
@@ -29,13 +35,49 @@
         }
     </script>
     <body>
-    <div class="navbar">
-  <a href="home.php" class="">Home</a>
-  <a href="#">Contact Us</a>
-  <a href="#">About Us</a>
 
 
-</div>
+
+    <div class="container">
+        <nav>
+            <ul>
+            <li><a href="<?php echo ROOT ?>/Admin/Home" class="logo">
+                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
+                        <span class="nav-item">Pasindu</span><br>
+                        <span class="nav-item"></span>
+                    </a></li>
+
+                 
+           
+                <li><a href="<?php echo ROOT ?>/Pumper/Working">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Working Report</span>
+                    </a></li>
+                <li><a href="<?php echo ROOT ?>/Pumper/Working_hours">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Working Hours</span>
+                    </a></li>
+                <li><a href="<?php echo ROOT ?>/Pumper/Working_salary">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Salary Report</span>
+                    </a></li>
+                    <li><a href="<?php echo ROOT ?>/Pumper/Change_password">
+                        <i class="fas fa-star"></i>
+                        <span class="nav-item">Change Password</span>
+                    </a></li>
+
+
+
+                <li><a href="#" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Log out</span>
+                    </a></li>
+            </ul>
+        </nav>
+
+        <section class="main">
+        
+
         <div class="inline">
         <div class="header"><b>Order Details</b></div></div><div class="header1"><span class="tab"></span></div><br>
         <div class="table1">
@@ -43,7 +85,7 @@
         <table id='display'>
 
 
-        <div class="container">
+        <div class="container2">
 
   <ul class="responsive-table">
 
@@ -102,7 +144,7 @@
 
             
 
-        <div class="container">
+        <div class="container2">
 
 <ul class="responsive-table">
 
@@ -145,63 +187,9 @@
         <div class="footer1">
             <label class="error"><?php echo $data['err'] ?></label>
         </div>
-        <div class="same1">
-        <a href="<?php echo ROOT ?>/Pumper/User/" class="back">Back</a></button>
-        </div>
-        
-<br><br><br><br>
+      
+    </div></div>
 
-        <footer class="footer">
-<div class="footer-left">
 
-				<p class="footer-links">
-					<a href="#" class="link-1">Home</a><br>
-					<a href="#">Contact Us</a><br>
-				
-					<a href="#">Profile</a><br>
-				
-					<a href="logout.php">Logout</a>
-					
-		
-				</p>
-
-			</div>
-
-			<div class="footer-center">
-
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>222/A,Colombo 07</span></p>
-				</div>
-
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>0717787990</p>
-				</div>
-
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-				</div>
-
-			</div>
-
-			<div class="footer-right">
-
-				<p class="about">
-					<span>About the company</span>
-					
-				</p>
-
-				<div class="footer-icons">
-
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				
-				</div>
-
-			</div>
-
-		</footer>
     </body>
 </html>
