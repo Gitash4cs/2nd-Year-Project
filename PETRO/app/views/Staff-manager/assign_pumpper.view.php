@@ -1,4 +1,12 @@
+<?php
+$content = "";
 
+while($rows = mysqli_fetch_array($data['result'])){
+    $content = $content . "<option value='".$rows['id']."'>".$rows['id']."</option>";
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,28 +43,24 @@
                     <tr>
                         <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
                             <option value="">--assign pumper--</option>
-                            <option value='PUM789'>PUM789</option>";
-                            <option value='PUM790'>PUM790</option>";
-                            <option value='PUM791'>PUM791</option>";
-                            <option value='PUM792'>PUM792</option>";
-                            <!-- <?php
-                                while($row = mysqli_fetch_assoc($data['result'])){
-                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                }
-                            ?>         -->
+                            <?php
+
+                                echo $content;
+                                // while($rows = mysqli_fetch_array($data['result'])){
+                                //     echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
+                                // }
+                            ?>         
                             </select>
                         </td>
                         <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
                             <option value="">--assign pumper--</option>
-                            <option value='PUM789'>PUM789</option>";
-                            <option value='PUM790'>PUM790</option>";
-                            <option value='PUM791'>PUM791</option>";
-                            <option value='PUM792'>PUM792</option>";
-                            <!-- <?php
-                                while($row = mysqli_fetch_assoc($data['result'])){
-                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                }
-                            ?>         -->   
+                            <?php
+
+                                echo $content;
+                                // while($rows1 = mysqli_fetch_array($data['result'])){
+                                //     echo "<option value='".$rows1['id']."'>".$rows1['id']."</option>";
+                                // }
+                            ?>          
                             </select>
                         </td>
                     </tr>
