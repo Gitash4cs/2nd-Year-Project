@@ -2,7 +2,7 @@
 
 class M_Forget_password extends Model
 {
-    protected $table = 'fuel_pumper';
+    protected $table = 'pumper';
     public $send_mail;
     public function __construct(){
         $this->send_mail=$this->mail('Library');

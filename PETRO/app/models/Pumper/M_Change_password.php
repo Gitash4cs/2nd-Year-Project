@@ -2,17 +2,19 @@
 
 class M_Change_password extends Model
 {
-    protected $table = 'fuel_pumper';
+    protected $table = 'pumper';
     public function change($data){
-        $pump_id = $_SESSION['pump_id'];
+        $result=$this->connection();
+        $pump_id = $_SESSION['pumper_id'];
         $current = $data['current_password'];
         $new = $data['new_password'];
         $confirm = $data['confirm_password'];
-        $result=$this->connection();
-        $sql="select * from $this->table where pumper_id = '".$pump_id."'";
+        
+        $sql="select * from $this->table where id = '".$pump_id."'";
         $query = $result->query($sql);
         while($row = $query->fetch_array()){
             $original_password=$row['password'];
+        }
             $verify=password_verify($current,$original_password);
             if(!$verify){
                 $error="Existing Password is not match!";
@@ -22,7 +24,7 @@ class M_Change_password extends Model
             else{
                 if($new==$confirm){
                     $password = password_hash($new,PASSWORD_DEFAULT);
-                    $sql="update $this->table set password ='".$password."' where pumper_id = '".$pump_id."'";
+                    $sql="update $this->table set password ='".$password."' where id = '".$pump_id."'";
                     $query=$result->query($sql);
                     $error="Successfully Changed the password";
                     return $error;
@@ -32,7 +34,6 @@ class M_Change_password extends Model
                     return $error;
                 }
             }
-        }
 
     }
 }

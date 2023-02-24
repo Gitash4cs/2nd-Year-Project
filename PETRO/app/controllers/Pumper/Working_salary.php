@@ -6,7 +6,10 @@ class working_salary extends Controller{
         $this->salary=$this->model('M_salary');
     }
     public function index(){
-        $result=$this->salary->loading($data=[]);
+        $data=[
+            'download'=>0,
+        ];
+        $result=$this->salary->loading($data);
         if($result){
             $this->view('Pumper/salary',$result);
         }
@@ -30,6 +33,15 @@ class working_salary extends Controller{
         }
 
 
+    }
+
+    public function Download(){
+        $data = [
+            'download'=>1,
+        ];
+        $result=$this->salary->loading($data);
+
+        
     }
 
 

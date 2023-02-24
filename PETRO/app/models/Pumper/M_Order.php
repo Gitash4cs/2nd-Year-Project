@@ -142,7 +142,8 @@ class M_Order extends Model{
                 $recipient = $email;
                 $subject ="COMPELTE ORDERS";
                 $message = "Dear Valid Customer <br> YOUR Vehicle No:$vehicle_no <br>
-                FUEL : $Fuel_Type-$class <br> Remaining Liters:$remaining_liters<br>
+                FUEL : $Fuel_Type
+                <br>Vehicle Type:$class <br> Remaining Liters:$remaining_liters<br>
                 Account_balance:$balance<br>
                 PETRO Points: $points<br>
                 BEST REGARDS COME AGAIN!!!!!!";
