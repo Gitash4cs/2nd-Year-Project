@@ -56,9 +56,9 @@
                     </a></li>
 
 
-                <li><a href="#" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
+                    <li><a href="<?php echo ROOT ?>/Manager/Home" class="logout">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="nav-item">Back</span>
                     </a></li>
             </ul>
         </nav>

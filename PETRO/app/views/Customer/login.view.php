@@ -40,7 +40,7 @@
 	  <br><br>
       <input type="submit" name="submit" value="Log In" class="btn"><br><br>
 	   <a href="" class="fp">Forgot Password?</a>
-      <p>don't have an account? <a href="register.php" class="register">Register Now</a></p>
+      <p>don't have an account? <a href="<?php echo ROOT ?>/Customer/Contact" class="register">Register Now</a></p>
    </form>
 
 </div>

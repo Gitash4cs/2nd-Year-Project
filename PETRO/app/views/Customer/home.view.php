@@ -21,9 +21,10 @@
 <div class="navbar">
   <a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
   <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
+  <a href="<?php echo ROOT ?>/Customer/Mv" class="">Place an Order</a>
   <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
   <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/pro.png" width="40px" height="40px"></a> 
+  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/xx.png" width="40px" height="40px"></a> 
 
 </div>
 
@@ -198,23 +199,7 @@
 </div>
 </div>
 
-<div class="a">
-<h1 class="ml1">
-  <span class="text-wrapper">
-    <span class="line line1"></span>
-    <span class="letters">ADVANCED FUEL FOR ADVANCED VEHICLES
-    </span>
-    <span class="line line2"></span>
-  </span>
-</h1>
 
-
-  <br>  
-   <h2 class="ax"> CONTACT US -011-2898767</h2>
-   
-  
-
-</div><br><br>
 
 
 

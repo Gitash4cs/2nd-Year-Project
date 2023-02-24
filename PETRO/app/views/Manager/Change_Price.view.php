@@ -42,6 +42,11 @@
                         <i class="fas fa-male"></i>
                         <span class="nav-item">View Pumper</span>
                     </a></li>
+
+                    <li><a href="<?php echo ROOT ?>/Manager/Update" class="logout">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="nav-item">Back</span>
+                    </a></li>
             </ul>
         </nav>
 

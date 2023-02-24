@@ -53,11 +53,13 @@ class M_Orderticketvehicle extends Model
         $amount =$data ['amount'];
         $price =$data ['price'];
         $pmethod =$data ['pmethod'];
+        $balance =$data ['balance'];
+        $nbalance =$data ['nbalance'];
         $cdate =$data ['cdate'];
         $ndate =$data ['ndate'];
         $status =$data ['status'];
 
-         $sql = "INSERT INTO $this->table1 (Oid,id,email,VMno,vtype,ftype,amount,price,pmethod,cdate,ndate,status) VALUES('$Oid','$id','$email','$vno','$vtype','$ftype','$amount','$price','$pmethod','$cdate','$ndate','$status')";
+         $sql = "INSERT INTO $this->table1 (Oid,id,email,VMno,vtype,ftype,amount,price,pmethod,balance,nbalance,cdate,ndate,status) VALUES('$Oid','$id','$email','$vno','$vtype','$ftype','$amount','$price','$pmethod','$balance','$nbalance','$cdate','$ndate','$status')";
          $query3 = $result1->query($sql); 
 
          if($query3){

@@ -1,11 +1,10 @@
 <?php
-    $flag='';
-    if(empty($data['error'])){
-        $flag=true;
-    }
-    else{
-        $flag=false;
-    }
+$flag = '';
+if (empty($data['error'])) {
+    $flag = true;
+} else {
+    $flag = false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,7 @@
 
 <body>
 
-    
+
 <div class="container">
         <nav>
             <ul>
@@ -56,9 +55,9 @@
                     </a></li>
 
 
-                <li><a href="#" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
+                    <li><a href="<?php echo ROOT ?>/Manager/Home" class="logout">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="nav-item">Back</span>
                     </a></li>
             </ul>
         </nav>
@@ -75,23 +74,23 @@
             <th>NIC</th>
             <th>Email</th>
             <th>Contact No</th>
-            
+
         </tr>
         </thead>
     <tbody>
         <?php
-            if($flag==true){
-                if(mysqli_num_rows($data['result']) > 0){
-                    while($row = mysqli_fetch_assoc($data['result'])){
-                        echo "<tr data-href = more.html><td>". $row["id"]. "</td><td>". $row["first_name"]."</td><td>". $row["nic"]."</td><td>". $row["email"]."</td><td>". $row["phone_no"]."</td></ data-href>";
-                    }
-                }
-            }
-        ?>
+if ($flag == true) {
+    if (mysqli_num_rows($data['result']) > 0) {
+        while ($row = mysqli_fetch_assoc($data['result'])) {
+            echo "<tr data-href = more.html><td>" . $row["id"] . "</td><td>" . $row["first_name"] . "</td><td>" . $row["nic"] . "</td><td>" . $row["email"] . "</td><td>" . $row["phone_no"] . "</td></ data-href>";
+        }
+    }
+}
+?>
     </tbody>
     </table>
     </div>
-    
+
 </body>
 
 </html>

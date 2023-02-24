@@ -46,34 +46,34 @@
  <BR><BR><BR> 
    
 
+ <img class="round" src="<?php echo ROOT ?>/image/bp.jpg" width="150px" height="150px" alt="user" />
+ <div class="row3">
+  <div class="column3" style="background-color:transparent;">
+  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  <label for="balance"><h3> First Name</h3> </label>
+  &nbsp;  &nbsp; <input type="text" value="<?php echo  $data['fname'] ?>" class="box" readonly><br>
+  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;   <label for="balance"><h3> Last Name</h3> </label>
+  &nbsp;  &nbsp; <input type="text" value="<?php echo  $data['lname'] ?>" class="box" readonly><br>
+  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;   <label for="balance"><h3> Email</h3> </label>
+  &nbsp;  &nbsp; <input type="text" value="<?php echo  $data['email'] ?>" class="box" readonly><br>
+  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;   <label for="balance"><h3> Contact</h3> </label>
+  &nbsp;  &nbsp; <input type="text" value="<?php echo  $data['phone'] ?>" class="box" readonly><br>
+  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  <label for="balance"><h3> Balance</h3> </label>
+  &nbsp;  &nbsp;  <input type="text" name="balance" value="<?php echo  $data['balance'] ?>" class="box" readonly ><br>
 
 
 
+  </div>
+  <div class="column3" style="background-color:transparent;">
+  <br>
+<h2>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  <b>Vehicles</b></h2><br>
 
-
-
-
-<div class="card-container">
-	
-	<img class="round" src="<?php echo ROOT ?>/image/bp.jpg" width="150px" height="150px" alt="user" />
-	<h1><?php echo  $data['fname'] ?></h1>
-	
-	<h3><?php echo $data['email']; ?></h3>
-	<h3><?php echo $data['NIC']; ?></h3>
-	<h3><?php echo $data['phone']; ?></h3>
-
-	<div class="skills">
-
-		<ul>
-		
-		<li> <a href="mv.php" class="v"><b>Vehicles</b></a></li><br>
-			<li>  <a href="<?php echo ROOT ?>/Customer/Updatevehicle1" class="vehicle"> <?php echo $data['vno']; ?> </a></li>
-			<li>  <a href="<?php echo ROOT ?>/Customer/Updatevehicle2" class="vehicle"> <?php echo $data['vno1']; ?> </a></li>
-			<li>  <a href="<?php echo ROOT ?>/Customer/Updatevehicle3" class="vehicle"> <?php echo $data['vno2']; ?> </a></li>
-
+               &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <a href="<?php echo ROOT ?>/Customer/Updatevehicle1" class="vehicle"> <?php echo $data['vno']; ?> </a>
+			     &nbsp;  &nbsp;  &nbsp;     <a href="<?php echo ROOT ?>/Customer/Updatevehicle2" class="vehicle"> <?php echo $data['vno1']; ?> </a>
+			   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;    <a href="<?php echo ROOT ?>/Customer/Updatevehicle3" class="vehicle"> <?php echo $data['vno2']; ?> </a>
+               
 			<?php 
 		
-		$url="addvehicle.php";
+			$url="addvehicle.php";
 		$url2="addvehicle2.php";
 		$url3="addvehicle3.php";
 
@@ -83,7 +83,7 @@
 }
 		if ($data['vno1'] == "")
 {
-  echo ' <a href='.$url2.' target="_blank" class="add">+ Add Vehicle 2</a><br><br>'; 
+  echo ' <a href='.$url2.' target="_blank" class="add">+ Add Vehicle 2</a>'; 
 }
 
 
@@ -94,9 +94,9 @@
 
 ?><br>
 
-<li> <a href="mv.php" class="v"><b>Machine</b></a></li><br>
-			<li>  <a href="updatevehicle.php" class="vehicle"> <?php echo $data['sNo']; ?> </a></li>
-
+<h2><br>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;<b>Machine</b></h2><br>
+&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+ &nbsp;  &nbsp; &nbsp;   <a href="updatevehicle.php" class="vehicle"> <?php echo $data['sNo']; ?> </a>
 			<?php 
 
 $url="addmachine.php";
@@ -105,27 +105,24 @@ if ($data['sNo'] == "")
 echo ' <a href='.$url.' target="_blank" class="add">+Add a Machine</a>'; 
 }
 ?>
-		
-		</ul>
-
-	
-	</div>
-	<br>
-	<label for="balance"><h4> Balance</h4> </label>
-    <input type="text" name="balance" value="" class="box2" readonly ><br>
-
-	<label for="balance"><h4> Petro Points</h4> </label>
-    <input type="text" name="balance" value="" class="box2" readonly ><br><br>
-
-	
-
-	<a href="mv.php" class="edit"><b>Edit </b></a>
+	  <br><br> &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;
+	&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp; &nbsp; <label for="balance"><h3> Petro Points</h3> </label>
+    &nbsp;  &nbsp;  <input type="text" name="balance" value="" class="box2" readonly ><br><br>
+  </div>
+</div>
+<a href="mv.php" class="edit"><b>Edit </b></a>
 	<a href="mv.php" class="delete"><b>Delete </b></a>
+
+
+
+
+
+
+<br><br><br>
+
+</div>
 </div>
 
-<br><br><br><br><br><br><br><br><br>
-
-</div>
 
 
 

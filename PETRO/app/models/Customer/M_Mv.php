@@ -3,6 +3,7 @@
 class M_Mv extends Model
 {
     protected $table = 'user_form';
+    protected $table1 = 'ordert';
 
     public function mv($data){
     
@@ -30,14 +31,31 @@ class M_Mv extends Model
          
         );
         return $arr;
+
+
+
+        $sql2 = "select * from $this->table1 where id='".$id."'";
+        $query2=$result->query($sql2);
+        while($row = $query2->fetch_array()){
+           
+            $VMno = $row['VMno'];
+       
+          
+        }
+
+        $arr=array(
+       
+            'VMno'=> $VMno,
+            
+         
+        );
+        return $arr;
               
             }
            
-          }
-          
-    
 
 
+        }
 
 
 

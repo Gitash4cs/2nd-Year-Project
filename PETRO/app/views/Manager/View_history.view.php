@@ -1,11 +1,10 @@
 <?php
-    $flag='';
-    if(empty($data['error'])){
-        $flag=true;
-    }
-    else{
-        $flag=false;
-    }
+$flag = '';
+if (empty($data['error'])) {
+    $flag = true;
+} else {
+    $flag = false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,14 +14,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PETRO</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/view.css" />
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/price.css" />
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
 
-    
+
 <div class="container">
         <nav>
             <ul>
@@ -55,9 +54,9 @@
                         <span class="nav-item">View Pumper</span>
                     </a></li>
 
-                <li><a href="#" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
+                    <li><a href="<?php echo ROOT ?>/Manager/Home" class="logout">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="nav-item">Back</span>
                     </a></li>
             </ul>
         </nav>
@@ -65,24 +64,28 @@
     <div class="main-top">
                 <h1>View & Analize Stock History</h1>
             </div>
-        <div class="users">
-            <div class="card"><br><br>
-        <form action="analize.php" method="post">
-            <label for="" class="label">From  :</label>
-            <input type="date" class="input" name="startDate">
             <br>
-            <br>
-            <label for="" class="label">To  :</label>
-            <input type="date" class="input" name="finishDate">
-            <br>
-   
-            <div>
-                <a href=""><button type="onclick" class="button">Analize</button></a>
+            <div class="wrapper">
+                <div class="form-container">
+                <div class="form-inner">
+                <img src="<?php echo ROOT ?>/image/Manager/gas-price.png" alt="">
+                    <form action="<?php echo ROOT?>/Manager/Change_Price/change_price" method="POST">
+                <div class="field">
+                    <input type="date" name="startDate" placeholder="Octane 92 Price">
+                </div>
+                <div class="field">
+                    <input type="date" name="finishDate" placeholder="Octane 95 Price">
+                </div>
+    <br>
+                <div class="btn">
+                    <div class="btn-layer"></div>
+                        <input type="submit" value="Submit">
+                    </div>
+            
+                </div>
+                
+                </div>
             </div>
-        </form>
-            </div>
-    </div>
-    <div>
     <table class="table">
         <thead>
         <tr>
@@ -94,18 +97,18 @@
         </thead>
     <tbody>
         <?php
-            if($flag==true){
-                if(mysqli_num_rows($data['result']) > 0){
-                    while($row = mysqli_fetch_assoc($data['result'])){
-                        echo "<tr><td>". $row["id"]. "</td><td>". $row["date_field"]."</td><td>". $row["fuel_type"]."</td><td>". $row["arrive_amount"]."</td></tr>";
-                    }
-                }
-            }
-        ?>
+if ($flag == true) {
+    if (mysqli_num_rows($data['result']) > 0) {
+        while ($row = mysqli_fetch_assoc($data['result'])) {
+            echo "<tr><td>" . $row["id"] . "</td><td>" . $row["date_field"] . "</td><td>" . $row["fuel_type"] . "</td><td>" . $row["arrive_amount"] . "</td></tr>";
+        }
+    }
+}
+?>
     </tbody>
     </table>
     </div>
-    
+
 </body>
 
 </html>

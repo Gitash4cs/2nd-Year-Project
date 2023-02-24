@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Update Fuel Availability</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/report.css" />
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/add_report.css" />
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
@@ -43,9 +43,9 @@
                     </a></li>
 
 
-                <li><a href="#" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-item">Log out</span>
+                <li><a href="<?php echo ROOT ?>/Manager/Home" class="logout">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="nav-item">Back</span>
                     </a></li>
             </ul>
         </nav>
@@ -59,7 +59,7 @@
 
                     <div class="form-inner">
                     <img src="<?php echo ROOT ?>/image/Manager/report.png" alt="">
-                    <form action="<?php echo ROOT?>/Manager/Add_report/Add_report" method="POST">
+                    <form action="<?php echo ROOT ?>/Manager/Add_report/Add_report" method="POST">
                         <div class="field">
                             <input type="date" name="date" placeholder="Date">
                         </div>
@@ -84,10 +84,12 @@
                     </form>
                     </div>
                 </div>
+
             </div>
 
 
-       
+
+
     </div>
 
 </body>

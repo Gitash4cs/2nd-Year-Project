@@ -18,4 +18,27 @@ class View_history extends Controller{
             $this->view('Manager/View_history',$data);
         }
     }
+
+    public function get_Date(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
+
+            $data=[
+                'startDate'=>trim($_POST['startDate']),
+                'finishDate'=>trim($_POST['finishDate']),
+                
+                'err'=>'',
+
+            ];
+            $_SESSION['startDate']=$data['startDate'];
+            $_SESSION['finishDate']=$data['finishDate'];
+        }
+            if($this->View_history->get_Date($data)){
+                header('location:http://localhost/PETRO/public/Manager/Update');
+            
+                //$this->view(Manager/octane);
+            }
+            //echo "edcs";
+
+    }
 }

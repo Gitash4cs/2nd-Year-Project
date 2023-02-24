@@ -31,9 +31,7 @@
                 $query4 = $result->query($sql4);
                 $row4 = mysqli_fetch_assoc($query4);
                 $total_O95 = $row4['TotalO95'];
-            catch(PDOException $e){
-                die("ERROR". $e->getMessage());
-            }
+        
         }
     }
 ?>

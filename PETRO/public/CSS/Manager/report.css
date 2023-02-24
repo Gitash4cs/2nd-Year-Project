@@ -244,7 +244,8 @@ form .field input:focus::placeholder {
     text-decoration: underline;
 }
 
-form .btn {
+.btn {
+    left: 10%;
     height: 50px;
     width: 32%;
     border-radius: 5px;
@@ -252,7 +253,7 @@ form .btn {
     overflow: hidden;
 }
 
-form .btn .btn-layer {
+.btn .btn-layer {
     height: 100%;
     width: 300%;
     position: absolute;
@@ -263,11 +264,11 @@ form .btn .btn-layer {
 
 }
 
-form .btn:hover .btn-layer {
+.btn:hover .btn-layer {
     left: 0;
 }
 
-form .btn input[type="submit"] {
+.btn input[type="submit"] {
     height: 100%;
     width: 100%;
     z-index: 1;
@@ -295,4 +296,19 @@ select {
     background-color: #fff;
     background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
     border-color: #3498db;
+}
+
+.wrapper.form-container.image2 {
+    height: 60px;
+    width: 120px;
+    /*float: right;*/
+    display: inline-block;
+    position: absolute;
+    right: 0;
+
+
+}
+
+h1 {
+    display: inline-block;
 }

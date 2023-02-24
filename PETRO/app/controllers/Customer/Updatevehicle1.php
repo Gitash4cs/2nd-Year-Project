@@ -1,8 +1,10 @@
 
 <?php
-class Updatevehicle1 extends Controller
-{
+class Updatevehicle1 extends Controller{
+public $Updatevehicle1;
+
     public function __construct(){
+    
         $this->updatevehicle1=$this->model('M_Updatevehicle1');
         
     }
@@ -19,36 +21,32 @@ class Updatevehicle1 extends Controller
         }
     }
 
-    public function update(){
+
+
+    public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
             $id= $_SESSION['id'];
 
             $data=[
-
-                'vno' => trim( $_POST['vno']),
-                'vtype' => trim( $_POST['vtype']),
-                'ftype' => trim( $_POST['ftype']),
-               
-               
-        
+                'vno' => trim($_POST['vno']),
+                'vtype'=>trim($_POST['vtype']),
+                'ftype'=>trim($_POST['ftype']),
                 'err'=>'',
 
             ];
-            echo $vno;
+            echo $data['ftype'];
+            $result = $this->updatevehicle1->add($data);
+            if($result){
+                header('location:http://localhost/PETRO/public/Customer/Profile');
 
-          $insert= $this->addvehicle1->update($data);
-        if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Home');
-
-           }
-           else{
-           
-            $this->view('Customer/Addvehicle1',$data);
-
-           }
-                
+            }
         }
 
+
     }
+
+
+
+
 }

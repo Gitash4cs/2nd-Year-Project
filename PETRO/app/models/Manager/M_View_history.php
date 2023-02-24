@@ -19,5 +19,11 @@
                 return false;
             }
     }
+
+        public function get_Date($data){
+            $result = $this->connection();
+            $startDate =$data['startDate'];
+            $finishDate =$data['finishDate'];
+        }
 }
 ?>

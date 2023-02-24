@@ -15,11 +15,10 @@ class Analize extends Controller{
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
 
             $data=[
-                'startDate'=>trim($_POST['startDate']),
-                'finishDate'=>trim($_POST['finishDate']),
-                'err'=>'',
-
+                'startDate'=>$_SESSION['startDate'],
+                'finishDate'=>$_SESSION['startDate'],
             ];
+
             $result = $this->Analize->Analize($data);
             if($result){
                 header('location:http://localhost/PETRO/public/Manager/Update');

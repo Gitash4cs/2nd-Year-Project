@@ -54,8 +54,16 @@ else
 	$price=$data['amount']*100;
  
  if($data['balance']>0){
-	 	$price=$price-$balance;
+  if ($price <= $data['balance']){
+    $n_balance=$data['balance'] - $price;
+    $price=0;
+    
+  }
+  else{
+    $price=$price-$data['balance'];
 		$n_balance=0;
+  }
+	 	
  }
 	 
 	 
@@ -90,12 +98,15 @@ else
 </div>
 <div class="column">
    <br>
-			 <br>
+			 <br>	    <label for="cusid"> Previous Balance: </label>
+	    <input type="number" name="balance" value="<?php echo $data['balance']; ?>" class="box" readonly><br>
 	   	   <input type="hidden" name="n_balance" value="<?php echo "$n_balance" ?>" class="box" readonly>
 			    <label for="cusid"> Price: </label>
 			 <input type="text" name="price" value="<?php echo "$price" ?>" class="box" readonly>
 	   <br>
-	     <label for="cusid"> Payment Method: </label>
+	     <label for="cusid"> New Balance: </label>
+	   	 <input type="number" name="nbalance" value="<?php echo "$n_balance" ?>" class="box" readonly><br>
+        <label for="cusid"> Payment Method: </label>
 	   	 <input type="text" name="pmethod" value="<?php echo $data['pmethod']; ?>" class="box" readonly><br>
 	    <label for="cusid"> Ordered Date: </label>
 	      <input type="text" name="cdate" value="<?php echo date("Y/m/d") ?>" class="box" readonly ><br>

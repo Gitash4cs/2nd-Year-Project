@@ -42,6 +42,8 @@
 
             $query = $result->query($sql);
 
+            echo $date;
+
             if($sql1&&$sql2&&$sql3&&$sql4&&$sql){
 
                 return true;

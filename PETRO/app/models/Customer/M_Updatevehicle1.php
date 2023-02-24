@@ -29,22 +29,25 @@ class M_Updatevehicle1 extends Model
         return $arr;
     }
 
-    public function update($data){
-        $result1=$this->connection();
-        $vno =$data ['update_vno'];
-        $vtype =$data ['update_vtype'];
-        $ftype =$data ['update_ftype'];
-      
+    public function add($data){
+        $result=$this->connection();
+        $id = $_SESSION['id'];
+    
+        $vno = $data['vno'];
+        $vtype = $data['vtype'];
+        $ftype = $data['ftype'];
+   
+
+        $sql1= "UPDATE $this->table SET ftype='$ftype' WHERE id='".$id."'";
+        $query1 = $result->query($sql1);
 
 
-         $sql = "UPDATE $this->table1 (vno,vtype,ftype) VALUES('$vno','$vtype','$ftype')";
-         $query3 = $result1->query($sql); 
+        if($query1){
 
-         if($query3){
-           
-            return 1;
-         }else{
-            return 5;
-         }
-      }
+            return true;
+        }
+        else{
+            echo "vvvvvvvvv";
+        }
+    }
    }

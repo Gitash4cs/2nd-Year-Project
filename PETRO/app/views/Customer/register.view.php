@@ -82,7 +82,7 @@ if(empty($data['message'])){
       <input type="password" name="cpassword" placeholder="confirm password" class="box" required>
 <br><br>
 		<input type="checkbox" id="checkme"/> I agree  to <a href=""> Terms & Conditions </a> <br><br>	
-      <input type="submit" name="submit" value="register now" class="btn" id="submit" disabled  ><br><br>
+      <input type="submit" name="submit" value="register now" class="btn" id="submit" disabled ><br><br>
       <p>already have an account? <a href="login.php">login now</a></p>
    </form>
 

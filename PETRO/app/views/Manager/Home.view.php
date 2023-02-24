@@ -19,7 +19,7 @@
             <ul>
                 <li><a href="#" class="logo">
                         <img src="<?php echo ROOT ?>/image/Manager/profile.jpg">
-                        <span class="nav-item">Achala</span>
+                        <span class="nav-item"><?php echo $_SESSION['First_name'] ?></span>
                     </a></li>
                 <li><a href="<?php echo ROOT ?>/Manager/Home">
                         <i class="fas fa-gas-pump"></i>
@@ -31,7 +31,7 @@
                     </a></li>
 
 
-                <li><a href="#" class="logout">
+                <li><a href="<?php echo ROOT ?>/Home/Login" class="logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="nav-item">Log out</span>
                     </a></li>

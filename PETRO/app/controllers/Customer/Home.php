@@ -1,4 +1,5 @@
 <?php
+   
 
 class Home extends Controller
 {
@@ -17,6 +18,9 @@ class Home extends Controller
         if($result){
             $this->view('Customer/home',$result);
         }
+
+
+    
     }}    
 
 

@@ -23,9 +23,13 @@
                 'err'=>'',
 
             ];
+            $_SESSION['date']=$data['date'];
+            
             if($this->Add_report->Add_report($data)){
+
+               
                 //$this->view(Manager/octane);
-                header('location:http://localhost/PETRO/public/Manager/Report_history');
+                header('location:http://localhost/PETRO/public/Manager/Report');
           }
         }
 

@@ -4,7 +4,7 @@ class M_Complaint extends Model
 {
     protected $table = 'user_form';
     protected $table1='comp';
-    protected $table2 = 'ordert';
+
     
     public function complaint($data){
     
@@ -16,6 +16,7 @@ class M_Complaint extends Model
         while($row = $query->fetch_array()){
             $id= $row['id'];
             $email = $row['email'];
+            $fname = $row['fname'];
            
           
         }
@@ -23,6 +24,7 @@ class M_Complaint extends Model
         $arr=array(
             'id' => $id,
             'email'=>$email,
+            'fname'=>$fname,
           
           
         );
@@ -35,6 +37,7 @@ class M_Complaint extends Model
     public function add($data){
         $result1=$this->connection();
         $id =$data ['id'];
+        $fname =$data ['fname'];
         $email =$data ['email'];
         $Oid =$data ['Oid'];
         $complaint =$data ['complaint'];

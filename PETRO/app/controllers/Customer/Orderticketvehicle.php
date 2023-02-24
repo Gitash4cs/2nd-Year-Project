@@ -35,6 +35,8 @@ class Orderticketvehicle extends Controller
                 'amount' => trim( $_POST['amount']),
                 'price' => trim( $_POST['price']),
                 'pmethod' => trim( $_POST['pmethod']),
+                'balance' => trim( $_POST['balance']),
+                'nbalance' => trim( $_POST['nbalance']),
                 'cdate' => trim( $_POST['cdate']),
                 'ndate' => trim( $_POST['ndate']),
                 'status' => trim( $_POST['status']),
