@@ -14,4 +14,9 @@ class Model extends Database
 
       return new $model();
   }
+  public function pdf($model){
+    require_once '../app/core/'.$model.'.php';
+
+    return new $model();
+}
 }
