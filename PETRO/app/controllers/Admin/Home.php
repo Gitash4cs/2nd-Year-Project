@@ -13,6 +13,6 @@ class Home extends Controller{
                 $this->view('Admin/Home',$result);
             }
             else{
-                $this->view('Admin/Home',$data1);
+                $this->view('Admin/Home',);
             }  
     } }
