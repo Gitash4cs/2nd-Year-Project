@@ -1,12 +1,4 @@
-<?php
-$content = "";
 
-while($rows = mysqli_fetch_array($data['result'])){
-    $content = $content . "<option value='".$rows['id']."'>".$rows['id']."</option>";
-}
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,185 +6,210 @@ while($rows = mysqli_fetch_array($data['result'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>assign pumper</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/home.css" text="text/css">
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/assign_pumpper.css" text="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
-<body>
-    <header>
-        <img class="logo" src="<?php echo ROOT ?>/image/petro1.png" alt="logo">
-        <Nav>
-            <ul class="nav_link">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">AVAILABILITY</a></li>
-                <li><a href="#">ABOUT</a></li>
+</head>
+<div class="container">
+        <nav>
+            <ul>
+            <li><a href="<?php echo ROOT ?>/Staff-manager/Home" class="logo">
+                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
+                        <span class="nav-item"></span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-gas-pump"></i>
+                        <span class="nav-item">View Pumper</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">View Customer</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-notes-medical"></i>
+                        <span class="nav-item">View Complain</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-history"></i>
+                        <span class="nav-item">Assign Pumper</span>
+                    </a></li>
+
+
+
+                    <li><a href="<?php echo ROOT ?>/Staff-manager/Home" class="logout">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="nav-item">Back</span>
+                    </a></li>
             </ul>
-        </Nav>
-        <a href="#" class="cnt"><button>CONTACT</button></a>
-    </header>
-    <section class="mashine-cat">
-        <h1><span> Assign pumper to pumper mashine </span></h1>
+        </nav>
+        <section class="main">
+            <div class="main-top">
+                <h1>Register Pumper</h1>
+            </div><br><br>
+            <div>
+                <form action="<?php echo ROOT ?>/Staff-manager/Assign_pumpper/assign" method="post">                    
+                    <div>
+                        <h2>Select Pumper Mashine</h2>
+                        <select class="profile-gender" name="pumperMashine" selected value="<?php echo $data["MashineID"]?>">
+                            <option value="">--Pumper Mashine--</option>
+                            <?php
+                                while($rows = mysqli_fetch_array($data['result'])){
+                                    echo "<option value='".$rows['MashineID']."'>".$rows['MashineID']."</option>";
+                                }
+                            ?>  
+                        </select>
+                    </div>
+                    <div>
+                        <h2>Select a Pumper</h2>
+                        <select class="profile-gender" name="pumperid" selected value="<?php echo $data["id "]?>">
+                            <option value="">--Pumper ID--</option>
+                            <?php
+                                while($rows = mysqli_fetch_array($data['resultPumper'])){
+                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
+                                }
+                            ?> 
+                            <option value="remove" name='remove'>Remove Pumper</option> 
+                        </select>
+                    </div>
+                    
+                    <div class="btn">
+                    <div class="btn-layer"></div>
+                        <input type="submit" name="submit" value="Assign" >
+                    </div>
+                </form>
+            </div>
 
-        <div class= "cat-list-all">
-            <div class = "mashine-container" style =' object-fit:cover;'>
-                <div class="cat-list">
+            <div class="users">
+                <div class="card">
                 <h3>Petrol Machine 01</h3>
-                <table>
+
+                    <div class="per">
+                    <table>
                     <tr>
-                        <th>Pump 01</th>
-                        <th>Pump 02</th>
+                        <th>Pump 01 (P001)</th>
+                        <th>Pump 02 (P002)</th>
                     </tr>
+                    <br><br>
                     <tr>
-                        <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                            <option value="">--assign pumper--</option>
+                        <!-- Display assigned pumper for mashine-->
+                        <td>
                             <?php
-
-                                echo $content;
-                                // while($rows = mysqli_fetch_array($data['result'])){
-                                //     echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                // }
-                            ?>         
-                            </select>
-                        </td>
-                        <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                            <option value="">--assign pumper--</option>
-                            <?php
-
-                                echo $content;
-                                // while($rows1 = mysqli_fetch_array($data['result'])){
-                                //     echo "<option value='".$rows1['id']."'>".$rows1['id']."</option>";
-                                // }
+                                $assignedpumper = $this->order->show_assign_pumpper('P001');
+                                echo "<p value>'".$assignedpumper."'</p>"; 
                             ?>          
-                            </select>
+                        </td>
+                        <td>
+                            <?php
+                                $assignedpumper = $this->order->show_assign_pumpper('P002');
+                                echo "<p value>'".$assignedpumper."'</p>"; 
+                            ?>          
                         </td>
                     </tr>
                 </table>
-                </div>     
-            </div>
-
-            <div class = "mashine-container" style ='object-fit:cover;'>
-                <div class="cat-list">
+                    </div>
+                    
+                </div>
+                <div class="card">
                 <h3>Petrol Machine 02</h3>
+
+                    <div class="per">
+                    
                 <table>
                     <tr>
-                        <th>Pump 01</th>
-                        <th>Pump 02</th>
+                        <th>Pump 01 (P003)</th>
+                        <th>Pump 02 (P004)</th>
                     </tr>
+                    <br><br>
                     <tr>
-                        <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                            <option value="">--assign pumper--</option>
-                            <option value='PUM789'>PUM789</option>";
-                            <option value='PUM790'>PUM790</option>";
-                            <option value='PUM791'>PUM791</option>";
-                            <option value='PUM792'>PUM792</option>";
-                            <!-- <?php
-                                while($row = mysqli_fetch_assoc($data['result'])){
-                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                }
-                            ?>         -->
-                            </select>
+                        <!-- Display assigned pumper for mashine-->
+                        <td>
+                            <?php
+                                $assignedpumper = $this->order->show_assign_pumpper('P003');
+                                echo "<p value>'".$assignedpumper."'</p>"; 
+                            ?>          
                         </td>
-                        <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                            <option value="">--assign pumper--</option>
-                            <option value='PUM789'>PUM789</option>";
-                            <option value='PUM790'>PUM790</option>";
-                            <option value='PUM791'>PUM791</option>";
-                            <option value='PUM792'>PUM792</option>";
-                            <!-- <?php
-                                while($row = mysqli_fetch_assoc($data['result'])){
-                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                }
-                            ?>         --> 
-                            </select>
+                        <td>
+                            <?php
+                                $assignedpumper = $this->order->show_assign_pumpper('P004');
+                                echo "<p value>'".$assignedpumper."'</p>"; 
+                            ?>          
                         </td>
                     </tr>
                 </table>
-                </div>     
+                    </div>
+                    
+                </div>
             </div>
-            
-        
-        </div>
 
-        <div class= "cat-list-all">
-            <div class = "mashine-container" style = object-fit:cover;'>
-                <div class="cat-list">
+
+            <div class="users">
+                
+                <div class="card">
                 <h3>Diesel Machine 01</h3>
-                <table>
-                    <tr>
-                        <th>Pump 01</th>
-                        <th>Pump 02</th>
-                    </tr>
-                    <tr>
-                        <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                            <option value="">--assign pumper--</option>
-                            <option value='PUM789'>PUM789</option>";
-                            <option value='PUM790'>PUM790</option>";
-                            <option value='PUM791'>PUM791</option>";
-                            <option value='PUM792'>PUM792</option>";
-                            <!-- <?php
-                                while($row = mysqli_fetch_assoc($data['result'])){
-                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                }
-                            ?>         -->
-                            </select>
-                        </td>
-                        <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                            <option value="">--assign pumper--</option>
-                            <option value='PUM789'>PUM789</option>";
-                            <option value='PUM790'>PUM790</option>";
-                            <option value='PUM791'>PUM791</option>";
-                            <option value='PUM792'>PUM792</option>";
-                            <!-- <?php
-                                while($row = mysqli_fetch_assoc($data['result'])){
-                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                }
-                            ?>         --> 
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                </div>     
-            </div>
 
-            <div class = "mashine-container" style =' object-fit:cover;'>
-                <div class="cat-list">
-                <h3>Diesel Machine 02</h3>
+                    <div class="per">
+                    
                 <table>
                     <tr>
-                        <th>Pump 01</th>
-                        <th >Pump 02</th>
+                        <th>Pump 01 (D001)</th>
+                        <th>Pump 02 (D002)</th>
                     </tr>
+                    <br><br>
                     <tr>
-                        <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                            <option value="">--assign pumper--</option>
-                            <option value='PUM789'>PUM789</option>";
-                            <option value='PUM790'>PUM790</option>";
-                            <option value='PUM791'>PUM791</option>";
-                            <option value='PUM792'>PUM792</option>";
-                            <!-- <?php
-                                while($row = mysqli_fetch_assoc($data['result'])){
-                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                }
-                            ?>         -->
-                            </select>
+                        <!-- Display assigned pumper for mashine-->
+                        <td>
+                            <?php
+                                $assignedpumper = $this->order->show_assign_pumpper('D001');
+                                echo "<p value>'".$assignedpumper."'</p>"; 
+                            ?>          
                         </td>
-                        <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                            <option value="">--assign pumper--</option>
-                            <option value='PUM789'>PUM789</option>";
-                            <option value='PUM790'>PUM790</option>";
-                            <option value='PUM791'>PUM791</option>";
-                            <option value='PUM792'>PUM792</option>";
-                            <!-- <?php
-                                while($row = mysqli_fetch_assoc($data['result'])){
-                                    echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
-                                }
-                            ?>         --> 
-                            </select>
+                        <td>
+                            <?php
+                                $assignedpumper = $this->order->show_assign_pumpper('D002');
+                                echo "<p value>'".$assignedpumper."'</p>"; 
+                            ?>          
                         </td>
                     </tr>
                 </table>
-                </div>     
+                    </div>
+                    
+                </div>
+                <div class="card">
+                <h3>Diesel Machine 02</h3>
+
+                    <div class="per">
+                    
+                <table>
+                    <tr>
+                        <th>Pump 01 (D003)</th>
+                        <th>Pump 02 (D004)</th>
+                    </tr>
+                    <br><br>
+                    <tr>
+                        <!-- Display assigned pumper for mashine-->
+                        <td>
+                            <?php
+                                $assignedpumper = $this->order->show_assign_pumpper('D003');
+                                echo "<p value>'".$assignedpumper."'</p>"; 
+                            ?>          
+                        </td>
+                        <td>
+                            <?php
+                                $assignedpumper = $this->order->show_assign_pumpper('D004');
+                                echo "<p value>'".$assignedpumper."'</p>"; 
+                            ?>          
+                        </td>
+                    </tr>
+                </table>
+                    </div>
+                   
+                </div>
+
             </div>
         </div>
-        <a href = "<?php echo ROOT ?>/Staff-manager/Home" class="btn">Back</a>
-    </section>
+    </div>
+
+
+
 </body>
 </html>

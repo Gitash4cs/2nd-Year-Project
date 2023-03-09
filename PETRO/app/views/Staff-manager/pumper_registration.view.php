@@ -1,54 +1,104 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pumper Registration</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/pumper_registration.css" text="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PETRO</title>
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/pumper_registration.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
+
 <body>
-    <header>
-    <img class="logo" src="<?php echo ROOT ?>/image/petro1.png" alt="logo">
-        <Nav>
-            <ul class="nav_link">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">AVAILABILITY</a></li>
-                <li><a href="#">ABOUT</a></li>
+
+
+<div class="container">
+        <nav>
+            <ul>
+            <li><a href="<?php echo ROOT ?>/Staff-manager/Home" class="logo">
+                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
+                        <span class="nav-item"></span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-gas-pump"></i>
+                        <span class="nav-item">View Pumper</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">View Customer</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-notes-medical"></i>
+                        <span class="nav-item">View Complain</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-history"></i>
+                        <span class="nav-item">Assign Pumper</span>
+                    </a></li>
+
+
+
+                    <li><a href="<?php echo ROOT ?>/Staff-manager/Home" class="logout">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="nav-item">Back</span>
+                    </a></li>
             </ul>
-        </Nav>
-        <a href="#" class="cnt"><button>CONTACT</button></a>
-    </header>
-    <div class="form-container">
+        </nav>
+        <section class="main">
+            <div class="main-top">
+                <h1>Register Pumper</h1>
+            </div><br><br>
+            <div class="wrapper">
+                <div class="form-container">
+
+                    <div class="form-inner">
+                    <img src="<?php echo ROOT ?>/image/Manager/report.png" alt="">
         <form method="post" action="<?php echo ROOT ?>/Staff-manager/Pumper_registration/pumperRegistration">
-            <h3>register Pumper</h3>
+
             
             <!-- print error massage -->
             <?php
             if(isset($data['error'])){   
                 echo '<span class="errorMsg"> : '.$data['error'].'</span>';
             };
-            ?> 
+                        ?> 
+            <div class="field">
+                        <input type="text" name = "id" required placeholder="Enter Pumper's ID">
+            </div>
+            <div class="field">
+                        <input type="text" name = "firstName" required placeholder="Enter Pumper's First Name">
+                        </div>
+            <div class="field">
+                        <input type="text" name = "lastName" required placeholder="Enter Pumper's Last Name">
+                        </div>
+            <div class="field">
+                        <input type="text" name = "nic" required placeholder="Enter Pumper's NIC">
+                        </div>
+            <div class="field">
+                        <input type="text" name = "phoneNumber" required placeholder="Enter Pumper's Phone Number">
+                        </div>
+            <div class="field">
+                        <select class="profile-gender" name="gender" >
+                            <option value="">--Select Gender--</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                        </div>
+            <div class="field">
+                        <input type="text" name = "email" required placeholder="Enter Pumper's Email">
+                        </div>
+            <div class="field">
+                        <input type="password" name = "password" required placeholder="Enter Pumper's password">
+                        </div>
+            <div class="field">
+                        <input type="password" name = "cpassword" required placeholder="Confirm Pumper's password">
+                        </div><br>
+            <div class="btn">
+                                <div class="btn-layer"></div>  
+            <input type="submit" name="submit" value="Register Now" >
+            </div>
 
-            <input type="text" name = "id" required placeholder="Enter Pumper's ID">
-            <input type="text" name = "firstName" required placeholder="Enter Pumper's First Name">
-            <input type="text" name = "lastName" required placeholder="Enter Pumper's Last Name">
-            <input type="text" name = "nic" required placeholder="Enter Pumper's NIC">
-            <input type="text" name = "phoneNumber" required placeholder="Enter Pumper's Phone Number">
-            <select class="profile-gender" name="gender" >
-                <option value="">--Select Gender--</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-            </select>
-            <input type="text" name = "email" required placeholder="Enter Pumper's Email">
-            <input type="password" name = "password" required placeholder="Enter Pumper's password">
-            <input type="password" name = "cpassword" required placeholder="Confirm Pumper's password">   
-            <input type="submit" name="submit" value="Register Now" class="form-btn">
-            
-            <a href="<?php echo ROOT ?>/Staff-manager/View_pumper" class="back-button">
-                <lable>back</lable>
-            </a>
 
         </form>
     </div>

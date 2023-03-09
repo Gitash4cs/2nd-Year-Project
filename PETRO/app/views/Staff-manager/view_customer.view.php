@@ -1,34 +1,58 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/view_customer.css" text="text/css">
-    <title>Customer List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PETRO</title>
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/view.css" />
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
+
 <body>
-    <header>
-        <img class="logo" src="<?php echo ROOT ?>/image/petro1.png" alt="logo">
-        <Nav>
-            <ul class="nav_link">
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">AVAILABILITY</a></li>
-                <li><a href="#">ABOUT</a></li>
+
+
+<div class="container">
+        <nav>
+            <ul>
+            <li><a href="<?php echo ROOT ?>/Staff-manager/Home" class="logo">
+                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
+                        <span class="nav-item"></span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-gas-pump"></i>
+                        <span class="nav-item">View Pumper</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-chart-bar"></i>
+                        <span class="nav-item">View Customer</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-notes-medical"></i>
+                        <span class="nav-item">View Complain</span>
+                    </a></li>
+                <li><a href="">
+                        <i class="fas fa-history"></i>
+                        <span class="nav-item">Assign Pumper</span>
+                    </a></li>
+
+
+
+                    <li><a href="<?php echo ROOT ?>/Staff-manager/Home" class="logout">
+                        <i class="fas fa-arrow-left"></i>
+                        <span class="nav-item">Back</span>
+                    </a></li>
             </ul>
-        </Nav>
-        <a href="#" class="cnt"><button>CONTACT</button></a>
-    </header>
-    <div class="view-container">
-        <div class="view-row">
-            <div class="view-col">
-                <div class="view-card">
-                    <div class="view-card-header">
-                        <h2> Details of Customer </h2>
-                    </div>
-                    <div class="view-card-body">
-                        <table>
+        </nav>
+
+        <div class="main">
+
+        <div class="main-top">
+            <h1>View Pumper</h1>
+        </div>
+            <table class="table">
+                <thead>
                             <tr>
                                 <th> Customer ID </th>
                                 <th> First Name </th>
@@ -39,6 +63,7 @@
                                 <th> View </th>
                                 <th> Delete </th>
                             </tr>
+                </thead>
                             <tr>
                             <?php
                                 while($row = mysqli_fetch_assoc($data['result'])){
@@ -50,8 +75,8 @@
                                 <td> <?php echo $row["phone_no"];?> </td>
                                 <td> <?php echo $row["email"];?> </td>
                                 <td> <?php echo $row["own_vehicles"];?> </td>
-                                <td> <a href="" class="view">View</a> </td>
-                                <td> <a href="">Delete</a> </td>
+                                <td> <button>View</button> </td>
+                                <td> <button>Delete</button></td>
                             </tr>
                             <?php
                                 }
