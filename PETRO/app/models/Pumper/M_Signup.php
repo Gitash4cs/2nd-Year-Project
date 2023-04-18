@@ -29,7 +29,7 @@ class M_Signup extends Model
         {
           if($confirm_password==$Password){
             $active = 1;
-            $hash_password = password_hash($Password,PASSWORD_BCRYPT);
+            $hash_password = password_hash($Password,PASSWORD_DEFAULT);
             $sql="insert into $this->table (id,first_name,last_name,nic,phone_no,gender,email,password,status)values('$pumper_id','$First_name','$Last_name','$nic','$contact','$gender','$Email','$hash_password','$active')";
             $result=$conect->query($sql);
             $sql = "insert into $this->table1 (email,password,role,status)values('$Email','$hash_password','pumper',1)";
