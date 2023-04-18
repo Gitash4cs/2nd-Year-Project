@@ -1,6 +1,7 @@
 <?php
 
 class Send extends Controller{
+    public $send;
     public function __construct(){
         $this->send=$this->model('M_Send');
     }

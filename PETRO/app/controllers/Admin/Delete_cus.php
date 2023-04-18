@@ -2,6 +2,7 @@
 
 class Delete_cus extends Controller
 {
+    public $delete;
     public function __construct(){
         $this->delete =$this->model('M_Delete_cus');
     }
