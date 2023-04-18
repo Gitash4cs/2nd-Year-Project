@@ -19,4 +19,22 @@ class View_cus extends Controller
             $this->view('Admin/view_cus',$data);
         }
     }
+    public function remove(){
+       
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $data=[
+                'id'=>trim($_POST['customer_manager_id']),
+                
+            ];
+            $result=$this->view->remove($data);
+           
+            header('location:http://localhost/PETRO/public/Admin/View_cus');
+
+            
+           
+           
+        
+        }
+
+    }
 }

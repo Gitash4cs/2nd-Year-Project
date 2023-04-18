@@ -10,8 +10,12 @@ class User extends Controller
 
     public function index()
     {
-        $result = $this->order->load();
-        $this->view('Pumper/user',$result);
+        $data = [
+            'remark'=>1,
+        ];
+        $result = $this->order->load($data);
+        
+        $this->view('Pumper/User',$result);
     }
     public function order_verify(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -21,15 +25,29 @@ class User extends Controller
                 'time'=>'',
                 'err'=>'',
             ];
-            if(($this->order->order_verify($data))==true){
+            $result=$this->order->order_verify($data);
+            if($result==3){
                 header('location:http://localhost/PETRO/public/Pumper/Order');
             }
-            else{
-                $helper=new Helpers;
-                $data['date']=$helper->date();
-                $data['time']=$helper->time();
-                $data['err']="Order Id is Invalid!";
-                $this->view('Pumper/user',$data);
+            elseif($result==1){
+
+                $data = [
+                    'remark' =>0,
+                ];
+
+                $result = $this->order->load($data);
+
+                $this->view('Pumper/User',$result);
+            }
+            elseif($result==2){
+                $data = [
+                    'remark' =>-1,
+                ];
+
+                $result = $this->order->load($data);
+
+                $this->view('Pumper/User',$result);
+
             }
         }
     }

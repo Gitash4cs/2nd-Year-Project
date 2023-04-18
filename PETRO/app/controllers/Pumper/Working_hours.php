@@ -26,7 +26,8 @@ class working_hours extends Controller{
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
 
             $data=[
-                'date'=>trim($_POST['date']),
+                'from'=>trim($_POST['from']),
+                'to'=>trim($_POST['to']),
                 'error'=>'',
             ];
             $result=$this->hours->previous1($data);

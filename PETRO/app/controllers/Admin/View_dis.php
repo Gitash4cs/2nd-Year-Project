@@ -19,4 +19,19 @@ class View_dis extends Controller
             $this->view('Admin/view_dis',$data);
         }
     }
+    public function remove(){
+       
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $data=[
+                'id'=>trim($_POST['distribution_manager_id']),
+                
+            ];
+            $this->view->remove($data);
+            header('location:http://localhost/PETRO/public/Admin/View_dis');
+          
+           
+        
+        }
+
+    }
 }

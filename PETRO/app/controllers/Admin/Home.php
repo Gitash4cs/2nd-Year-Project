@@ -2,6 +2,8 @@
 <?php
 class Home extends Controller{
     public $Update;
+
+    public $Home;
     public function __construct(){
         $this->Home=$this->model('M_Home');
     }
@@ -9,10 +11,8 @@ class Home extends Controller{
     public function index(){
 
         $result=($this->Home->update_fuel());
-            if($result){
-                $this->view('Admin/Home',$result);
-            }
-            else{
-                $this->view('Admin/Home',$data1);
-            }  
-    } }
+           
+         $this->view('Admin/home',$result);
+           
+    } 
+}
