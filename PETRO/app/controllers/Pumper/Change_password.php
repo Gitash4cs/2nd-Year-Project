@@ -7,7 +7,8 @@ class Change_password extends Controller
         $this->change=$this->model('M_Change_password');
     }
     public function index(){
-        $this->view('Pumper/change_password');
+        $result=$this->change->load();
+        $this->view('Pumper/change_password',$result);
     }
 
     public function change(){
@@ -18,12 +19,11 @@ class Change_password extends Controller
                 'current_password'=>trim($_POST['current_password']),
                 'new_password'=>trim($_POST['new_password']),
                 'confirm_password'=>trim($_POST['confirm_password']),
-                'err'=>'',
+                
 
             ];
             $result=$this->change->change($data);
-            $data['err']=$result;
-            $this->view('Pumper/change_password',$data);
+            $this->view('Pumper/change_password',$result);
         }
     }
 }
