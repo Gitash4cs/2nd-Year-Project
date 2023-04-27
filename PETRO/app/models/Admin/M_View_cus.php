@@ -19,4 +19,12 @@ class M_View_cus extends Model
             return false;
         }
     }
+    public function remove($data){
+        $ID=$data['id'];
+        $result=$this->connection();
+
+        $sql="Delete from $this->table where customer_manager_id='".$ID."'";
+        $query=$result->query($sql);
+
+    }
 }

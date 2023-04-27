@@ -3,6 +3,8 @@
 class M_Send extends Model{
     protected $table = 'customer_manager';
 
+    public $send_mail;
+
     public function __construct(){
         $this->send_mail=$this->mail('Library');
     }

@@ -19,4 +19,11 @@ class M_View_dis extends Model
             return false;
         }
     }
+    public function remove($data){
+        $result=$this->connection();
+        $ID=$data['id'];
+        $sql="DELETE FROM $this->table WHERE distribution_manager_id='".$ID."'";
+        $query=$result->query($sql);
+     
+    }
 }

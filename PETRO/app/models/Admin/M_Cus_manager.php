@@ -13,8 +13,7 @@ class M_Cus_manager extends Model{
         $last = $data['last'];
         $nic = $data['nic'];
         $email = $data['email'];
-        $number = $data['number'];
-        $gender= $data['gender'];
+      
         $password = $data['password'];
 
         $sql="select *from $this->table where customer_manager_id ='".$id."'";
@@ -42,7 +41,7 @@ class M_Cus_manager extends Model{
             $active=1;
             $_SESSION['password']=$password;
             $hash = password_hash($password,PASSWORD_DEFAULT);
-            $sql="insert into $this->table(customer_manager_id,First_name,Last_name,NIC,gender,phone_number,email,password,status)values('$id','$first','$last','$nic','$gender','$number','$email','$hash','$active')";
+            $sql="insert into $this->table(customer_manager_id,First_name,Last_name,NIC,email,password,status)values('$id','$first','$last','$nic','$email','$hash','$active')";
             $query = $result->query($sql);
             $sql = "insert into $this->table1 (email,password,role,status)values('$email','$hash','staff',1)";
             $query = $result->query($sql);

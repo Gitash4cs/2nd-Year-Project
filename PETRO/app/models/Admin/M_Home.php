@@ -2,7 +2,17 @@
 
 class M_Home extends Model{
     protected $table = 'fuel_availability';
+
+    protected $table1='user_form';
     protected $table2 = 'fuel_stock';
+
+    protected $table3 = 'pumper';
+
+    protected $table4 = 'customer_manager';
+
+    protected $table5 = 'distribution_manager';
+
+    
     public function update_fuel(){
         $result = $this->connection();
 
@@ -52,6 +62,26 @@ class M_Home extends Model{
                 $price4 = $row['price'];
             }
         }
+        $sql="select COUNT(id) AS COUNT1 FROM $this->table1";
+        $query=$result->query($sql);
+        while($row=$query->fetch_array()){
+            $count1=$row['COUNT1'];
+        }
+        $sql="select COUNT(id) AS COUNT2 FROM $this->table3";
+        $query=$result->query($sql);
+        while($row=$query->fetch_array()){
+            $count2=$row['COUNT2'];
+        }
+        $sql="select COUNT(customer_manager_id) AS COUNT3 FROM $this->table4";
+        $query=$result->query($sql);
+        while($row=$query->fetch_array()){
+            $count3=$row['COUNT3'];
+        }
+        $sql="select COUNT(distribution_manager_id) AS COUNT4 FROM $this->table5";
+        $query=$result->query($sql);
+        while($row=$query->fetch_array()){
+            $count4=$row['COUNT4'];
+        }
             $data =[
                 'fuel_id'=> $fuel_id,
                 'fuel_type' => $fuel_type,
@@ -73,6 +103,10 @@ class M_Home extends Model{
                 'eligible_amount4' => $eligible_amount4,
                 'remain_amount4' => $remain_amount4,
                 'price4' =>$price4,
+                'count1'=>$count1,
+                'count2'=>$count2,
+                'count3'=>$count3,
+                'count4'=>$count4,
                 'loading'=>'1',
                 'err'=>'',
             ];
