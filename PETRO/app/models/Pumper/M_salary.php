@@ -4,6 +4,8 @@ class M_salary extends Model{
 
     protected $table1 = "pumper";
 
+    protected $table2 = "working_time";
+
     protected $table3 = "ot";
 
     public $pdf;
@@ -15,13 +17,16 @@ class M_salary extends Model{
 
     public function loading($data){
         $result=$this->connection();
-        $pumper_id = $_SESSION['pumper_id'];
+        $pumper_id = $_SESSION['id'];
         $download = $data['download'];
 
-        date_default_timezone_set('Europe/London');
+
+        date_default_timezone_set('Asia/Kolkata');
         $date = date('y-m-d');
         $year = date('Y', strtotime($date));
         $month = date('F', strtotime($date));
+
+        $count=0;
 
         $sql="select *from $this->table1 where id = '".$pumper_id."'";
         $query = $result->query($sql);
@@ -35,6 +40,7 @@ class M_salary extends Model{
 
             }
         }
+        
 
         $sql1 = "select *from $this->table3 where (Pumper_id = '" . $pumper_id . "' AND month='" . $month . "') AND (year = '" . $year . "')";
         $query1 = $result->query($sql1);
@@ -45,9 +51,9 @@ class M_salary extends Model{
                 $total += $row['hours'];
             }
         }
-        $hours =(int)(($total)/3600);
+        
 
-        $sql="select *from $this->table where Pumper_id = '".$pumper_id."' AND (month='".$month."' AND year='".$year."')";
+        $sql="select *from $this->table where (month='".$month."' AND year='".$year."')";
         $query=$result->query($sql);
         if($query->num_rows>0){
             while($row = $query->fetch_array()){
@@ -58,11 +64,26 @@ class M_salary extends Model{
                 $OT = $row['OT'];
                 $basic_salary = $row['Basic_salary'];
 
-                $HRA_SALARY=$basic_salary*(float)($basic/100);
-                $DA_SALARY=$basic_salary*(float)($DA/100);
-                $GS=$HRA_SALARY+$DA_SALARY+$basic_salary;
+                $sql="select COUNT(DISTINCT Date) AS days from $this->table2 where(Pumper_id = '" . $pumper_id . "' AND month='" . $month . "') AND (year = '" . $year . "') ";
+                $query=$result->query($sql);
+
+                if($query->num_rows>0){
+
+                    while($row=$query->fetch_array())
+                    {
+                        $count=$row['days'];
+                    
+                    }
+                }
+
+                $orginal_basic = $count*(float)($basic_salary/25);
+
+
+                $HRA_SALARY=$orginal_basic*(float)($basic/100);
+                $DA_SALARY=$orginal_basic*(float)($DA/100);
+                $GS=$HRA_SALARY+$DA_SALARY+$orginal_basic;
                 $PF_SALARY=$GS*(float)($PF/100);
-                $OT_SALARY = $OT * $hours;
+                $OT_SALARY = $OT * $total;
                 $total = $GS+ $OT_SALARY-$PF_SALARY;
 
 
@@ -81,7 +102,7 @@ class M_salary extends Model{
             'DA_s'=>$DA_SALARY,
             'PF_s'=>$PF_SALARY,
             'GS'=>$GS,
-            'basic_s'=>$basic_salary,
+            'basic_s'=>$orginal_basic,
             'OT_SALARY'=>$OT_SALARY,
             'total'=>$total,
             'month'=>$month,
@@ -102,15 +123,15 @@ class M_salary extends Model{
     public function previous($data){
         
         $result=$this->connection();
-        $pumper_id = $_SESSION['pumper_id'];
+        $pumper_id = $_SESSION['id'];
         $date_1 = $data['date'];
 
-        date_default_timezone_set('Europe/London');
+        date_default_timezone_set('Asia/Kolkata');
         $date = $date_1;
         $year = date('Y', strtotime($date));
         $month = date('F', strtotime($date));
 
-       
+        $count=0;
 
         $sql1 = "select *from $this->table3 where (Pumper_id = '" . $pumper_id . "' AND month='" . $month . "') AND (year = '" . $year . "')";
         $query1 = $result->query($sql1);
@@ -121,9 +142,9 @@ class M_salary extends Model{
                 $total += $row['hours'];
             }
         }
-        $hours =(int)(($total)/3600);
+      
 
-        $sql="select *from $this->table where Pumper_id = '".$pumper_id."' AND (month = '".$month."' AND year = '".$year."')";
+        $sql="select *from $this->table where (month = '".$month."' AND year = '".$year."')";
         $query=$result->query($sql);
         if($query->num_rows>0){
             while($row = $query->fetch_array()){
@@ -134,12 +155,26 @@ class M_salary extends Model{
                 $OT = $row['OT'];
                 $basic_salary = $row['Basic_salary'];
 
-                $HRA_SALARY=$basic_salary*(float)($basic/100);
-                $DA_SALARY=$basic_salary*(float)($DA/100);
-                $GS=$HRA_SALARY+$DA_SALARY+$basic_salary;
+                $sql="select COUNT(DISTINCT Date) AS days from $this->table2 where(Pumper_id = '" . $pumper_id . "' AND month='" . $month . "') AND (year = '" . $year . "') ";
+                $query=$result->query($sql);
+
+                if($query->num_rows>0){
+
+                    while($row=$query->fetch_array())
+                    {
+                        $count=$row['days'];
+                    
+                    }
+                }
+
+                $orginal_basic = $count*(float)($basic_salary/25);
+
+                $HRA_SALARY=$orginal_basic*(float)($basic/100);
+                $DA_SALARY=$orginal_basic*(float)($DA/100);
+                $GS=$HRA_SALARY+$DA_SALARY+$orginal_basic;
                 $PF_SALARY=$GS*(float)($PF/100);
-                $OT_SALARY = $OT * $hours;
-                $total = $PF_SALARY + $OT_SALARY;
+                $OT_SALARY = $OT * $total;
+                $total = $GS- $PF_SALARY + $OT_SALARY;
 
 
             }
@@ -153,7 +188,7 @@ class M_salary extends Model{
                 'DA_s'=>$DA_SALARY,
                 'PF_s'=>$PF_SALARY,
                 'GS'=>$GS,
-                'basic_s'=>$basic_salary,
+                'basic_s'=>$orginal_basic,
                 'OT_SALARY'=>$OT_SALARY,
                 'total'=>$total,
     

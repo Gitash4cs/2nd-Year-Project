@@ -3,8 +3,8 @@ class M_Hours extends Model{
     protected $table = 'working_time';
     public function details(){
         $result = $this->connection();
-        $pumper_id = $_SESSION['pumper_id'];
-        date_default_timezone_set('Europe/London');
+        $pumper_id = $_SESSION['id'];
+        date_default_timezone_set('Asia/Kolkata');
         $date = date('y-m-d');
         $sql="select *from $this->table where Pumper_id='".$pumper_id."' AND Date = '".$date."' LIMIT 50";
         $query = $result->query($sql);
@@ -31,13 +31,14 @@ class M_Hours extends Model{
     public function previous1($data){
         $result = $this->connection();
 
-        $pumper_id = $_SESSION['pumper_id'];
+        $pumper_id = $_SESSION['id'];
 
         date_default_timezone_set('Asia/Kolkata');
-        $date = $data['date'];
-        $sql="select *from $this->table where Pumper_id='".$pumper_id."' AND Date = '".$date."' LIMIT 10";
+        $from = $data['from'];
+        $to = $data['to'];
+        $sql="select *from $this->table where Pumper_id='".$pumper_id."' AND (Date>='".$from."' AND Date<='".$to."')";
         $query = $result->query($sql);
-        $sql="select *from $this->table where Pumper_id='".$pumper_id."' AND Date = '".$date."' LIMIT 10";
+        $sql="select *from $this->table where Pumper_id='".$pumper_id."' AND (Date>='".$from."' AND Date<='".$to."')";
         $query1 = $result->query($sql);
         $total=0;
         while($row = $query1->fetch_array()){
