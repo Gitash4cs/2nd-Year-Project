@@ -15,9 +15,8 @@
 <body>
 
 
-
-    <!-- SIDEBAR -->
-    <section id="sidebar">
+     <!-- SIDEBAR -->
+     <section id="sidebar">
         <a href="#" class="brand">
             <i class='bx bxs-gas-pump'></i>
             <span class="text">PETRO</span>
@@ -41,7 +40,7 @@
                     <span class="text">View & Responds to complaint</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/view_pumper">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">View Pumpers</span>
@@ -53,7 +52,7 @@
                     <span class="text">Add Pumpers</span>
                 </a>
             </li>
-            <li >
+            <li class="active">
                 <a href="<?php echo ROOT ?>/Staff-manager/view_customer">
                     <i class='bx bxs-group'></i>
                     <span class="text">View Customer</span>
@@ -68,9 +67,9 @@
         </ul>
         <ul class="side-menu">
             <li>
-                <a href="#">
-                    <i class='bx bxs-cog'></i>
-                    <span class="text">Settings</span>
+                <a href="<?php echo ROOT ?>/Staff-manager/view_customer"">
+                    <i class="fa-duotone fa-arrow-left fa-beat"></i>
+                    <span class="text">Back</span>
                 </a>
             </li>
             <li>
@@ -93,16 +92,13 @@
             <a href="#" class="nav-link">Categories</a>
             <form action="#">
                 <div class="form-input">
-                    <input type="search" placeholder="Search...">
+                    
                     <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+      
             <a href="#" class="profile">
                 <img src="img/people.png">
             </a>
@@ -113,51 +109,44 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>View Pumpers</h1>
+                    <h1>View Customer</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="<?php echo ROOT ?>/Staff-manager/Home">Dashboard</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">View Customer</a>
+                            <a class="active" href="#">View Customer Profile</a>
                         </li>
                     </ul>
                 </div>
             
             </div>
 
-            <div class="table-data">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th> Pumper ID </th>
-                            <th> First Name </th>
-                            <th> Last Name </th>
-                            <th> Phone Number </th>
-                            <th> Email </th>
-                            <th> View </th>
-                            <th> Delete </th>
-                        </tr>
-                    </thead>
-                        <tr>
-                        <?php
-                            while($row = mysqli_fetch_assoc($data['result'])){
-                                
-                        ?>
-                            <td> <?php echo $row['id'];?> </td>
-                            <td> <?php echo $row['first_name'];?> </td>
-                            <td> <?php echo $row["last_name"];?> </td>
-                            <td> <?php echo $row["phone_no"];?> </td>
-                            <td> <?php echo $row["email"];?> </td>
-                            <td> <button value="<?php echo $row['id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper_Profile?pump_id=<?php echo $row['id'];?>';">View</button> </td>
-                            <td> <button>Delete</button></td>
-                        </tr>
-                        <?php
-                            }
-                        ?>
-                </table>
-            </div>
+            <ul class="table-data">
+                <div class="order">
+                    <?php if(!empty($data)): ?> 
+                        <h1><span><?php echo $data["fname"]. " ".$data["lname"]?><span></h1>
+                        
+                        <table class="table">
+                            <tr><th>ID </th><td><?php echo $data["id" ]?>  </td></tr>
+                            <tr><th>First name</th><td><?php echo $data["fname"]?>  </td></tr>
+                            <tr><th>Last name</th><td><?php echo $data["lname"]?>  </td></tr>
+                            <tr><th>Email</th><td><?php echo $data["email" ]?> </td></tr>
+                            <tr><th>NIC</th><td><?php echo $data["NIC" ]?>  </td></tr>
+                            <tr><th>Phone Number</th><td><?php echo $data["phone"]?>  </td></tr>
+                            <tr><th>1st Vehical Number</th><td><?php echo $data["vno"]?>  </td></tr>
+                            <tr><th>2st Vehical Number</th><td><?php echo $data["vno1"]?>  </td></tr>
+                            <tr><th>3st Vehical Number</th><td><?php echo $data["vno2"]?>  </td></tr>
+
+
+                        </table>
+                    
+                </div>
+                <?php else: ?>
+                    <div> That profile was not found</div>
+                <?php endif; ?>
+            </ul>
 
             <div class="table-data">
                 <div class="order">
@@ -180,10 +169,14 @@
             </div>
 
         </main>
+
+
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
 
-    <script src="<?php echo ROOT ?>/CSS/Staff-manager/script.js"></script>
+
 </body>
+
 </html>
+

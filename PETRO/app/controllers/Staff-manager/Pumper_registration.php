@@ -16,7 +16,6 @@ class Pumper_registration extends Controller
     }
 
     public function pumperRegistration(){
-        echo "DOOONNEEEEEEE";
         //get user data and asign in to variables (escape special character)
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $record=[
@@ -27,8 +26,8 @@ class Pumper_registration extends Controller
                 'nic'=>trim($_POST['nic']),
                 'gender'=>trim($_POST['gender']),
                 'email'=>trim($_POST['email']),
-                'password'=>md5($_POST['password']),
-                'confirmPassword'=>md5($_POST['cpassword']),
+                'password'=>trim($_POST['password']),
+                'confirmPassword'=>trim($_POST['cpassword']),
                 'error'=>'',
             ];
             

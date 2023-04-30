@@ -405,14 +405,14 @@ body {
 
 
 
-#content main .box-info {
+#content main .box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-gap: 24px;
     margin-top: 36px;
 }
 
-#content main .box-info li {
+#content main .box li {
     padding: 24px;
     background: var(--light);
     border-radius: 20px;
@@ -421,7 +421,7 @@ body {
     grid-gap: 24px;
 }
 
-#content main .box-info li .bx {
+#content main .box li .bx {
     width: 80px;
     height: 80px;
     border-radius: 10px;
@@ -431,33 +431,33 @@ body {
     align-items: center;
 }
 
-#content main .box-info li:nth-child(1) .bx {
+#content main .box li:nth-child(1) .bx {
     background: var(--light-blue);
     color: var(--blue);
 }
 
-#content main .box-info li:nth-child(2) .bx {
+#content main .box li:nth-child(2) .bx {
     background: var(--light-yellow);
     color: var(--yellow);
 }
 
-#content main .box-info li:nth-child(3) .bx {
+#content main .box li:nth-child(3) .bx {
     background: var(--light-orange);
     color: var(--orange);
 }
 
-#content main .box-info li:nth-child(4) .bx {
+#content main .box li:nth-child(4) .bx {
     background: var(--dark-grey);
     color: var(--dark);
 }
 
-#content main .box-info li .text h3 {
+#content main .box li .text h3 {
     font-size: 24px;
     font-weight: 600;
     color: var(--dark);
 }
 
-#content main .box-info li .text p {
+#content main .box li .text p {
     color: var(--dark);
 }
 
@@ -923,11 +923,14 @@ form .field input:focus::placeholder {
 
 form .btn {
     height: 50px;
-    width: 80%;
-    margin-left: 10%;
+    width: 15%;
+    background-color: var(--blue);
+    color: white;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
+    border-color: var(--blue);
+    font-size: 18px;
 }
 
 form .btn .btn-layer {
@@ -959,7 +962,7 @@ form .btn input[type="submit"] {
     cursor: pointer;
 }
 
-/* .button {
+.button {
     position: relative;
     float: left;
     margin-left: 15%;
@@ -976,7 +979,7 @@ form .btn input[type="submit"] {
     outline: none;
     text-align: center;
     padding-top: 20px;
-} */
+}
 
 .search {
     width: 20%;
@@ -1006,21 +1009,6 @@ form .btn input[type="submit"] {
     min-width: 100%;
     overflow: hidden;
     border-radius: 5px 5px 0 0;
-    border: 1px solid #3498db;
-}
-
-.table button {
-    padding: 6px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid #3498db;
-}
-
-.table button:hover {
-    background: #3498db;
-    color: #fff;
-    transition: 0.5rem;
 }
 
 table thead tr {
@@ -1079,6 +1067,47 @@ table thead tr {
     margin-left: 30%;
 }
 
-.flex-container{
-    display: flex;
-}
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */ 
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: var(--blue);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container3 {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  .subject1{
+    font-size: larger;
+    font-weight: bold;
+    color: #060714;
+  }
+ 
+ 
+
+
+
+

@@ -2,35 +2,31 @@
 
 class M_edit_profile extends Model{
 
-    protected $table = 'manager';
+    protected $table = 'customer_manager';
 
     public function edit_manager($data){
         $result = $this->connection();
         $manager_ID = $data['manager_ID'];
-        $sql="select * from $this->table where id='".$manager_ID."'";
+        $sql="select * from $this->table where customer_manager_id='".$manager_ID."'";
         $query = $result->query($sql);
         if($query->num_rows>0){
             while($row = $query->fetch_array()){
-                $id= $row['id'];
-                $first_name = $row['first_name'];
-                $last_name = $row['last_name'];
-                $nic = $row['nic'];
-                $type = $row['type'];
+                $id= $row['customer_manager_id'];
+                $first_name = $row['First_name'];
+                $last_name = $row['Last_name'];
+                $nic = $row['NIC'];
                 $gender = $row['gender'];
                 $email  = $row['email'];
-                $phone_no = $row['phone_no'];
-                $image  = $row['image'];
+                $phone_no = $row['phone_number'];
             }
             $arr =array(
                 'id'=> $id,
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'nic' => $nic,
-                'type' =>$type,
                 'gender'=> $gender,
                 'email'=>$email,
                 'phone_no'=> $phone_no,
-                'image'=>$image,
                 'loading'=>'1',
                 'err'=>'',
             );
@@ -53,9 +49,9 @@ class M_edit_profile extends Model{
         }else{
             //update user record given data to the data base table
             if(!empty($data['password'])){
-                $insert = "Update manager set first_name = '".$data['first_name']."', last_name = '".$data['last_name']."', nic = '".$data['nic']."', phone_no = '".$data['phone_no']."', gender ='".$data['gender']."', password = '".$data['password']."' where id = '".$_SESSION['manager_ID']."'";
+                $insert = "Update customer_manager set First_name = '".$data['first_name']."', Last_name = '".$data['last_name']."', NIC  = '".$data['nic']."', phone_number = '".$data['phone_no']."', gender ='".$data['gender']."', password = '".$data['password']."' where customer_manager_id  = '".$_SESSION['manager_ID']."'";
             }else{
-                $insert = "Update manager set first_name = '".$data['first_name']."', last_name = '".$data['last_name']."', nic = '".$data['nic']."', phone_no = '".$data['phone_no']."', gender = '".$data['gender']."' where id = '".$_SESSION['manager_ID']."'";
+                $insert = "Update customer_manager set First_name = '".$data['first_name']."', Last_name = '".$data['last_name']."', NIC  = '".$data['nic']."', phone_number = '".$data['phone_no']."', gender = '".$data['gender']."' where customer_manager_id  = '".$_SESSION['manager_ID']."'";
             }
             $query = $result->query($insert);
             //redirect to the staff manager's page

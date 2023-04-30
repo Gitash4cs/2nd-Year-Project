@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PETRO</title>
+    <meta charset="UTF-8" />
+    <title>Manager Home</title>
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/salary_rate.css" text="text/css" />
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <!-- My CSS -->
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/view_customer.css" />
+    <!-- to get calander move icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
-
-
-
     <!-- SIDEBAR -->
     <section id="sidebar">
         <a href="#" class="brand">
@@ -23,7 +20,7 @@
             <span class="text">PETRO</span>
         </a>
         <ul class="side-menu top">
-            <li>
+            <li >
                 <a href="<?php echo ROOT ?>/Staff-manager/Home">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
@@ -41,25 +38,25 @@
                     <span class="text">View & Responds to complaint</span>
                 </a>
             </li>
-            <li class="active">
+            <li >
                 <a href="<?php echo ROOT ?>/Staff-manager/view_pumper">
                     <i class='bx bxs-message-dots'></i>
                     <span class="text">View Pumpers</span>
                 </a>
             </li>
-            <li>
+            <li >
                 <a href="<?php echo ROOT ?>/Staff-manager/Pumper_registration">
                     <i class='bx bxs-group'></i>
                     <span class="text">Add Pumpers</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/view_customer">
                     <i class='bx bxs-group'></i>
                     <span class="text">View Customer</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="<?php echo ROOT ?>/Staff-manager/Salary_Rate">
                     <i class='bx bxs-group'></i>
                     <span class="text">Salary Percentage </span>
@@ -68,13 +65,13 @@
         </ul>
         <ul class="side-menu">
             <li>
-                <a href="#">
+                <a href="<?php echo ROOT ?>/Staff-manager/Profile">
                     <i class='bx bxs-cog'></i>
-                    <span class="text">Settings</span>
+                    <span class="text">Profile</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="logout">
+                <a href="<?php echo ROOT ?>/Staff-manager/Logout" class="logout">
                     <i class='bx bxs-log-out-circle'></i>
                     <span class="text">Logout</span>
                 </a>
@@ -113,77 +110,98 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>View Pumpers</h1>
+                    <h1>Salary Percentage</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="<?php echo ROOT ?>/Staff-manager/Home">Dashboard</a>
+                            <a href="#">Dashboard</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">View Customer</a>
+                            <a class="active" href="#">Home</a>
                         </li>
                     </ul>
                 </div>
-            
             </div>
 
-            <div class="table-data">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th> Pumper ID </th>
-                            <th> First Name </th>
-                            <th> Last Name </th>
-                            <th> Phone Number </th>
-                            <th> Email </th>
-                            <th> View </th>
-                            <th> Delete </th>
-                        </tr>
-                    </thead>
-                        <tr>
-                        <?php
-                            while($row = mysqli_fetch_assoc($data['result'])){
-                                
-                        ?>
-                            <td> <?php echo $row['id'];?> </td>
-                            <td> <?php echo $row['first_name'];?> </td>
-                            <td> <?php echo $row["last_name"];?> </td>
-                            <td> <?php echo $row["phone_no"];?> </td>
-                            <td> <?php echo $row["email"];?> </td>
-                            <td> <button value="<?php echo $row['id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper_Profile?pump_id=<?php echo $row['id'];?>';">View</button> </td>
-                            <td> <button>Delete</button></td>
-                        </tr>
-                        <?php
-                            }
-                        ?>
-                </table>
-            </div>
+            
+
+            <!-- print error massage -->
+            <?php
+                if(isset($data['error'])){   
+                    echo '<span class="errorMsg"> : '.$data['error'].'</span>';
+                };
+            ?> 
+
 
             <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Recent Orders</h3>
+                        <h3>Current Rates</h3>
                         <i class='bx bx-search'></i>
                         <i class='bx bx-filter'></i>
-                        
                     </div>
+                    <table>
+                        <tr><td> Basic</td> <td>-</td> <td>Rs.<?php echo $data['Basic']?>/=</td></tr>
+                        <tr><td> Home Rental Allowances Rate</td> <td>-</td> <td><?php echo $data['HRA']?>%</td></tr>
+                        <tr><td> Daily Allowances Rate</td> <td>-</td> <td><?php echo $data['Daily_allowances']?>%</td></tr>
+                        <tr><td> Provident Fund Rate</td> <td>-</td> <td><?php echo $data['Provident_fund']?>%</td></tr>
+                        <tr><td> Over Time (per hour)</td> <td>-</td> <td>Rs.<?php echo $data['OT']?>/=</td></tr>
+
+                    </table>
                     
                 </div>
-                <div class="todo">
+                <div class="order">
                     <div class="head">
-                        <h3>Todos</h3>
+                        <h3>Edit Salary Percentage</h3>
                         <i class='bx bx-plus'></i>
                         <i class='bx bx-filter'></i>
                     </div>
-
+                    <div class="form-inner">
+                    <form class="form-container" action="<?php echo ROOT ?>/Staff-manager/Salary_Rate/editRates" method="post">
+                        <div class="field">
+                        <span class="form-tag">Update Basic Salary Rate : </span>
+                        <input type="text" name = "Basic" required placeholder="Enter New Basic Salary Rate">
+                        </div>
+                        <div class="field">
+                        <span class="form-tag">Update HRA Rate : </span>
+                        <input type="text" name = "HRA" required placeholder="Enter New HRA Rate">
+                        </div>
+                        <div class="field">
+                        <span class="form-tag">Update Daily_allowances Rate : </span>
+                        <input type="text" name = "Daily_allowances" required placeholder="Enter New Daily_allowances Rate">
+                        </div>
+                        <div class="field">
+                        <span class="form-tag">Update Provident_fund Rate : </span>
+                        <input type="text" name = "Provident_fund" required placeholder="Enter New Provident_fund Rate">
+                        </div>
+                        <div class="field">
+                        <span class="form-tag">OT Salary Rate (per hour) : </span>
+                        <input type="text" name = "OT" required placeholder="Enter New OT rate">
+                        </div>
+                        <br><br>
+                        <div class="btn">
+                        <div class="btn-layer"></div>
+                            <input type="submit" name="submit" value="Register Now" >
+                        </div>
+                    </form>
+                </div>
                 </div>
             </div>
+
+
+            
 
         </main>
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
 
-    <script src="<?php echo ROOT ?>/CSS/Staff-manager/script.js"></script>
+
+    <script src="<?php echo ROOT ?>/JS/Staff-manager/script.js"></script>
+    <script src="<?php echo ROOT ?>/JS/Staff-manager/calender.js"></script>
 </body>
+
+
+
+
 </html>
