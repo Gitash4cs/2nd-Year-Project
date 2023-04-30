@@ -874,15 +874,15 @@ header .current-date {
 }
 
 .form-inner form .field input {
-    margin-left: 10%;
+    margin-left: 3%;
     height: 100%;
-    width: 80%;
+    width: 50%;
     outline: none;
     padding-left: 15px;
     border-radius: 5px;
     border: 1px solid lightgrey;
     border-bottom-width: 2px;
-    font-size: 17px;
+    font-size: 15px;
     transition: all 0.3s ease;
     background-color: var(--light);
     color: var(--dark);
@@ -959,7 +959,7 @@ form .btn input[type="submit"] {
     cursor: pointer;
 }
 
-/* .button {
+.button {
     position: relative;
     float: left;
     margin-left: 15%;
@@ -976,7 +976,7 @@ form .btn input[type="submit"] {
     outline: none;
     text-align: center;
     padding-top: 20px;
-} */
+}
 
 .search {
     width: 20%;
@@ -1006,21 +1006,6 @@ form .btn input[type="submit"] {
     min-width: 100%;
     overflow: hidden;
     border-radius: 5px 5px 0 0;
-    border: 1px solid #3498db;
-}
-
-.table button {
-    padding: 6px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid #3498db;
-}
-
-.table button:hover {
-    background: #3498db;
-    color: #fff;
-    transition: 0.5rem;
 }
 
 table thead tr {
@@ -1079,6 +1064,22 @@ table thead tr {
     margin-left: 30%;
 }
 
-.flex-container{
+.form-container{
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.form-tag{
+    font-size: 15px;
+    color: gray;
+    line-height: 1.2;
+    text-align: right;
+    width: 10%;
 }

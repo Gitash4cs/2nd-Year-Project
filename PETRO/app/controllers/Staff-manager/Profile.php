@@ -16,7 +16,7 @@ class Profile extends Controller
         ];
         
         $result = $this->order->view_manager($data);
-
+        
         if($result){
             $this->view('Staff-manager/profile',$result);
 

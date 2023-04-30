@@ -8,8 +8,10 @@ class M_assign_pumpper extends Model{
         $result = $this->connection();
         $sql="SELECT * from pumper_mashine";
         $sqlPumper="SELECT * from pumper where status = 'not assigned'";
+        
         $query = $result->query($sql);
         $queryPumper = $result->query($sqlPumper);
+        
         if($query->num_rows>0){
             $data=[
                 'result'=>$query,
@@ -25,13 +27,51 @@ class M_assign_pumpper extends Model{
     }
 
 
-    public function show_assign_pumpper($mashineId){
+    public function show_assign_pumpper($PumpID ){
        
         $result = $this->connection();
-        $select = " SELECT pumperID FROM pumper_mashine WHERE MashineID = '".$mashineId."' ;";
+        $select = " SELECT pumperID FROM pumper_mashine WHERE PumpID  = '".$PumpID ."' ;";
         $query = $result->query($select);
         $data = $query->fetch_array();
         $id= $data['pumperID'];
+        if ($id == '0'){
+            $id = "Not Assigned";
+        }
+        return  $id;
+       
+        
+    }
+
+    public function pumpercount(){
+       
+        $result = $this->connection();
+        $totalPumper="SELECT count(id) from pumper";
+        
+        $querytotalPumper = $result->query($totalPumper);
+       
+
+        $data = $querytotalPumper->fetch_array();
+        //print_r($data);
+        $id= $data['count(id)'];
+        if ($id == '0'){
+            $id = "Not Hired";
+        }
+        return  $id;
+       
+        
+    }
+
+    public function activepumpercount(){
+       
+        $result = $this->connection();
+       
+        $activePumper="SELECT count(id) from pumper where status = 'assigned'";
+
+        
+        $queryactivePumper = $result->query($activePumper);
+
+        $data = $queryactivePumper->fetch_array();
+        $id= $data[0];
         if ($id == '0'){
             $id = "Not Assigned";
         }
@@ -46,17 +86,25 @@ class M_assign_pumpper extends Model{
         //remover pumper from mashine
         if($data['pumperid'] == "remove"){
             //update the pumper status
-            $insertstatus = "Update pumper set status = 'not assigned' where id = (select pumperID from pumper_mashine where MashineID = '".$data['pumperMashine']."')"; 
+            $insertstatus = "Update pumper set status = 'not assigned' where id = (select pumperID from pumper_mashine where PumpID  = '".$data['pumperMashine']."')"; 
             $query = $result->query($insertstatus);
 
             //remove the pumper_mashine table after assign the pumper
-            $insert = "Update pumper_mashine set pumperID = '0' where MashineID = '".$data['pumperMashine']."'"; 
+            $insert = "Update pumper_mashine set pumperID = '0' where PumpID  = '".$data['pumperMashine']."'"; 
+            $query = $result->query($insert);
+
+            //remove the assign date table after assign the pumper
+            $insert = "Update pumper_mashine set date = '0' where PumpID  = '".$data['pumperMashine']."'"; 
             $query = $result->query($insert);
 
         }
         else{
              //update the pumper_mashine table after assign the pumper
-            $insert = "Update pumper_mashine set pumperID = '".$data['pumperid']."' where MashineID = '".$data['pumperMashine']."'"; 
+            $insert = "Update pumper_mashine set pumperID = '".$data['pumperid']."' where PumpID  = '".$data['pumperMashine']."'"; 
+            $query = $result->query($insert);
+
+            //update date of the pumper_mashine table after assign the pumper
+            $insert = "Update pumper_mashine set date = CURRENT_DATE() where PumpID  = '".$data['pumperMashine']."'"; 
             $query = $result->query($insert);
 
             //update the pumper status

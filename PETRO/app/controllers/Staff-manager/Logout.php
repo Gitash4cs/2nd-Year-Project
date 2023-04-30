@@ -11,7 +11,7 @@ class Logout extends Controller
         // session_destroy();
 
         //direct to the unlogged staff manager page
-        header('location:http://localhost/PETRO/public/Staff-manager/Home');
+        header('location:http://localhost/PETRO/public/Home/Login');
     }
 
 }
