@@ -6,6 +6,11 @@
         }
 
         public function index(){
+            $data=[
+                'id'=>$_SESSION['distribution_manager_id'],
+    
+            ];
+
             $this->view('Manager/Add_report');
         }
 

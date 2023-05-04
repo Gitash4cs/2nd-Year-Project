@@ -7,7 +7,20 @@ class Home extends Controller{
     }
 
     public function index(){
-        $this->view('Manager/Home');
+        $data=[
+            'id'=>$_SESSION['distribution_manager_id'],
+
+        ];
+
+        $result=($this->Home->view($data));
+        if($result){
+            $this->view('Manager/Home',$result);
+        }
+        else{
+            $this->view('Manager/Home',$data);
+        }
+        
     }
+
 
 }

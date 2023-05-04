@@ -1,154 +1,300 @@
+<?php
+    $flag='';
+    if(empty($data['error'])){
+        $flag=true;
+    }
+    else{
+        $flag=false;
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Update Fuel Availability</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/price.css" />
-    <!-- Font Awesome Cdn Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+    <title>AdminHub</title>
 </head>
 
 <body>
-    <div class="container">
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li >
+                <a href="<?php echo ROOT ?>/Manager/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="<?php echo ROOT ?>/Manager/Update">
+                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <span class="text">Update Fuel Details</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/View_history">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/Add_report">
+                <i class='bx bxs-report'></i>
+                    <span class="text">Add Daily Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/Report_history">
+                <i class='bx bx-history'></i>
+                    <span class="text">Report History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/View_order">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">View Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href=View_pumper>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">View Pumpers</span>
+                </a>
+            </li>
+            <li>
+                <a href="Product">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Add Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Product History</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#">
+                <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
+                    <span class="text">Back</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle bx-fade-left-hover'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
         <nav>
-            <ul>
-                    <li><a href="<?php echo ROOT ?>/Manager/Home" class="logo">
-                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
-                        <span class="nav-item"></span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Update">
-                        <i class="fas fa-gas-pump"></i>
-                        <span class="nav-item">Update Fuel</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_history">
-                        <i class="fas fa-chart-bar"></i>
-                        <span class="nav-item">Analize</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Add_report">
-                        <i class="fas fa-notes-medical"></i>
-                        <span class="nav-item">Daily Report</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Report_history">
-                        <i class="fas fa-history"></i>
-                        <span class="nav-item">Report History</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_order">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="nav-item">View Orders</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_pumper">
-                        <i class="fas fa-male"></i>
-                        <span class="nav-item">View Pumper</span>
-                    </a></li>
+            <i class='bx bx-menu'></i>
 
-                    <li><a href="<?php echo ROOT ?>/Manager/Update" class="logout">
-                        <i class="fas fa-arrow-left"></i>
-                        <span class="nav-item">Back</span>
-                    </a></li>
-            </ul>
+            <form action="#">
+                <div class="form-input">
+
+
+                    <button type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="img/people.png">
+            </a>
         </nav>
+        <!-- NAVBAR -->
 
-        <section class="main">
-            <div class="main-top">
-                <h1>Change Prices</h1>
-            </div><br><br>
-            <div class="wrapper">
-                <div class="form-container">
-                <div class="form-inner">
-                <img src="<?php echo ROOT ?>/image/Manager/gas-price.png" alt="">
-                    <form action="<?php echo ROOT?>/Manager/Change_Price/change_price" method="POST">
-                <div class="field">
-                    <input type="number" name="octane_92" placeholder="Octane 92 Price">
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Update Fuel Details</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Update Fuel Details</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="#">Price Details</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="field">
-                    <input type="number" name="octane_95" placeholder="Octane 95 Price">
-                </div>
-                <div class="field">
-                    <input type="number" name="super_diesel" placeholder="Super Diesel Price">
-                </div>
-                <div class="field">
-                    <input type="number" name="auto_diesel" placeholder="Auto Diesel Price">
-                </div>
-                <br>
 
-                <input type="checkbox" required class="checkbox">
-                <span class="span">Confirm details</span>
-                <br>
-                <div class="btn">
-                    <div class="btn-layer"></div>
-                        <input type="submit" value="Submit">
-                    </div>
-            
-                </div>
-                
-                </div>
             </div>
 
-            <section class="attendance">
-        <div class="attendance-list">
-          <h1>Price History</h1>
-          <table class="table">
-            <thead>
-              <tr>
 
-                <th>Date</th>
-                <th>Time</th>
-                <th>Fuel Type</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>Octane 95</td>
-                <td> Rs.340.00</td>
-              </tr>
-              <tr class="active">
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>Octane 92</td>
-                <td> Rs.340.00</td>
-              </tr>
-              <tr>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>Super Diesel</td>
-                <td> Rs.340.00</td>
-              </tr>
-              <tr>
-                <td>03-24-22</td>
-                <td>8:00AM</td>
-                <td>Auto Diesel</td>
-                <td> Rs.340.00</td>
-              </tr>
-              <!-- <tr >
-                <td>05</td>
-                <td>Salina</td>
-                <td>Coding</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td>4:00PM</td>
-                <td><button>View</button></td>
-              </tr>
-              <tr >
-                <td>06</td>
-                <td>Tara Smith</td>
-                <td>Testing</td>
-                <td>03-24-22</td>
-                <td>9:00AM</td>
-                <td>4:00PM</td>
-                <td><button>View</button></td>
-              </tr> -->
-            </tbody>
-          </table>
-        </div>
-      </section>
+
+            <div class="table-data">
+                <div class="todo">
+                    <div class="head">
+                        <h3>Update Availability</h3>
+                    </div>
+                    <div class="form-inner">
+                        <form action="<?php echo ROOT?>/Manager/Change_Price/change_price" method="POST">
+                            <div class="">
+                                <br>
+                                <select name="fuel_type">
+                                    <option value="octane 92">Octane 92</option>
+                                    <option value="octane 95">Octane 95</option>
+                                    <option value="super diesel">Super Diesel</option>
+                                    <option value="auto diesel">Auto Diesel</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <input type="number" name="price" placeholder="Price">
+                            </div>
+                            <br>
+
+                            <input type="checkbox" required class="checkbox1">
+                            <span class="span">Confirm details</span>
+                            <br>
+                            <div class="btn">
+                                <div class="btn-layer"></div>
+                                <input type="submit" value="Submit">
+                            </div>
+
+                    </div>
+                </div>   
+                <div class="order">
+                    <div class="head">
+                        <h3>Chart</h3>
+                    </div>
+                <div class="box-info">
+                    <canvas id="myChart" class="chartBox"></canvas>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <script>
+                    window.onload = function () {
+
+                        var xValues = ['Octane 92', 'Octane 95', 'Super Diesel', 'Auto Diesel'];
+                        var yValues = [20,15,10,8,0];
+                        var barColors = ["#0EBBEE", "#B0B9BB", "0588AF", "0D5CF0", "#091d2a"];
+
+                        var chart2 = new Chart("myChart", {
+                            type: "line",
+                            data: {
+                                label: "No of Liters Arrived",
+                                labels: xValues,
+                                datasets: [{
+                                    backgroundColor: barColors,
+                                    data: yValues
+                                }]
+                            },
+                            options: {
+                                legend: { display: true },
+                                title: {
+                                    display: true,
+                                    text: "No of Liters Arrived"
+                                },
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    chart2.render();
+                </script>
+                    </div>
+                </div>
+            </div>
+            <div class="table-data">
+                <div class="order">
+                <div class="head">
+                        <h3>Price History</h3>
+                </div>
+                <div class="attendance-list">
+                <input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search by Date" class="search">
+                    <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
+                        <thead>
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Date</th>
+                                <th>Fuel Type</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+            if($flag==true){
+                if(mysqli_num_rows($data['result']) > 0){
+                    while($row = mysqli_fetch_assoc($data['result'])){
+                        echo "<tr data-href = more.html><td>". $row["id"]. "</td><td>". $row["date"]."</td><td>". $row["fuel_type"]."</td><td>". $row["price"]."</td></ data-href>";
+                    }
+                }
+            }
+        ?>
+                        </tbody>
+                    </table>
+                </div>
+
+
+        </main>
+        <!-- MAIN -->
     </section>
-  </div>
-            
+    <!-- CONTENT -->
+
+    <script src="calender.js"></script>
+    <script src="<?php echo ROOT ?>/JS/Manager/script.js"></script>
+    
+    <script src="todo.js"></script>
+    <script type="application/javascript">
+        function tableSearch() {
+            let input, filter, table, tr, td, txtValue;
+
+            //Intialising Variables
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+
+        }
+    </script>
 </body>
 
 </html>

@@ -8,85 +8,162 @@ if (empty($data['error'])) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
     <title>PETRO</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/price.css" />
-    <!-- Font Awesome Cdn Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
 
 
-<div class="container">
-        <nav>
-            <ul>
-            <li><a href="<?php echo ROOT ?>/Manager/Home" class="logo">
-                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
-                        <span class="nav-item"></span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Update">
-                        <i class="fas fa-gas-pump"></i>
-                        <span class="nav-item">Update Fuel</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_history">
-                        <i class="fas fa-chart-bar"></i>
-                        <span class="nav-item">Analize</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Add_report">
-                        <i class="fas fa-notes-medical"></i>
-                        <span class="nav-item">Daily Report</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Report_history">
-                        <i class="fas fa-history"></i>
-                        <span class="nav-item">Report History</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_order">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="nav-item">View Orders</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_pumper">
-                        <i class="fas fa-male"></i>
-                        <span class="nav-item">View Pumper</span>
-                    </a></li>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li >
+                <a href="<?php echo ROOT ?>/Manager/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li >
+                <a href="<?php echo ROOT ?>/Manager/Update">
+                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <span class="text">Update Fuel Details</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="<?php echo ROOT ?>/Manager/View_history">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/Add_report">
+                <i class='bx bxs-report'></i>
+                    <span class="text">Add Daily Report</span>
+                </a>
+            </li>
+            <li >
+                <a href="<?php echo ROOT ?>/Manager/Report_history">
+                <i class='bx bx-history'></i>
+                    <span class="text">Report History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/View_order">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">View Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href=View_pumper>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">View Pumpers</span>
+                </a>
+            </li>
+            <li >
+                <a href="Product">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Add Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Product History</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#">
+                <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
+                    <span class="text">Back</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle bx-fade-left-hover'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
 
-                    <li><a href="<?php echo ROOT ?>/Manager/Home" class="logout">
-                        <i class="fas fa-arrow-left"></i>
-                        <span class="nav-item">Back</span>
-                    </a></li>
-            </ul>
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu'></i>
+
+            <form action="#">
+                <div class="form-input">
+
+
+                    <button type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="img/people.png">
+            </a>
         </nav>
-    <div class="main">
-    <div class="main-top">
-                <h1>View & Analize Stock History</h1>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>View Stock History</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">View Stock History</a>
+                        </li>
+                        <!--li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="#">Price Details</a>
+                        </-->
+                    </ul>
+                </div>
+
             </div>
-            <br>
-            <div class="wrapper">
-                <div class="form-container">
-                <div class="form-inner">
-                <img src="<?php echo ROOT ?>/image/Manager/gas-price.png" alt="">
-                    <form action="<?php echo ROOT?>/Manager/Change_Price/change_price" method="POST">
-                <div class="field">
-                    <input type="date" name="startDate" placeholder="Octane 92 Price">
+
+            <div class="table-data">
+                <div class="order">
+                <div class="head">
+                        <h3>Stock History</h3>
                 </div>
-                <div class="field">
-                    <input type="date" name="finishDate" placeholder="Octane 95 Price">
-                </div>
-    <br>
-                <div class="btn">
-                    <div class="btn-layer"></div>
-                        <input type="submit" value="Submit">
-                    </div>
-            
-                </div>
-                
-                </div>
-            </div>
-    <table class="table">
+                <div class="attendance-list">
+                <div class="bar">    
+        <input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search by Date" class="search">
+        <a href="<?php echo ROOT ?>/Manager/Analize">Analize</a>
+        </div>
+    <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
         <thead>
         <tr>
             <th>ID</th>
@@ -107,8 +184,42 @@ if ($flag == true) {
 ?>
     </tbody>
     </table>
-    </div>
+                </div>
 
+
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+    <script src="calender.js"></script>
+    <script src="<?php echo ROOT ?>/JS/Manager/script.js"></script>
+    
+    <script src="todo.js"></script>
+    <script type="application/javascript">
+        function tableSearch() {
+            let input, filter, table, tr, td, txtValue;
+
+            //Intialising Variables
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+
+        }
+    </script>
 </body>
 
 </html>

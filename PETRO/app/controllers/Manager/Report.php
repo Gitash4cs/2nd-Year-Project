@@ -10,6 +10,7 @@ class Report extends Controller{
 
         $data=[
             'date'=>$_SESSION['date'],
+            'id'=> $_SESSION['distribution_manager_id'],
         ];
 
         $result=($this->Report->Report($data));

@@ -2,197 +2,285 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Update Fuel Availability</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/update_fuel.css" />
-    <!-- Font Awesome Cdn Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+    <title>AdminHub</title>
 </head>
 
 <body>
-    <div class="container">
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="<?php echo ROOT ?>/Manager/Update">
+                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <span class="text">Update Fuel Details</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/View_history">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/Add_report">
+                <i class='bx bxs-report'></i>
+                    <span class="text">Add Daily Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/Report_history">
+                <i class='bx bx-history'></i>
+                    <span class="text">Report History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/View_order">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">View Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href=View_pumper>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">View Pumpers</span>
+                </a>
+            </li>
+            <li>
+                <a href="Product">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Add Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Product History</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="#">
+                <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
+                    <span class="text">Back</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle bx-fade-left-hover'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
         <nav>
-            <ul>
-            <li><a href="<?php echo ROOT ?>/Manager/Home" class="logo">
-                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
-                        <span class="nav-item"></span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Update">
-                        <i class="fas fa-gas-pump"></i>
-                        <span class="nav-item">Update Fuel</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_history">
-                        <i class="fas fa-chart-bar"></i>
-                        <span class="nav-item">Analize</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Add_report">
-                        <i class="fas fa-notes-medical"></i>
-                        <span class="nav-item">Daily Report</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Report_history">
-                        <i class="fas fa-history"></i>
-                        <span class="nav-item">Report History</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_order">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="nav-item">View Orders</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_pumper">
-                        <i class="fas fa-male"></i>
-                        <span class="nav-item">View Pumper</span>
-                    </a></li>
+            <i class='bx bx-menu'></i>
 
-                    <li><a href="<?php echo ROOT ?>/Manager/Home" class="logout">
-                        <i class="fas fa-arrow-left"></i>
-                        <span class="nav-item">Back</span>
-                    </a></li>
-            </ul>
+            <form action="#">
+                <div class="form-input">
+
+
+                    <button type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+            <?php echo ($data['First_name']);?><?php echo " ";?><?php echo ($data['Last_name']);?>
+            </a>
+            <a href="#" class="profile">
+            <img src="<?php echo ROOT?>/image/Manager/pro.png">
+            </a>
         </nav>
+        <!-- NAVBAR -->
 
-        <section class="main">
-            <div class="main-top">
-                <h1>Update Fuel Availability</h1>
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Update Fuel Details</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Update Fuel Details</a>
+                        </li>
+                        <!--li><i class='bx bx-chevron-right'></i></li-->
+
+                    </ul>
+                </div>
+
             </div>
-            <div class="users">
-                <div class="card">
-                    <h2>Octane 92</h2>
-                    <br>
-                    <div class="per">
-                        <table>
-                            <tr>
-                                <td><span><?php echo($data["eligible_amount"]); ?><?php echo " L"?></span></td>
-                                <td><span><?php echo($data["remain_amount"]??null);?></span></td>
-                            </tr>
-                            <tr>
-                                <td>Available</td>
-                                <td>Not Allowed</td>
-                            </tr>
-                        </table>
+
+            <ul class="box-info">
+
+                <li>
+                    <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                        <h3>Octane 92</h3>
+                        <p>Allowed :
+                            <?php echo($data["eligible_amount"]); ?>
+                            <?php echo " L"?>
+                        </p>
+                        <p> Blocked :
+                            <?php echo($data["remain_amount"]??null);?>
+                            <?php echo " L"?>
+                        </p>
+                        <p> Empty : <?php echo($data["empty"]??null);?></p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                        <h3>Octane 95</h3>
+                        <p>Allowed :
+                            <?php echo($data["eligible_amount2"]); ?>
+                            <?php echo " L"?>
+                        </p>
+                        <p> Blocked :
+                            <?php echo($data["remain_amount2"]??null);?>
+                            <?php echo " L"?>
+                        </p>
+                        <p> Empty : <?php echo($data["empty2"]??null);?></p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                        <h3>Super Diesel</h3>
+                        <p>Allowed :
+                            <?php echo($data["eligible_amount3"]); ?>
+                            <?php echo " L"?>
+                        </p>
+                        <p> Blocked :
+                            <?php echo($data["remain_amount3"]??null);?>
+                            <?php echo " L"?>
+                        </p>
+                        <p> Empty : <?php echo($data["empty3"]??null);?></p>
+                    </span>
+                </li>
+                <li>
+                    <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                        <h3>Auto Diesel</h3>
+                        <p>Allowed :
+                            <?php echo($data["eligible_amount4"]); ?>
+                            <?php echo " L"?>
+                        </p>
+                        <p> Blocked :
+                            <?php echo($data["remain_amount4"]??null);?>
+                            <?php echo " L"?>
+                        </p>
+                        <p> Empty : <?php echo($data["empty4"]??null);?></p>
+                    </span>
+                </li>
+            </ul>
+
+            <div class="table-data">
+                <div class="todo">
+                <div class="head">
+                        <h3>Update Availability</h3>
+
                     </div>
-                    <br>
-                    
-                </div>
-                <div class="card">
-                <h2>Octane 95</h2><br>
-                    <div class="per">
-                        <table>
-                            <tr>
-                            <td><span><?php echo($data["eligible_amount2"]); ?></span></td>
-                                <td><span><?php echo($data["remain_amount2"]??null);?></span></td>
-                            </tr>
-                            <tr>
-                                <td>Available</td>
-                                <td>Not Allowed</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <br>
-                    
-                </div>
-                <div class="card">
-                <h2>Super Diesel</h2><br>
-                    <div class="per">
-                        <table>
-                            <tr>
-                            <td><span><?php echo($data["eligible_amount3"]); ?></span></td>
-                                <td><span><?php echo($data["remain_amount3"]??null);?></span></td>
-                            </tr>
-                            <tr>
-                                <td>Available</td>
-                                <td>Not Allowed</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <br>
-                    
-                </div>
-                <div class="card">
-                <h2>Auto Diesel</h2><br>
-                    <div class="per">
-                        <table>
-                            <tr>
-                            <td><span><?php echo($data["eligible_amount4"]); ?></span></td>
-                                <td><span><?php echo($data["remain_amount4"]??null);?></span></td>
-                            </tr>
-                            <tr>
-                                <td>Available</td>
-                                <td>Not Allowed</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <br>
-                   
-                </div>
-            </div>
-            <div class="users1">
-                <div class="card">
-                    <div class="per1">
-                        <div class="form-container">
-                            <h3>Update</h3>
-                            <br>
-                            <div class="form-inner">
+                <div class="form-inner">
+                    <div class="error">
+                    <?php if (!empty($_SESSION['error_message'])) : ?>
+                    <i class='bx bx-error-alt'></i><p><?php echo $_SESSION['error_message']; ?></p>
+                    <?php endif; ?>
+<!-- Clear the error message from the session variable -->
+                    <?php unset($_SESSION['error_message']); ?></div>
                                 <form action="<?php echo ROOT?>/Manager/Update/add" method="POST">
-                                <div class="">
-                                    <br>
-                                        <select name="fuel_type" >
+                                    <p></p>
+                                    <div class="">
+                                        <br>
+                                        <select name="fuel_type" required >
+                                            <option value="" disabled selected hidden>Select Fuel Type</option>
                                             <option value="octane 92">Octane 92</option>
                                             <option value="octane 95">Octane 95</option>
                                             <option value="super diesel">Super Diesel</option>
                                             <option value="auto diesel">Auto Diesel</option>
                                         </select>
-                                </div>
-                                
-                                <div class="field">
-                                    <input type="number" placeholder="Arrived Amount" name="arrive_amount" required>
-                                </div>
-                                <div class="field">
-                                    <input type="number" placeholder="Eligible Amount"  name="eligible_amount" required>
-                                </div>
-                                <br>
-                                <div class="btn">
-                                    <div class="btn-layer"></div>
+                                    </div>
+
+                                    <div class="field">
+                                        <input type="number" placeholder="Arrived Amount" name="arrive_amount" >
+                                    </div>
+
+                                    <br>
+                                    <div class="btn">
+                                        <div class="btn-layer"></div>
                                         <input type="submit" value="Add">
                                     </div>
-                                </div>
-                        </div>
-                    </div>
-                    
+                                </form>
+                            </div>
+
                 </div>
-                <div class="card">
-                    <div class="per1">
-                        <div class="form-container">
-                            <h3>Price List</h3>
-                            <br>
-                            <div class="form-inner">
-                                <h4>Octane 92    : Rs. <?php echo($data["price"])?></h4><br>
-                            </div>
-                            <br>
-                            <div class="form-inner">                                
-                                <h4>Octane 95    : Rs. <?php echo($data["price2"])?></h4><br>
-                            </div>
-                            <br>
-                            <div class="form-inner">
-                                <h4>Super Diesel : Rs. <?php echo($data["price3"])?></h4><br>
+                <div class="todo">
+                    <div class="head">
+                        <h3>Price List</h3>
 
-                            </div>
-                            <br>
-                            <div class="form-inner">
-                                <h4>Auto Diesel  : Rs. <?php echo($data["price4"])?></h4><br>
-                            </div>
-                            <br>
-                        </div>
-                        <a href="<?php echo ROOT ?>/Manager/Change_price" class="button">Click here to change price</a>
                     </div>
+                    <ul class="todo-list">
+                        <li >
+                            <p>Octane 92 : Rs. <?php echo($data["price"])?></p>
+                            <i class='bx bx-dollar-circle'></i>
+                        </li>
+                        <li >
+                            <p>Octane 95 : Rs. <?php echo($data["price2"])?></p>
+                            <i class='bx bx-dollar-circle'></i>
+                        </li>
+                        <li >
+                            <p>Super Diesel : Rs. <?php echo($data["price3"])?></p>
+                            <i class='bx bx-dollar-circle'></i>
+                        </li>
+                        <li >
+                            <p>Auto Diesel : Rs. <?php echo($data["price4"])?></p>
+                            <i class='bx bx-dollar-circle'></i>
+                        </li>
+                        
+                    </ul>
+                    <br>
+                    <a href="<?php echo ROOT ?>/Manager/Change_price" class="button">Click here to change price</a>
                 </div>
-            </div>
-        </div>
-    </div>
 
 
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
 
-
-
-
+    <script src="calender.js"></script>
+    <script src="<?php echo ROOT ?>/JS/Manager/script.js"></script>
+    <script src="todo.js"></script>
 </body>
 
 </html>

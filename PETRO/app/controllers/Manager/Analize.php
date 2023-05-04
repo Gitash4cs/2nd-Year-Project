@@ -7,21 +7,27 @@ class Analize extends Controller{
     }
 
     public function index(){
+        $data=[
+            'id'=>$_SESSION['distribution_manager_id'],
+
+        ];
         $this->view('Manager/Analize');
     }
 
     public function Analize(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
-
             $data=[
-                'startDate'=>$_SESSION['startDate'],
-                'finishDate'=>$_SESSION['startDate'],
+                'startDate'=>trim($_POST['startDate']),
+                'finishDate'=>trim($_POST['finishDate']),
+                
+                'err'=>'',
+
             ];
 
             $result = $this->Analize->Analize($data);
             if($result){
-                header('location:http://localhost/PETRO/public/Manager/Update');
+                $this->view('Manager/Analize',$result);
 
             }
         }

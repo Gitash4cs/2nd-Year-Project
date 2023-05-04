@@ -1,96 +1,220 @@
+<?php
+    $flag='';
+    if(empty($data['error'])){
+        $flag=true;
+    }
+    else{
+        $flag=false;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Update Fuel Availability</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/add_report.css" />
-    <!-- Font Awesome Cdn Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+
+    <title>PETRO</title>
 </head>
 
 <body>
-    <div class="container">
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li >
+                <a href="<?php echo ROOT ?>/Manager/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li >
+                <a href="<?php echo ROOT ?>/Manager/Update">
+                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <span class="text">Update Fuel Details</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/View_history">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="<?php echo ROOT ?>/Manager/Add_report">
+                    <i class='bx bxs-report'></i>
+                    <span class="text">Add Daily Report</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/Report_history">
+                <i class='bx bx-history'></i>
+                    <span class="text">Report History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Manager/View_order">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">View Orders</span>
+                </a>
+            </li>
+            <li>
+                <a href=View_pumper>
+                    <i class='bx bxs-group'></i>
+                    <span class="text">View Pumpers</span>
+                </a>
+            </li>
+            <li>
+                <a href="Product">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Add Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-group'></i>
+                    <span class="text">Product History</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="Home">
+                <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
+                    <span class="text">Back</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="logout">
+                    <i class='bx bxs-log-out-circle bx-fade-left-hover'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
         <nav>
-            <ul>
-            <li><a href="<?php echo ROOT ?>/Manager/Home" class="logo">
-                        <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
-                        <span class="nav-item"></span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Update">
-                        <i class="fas fa-gas-pump"></i>
-                        <span class="nav-item">Update Fuel</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_history">
-                        <i class="fas fa-chart-bar"></i>
-                        <span class="nav-item">Analize</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Add_report">
-                        <i class="fas fa-notes-medical"></i>
-                        <span class="nav-item">Daily Report</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/Report_history">
-                        <i class="fas fa-history"></i>
-                        <span class="nav-item">Report History</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_order">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="nav-item">View Orders</span>
-                    </a></li>
-                <li><a href="<?php echo ROOT ?>/Manager/View_pumper">
-                        <i class="fas fa-male"></i>
-                        <span class="nav-item">View Pumper</span>
-                    </a></li>
+            <i class='bx bx-menu'></i>
+
+            <form action="#">
+                <div class="form-input">
 
 
-                <li><a href="<?php echo ROOT ?>/Manager/Home" class="logout">
-                        <i class="fas fa-arrow-left"></i>
-                        <span class="nav-item">Back</span>
-                    </a></li>
-            </ul>
+                    <button type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell'></i>
+                <span class="num">8</span>
+            </a>
+            <a href="#" class="profile">
+                <img src="img/people.png">
+            </a>
         </nav>
+        <!-- NAVBAR -->
 
-        <section class="main">
-            <div class="main-top">
-                <h1>Add Daily Report</h1>
-            </div><br><br>
-            <div class="wrapper">
-                <div class="form-container">
-
-                    <div class="form-inner">
-                    <img src="<?php echo ROOT ?>/image/Manager/report.png" alt="">
-                    <form action="<?php echo ROOT ?>/Manager/Add_report/Add_report" method="POST">
-                        <div class="field">
-                            <input type="date" name="date" placeholder="Date">
-                        </div>
-                        <div class="field">
-                                    <input type="number" placeholder="Reduced Octane 92 Amount" name="reduced92" required>
-                        </div>
-                        <div class="field">
-                                    <input type="number" placeholder="Reduced Octane 95 Amount" name="reduced95" required>
-                        </div>
-                        <div class="field">
-                                    <input type="number" placeholder="Reduced Super Diesel Amount" name="reducedsdl" required>
-                        </div>
-                        <div class="field">
-                                    <input type="number" placeholder="Reduced Auto Diesel Amount" name="reducedadl" required>
-                        </div>
-                        <br>
-                        <div class="btn">
-                                <div class="btn-layer"></div>
-                                    <input type="submit" value="Submit">
-                                </div>
-                        </div>
-                    </form>
-                    </div>
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Add Daily Report</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Add Daily Report</a>
+                        </li>
+                        <!--li><i class='bx bx-chevron-right'></i></li>
+                        <li>
+                            <a href="#"></a>
+                        </li-->
+                    </ul>
                 </div>
 
             </div>
 
 
 
+            <div class="table-data">
+                <div class="todo">
+                    <div class="head">
+                        <h3>Add Data</h3>
+                    </div>
+                    <div class="form-inner">
+                        
+                        <form action="<?php echo ROOT ?>/Manager/Add_report/Add_report" method="POST">
+                            <div class="field">
+                                <input type="date" name="date" placeholder="Date">
+                            </div>
+                            <div class="field">
+                                <input type="number" placeholder="Reduced Octane 92 Amount" name="reduced92" required>
+                            </div>
+                            <div class="field">
+                                <input type="number" placeholder="Reduced Octane 95 Amount" name="reduced95" required>
+                            </div>
+                            <div class="field">
+                                <input type="number" placeholder="Reduced Super Diesel Amount" name="reducedsdl"
+                                    required>
+                            </div>
+                            <div class="field">
+                                <input type="number" placeholder="Reduced Auto Diesel Amount" name="reducedadl"
+                                    required>
+                            </div>
+                            <br>
+                            <div class="btn">
+                                <div class="btn-layer"></div>
+                                <input type="submit" value="Submit">
+                            </div>
+                    </div>
+                    </form>
+                </div>   
+                <div class="todo">
+                    <div class="head">
+                        <h3>Instructions To Create Report</h3>
+                    </div>
+                    <div class="todo-list">
+                        <li>
+                            1. At the Begining of the day again count the amount of fuels in the tanks.
+                        </li>
+                        <li>
+                            2. At the end of the day again count the amount of fuels in the tanks.
+                        </li>
+                        <li>
+                            3.Then get the difference between these two measurements and fill The form and submit it.
+                        </li>
+                        <li>
+                           4. Then the report will be generated. If there are difference between physically reduced amount and reduced amount according to the
+                            system details it will be shown in the report. 
+                        </li>
+                    </div>
 
-    </div>
+        
+                    
+                </div>
+            </div>
+
+            <script src="<?php echo ROOT ?>/JS/Manager/script.js"></script>
 
 </body>
 
