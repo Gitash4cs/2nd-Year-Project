@@ -7,7 +7,8 @@ class View_history extends Controller{
     }
     public function index(){
         $data=[
-            
+            'id'=>$_SESSION['distribution_manager_id'],
+
         ];
         $result=($this->View_history->View_history($data));
         if($result){
@@ -32,13 +33,15 @@ class View_history extends Controller{
             ];
             $_SESSION['startDate']=$data['startDate'];
             $_SESSION['finishDate']=$data['finishDate'];
+
         }
             if($this->View_history->get_Date($data)){
-                header('location:http://localhost/PETRO/public/Manager/Update');
+                header('location:http://localhost/PETRO/public/Manager/Analize');
             
                 //$this->view(Manager/octane);
+                
             }
-            //echo "edcs";
+            
 
     }
 }

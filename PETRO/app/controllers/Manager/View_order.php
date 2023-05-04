@@ -8,7 +8,8 @@ class View_order extends Controller{
     }
     public function index(){
         $data=[
-            
+            'id'=>$_SESSION['distribution_manager_id'],
+
         ];
         $result=($this->View_order->View_order($data));
         if($result){

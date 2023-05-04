@@ -1,6 +1,6 @@
 <?php
     class M_View_order extends Model{
-        protected $table = 'completed_order';
+        protected $table = 'complete_order';
 
         public function View_order($data){
            // $id = $_SESSION['id'];

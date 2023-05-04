@@ -8,7 +8,8 @@ class View_pumper extends Controller{
     }
     public function index(){
         $data=[
-            
+            'id'=>$_SESSION['distribution_manager_id'],
+
         ];
         $result=($this->View_pumper->View_pumper($data));
         if($result){

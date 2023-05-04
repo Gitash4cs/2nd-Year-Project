@@ -24,6 +24,8 @@
             $result = $this->connection();
             $startDate =$data['startDate'];
             $finishDate =$data['finishDate'];
+
+            echo $startDate;
         }
 }
 ?>

@@ -1,7 +1,8 @@
 <?php
     class M_Add_report extends Model{
         protected $table1 = "daily_report";
-        protected $table2 = "completed_order";
+        protected $table2 = "complete_order";
+        protected $table3 = "distribution_manager";
 
         public function Add_report($data){
             $result=$this->connection();
@@ -13,10 +14,10 @@
             $reducedadl = $data['reducedadl'];
             $newDate = date("Ymd", strtotime($date));
 
-            $sql1 = "SELECT SUM(amount) AS TotalO92 FROM $this->table2 where fuel_type = 'octane 92' AND date_field = $newDate ";
-            $sql2 = "SELECT SUM(amount) AS TotalO95 FROM $this->table2 where fuel_type = 'octane 95' AND date_field = $newDate ";
-            $sql3 = "SELECT SUM(amount) AS TotalSDL FROM $this->table2 where fuel_type = 'super diesel' AND date_field = $newDate ";
-            $sql4 = "SELECT SUM(amount) AS TotalADL FROM $this->table2 where fuel_type = 'auto diesel' AND date_field = $newDate ";
+            $sql1 = "SELECT SUM(pumped_liters) AS TotalO92 FROM $this->table2 where fuel_type = 'octane 92' AND DATE(date_field) = $date ";
+            $sql2 = "SELECT SUM(pumped_liters) AS TotalO95 FROM $this->table2 where fuel_type = 'octane 95' AND DATE(date_field) = $date ";
+            $sql3 = "SELECT SUM(pumped_liters) AS TotalSDL FROM $this->table2 where fuel_type = 'super diesel' AND DATE(date_field) = $date ";
+            $sql4 = "SELECT SUM(pumped_liters) AS TotalADL FROM $this->table2 where fuel_type = 'auto diesel' AND DATE(date_field) = $date ";
 
             $query1 = $result->query($sql1);
             $query2 = $result->query($sql2);

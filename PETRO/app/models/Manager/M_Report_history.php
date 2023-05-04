@@ -19,5 +19,14 @@
                 return false;
             }
     }
+
+    public function View_report($data){
+        // $id = $_SESSION['id'];
+        return $data;
+         
+
+ }
+
+    
 }
 ?>
