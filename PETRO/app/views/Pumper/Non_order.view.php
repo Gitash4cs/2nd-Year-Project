@@ -1,14 +1,3 @@
-<?php
-    if($data['loading']=='1'){
-        $data['pumped_liters']=null;
-        $data['remaining_liters']=null;
-        $data['price']=null;
-        $data['balance']=null;
-        $data['per_liter']=null;
-    }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,69 +111,102 @@
   
             </div>
 
-            <ul class="box">
-                <li>
-                    <i class='bx bxs-calendar-check'></i>
-                    <span class="text">
-                        <h3>Validate The Order</h3>
-                        <p>New Order</p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">
-                        <h3>Payment Details</h3>
-                        <p>Here----------------------------------</p>
-                    </span>
-                </li>
-            </ul>
+            
 
 
             <div class="table-data">
                 <div class="order">
-                    
+                    <div class="head">
+                        <h3>Order Details - Non Orderd Customer</h3>
+                     
+                    </div>
                     <table>
                         <tbody>
                         <div class="container2">
 
                     <ul class="responsive-table">
 
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">Order ID</div>
-                    
-                        <div class="col col-4" data-label="Payment Status"><?php echo($_SESSION['order_id'])?></div>
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">Vehicle No</div>
+                    <form action="<?php echo ROOT?>/Pumper/User/Non_complete" method="post">
 
-                        <div class="col col-4" data-label="Payment Status"><?php echo $data["vehicle_no"] ?></div>
+                    <li class="table-row">
+                        <div class="col col-1">Registerd Phone Number:</div>
+                    
+                        <div class="col col-4" ><label name="no" class="col col-4" ><?php echo $data['no'] ?></label></div>
+                        <input type="hidden" name="no" value="<?php echo $data['no']?>">
                     </li>
                     <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">Vehicle Type</div>
+                        <div class="col col-1" >Customer Name:</div>
                     
-                        <div class="col col-4" data-label="Payment Status"><?php echo $data["class"] ?></div>
+                        <div class="col col-4" ><label name="full" class="col col-4" ><?php echo $data['full'] ?></label></div>
+                        <input type="hidden" name="full" value="<?php echo $data['full']?>">
                     </li>
                     <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">Fuel Type</div>
-                    
-                        <div class="col col-4" data-label="Payment Status"><?php echo $data["Fuel_Type"] ?></div>
-                    </li>
-                    
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">Amount</div>
+                        <div class="col col-1">Email:</div>
 
-                        <div class="col col-4" data-label="Payment Status"><?php echo $data["Amount"] ," Liters","<br>"; ?></div>
+                        <div class="col col-4" ><label name="email" class="col col-4" ><?php echo $data['email'] ?></label></div>
+                        <input type="hidden" name="email" value="<?php echo $data['email']?>">
+                    </li>
+                    
+                    <li class="table-row">
+                        <div class="col col-1">Select Vehicle</div>
+                        <div class="col col-4">
+                    
+                         <select name="vehicle"class="left-right">
+                            <option value="<?php echo $data['v']?>"><?php echo $data['v']?></option>
+                            <option value="<?php echo $data['v1']?>"><?php echo $data['v1']?></option>
+                            <option value="<?php echo $data['v2']?>"><?php echo $data['v2']?></option>
+                           </select>
+                        </div>
                     </li>
                     <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">Payment</div>
+                        <div class="col col-1">Select Fuel Type</div>
+                        <div class="col col-4">
                     
-                        <div class="col col-4" data-label="Payment Status">RS.<?php echo $data["payment"] ?></div>
+                         <select id="Fuel_Type" name="Fuel_Type"class="left-right">
+                            <option value="octane 92">octane 92</option>
+                            <option value="octane 95">octane 95</option>
+                            <option value="auto diesel">auto diesel</option>
+                            <option value="super diesel">super diesel</option>
+                           </select>
+                        </div>
                     </li>
+                    <?php 
+                        if($data['remark']==0){?>
                     <li class="table-row">
-                        <div class="col col-1" data-label="Job Id">PETRO Points</div>
+                       
+                        <div class="col col-1">Enter Pump Liters:</div>
+                        <div class="col col-4">
+                            <input type="text" class="left-right" name="liters" required>
+                            <?php 
+                            if($data['remark']==0){?>
+                                <button type="submit" class="btn1">Proceed</button><?php
+                            }?>
+                        </div>
+                          </li><?php
+                        }?>
+                                
                     
-                        <div class="col col-4" data-label="Payment Status"><?php echo $data["points"]?></div>
-                    </li>
+                  
+                    </form>
+                    <?php 
+                        if($data['remark']==1){?>
+                    <li class="table-row">
+                       
+                        <div class="col col-1">Price:</div>
+                        <div class="col col-4"><label name="email" class="col col-4" ><?php echo $data['price'] ?></label>
+                           
+                            <?php 
+                            if($data['remark']==1){?>
+                                <button type="submit" onclick = "openForm()" class="btn1">Complete</button><?php
+                            }?>
+                                
+                        </div>
+                          </li><?php
+                        }?>
+                    
+                  
+                   
+                    
                     </ul>
                     </div>
                             
@@ -197,76 +219,19 @@
                     </table>
                 </div>
                 
-                    
-                    
-          <br>
-          <?php 
-          if($data['remark']==0){?>
-          <div class="todo">
-            <form name="myForm" action="<?php echo ROOT ?>/Pumper/Order/order_complete" onsubmit="return validateForm()" method="post" required >
-            <label>Enter Liters:</label>
-                <input class="textarea" type="number" name="pumped" /><br><br>
-                <button type="submit" name="OK" id="ok" class="btn">Complete</button><br><br>
-            </form>
-            <br><br><br>
-            <?php 
-          }
-          else{?>
-            <div class="todo1">
-
-            <h2><?php echo $data['err']?></h2>
-          
-
-
-        <?php
-          }?>
-          
-
-            
-
-        <div class="container2">
-
-<ul class="responsive-table">
-
-
-  <li class="table-row">
-    <div class="col col-1" data-label="Job Id">Pumped Liters</div>
-  
-    <div class="col col-4" data-label="Payment Status"><?php echo $data['pumped_liters']?></div>
-  </li>
-
-  <li class="table-row">
-    <div class="col col-1" data-label="Job Id">Remaining Liters</div>
-  
-    <div class="col col-4" data-label="Payment Status"><?php echo $data['remaining_liters']?></div>
-  </li>
-
-  <li class="table-row">
-    <div class="col col-1" data-label="Job Id">Price Per Litere:</div>
-  
-    <div class="col col-4" data-label="Payment Status"><?php echo $data['per_liter']?></div>
-  </li>
-
-  <li class="table-row">
-    <div class="col col-1" data-label="Job Id">Price:</div>
-  
-    <div class="col col-4" data-label="Payment Status"><?php echo $data['price']?></div>
-  </li>
-</ul>
-</div>
-<?php 
-if($data['remark']==1){?><br><br><br>
-  <button type="submit" name="OK" id="ok" class="btn1"><a href="<?php echo ROOT?>/Pumper/User">Next Order</a></button><br><br>
-
-        <?php
-}?>
-                </div>
             </div>
 
 <br><br>
 
-
-
+<div class="form-popup" id="myForm">
+    <form action="<?php echo ROOT?>/Pumper/User">
+        <h2>Your Order has been Successfully Completed!!!</h2>
+        
+        <br>
+    <button type="submit">Next Order</button>
+    </form>
+</div>
+<div class="overlay"></div>
 
 
         </main>
@@ -291,8 +256,19 @@ allSideMenu.forEach(item => {
         li.classList.add('active');
     })
 });
+const overlay = document.querySelector(".overlay");
+    
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+  overlay.classList.add("overlayStyle");
+}
 
+// Close the popup form
+function closeForm() {
 
+  document.getElementById("myForm").style.display = "none";
+  overlay.classList.remove("overlayStyle");
+}
 
 
 // TOGGLE SIDEBAR

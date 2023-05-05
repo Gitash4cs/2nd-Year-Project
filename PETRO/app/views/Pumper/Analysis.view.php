@@ -1,7 +1,27 @@
 <?php
-if(empty($data['err'])){
-    $data['err']=null;
-}
+  if(!empty($data['92'])){
+    $v1=$data['92'];
+    $v2=$data['95'];
+    $v3=$data['super'];
+    $v4=$data['auto'];
+    $v5=$data['total_A'];
+    $v6=$data['total_B'];
+    $v7=$data['total_c'];
+    $v8=$data['total_d'];
+   
+  
+  }
+  else{
+    $v1=NULL;
+    $v2=NULL;
+    $v3=NULL;
+    $v4=NULL;
+    $v5=null;
+    $v6=null;
+    $v7=null;
+    $v8=null;
+  
+  }
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +34,7 @@ if(empty($data['err'])){
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
-    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Pumper/change.css" text="text/css">
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Pumper/fuck.css" text="text/css">
     
    
 
@@ -26,12 +46,12 @@ if(empty($data['err'])){
 
     <!-- SIDEBAR -->
     <section id="sidebar">
-    <a href="#" class="brand">
+        <a href="#" class="brand">
             <i class='bx bxs-gas-pump'></i>
             <span class="text">PETRO</span>
         </a>
         <ul class="side-menu top">
-            <li>
+            <li class="">
                 <a href="<?php echo ROOT ?>/Pumper/User">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Home</span>
@@ -50,7 +70,7 @@ if(empty($data['err'])){
                 </a>
             </li>
 
-            <li>
+            <li class="active">
                 <a href="<?php echo ROOT ?>/Pumper/Analysis">
                     <i class='bx bxs-doughnut-chart'></i>
                     <span class="text">Fuel Analyze</span>
@@ -62,14 +82,14 @@ if(empty($data['err'])){
                     <span class="text">Salary Report</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="<?php echo ROOT ?>/Pumper/Change_password">
                     <i class='bx bxs-group'></i>
                     <span class="text">Change Password</span>
                 </a>
             </li>
 
-            <li >
+            <li>
                 <a href="<?php echo ROOT ?>/Pumper/Complain">
                     <i class='bx bxs-group'></i>
                     <span class="text">Complain Box</span>
@@ -93,7 +113,7 @@ if(empty($data['err'])){
 
     <!-- CONTENT -->
     <section id="content">
-    
+   
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
@@ -111,97 +131,154 @@ if(empty($data['err'])){
                 <img src="<?php echo ROOT ?>/image/th.jpg">
             </a>
         </nav>
-
         <!-- MAIN -->
         <main>
-            <div class="head-title">
+        <div class="head-title">
+                <h2>Analyze The Fuel Distributed  : <?php echo $data['date']?> <br>By <?php echo $_SESSION['id']?> </h2>
+               
   
             </div>
-            <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>Change The Password</h3>
-                     
-                    </div>
-                   
-                <div class="abc">
-                <div class=form-inner>
-                 <form  method="POST" action="<?php echo ROOT ?>/Pumper/Change_password/change">
-                     
-                     
-                     <div class= "field">
-                     <input type="password"  name="current_password" required placeholder="Enter Current Password"></div><br>
-                     <div class= "field">
-                     <input type="password" name="new_password" id="t1" required placeholder="Enter New Password"></div>
-                     </p><br>
-                     <div class= "field">
-                     <input type="password" name="confirm_password" required placeholder="Confirm New Password"></div>
-                     </p><br><br>
-                     <div class="bcd">
-                         <ul type="Square">
-                                 <li>At least 1 uppercase character.</li>
-                                 <li>At least 1 lowercase character.</li>
-                                 <li>At least 1 digit.</li>
-                                 <li>At least 1 special character.</li>
-                                 <li>Minimum 8 characters.</li>
-     
-                         </ul>
-                     </div>
-               <br><br>
-                     <button type="submit" name="submit" class="btn">Save Password</button>
-                 </form></div>
-                </div>
-                    
-                </div>
-                <div class="todo">
-                    <div class="head">
-                        <h3>The Pumper Profile</h3>
-                    </div>
-
-                    <label>Pumper ID:<?php echo $data['id']?></label><br><br>
-                    <label>First Name:<?php echo $data['first']?></label><br><br>
-                    <label>Last Name:<?php echo $data['last']?></label><br><br>
-                    <label>NIC:<?php echo $data['nic']?></label><br><br>
-                    <label>EMAIL:<?php echo $data['email']?></label><br><br>
-                    <label>Contact-No:<?php echo $data['number']?></label>
-
-                    <ul class="box">
-                <li>
-                    <i class='bx bxs-calendar-check'></i>
-                    <span class="text">
-                        <h3>Access Time</h3>
-                        <p><?php echo $_SESSION['login_time']?></p>
-                    </span>
-                </li>
-                <li>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">
-                        <h3>2834</h3>
-                        <p>Visitors</p>
-                    </span>
-                </li>
-                </ul>
-                </div>
-               
-            </div>
-
-<br><br>
 
 <div class="table-data">
-                <div class="order">
-                   
-                
-                    <div class="todo1">
-                       
-                   
-                    
-                        <label class="middle-"><?php echo $data['err']?></label>
-                    
-                    </div>
-                </div>
-</div>
-                
+    <div class="order">
+            <div class="row">
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <canvas id="myChart1" style="width:110%;max-width:700px"></canvas>
+    <canvas id="myChart2" style="width:110%;max-width:700px"></canvas>
+    <script>
+        var x1 =" <?php echo "$v1" ; ?>";
+        var x2 =" <?php echo "$v2" ; ?>";
+        var x3 =" <?php echo "$v3" ; ?>";
+        var x4 =" <?php echo "$v4" ; ?>";
+        var x5 =" <?php echo "$v5" ; ?>";
+        var x6 =" <?php echo "$v6" ; ?>";
+        var x7 =" <?php echo "$v7" ; ?>";
+        var x8 =" <?php echo "$v8" ; ?>";
+
+
+        var xValues = ["OCTANE 92", "OCTANE 95", "SUPER DIESEL", "AUTO DIESEL"];
+        var yValues = [ x1, x2,x3,x4,0];
+        var barColors = ["#808000", "#800000","#808000","#800000","#091d2a"];
+
+        var xValues_2 = ["Machine 1", "Machine 2", "Machine 3", "Machine 4"];
+        var yValues_2 = [ x5,x6,x7,x8,0];
+        
+
+        var chart1=new Chart("myChart1", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+            display: true,
+            text: "PUMPED FUEL"
+            }
+        }
+        });
+        </script>
+        <script>
+        var chart2=new Chart("myChart2", {
+        type: "bar",
+        data: {
+            labels: xValues_2,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues_2
+            }]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+            display: true,
+            text: "MACHINE OF THE FILLINE STATION"
+            }
+        }
+        });
+    </script>
+    <script>initCharts();</script>
+    <br><br><br>
+    
+
+    </div>
+    <div class="head">
+            <h3>Request The Date</h3>
+        </div>
+        <form action="<?php echo ROOT ?>/Pumper/Analysis/previous" method="post">
+        <label class="pre1">REQUEST PREVIOUS DAY:</label>
+        <input type="date" id="bdaymonth" name="bdaymonth" class="bday"  required>
+
+        <button type="submit" name="submit" class="btn">GENERATE REPORT</button>
+        
+
+        </form>
+
+
+
+
+</div>
+<div class="todo">
+    <div class="head">
+        <h3>DISTRIBUTED FUEL</h3>
+    </div>
+    <div class="todo-list">
+    <li>OCTANE 92  &nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <?php echo $v1?> Liters
+        </li>
+        <li>OCTANE 95  &nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <?php echo $v2?> Liters
+        </li>
+        <li>SUPER DIESEL  &nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php echo $v3?> Liters
+        </li>
+        <li>AUTO DIESEL  &nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php echo $v4?> Liters
+        </li>
+        
+
+    </div>
+    <br><br>
+    <li class="table-header">
+        .
+
+    </li><br><br>
+    <div class="head">
+        <h3>Machine</h3>
+    </div>
+    <div class="todo-list">
+    <div class="OUTLINE">
+        PETROL
+    </div><br>
+    <li>Machine 1 &nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php echo $v5?><?php echo " Liters"?>
+        </li>
+        <li>Machine 2  &nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php echo $v6?> Liters
+        </li>
+        <div class="OUTLINE">
+        DIESEL
+    </div><br>
+        <li>Machine 3  &nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php echo $v3?> Liters
+        </li>
+        <li>Machine 4  &nbsp;&nbsp; : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <?php echo $v4?> Liters
+        </li>
+    </div>
+    
+</div>
+
+
+
+
+  
 
 
 
@@ -281,18 +358,7 @@ window.addEventListener('resize', function () {
         searchForm.classList.remove('show');
     }
 })
-function test_str() {
-            var res;
-            var str =
-                document.getElementById("t1").value;
-            if (str.match(/[a-z]/g) && str.match(
-                    /[A-Z]/g) && str.match(
-                    /[0-9]/g) && str.match(
-                    /[^a-zA-Z\d]/g) && str.length >= 8)
-                res = "TRUE";
-            else
-                alert("Boundary rules are not matched!Check the conditions.");
-        }
+
 
 
 const switchMode = document.getElementById('switch-mode');
