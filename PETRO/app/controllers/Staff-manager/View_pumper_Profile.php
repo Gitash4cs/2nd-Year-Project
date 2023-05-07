@@ -6,7 +6,6 @@ class View_pumper_Profile extends Controller
 {
     public $Profile;
     public function __construct(){
-        print("hi");
         $this->Profile=$this->model('M_View_pumper_Profile');
     }
     public function index(){

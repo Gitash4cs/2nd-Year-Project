@@ -1023,6 +1023,20 @@ form .btn input[type="submit"] {
     transition: 0.5rem;
 }
 
+.delete button {
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #FF0000;
+}
+
+.delete button:hover{
+    background: #FF0000;
+    color: #fff;
+    transition: 0.5rem;
+}
+
 table thead tr {
     color: #fff;
     background: var(--blue);
@@ -1077,4 +1091,19 @@ table thead tr {
     width: 100px;
     height: 100px;
     margin-left: 30%;
+}
+
+
+.filter select{
+    margin-left: 1%;
+    height: 100%;
+    width: 50%;
+    border: 1px solid lightgray;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 17px;
+    color: var(--dark);
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: var(--light);
 }

@@ -95,13 +95,13 @@
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
+            <h3><?php echo $_SESSION['manager_name']," ",$_SESSION['manager_name_Last']?></h3>
             <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
             <a href="#" class="profile">
-                <img src="img/people.png">
+                <img src="<?php echo ROOT ?>/image/proIcon.png">
             </a>
         </nav>
         <!-- NAVBAR -->
@@ -134,7 +134,7 @@
             <div class="table-data">
                 <div class="todo">
                     <div class="form-inner">
-                    <form action="<?php echo ROOT ?>/Staff-manager/Edit_profile/submit_edit" method="post">
+                    <form action="<?php echo ROOT ?>/Staff-manager/Pumper_registration/pumperRegistration" method="post">
                         <div class="field">
                         <input type="text" name = "id" required placeholder="Enter Pumper's ID">
                         </div>

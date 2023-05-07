@@ -45,13 +45,12 @@ class M_assign_pumpper extends Model{
     public function pumpercount(){
        
         $result = $this->connection();
-        $totalPumper="SELECT count(id) from pumper";
+        $totalPumper="SELECT count(id) from pumper where status != '0'";
         
         $querytotalPumper = $result->query($totalPumper);
        
 
         $data = $querytotalPumper->fetch_array();
-        //print_r($data);
         $id= $data['count(id)'];
         if ($id == '0'){
             $id = "Not Hired";
@@ -64,17 +63,11 @@ class M_assign_pumpper extends Model{
     public function activepumpercount(){
        
         $result = $this->connection();
-       
         $activePumper="SELECT count(id) from pumper where status = 'assigned'";
-
-        
         $queryactivePumper = $result->query($activePumper);
-
         $data = $queryactivePumper->fetch_array();
         $id= $data[0];
-        if ($id == '0'){
-            $id = "Not Assigned";
-        }
+        
         return  $id;
        
         
@@ -85,8 +78,15 @@ class M_assign_pumpper extends Model{
 
         //remover pumper from mashine
         if($data['pumperid'] == "remove"){
+            //het pumper id, who assigned to the removeing mashine
+            $pumper = "select pumperID from pumper_mashine where PumpID  = '".$data['pumperMashine']."'";
+            $querypumper = $result->query($pumper);
+            while($row = $querypumper->fetch_assoc()){
+                $pumperid=$row['pumperID'];
+            }
+ 
             //update the pumper status
-            $insertstatus = "Update pumper set status = 'not assigned' where id = (select pumperID from pumper_mashine where PumpID  = '".$data['pumperMashine']."')"; 
+            $insertstatus = "Update pumper set status = 'not assigned' where id = '".$pumperid."' "; 
             $query = $result->query($insertstatus);
 
             //remove the pumper_mashine table after assign the pumper
@@ -96,6 +96,9 @@ class M_assign_pumpper extends Model{
             //remove the assign date table after assign the pumper
             $insert = "Update pumper_mashine set date = '0' where PumpID  = '".$data['pumperMashine']."'"; 
             $query = $result->query($insert);
+
+            //return pumper id
+            return $pumperid;
 
         }
         else{
@@ -115,7 +118,7 @@ class M_assign_pumpper extends Model{
 
        
         
-        return true;
+        return 1;
       
         
     

@@ -66,7 +66,7 @@
         <ul class="side-menu">
             <li class="active">
                 <a href="<?php echo ROOT ?>/Staff-manager/Profile">
-                    <i class='bx bxs-cog'></i>
+                    <i class='fa-regular fa-backward'></i>
                     <span class="text">Profile</span>
                 </a>
             </li>
@@ -95,13 +95,13 @@
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
+            <h3><?php echo $_SESSION['manager_name']," ",$_SESSION['manager_name_Last']?></h3>
             <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
             <a href="#" class="profile">
-                <img src="img/people.png">
+                <img src="<?php echo ROOT ?>/image/proIcon.png">
             </a>
         </nav>
         <!-- NAVBAR -->
