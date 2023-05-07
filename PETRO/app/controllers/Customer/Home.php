@@ -14,14 +14,36 @@ class Home extends Controller
             'email'=>'',
 
         ];
-        $result=$this->home->products($data);
+        $result=$this->home->mv($data);
         if($result){
             $this->view('Customer/home',$result);
         }
 
 
     
-    }}    
+    }
+
+    public function store(){
+        $data=[
+            'id'=>$_SESSION['id'],
+            'err'=>'',
+            
+
+        ];
+        $result=$this->home->store($data);
+        if($result){
+            $this->view('Customer/home',$result);
+        }
+    }
+
+    
+
+
+
+
+    }
+
+   
 
 
 

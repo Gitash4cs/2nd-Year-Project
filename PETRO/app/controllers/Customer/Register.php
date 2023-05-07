@@ -18,7 +18,7 @@ class Register extends Controller
 
                 'fname' => trim( $_POST['fname']),
                 'lname' => trim( $_POST['lname']),
-                'NIC' => trim( $_POST['NIC']),
+              
                 'email' => trim( $_POST['email']),
                 'phone' => trim( $_POST['phone']),
                 'vno' => trim( $_POST['vno']),
@@ -31,6 +31,7 @@ class Register extends Controller
                 
                 'pass' => trim($_POST['password']),
                 'cpass' => trim($_POST['cpassword']),
+                'points' => trim($_POST['points']),
                 'message' =>'',
 
         
@@ -40,7 +41,7 @@ class Register extends Controller
 
           $insert= $this->register->register($data);
         if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Login');
+              header('location:http://localhost/PETRO/public/Home/Login');
 
            }
            else{

@@ -23,18 +23,17 @@ class Store extends Controller
 
             $data=[
                 'p_id'=>trim($_POST['p_id']),
-                'product_image'=>trim($_POST['product_image']),
-                'product_name'=>trim($_POST['product_name']),
-                'product_price'=>trim($_POST['product_price']),
-                'quantity'=>trim($_POST['product_quantity']),
-                'cdate'=>trim($_POST['cdate']),
-                'ndate'=>trim($_POST['ndate']),
+                
+                
             ];
-            $result1=$this->store->cart($data);
-            if($result1){
-                header('location:http://localhost/PETRO/public/Customer/Store');
+        
+            $_SESSION['p_id']=$data['p_id'];
+            
+           
+               
+                header('location:http://localhost/PETRO/public/Customer/Productdetails');
               
-            }
+            
 
     }
 

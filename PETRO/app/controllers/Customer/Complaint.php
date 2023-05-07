@@ -28,8 +28,7 @@ class Complaint extends Controller
             $data=[
 
                 'id' => $id,
-                'email' => trim( $_POST['email']),
-                'Oid' => trim( $_POST['Oid']),
+         
                 'complaint' => trim( $_POST['complaint']),
               
                
@@ -39,18 +38,13 @@ class Complaint extends Controller
             ];
 
           $insert= $this->complaint->add($data);
-        if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Home');
-
-           }
-           else{
-           
-            $this->view('Customer/Complaint',$data);
-
-           }
+         
+          if($insert){
+              $this->view('Customer/complaint',$insert);
                 
         }
 
     }
     
+}
 }

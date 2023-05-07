@@ -19,7 +19,7 @@ class Addvehicle1 extends Controller
         }
     }
 
-    public function update(){
+    public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
             $id= $_SESSION['id'];
@@ -29,24 +29,26 @@ class Addvehicle1 extends Controller
                 'vno' => trim( $_POST['vno']),
                 'vtype' => trim( $_POST['vtype']),
                 'ftype' => trim( $_POST['ftype']),
+                'phone' => trim( $_POST['phone']),
                
                
         
                 'err'=>'',
 
             ];
-            echo $vno;
+            
 
-          $insert= $this->addvehicle1->update($data);
+          $insert= $this->addvehicle1->add($data);
         if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Home');
+              header('location:http://localhost/PETRO/public/Customer/Profile');
 
            }
-           else{
-           
-            $this->view('Customer/Addvehicle1',$data);
 
-           }
+           else {
+          
+            $this->view('Customer/Addvehicle1',$insert);
+        }
+      
                 
         }
 
