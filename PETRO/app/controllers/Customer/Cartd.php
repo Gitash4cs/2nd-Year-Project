@@ -1,27 +1,13 @@
 <?php
 
-class Pendingpetrol extends Controller
+class Cartd extends Controller
 {
     public function __construct(){
-        $this->pendingpetrol=$this->model('M_Pendingpetrol');
+        $this->cartd=$this->model('M_Cartd');
+        
     }
+    
     public function index(){
-        $data=[
-            'id'=>$_SESSION['id'],
-            'error'=>'',
-        ];
-        $result=($this->pendingpetrol->pendingpetrol($data));
-        if($result){
-            $this->view('Customer/pendingpetrol',$result);
-        }
-        else{
-            $data['error']="No Records";
-            $this->view('Customer/pendingpetrol',$data);
-        }
-    }
-
-
-    public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
             $id= $_SESSION['id'];
@@ -38,18 +24,29 @@ class Pendingpetrol extends Controller
             ];
            
 
-          $insert= $this->pendingpetrol->add($data);
+          $insert= $this->cartd->cartd($data);
         if($insert==1){
               header('location:http://localhost/PETRO/public/Customer/Home');
 
            }
            else{
            
-            $this->view('Customer/Home',$data);
+            $this->view('Customer/Store2',$data);
 
            }
                 
         }
 
     }
-}
+
+
+
+
+
+    
+
+
+    }
+
+
+

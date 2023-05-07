@@ -1,11 +1,11 @@
 
 <?php
-class Updatevehicle1 extends Controller{
-public $Updatevehicle1;
+class Updatevehicle2 extends Controller{
+public $Updatevehicle2;
 
     public function __construct(){
     
-        $this->updatevehicle1=$this->model('M_Updatevehicle1');
+        $this->updatevehicle2=$this->model('M_Updatevehicle2');
         
     }
     
@@ -15,9 +15,9 @@ public $Updatevehicle1;
             'email'=>'',
 
         ];
-        $result=$this->updatevehicle1->updatevehicle1($data);
+        $result=$this->updatevehicle2->updatevehicle2($data);
         if($result){
-            $this->view('Customer/updatevehicle1',$result);
+            $this->view('Customer/updatevehicle2',$result);
         }
     }
 
@@ -37,7 +37,7 @@ public $Updatevehicle1;
 
             ];
            
-            $result = $this->updatevehicle1->add($data);
+            $result = $this->updatevehicle2->add($data);
             if($result){
                 header('location:http://localhost/PETRO/public/Customer/Profile');
 

@@ -10,11 +10,15 @@ class Ordervehicle1 extends Controller
     public function index(){
         $data=[
             'id'=>$_SESSION['id'],
+           
             'email'=>'',
 
         ];
+       
+        
         $result=$this->ordervehicle1->ordervehicle1($data);
         if($result){
+
             $this->view('Customer/ordervehicle1',$result);
         }
     }
@@ -32,8 +36,10 @@ class Ordervehicle1 extends Controller
                 'vtype' => trim( $_POST['vtype']),
                 'ftype' => trim( $_POST['ftype']),
                 'amount' => trim( $_POST['amount']),
-                'balance' => trim( $_POST['balance']),
-                'pmethod' => trim( $_POST['pmethod']),
+                'points' => trim( $_POST['points']),
+                'petropoints' => trim( $_POST['petropoints']),
+                
+                
                
         
                 'err'=>'',
@@ -45,15 +51,19 @@ class Ordervehicle1 extends Controller
               header('location:http://localhost/PETRO/public/Customer/Orderticketvehicle');
 
            }
+       
            else{
-           
-            $this->view('Customer/Ordervehicle1',$data);
 
-           }
+   
+                $this->view('Customer/Ordervehicle1',$insert);
+
+            }
+
+        }
                 
         }
 
     }
-}
+
 
 

@@ -27,12 +27,14 @@ class Ordervehicle3 extends Controller
             $data=[
 
                 'id' => $id,
+                'email' => trim( $_POST['email']),
                 'vno' => trim( $_POST['vno']),
                 'vtype' => trim( $_POST['vtype']),
                 'ftype' => trim( $_POST['ftype']),
                 'amount' => trim( $_POST['amount']),
-                'balance' => trim( $_POST['balance']),
-                'pmethod' => trim( $_POST['pmethod']),
+                'points' => trim( $_POST['points']),
+                'petropoints' => trim( $_POST['petropoints']),
+               
                
         
                 'err'=>'',
@@ -40,15 +42,16 @@ class Ordervehicle3 extends Controller
             ];
 
           $insert= $this->ordervehicle3->add($data);
-        if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Home');
+          if($insert==1){
+            header('location:http://localhost/PETRO/public/Customer/Orderticketvehicle');
 
-           }
-           else{
-           
-            $this->view('Customer/Ordervehicle1',$data);
+         }
+    
+         else{
+         
+          $this->view('Customer/Orderticketvehicle',$data);
 
-           }
+         }
                 
         }
 

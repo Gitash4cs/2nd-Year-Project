@@ -27,28 +27,34 @@ class Ordermachine extends Controller
             $data=[
 
                 'id' => $id,
-                'sno' => trim( $_POST['sno']),
+                'email' => trim( $_POST['email']),
+                'vno' => trim( $_POST['vno']),
+
                 'vtype' => trim( $_POST['vtype']),
                 'ftype' => trim( $_POST['ftype']),
                 'amount' => trim( $_POST['amount']),
-                'balance' => trim( $_POST['balance']),
-                'pmethod' => trim( $_POST['pmethod']),
+                'points' => trim( $_POST['points']),
+                'petropoints' => trim( $_POST['petropoints']),
+           
                
         
                 'err'=>'',
 
             ];
 
-          $insert= $this->ordervehicle1->add($data);
-        if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Home');
+          $insert= $this->ordermachine->add($data);
+ 
+          if($insert==1){
+            header('location:http://localhost/PETRO/public/Customer/Orderticketmachine');
 
-           }
-           else{
-           
-            $this->view('Customer/Ordermachine',$data);
+         }
+     
+         else{
 
-           }
+ 
+              $this->view('Customer/Ordervehicle1',$insert);
+
+          }
                 
         }
 

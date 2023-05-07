@@ -1,21 +1,21 @@
 <?php
 
-class Orderticketvehicle extends Controller
+class Ordervehicle1 extends Controller
 {
     public function __construct(){
-        $this->orderticketvehicle=$this->model('M_Orderticketvehicle');
+        $this->ordervehicle1=$this->model('M_Ordervehicle1');
         
     }
     
     public function index(){
         $data=[
             'id'=>$_SESSION['id'],
-        
+            'email'=>'',
 
         ];
-        $result=$this->orderticketvehicle->orderticketvehicle($data);
+        $result=$this->ordervehicle1->ordervehicle1($data);
         if($result){
-            $this->view('Customer/orderticketvehicle',$result);
+            $this->view('Customer/ordervehicle1',$result);
         }
     }
 
@@ -25,7 +25,6 @@ class Orderticketvehicle extends Controller
             $id= $_SESSION['id'];
 
             $data=[
-                'Oid' => trim( $_POST['Oid']),
 
                 'id' => $id,
                 'email' => trim( $_POST['email']),
@@ -33,34 +32,28 @@ class Orderticketvehicle extends Controller
                 'vtype' => trim( $_POST['vtype']),
                 'ftype' => trim( $_POST['ftype']),
                 'amount' => trim( $_POST['amount']),
-                'price' => trim( $_POST['price']),
-                'ndate' => trim( $_POST['ndate']),
-                'status' => trim( $_POST['status']),
-                'usedpoints' => trim( $_POST['usedpoints']),
-                'petropoints' => trim( $_POST['petropoints']),
+                'balance' => trim( $_POST['balance']),
+                'pmethod' => trim( $_POST['pmethod']),
                
         
                 'err'=>'',
 
             ];
-            
 
-          $insert= $this->orderticketvehicle->add($data);
-          $this->orderticketvehicle->records($data);
+          $insert= $this->ordervehicle1->add($data);
         if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Success');
+              header('location:http://localhost/PETRO/public/Customer/Orderticketvehicle');
 
            }
            else{
            
-            $this->view('Customer/Home',$data);
+            $this->view('Customer/Ordervehicle1',$data);
 
            }
                 
         }
 
     }
-           
 }
 
 
