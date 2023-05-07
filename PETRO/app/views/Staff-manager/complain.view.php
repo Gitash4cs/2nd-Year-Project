@@ -114,13 +114,13 @@
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
+            <h3><?php echo $_SESSION['manager_name']," ",$_SESSION['manager_name_Last']?></h3>
             <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
             <a href="#" class="profile">
-                <img src="img/people.png">
+                <img src="<?php echo ROOT ?>/image/proIcon.png">
             </a>
         </nav>
         <!-- NAVBAR -->
@@ -230,10 +230,9 @@
                                 }
                                 chart2.render();
                                 </script>
-                        
                     </div>
-                    
                 </div>
+
                 <div class="todo">
                     <div class="head">
                         <h3>Todos</h3>

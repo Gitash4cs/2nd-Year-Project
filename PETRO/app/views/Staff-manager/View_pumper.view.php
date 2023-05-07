@@ -98,19 +98,20 @@
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
-            <label for="switch-mode" class="switch-mode"></label>
+            <h3><?php echo $_SESSION['manager_name']," ",$_SESSION['manager_name_Last']?></h3>
             <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
             <a href="#" class="profile">
-                <img src="img/people.png">
+                <img src="<?php echo ROOT ?>/image/proIcon.png">
             </a>
         </nav>
         <!-- NAVBAR -->
 
         <!-- MAIN -->
         <main>
+
             <div class="head-title">
                 <div class="left">
                     <h1>View Pumpers</h1>
@@ -124,11 +125,37 @@
                         </li>
                     </ul>
                 </div>
-            
             </div>
 
             <div class="table-data">
-                <table class="table">
+                <div class="order">
+                    <div class="head">
+                        <h3>Filter :</h3>
+                        <i class='bx bx-search'></i>
+                        <i class='bx bx-filter'></i>
+                    </div>
+                    <div class= "filter">
+                        <Select name= "filter" id="filter">
+                            <option vlaue="All Customers">All Pumper</option>
+                            <option vlaue="Active">Active Pumper</option>
+                            <option vlaue="Remove">Removed Pumper</option>
+
+                        </Select>
+                    </div>
+                    
+                </div>
+                <div class="todo">
+                    <div class="head">
+                        <h3>Todos</h3>
+                        <i class='bx bx-plus'></i>
+                        <i class='bx bx-filter'></i>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="table-data">
+                <table class="table" id="table">
                     <thead>
                         <tr>
                             <th> Pumper ID </th>
@@ -136,6 +163,7 @@
                             <th> Last Name </th>
                             <th> Phone Number </th>
                             <th> Email </th>
+                            <th style="display : none;"> Status</th>
                             <th> View </th>
                             <th> Delete </th>
                         </tr>
@@ -150,8 +178,9 @@
                             <td> <?php echo $row["last_name"];?> </td>
                             <td> <?php echo $row["phone_no"];?> </td>
                             <td> <?php echo $row["email"];?> </td>
+                            <td style="display : none;"><?php echo $row["status"]==0 ?'Removed Pumper' : 'Active Pumper' ?>
                             <td> <button value="<?php echo $row['id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper_Profile?pump_id=<?php echo $row['id'];?>';">View</button> </td>
-                            <td> <button>Delete</button></td>
+                            <td>  <div class = "delete"><button value="<?php echo $row['email'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper/remove_pumper?pump_email=<?php echo $row['email'];?>';">Delete</button></div></td>
                         </tr>
                         <?php
                             }
@@ -159,25 +188,6 @@
                 </table>
             </div>
 
-            <div class="table-data">
-                <div class="order">
-                    <div class="head">
-                        <h3>Recent Orders</h3>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
-                        
-                    </div>
-                    
-                </div>
-                <div class="todo">
-                    <div class="head">
-                        <h3>Todos</h3>
-                        <i class='bx bx-plus'></i>
-                        <i class='bx bx-filter'></i>
-                    </div>
-
-                </div>
-            </div>
 
         </main>
         <!-- MAIN -->
@@ -185,5 +195,52 @@
     <!-- CONTENT -->
 
     <script src="<?php echo ROOT ?>/CSS/Staff-manager/script.js"></script>
+
+    <script>
+        //get action of the filter drop down
+        let selectMenu = document.querySelector("#filter");
+        //take recode of the output table
+        let table = document.querySelector("#table");
+
+        //do this when changes happen on filter drop down
+        selectMenu.addEventListener('change',()=>{
+        const searchTerm = selectMenu.value.toLowerCase();
+        
+        //when select All Pumper show all records
+        if(searchTerm == "all pumper"){
+            for (let i = 1; i < table.rows.length; i++) {
+                const row = table.rows[i];
+                row.style.display = '';
+            }
+        }else{
+            //travel row by row
+            for (let i = 1; i < table.rows.length; i++) {
+                const row = table.rows[i];
+                const cells = row.cells;
+                let matchesSearch = false;
+            
+                //travel sell by sell in a row
+                for (let j = 0; j < cells.length; j++) {
+                const cell = cells[j];
+                    //find the selected option is in the cells
+                    if (cell.textContent.toLowerCase().includes(searchTerm)) {
+                        matchesSearch = true;
+                        break;
+                    }
+                }
+        
+                //founded rows print and other rows doesnt show
+                if (matchesSearch) {
+                row.style.display = '';
+                } else {
+                row.style.display = 'none';
+                }
+            }
+        }
+    
+        
+        });
+
+    </script>
 </body>
 </html>

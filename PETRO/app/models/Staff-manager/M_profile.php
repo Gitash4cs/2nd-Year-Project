@@ -7,7 +7,6 @@ class M_profile extends Model{
     public function view_manager($data){
         $result = $this->connection();
         $manager_ID = $data['manager_ID'];
-        echo $data['manager_ID'];
         $sql="select * from $this->table where customer_manager_id ='".$manager_ID."'";
         $query = $result->query($sql);
         if($query->num_rows>0){

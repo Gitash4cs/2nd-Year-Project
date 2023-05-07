@@ -28,11 +28,16 @@ class Assign_pumpper extends Controller
             $editdata=[
                 'pumperMashine'=>trim($_POST['pumperMashine']),
                 'pumperid'=>trim($_POST['pumperid']),
+                'error'=>"",
             ];
             
             $result = $this->order->assign($editdata);
-            //redirect to the staff manager's page
-            header('location:http://localhost/PETRO/public/Staff-manager/Assign_pumpper');
+          
+            //redirect to the email's page
+            header('location:http://localhost/PETRO/Public/Staff-manager/Email?Mashine='.$editdata["pumperMashine"].'&pumperid='.$editdata["pumperid"].'&type='.$result.'');
+                
+           
+
         }
 
     }

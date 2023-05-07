@@ -13,10 +13,13 @@ class M_pumper_registration extends Model{
             return false;
             
         }else{
+            $hash = password_hash($data['password'],PASSWORD_DEFAULT);
             //update user record given data to the data base table
-            $insert = "INSERT INTO pumper (id, first_name, last_name, nic, phone_no,gender, email, password,status) VALUES('".$data['id']."','".$data['first_name']."','".$data['last_name']."','".$data['nic']."','".$data['phone_no']."','".$data['gender']."','".$data['email']."','".$data['password']."','1')";
-            
+            $insert = "INSERT INTO pumper (id, first_name, last_name, nic, phone_no, gender, email, password) VALUES('".$data['id']."','".$data['first_name']."','".$data['last_name']."','".$data['nic']."','".$data['phone_no']."','".$data['gender']."','".$data['email']."','".$hash."')";
+            //inster to total user table
+            $insertlogin = "INSERT INTO total_user (email , password, role, status) VALUES('".$data['email']."','".$hash."','pumper',1)";
             $query = $result->query($insert);
+            $query = $result->query($insertlogin);
             //redirect to the staff manager's page
             return true;
             
