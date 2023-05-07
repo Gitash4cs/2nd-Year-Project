@@ -40,7 +40,7 @@
     <div class="container">
         <nav>
             <ul>
-            <li><a href="<?php echo ROOT ?>/Admin/Home" class="logo">
+            <li><a href="<?php echo ROOT ?>/Pumper/User" class="logo">
                         <img src="<?php echo ROOT ?>/image/Manager/home-button.png">
                         <span class="nav-item">Pasindu</span><br>
                         <span class="nav-item"></span>
@@ -67,7 +67,7 @@
 
 
 
-                <li><a href="#" class="logout">
+                <li><a href="<?php echo ROOT ?>/Pumper/Logout" class="logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span class="nav-item">Log out</span>
                     </a></li>
@@ -115,3 +115,111 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+ if(empty($data['err'])){
+   $data['err']=NULL;
+ }
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Change Automatic - Sagar Developer</title>
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Common/login.css" text="text/css">
+</head>
+
+<body>
+    <div class="Section_top">
+        <header>
+            <a href="#"><img src="<?php echo ROOT ?>/image/Common/log.png" alt="" class="image"></a>
+        </header>
+        <div class="wrapper">
+            <div class="title">
+                Login Form
+            </div>
+            <form action="<?php echo ROOT ?>/Home/Login/login" method="post" class="login">
+            <?php echo $data['err'] ?>
+                <div class="field">
+                    <input type="text" name="email" required>
+                    <label>Email Address</label>
+                </div>
+                <div class="field">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="content">
+                    <div class="checkbox">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+					<div class="pass-link">
+					<a href="<?php echo ROOT ?>/Pumper/Forget_password" class="">Forget Password? </a>
+                    
+                	</div>
+                   
+                </div>
+                <div class="field">
+                    <input type="submit" value="Login">
+                </div>
+                <div class="signup-link">
+                    Not a member? <a href="#">Signup now</a>
+                </div>
+				
+				
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

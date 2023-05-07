@@ -2,29 +2,23 @@
     $flag='';
     if(empty($data['error'])){
         $flag=true;
-       
     }
     else{
-        $data['total']= NULL;
-        $v1=null;
-        $v2=null;
         $flag=false;
     }
-  
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
 
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
-    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Pumper/working.css" text="text/css">
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Pumper/complain.css" text="text/css">
     
    
 
@@ -53,7 +47,7 @@
                     <span class="text">Working Report</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="<?php echo ROOT ?>/Pumper/Working_hours">
                     <i class='bx bxs-doughnut-chart'></i>
                     <span class="text">Working Hours</span>
@@ -79,7 +73,7 @@
                 </a>
             </li>
 
-            <li>
+            <li class="active">
                 <a href="<?php echo ROOT ?>/Pumper/Complain">
                     <i class='bx bxs-group'></i>
                     <span class="text">Complain Box</span>
@@ -104,7 +98,6 @@
     <!-- CONTENT -->
     <section id="content">
         <!-- NAVBAR -->
-        
         <nav>
             <i class='bx bx-menu'></i>
            
@@ -115,43 +108,88 @@
                     <button type="submit"><i class='bx bx-search'></i></button>
                 </div>
             </form>
-        
             <?php echo $_SESSION['first_name']?>
+      
             <a href="#" class="profile">
                 <img src="<?php echo ROOT ?>/image/th.jpg">
             </a>
         </nav>
-       
         <!-- MAIN -->
         <main>
             <div class="head-title">
   
             </div>
 
-<div class="table-data">
+            
+
+            <div class="table-data">
                 <div class="order">
                     <div class="head">
-                        <h3>Working Hours - <?php echo $data['date']?></h3> <br><h3><span class="txt">Pumper ID - <?php echo $data['id']?></span></h3>
-
+                        <h3>Add Complaint</h3>
+                     
                     </div>
-                    <div class="attendance-list">
-                   
-                    <div class="bar"> 
-                        <input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search" class="search"><span class="txt1">
+                    <div class="container3">
                         
-                        <button  class="btn" onclick="openForm()">Filter</button></span>
+                    <form action="<?php echo ROOT ?>/Pumper/Complain/load" method="post">
+
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+                       
+                        
+                        <label for="lname">Required Email:</label>
+                        <input type="text" id="lname" name="email" placeholder="Your email address.."required>
+
+                       
+
+
+
+
+                        <label for="subject">Subject</label>
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px" required></textarea>
+                        <button type="submit" name="submit" class="btn">Submit</button>
+
+                    </form>
+                    </div>
+                    
+                    
+                </div>
                
-                <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">  
-              
+            </div>
+                
+
+
 
                 
+
+
+
+
+
+
+
+
+<div class="table-data">
+               
+                <div class="order">
+                    <h3>Previous Complain</h3>
+                   
+                    <div class="attendance-list">
+                    <div class="bar"> 
+                        <input type="text1" id="myInput" onkeyup='tableSearch()' placeholder="Search" class="search">
+                    
+               
+                <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
                         <thead>
                             <tr>
-                            <th>N0</th>
-                            <th>Date</th>
-                            <th>Login Time</th>
-                            <th>Logout Time</th>
-                            <th>Working Hours</th>
+                               
+                <th scope>Complain ID</th>
+                <th scope>Complained Date</th>
+                <th scope>Status</th>
+                <th scope>Response Date</th>
+                <th scope>Complain</th>
+                <th scope>Response</th>
+                <th scope></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -159,152 +197,48 @@
                         if($flag==true){
                             if (mysqli_num_rows($data['result'])> 0) {
                                 while($row = mysqli_fetch_assoc($data['result'])) {
-                                    $seconds=($row['working_hours'])%60;
-                                    $minutes=($row['working_hours'])/60%60;
-                                    $hours =(int)(($row['working_hours'])/3600);
-                                echo "<tr>
-                                <td>".$row['id']."</td>
-                                <td>".$row['Date']."</td>
-                                <td>".$row['Login_Time']."</td>
-                                <td>".$row['Logout_TIME']."</td>
-                                <td>".$hours."h:".$minutes."min:".$seconds."s". "</td>
-                                </tr>";
-                               
+                            
+                            echo"<tr>
+                              
+                                <td><br><br>com ".$row['com_id']."</td>
+                                <td>".$row['date_time']."</td>
+                                <td>".$row['status']."</td>
+                                <td>".$row['response_date']."</td>"?>
+                                <?php
+                                $response=$row['response'];
+                                $subject=$row['complain'];
+                                ?>
+                                
+                                <td><textarea id="subject" name="subject" placeholder="<?php echo $subject?>" style="height:80px" readonly ></textarea></td>
+                                <td><textarea class="subject1" name="subject" placeholder="<?php echo $response?>" style="height:80px" readonly ></textarea></td>
+                            <?php
+                                "</tr>";
                                 }
                             }
-
                         }
                         else{
-                                echo $data['error'];
+                            echo "No Records";
                         }
-                    ?>
- 
+                            
+                        ?>
+                            
                         </tbody>
                     </table>
-                   
                 </div>
+                    </div>
                 </div>
 </div>
-</div>
-
-               
-                    <div class="form-inner">
-                    <div id="myForm" class="form-popup">
-                    <form action="<?php echo ROOT?>/Pumper/Working_hours/previous" method="post">
-                    <a href="<?php echo ROOT?>/Pumper/Working_hours" id="close-popup"><i class='bx bx-x'></i></a>
-                        <label class="FROM">From :</label>  
-                        <div class="field">
-                            <input type="date" name="from" required>
-                        </div>
-                        <label class="TO">To :</label>   <div class="field"><input type="date" name="to" required/></div><br><br>
-                        <button type="submit" name="submit" class="btn">Click Here</button>
-                    </form>
-                    </div>
-                    </div>
-                    
-                    <div class="table-data">
-                        <div class="order">
-                    
-                   
-                        <div class="head">
-                            
-                        </div>
-
-                        <div class="row">
-                        <?php
-                                $seconds=($data['total'])%60;
-                                $minutes=($data['total'])/60%60;
-                                $hours =(int)(($data['total'])/3600);
-        
-                            ?>
-        
-                           
-            
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <canvas id="myChart1" style="width:10%;max-width:700px"></canvas>
-    
-    <script>
-
-        var x1 =" <?php echo "$seconds" ; ?>";
-        var x2 =" <?php echo "$hours" ; ?>";
-        var x3 =" <?php echo "$minutes" ; ?>";
-       
-       
-
-        var xValues = ["Hours","Minutes","Seconds"];
-        var yValues = [x2,x3,x1];
-        var barColors = ["#808000", "#90EE90","#ADD8E6"];
-
-    
-
-        var chart1=new Chart("myChart1", {
-        type: "bar",
-        data: {
-            labels: xValues,
-            datasets: [{
-            backgroundColor: barColors,
-            data: yValues
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                    beginAtZero: true
-                    }
-                }]
-                },
-            legend: {display: true},
-            title: {
-            display: true,
-            text: ""
-            }
-        }
-        });
-        </script>
-    <script>initCharts();</script>
-    <br><br><br>
-                        </div>
-    
-
-  
-                    
-                    </div>
-                    <div class="todo">
-                        <div class="CENTER"><br>
-                        <h1>Analyzing Total Working Hours</h1><br>
-                        <h1><?php echo $data['date']?></h1><br><br>
-
-                        <h3>Hours   :<?php echo $hours?>H</h3><br><br>
-                        <h3>Minutes :<?php echo $minutes?>Min</h3><br><br>
-                        <h3>Seconds :<?php echo $seconds?>S</h3>
-                        
-                    
-                    </div>
-                    </div>
-                        </div>
-                    
-                    
-                    
-                   
-                
-               
-                    
 
 
 
         </main>
-        <div class="overlay"></div>
-
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
 
 
     <script>
- function tableSearch() {
+                function tableSearch() {
             let input, filter, table, tr, td, txtValue;
 
             //Intialising Variables
@@ -341,22 +275,9 @@
                 }
             }
 
-}
- 
-const overlay = document.querySelector(".overlay");
-    
-    function openForm() {
-    document.getElementById("myForm").classList.add("animate");
-    document.getElementById("myForm").style.display = "block";
-    overlay.classList.add("overlayStyle");
-}
+        }
 
-function closeForm() {
-document.getElementById("myForm").classList.remove("animate");
-document.getElementById("myForm").style.display = "none";
-overlay.classList.remove("overlayStyle");
-}
-   
+
 
 const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
