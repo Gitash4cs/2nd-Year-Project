@@ -13,6 +13,12 @@ class View_pumper_Profile extends Controller
         $Pump_ID = $_GET['pump_id'];
         $result=$this->Profile->profile($Pump_ID);
         
+        if($result['status'] == "0"){
+            $result['status'] = "Removed Pumper";
+        }else{
+            $result['status'] = "Active Pumper";
+        }
+
         if($result){
             $this->view('Staff-manager/view_pumper_profile',$result);
         }

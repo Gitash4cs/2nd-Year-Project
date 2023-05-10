@@ -1081,4 +1081,22 @@ table thead tr {
 
 .flex-container{
     display: flex;
+    
+}
+
+.flex-container-tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container-tag h3{
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 5%;
+    color: white;
+}
+
+.pump-colour{
+    padding: 10px;
 }

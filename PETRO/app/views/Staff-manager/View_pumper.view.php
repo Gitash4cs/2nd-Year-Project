@@ -174,9 +174,9 @@
                                 
                         ?>
                             <td> <?php echo $row['id'];?> </td>
-                            <td> <?php echo $row['first_name'];?> </td>
-                            <td> <?php echo $row["last_name"];?> </td>
-                            <td> <?php echo $row["phone_no"];?> </td>
+                            <td> <?php echo $row['fname'];?> </td>
+                            <td> <?php echo $row["lname"];?> </td>
+                            <td> <?php echo $row["phone"];?> </td>
                             <td> <?php echo $row["email"];?> </td>
                             <td style="display : none;"><?php echo $row["status"]==0 ?'Removed Pumper' : 'Active Pumper' ?>
                             <td> <button value="<?php echo $row['id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper_Profile?pump_id=<?php echo $row['id'];?>';">View</button> </td>

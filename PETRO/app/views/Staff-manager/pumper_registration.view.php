@@ -150,14 +150,6 @@
                         <div class="field">
                         <input type="text" name = "phoneNumber" required placeholder="Enter Pumper's Phone Number">
                         </div>
-                        <br>
-                        <div>
-                        <select class="profile-gender" name="gender" selected value="<?php echo $data["gender"]?>">
-                            <option value="">--Select Gender--</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            </select>
-                        </div>
                         <div>
                         <div class="field">
                             <input type="text" name = "email" required placeholder="Enter Pumper's Email">
