@@ -15,11 +15,15 @@ class M_pumper_registration extends Model{
         }else{
             $hash = password_hash($data['password'],PASSWORD_DEFAULT);
             //update user record given data to the data base table
-            $insert = "INSERT INTO pumper (id, first_name, last_name, nic, phone_no, gender, email, password) VALUES('".$data['id']."','".$data['first_name']."','".$data['last_name']."','".$data['nic']."','".$data['phone_no']."','".$data['gender']."','".$data['email']."','".$hash."')";
+            $insertpumper = "INSERT INTO pumper (id, email, status) VALUES('".$data['id']."','".$data['email']."','not assigned')";
+
             //inster to total user table
-            $insertlogin = "INSERT INTO total_user (email , password, role, status) VALUES('".$data['email']."','".$hash."','pumper',1)";
-            $query = $result->query($insert);
-            $query = $result->query($insertlogin);
+            $insertlogin = "INSERT INTO registered_users (email , password, fname, lname, NIC, phone, role, status) VALUES('".$data['email']."','".$hash."','".$data['first_name']."','".$data['last_name']."','".$data['nic']."','".$data['phone_no']."','pumper',1)";
+            
+            //parent shoud be insert first then child can enter data so register user shoud be insert first
+            $query2 = $result->query($insertlogin);
+            $query1 = $result->query($insertpumper);
+
             //redirect to the staff manager's page
             return true;
             

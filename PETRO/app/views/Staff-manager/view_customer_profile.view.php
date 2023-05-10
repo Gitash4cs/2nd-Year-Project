@@ -142,6 +142,9 @@
                             <tr><th>1st Vehical Number</th><td><?php echo $data["vno"]?>  </td></tr>
                             <tr><th>2st Vehical Number</th><td><?php echo $data["vno1"]?>  </td></tr>
                             <tr><th>3st Vehical Number</th><td><?php echo $data["vno2"]?>  </td></tr>
+                            <tr><th>Total Points</th><td><?php echo $data["points"]?>  </td></tr>
+                            <tr><th>Status</th><td><?php echo $data["status"]?>  </td></tr>
+
 
 
                         </table>

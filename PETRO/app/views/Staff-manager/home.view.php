@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Manager Home</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/style.css" text="text/css" />
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/home.css" text="text/css" />
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- to get calander move icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
@@ -174,8 +174,8 @@
 
 
             <div class="table-data">
-                <div class="order">
-                <header>
+                <div class="todo">
+                    <header>
                         <p class="current-date"></p>
                         <div class="icons">
                             <span id="prev" class="material-symbols-rounded">chevron_left</span>
@@ -198,12 +198,84 @@
                 </div>
                 <div class="todo">
                     <div class="head">
-                        <h3>Todos</h3>
+                        <h3>Members & Complains</h3>
                         <i class='bx bx-plus'></i>
                         <i class='bx bx-filter'></i>
                     </div>
 
+                    <table class="table">
+                        <tr><td>Total Pumper Count :</td>
+                            <?php echo "<td>" .$data['totalPumper']. "</td>"?></tr>
+                        <tr><td>Working Pumpers :</td>
+                            <?php echo "<td>" .$data['activepumper']. "</td>"?></tr>
+                        <tr><td>Not Assigned Pumpers :</td>
+                            <?php echo "<td>" .$data['waitingPumper']. "</td>"?></tr>
+                        <tr><td>Total Customer Count :</td>
+                            <?php echo "<td>" .$data['totalCustomer']. "</td>"?></tr>
+                        <tr><td>Total Pending complains :</td>
+                            <?php echo "<td>" .$data['pending']. "</td>"?></tr>
+                        <tr><td>Total Viewed complains :</td>
+                            <?php echo "<td>" .$data['view']. "</td>"?></tr>
+                    </table>
+
                 </div>
+
+                <div class="order">
+                    <div class="head">
+                        <h3>Pumper Mashine Details</h3>
+                        <i class='bx bx-plus'></i>
+                        <i class='bx bx-filter'></i>
+                    </div>
+                    <div class="flex-container-tag">
+                        <div class="pump-colour"> <?php
+                            $color = $this->dashboard->mashineColour('D001');
+                           echo "<h3 style='background-color: $color;'>D1</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->dashboard->mashineColour('D002');
+                           echo "<h3 style='background-color: $color;'>D2</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->dashboard->mashineColour('D003');
+                           echo "<h3 style='background-color: $color;'>D3</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->dashboard->mashineColour('D004');
+                           echo "<h3 style='background-color: $color;'>D4</h3>"; 
+                        ?></div>
+                    
+                        <h1> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp     </h1>
+
+                        <div class="pump-colour"> <?php
+                            $color = $this->dashboard->mashineColour('P001');
+                           echo "<h3 style='background-color: $color;'>P1</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->dashboard->mashineColour('P002');
+                           echo "<h3 style='background-color: $color;'>P2</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->dashboard->mashineColour('P003');
+                           echo "<h3 style='background-color: $color;'>P3</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->dashboard->mashineColour('P004');
+                           echo "<h3 style='background-color: $color;'>P4</h3>"; 
+                        ?></div>
+                    </div>
+                    <table class="table">
+                        <tr><td>Total Diesel Mashine :</td>
+                            <?php echo "<td> 4 </td>"?></tr>
+                        <tr><td>Total Working Diesel Mashine :</td>
+                            <?php echo "<td>" .$data['workingDiesel']. "</td>"?></tr>
+                        <tr><td>Total Petrol Mashine :</td>
+                            <?php echo "<td> 4 </td>"?></tr>
+                        <tr><td>Total Working Petrol Mashine :</td>
+                            <?php echo "<td>" .$data['workingPetrol']. "</td>"?></tr>
+                        
+                    </div>
+                </div>
+
             </div>
         </main>
         <!-- MAIN -->

@@ -139,7 +139,8 @@
                             <tr><th>Email</th><td><?php echo $data["email" ]?> </td></tr>
                             <tr><th>NIC</th><td><?php echo $data["NIC" ]?>  </td></tr>
                             <tr><th>Phone Number</th><td><?php echo $data["phone"]?>  </td></tr>
-                            <tr><th>Gender</th><td><?php echo $data["gender"]?>  </td></tr>
+                            <tr><th>Status</th><td><?php echo $data["status"]?>  </td></tr>
+
                             
                         </table>
                     

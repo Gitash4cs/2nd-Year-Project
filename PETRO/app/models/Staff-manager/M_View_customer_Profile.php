@@ -9,9 +9,12 @@ class M_View_customer_Profile extends Model
 
         $id = $data;
         $result=$this->connection();
-        $sql = "select * from $this->table where id='".$id."'";
+
+        $sql="select * from $this->table inner join registered_users on $this->table.email = registered_users.email where id='".$id."'";
+
         $query=$result->query($sql);
         while($row = $query->fetch_array()){
+            $email= $row['id'];
             $email= $row['email'];
             $fname = $row['fname'];
             $lname = $row['lname'];
@@ -21,8 +24,9 @@ class M_View_customer_Profile extends Model
             $vno2 = $row['vno2'];
             $sNo = $row['sNo'];
             $phone = $row['phone'];
-            $balance = $row['balance'];
-            $password = $row['password'];
+            $points = $row['points'];
+            $status = $row['status'];
+            
         }
 
         $arr=array(
@@ -36,8 +40,9 @@ class M_View_customer_Profile extends Model
             'vno2'=> $vno2,
             'sNo'=> $sNo,
             'phone'=> $phone,
-            'balance'=> $balance,
-            'password'=> $password,
+            'points'=> $points,
+            'status'=> $status,
+            
         );
         return $arr;
               

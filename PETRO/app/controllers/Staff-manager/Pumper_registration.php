@@ -24,7 +24,6 @@ class Pumper_registration extends Controller
                 'last_name'=>trim($_POST['lastName']),
                 'phone_no'=>trim($_POST['phoneNumber']),
                 'nic'=>trim($_POST['nic']),
-                'gender'=>trim($_POST['gender']),
                 'email'=>trim($_POST['email']),
                 'password'=>trim($_POST['password']),
                 'confirmPassword'=>trim($_POST['cpassword']),

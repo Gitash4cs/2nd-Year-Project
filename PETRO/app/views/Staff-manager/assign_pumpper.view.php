@@ -169,7 +169,6 @@
                 </div>
                 
                 <div class="todo">
-                    <br>
                     <div class="flex-container">
                         
                         <h2>Total Pumpers count &nbsp : &nbsp </h2> <?php
@@ -177,79 +176,56 @@
                             echo "<h2 value>'"  .$totalpumper."'</h2>"; 
                         ?> 
                     </div>
-                    <br>
+                   
                     <div class="flex-container">
                         <h2>Total Assigned Pumpers count &nbsp : &nbsp </h2> <?php
                             $totalpumper = $this->order->activepumpercount();
                             echo "<h2 value>'"  .$totalpumper."'</h2>"; 
                         ?>
                     </div>
+                    <br>
+                    <div class="flex-container-tag">
+                        <div class="pump-colour"> <?php
+                            $color = $this->order->mashineColour('D001');
+                           echo "<h3 style='background-color: $color;'>D1</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->order->mashineColour('D002');
+                           echo "<h3 style='background-color: $color;'>D2</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->order->mashineColour('D003');
+                           echo "<h3 style='background-color: $color;'>D3</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->order->mashineColour('D004');
+                           echo "<h3 style='background-color: $color;'>D4</h3>"; 
+                        ?></div>
+                    
+                        <h1> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp     </h1>
+
+                        <div class="pump-colour"> <?php
+                            $color = $this->order->mashineColour('P001');
+                           echo "<h3 style='background-color: $color;'>P1</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->order->mashineColour('P002');
+                           echo "<h3 style='background-color: $color;'>P2</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->order->mashineColour('P003');
+                           echo "<h3 style='background-color: $color;'>P3</h3>"; 
+                        ?></div>
+                        <div class="pump-colour"> <?php
+                            $color = $this->order->mashineColour('P004');
+                           echo "<h3 style='background-color: $color;'>P4</h3>"; 
+                        ?></div>
+                    </div>
                 </div>
                         
             </div>
-
+            <br>
         
-
-            <div class="table-data">
-                <div class="todo">  
-                    <h2>Petrol Machine 01</h2>
-                    <ul class="box-info">
-                    <li>
-                        <i class='bx bxs-gas-pump'></i>
-                        <span class="text">
-                            <h3>Pump 01 (P001)</h3>
-                            <p><?php
-                                    $assignedpumper = $this->order->show_assign_pumpper('P001');
-                                    echo "<p value>'".$assignedpumper."'</p>"; 
-                                ?>
-                            </p>
-                        </span></li>
-                    <li>
-                        <i class='bx bxs-gas-pump'></i>
-                        <span class="text">
-                            <h3>Pump 02 (P002)</h3>
-                            <p><?php
-                                    $assignedpumper = $this->order->show_assign_pumpper('P002');
-                                    echo "<p value>'".$assignedpumper."'</p>"; 
-                                ?>
-                            </p>
-                        </span></li>
-                    </ul> 
-                </div>
-
-                <div class="todo">  
-                    <h2>Petrol Machine 02</h2>
-                    <ul class="box-info">
-                    <li>
-                        <i class='bx bxs-gas-pump'></i>
-                        <span class="text">
-                            <h3>Pump 03 (P003)</h3>
-                            <p><?php
-                                    $assignedpumper = $this->order->show_assign_pumpper('P003');
-                                    echo "<p value>'".$assignedpumper."'</p>"; 
-                                ?>
-                            </p>
-                        </span>
-                        </li>
-                    <li>
-                        <i class='bx bxs-gas-pump'></i>
-                        <span class="text">
-                            <h3>Pump 04 (P004)</h3>
-                            <p><?php
-                                    $assignedpumper = $this->order->show_assign_pumpper('P004');
-                                    echo "<p value>'".$assignedpumper."'</p>"; 
-                                ?>
-                            </p>
-                        </span>
-                    </li>
-
-                    </ul>
-                </div>
-            </div>
-
-
-            <br><br>
-
             <div class="table-data">
                 <div class="todo">  
                     <h2>Diesel Machine 01</h2>
@@ -305,6 +281,64 @@
                             </p>
                         </span>
                     </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="table-data">
+                <div class="todo">  
+                    <h2>Petrol Machine 01</h2>
+                    <ul class="box-info">
+                    <li>
+                        <i class='bx bxs-gas-pump'></i>
+                        <span class="text">
+                            <h3>Pump 01 (P001)</h3>
+                            <p><?php
+                                    $assignedpumper = $this->order->show_assign_pumpper('P001');
+                                    echo "<p value>'".$assignedpumper."'</p>"; 
+                                ?>
+                            </p>
+                        </span></li>
+                    <li>
+                        <i class='bx bxs-gas-pump'></i>
+                        <span class="text">
+                            <h3>Pump 02 (P002)</h3>
+                            <p><?php
+                                    $assignedpumper = $this->order->show_assign_pumpper('P002');
+                                    echo "<p value>'".$assignedpumper."'</p>"; 
+                                ?>
+                            </p>
+                        </span></li>
+                    </ul> 
+                </div>
+
+                <div class="todo">  
+                    <h2>Petrol Machine 02</h2>
+                    <ul class="box-info">
+                    <li>
+                        <i class='bx bxs-gas-pump'></i>
+                        <span class="text">
+                            <h3>Pump 03 (P003)</h3>
+                            <p><?php
+                                    $assignedpumper = $this->order->show_assign_pumpper('P003');
+                                    echo "<p value>'".$assignedpumper."'</p>"; 
+                                ?>
+                            </p>
+                        </span>
+                        </li>
+                    <li>
+                        <i class='bx bxs-gas-pump'></i>
+                        <span class="text">
+                            <h3>Pump 04 (P004)</h3>
+                            <p><?php
+                                    $assignedpumper = $this->order->show_assign_pumpper('P004');
+                                    echo "<p value>'".$assignedpumper."'</p>"; 
+                                ?>
+                            </p>
+                        </span>
+                    </li>
+
                     </ul>
                 </div>
             </div>

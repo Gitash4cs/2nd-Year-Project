@@ -959,7 +959,7 @@ form .btn input[type="submit"] {
     cursor: pointer;
 }
 
-/* .button {
+.button {
     position: relative;
     float: left;
     margin-left: 15%;
@@ -976,7 +976,7 @@ form .btn input[type="submit"] {
     outline: none;
     text-align: center;
     padding-top: 20px;
-} */
+}
 
 .search {
     width: 20%;
@@ -1005,22 +1005,11 @@ form .btn input[type="submit"] {
     font-size: 15px;
     min-width: 100%;
     overflow: hidden;
-    border-radius: 5px 5px 0 0;
-    border: 1px solid #3498db;
+    border-radius: 5px 5px 5px 5px;
 }
 
-.table button {
-    padding: 6px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid #3498db;
-}
-
-.table button:hover {
-    background: #3498db;
-    color: #fff;
-    transition: 0.5rem;
+.table tr{
+    border-radius: 5px 5px 5px 5px;
 }
 
 table thead tr {
@@ -1033,10 +1022,12 @@ table thead tr {
 .table th,
 .table td {
     padding: 12px 15px;
+    
 }
 
 .table tbody tr {
     border-bottom: 1px solid #ddd;
+    border-radius: 5px 5px 5px 5px;
 }
 
 .table tbody tr:nth-of-type(odd) {
@@ -1048,8 +1039,9 @@ table thead tr {
     color: var(--blue);
 }
 
-.table tbody tr:last-of-type {
-    border-bottom: 2px solid var(--blue);
+
+.table tbody tr {
+    border-left: 5px solid var(--blue);
 }
 
 .bar {
@@ -1077,4 +1069,27 @@ table thead tr {
     width: 100px;
     height: 100px;
     margin-left: 30%;
+}
+
+
+.flex-container{
+    display: flex;
+    
+}
+
+.flex-container-tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container-tag h3{
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 5%;
+    color: white;
+}
+
+.pump-colour{
+    padding: 10px;
 }

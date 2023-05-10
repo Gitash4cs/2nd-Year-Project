@@ -7,7 +7,8 @@ class M_view_pumper extends Model{
     public function pumper_list(){
         $result = $this->connection();
         
-        $sql="select * from pumper";
+        $sql="select * from pumper inner join registered_users on pumper.email = registered_users.email";
+
         $query = $result->query($sql);
 
         if($query->num_rows>0){
@@ -25,7 +26,7 @@ class M_view_pumper extends Model{
     public function pump_remove($email){
         $result = $this->connection();
         
-        $sql="UPDATE `total_user` SET `status` = 0 WHERE `total_user`.`email` = '$email';";
+        $sql="UPDATE `registered_users` SET `status` = 0 WHERE `email` = '$email';";
         $query = $result->query($sql);
 
         $sql="UPDATE `pumper` SET `status` = '0' WHERE `email` = '$email';";

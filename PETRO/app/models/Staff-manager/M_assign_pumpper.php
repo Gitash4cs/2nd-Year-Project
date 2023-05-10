@@ -69,7 +69,23 @@ class M_assign_pumpper extends Model{
         $id= $data[0];
         
         return  $id;
+        
+    }
+
+    public function mashineColour($mashineID){
        
+        $result = $this->connection();
+        $pumper = "select pumperID from pumper_mashine where PumpID  = '".$mashineID."'";
+        $queryactivePumper = $result->query($pumper);
+        $data = $queryactivePumper->fetch_array();
+        $id= $data['pumperID'];
+        if($id == 0){
+            $color = "#e3361c";
+        }else{
+            $color = "#35ca41";
+        }
+        
+        return  $color;
         
     }
 
