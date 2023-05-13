@@ -1,185 +1,394 @@
 
 
+<?php
+    $flag='';
+    if(empty($data['error'])){
+        $flag=true;
+    }
+    else{
+        $flag=false;
+    }
+?>
 
 
-  
+<?php 
+		
+		$url1="/PETRO/public/Customer/Addvehicle1";
+		$url2="/PETRO/public/Customer/Addvehicle2";
+		$url3="/PETRO/public/Customer/Addvehicle3";
+   
+    
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <title> profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/home2.css" text="text/css">
+     <!-- My CSS -->
+     <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/profile.css" text="text/css">
+   
 
-   
-   <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/profile.css" text="text/css">
-   
-    
+     <title>petro</title>
 </head>
+
 <body>
-<div class="navbar">
-<a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
-  <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
-  <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
-  <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-   
 
 
-</div>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Store">
+                <i class='bx bx-store'></i>
+                    <span class="text">Store</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pendingstore">
+                <i class='bx bxs-stopwatch'></i>
+                    <span class="text">Pending Orders</span>
+                </a>
+            </li>
 
-<div class="row">
-  <div class="side">
-   
-  <a href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-car"></i> Place an Order</a>
-    <a href="<?php echo ROOT ?>/Customer/Pendingpetrol"> <i class="fa fa-car"></i> Pending Orders</a>
-   <a href="<?php echo ROOT ?>/Customer/Pumphistory"><i class="fa fa-user icon"></i> View Pumped History</a>
-  <a href="<?php echo ROOT ?>/Customer/Complaint" class=""><i class="fa fa-user icon"></i> Add a Complaint</a>
-    <a href="<?php echo ROOT ?>/Customer/Rating" class=""><i class="fa fa-user icon"></i> Add a Feedback</a>
- 
-  </div>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pumphistory">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Pumping History</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Analyze">
+                <i class='bx bxs-bar-chart-alt-2' ></i>
+                    <span class="text">Fuel Analyze</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Storehistory">
+                <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Store History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Complaint">
+                <i class='bx bxs-envelope'></i>
+                    <span class="text">Complaints</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Feedback">
+                <i class='bx bxs-message-dots'></i>
+                    <span class="text">Feedback</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Aboutus">
+                <i class='bx bxs-business' ></i>
+                    <span class="text">About Us</span>
+                </a>
+            </li>
+
+
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Profile">
+                <i class='bx bxs-user'></i>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+        <i class='bx bx-menu'></i>
+          
+          <form action="#">
+              <div class="form-input">
+                  
+                  <button type="submit" class="search-btn"></button>
+              </div>
+          </form>
+
+          <p> <?php echo  $data['fname'] ?></p>
+    
+          <a href="<?php echo ROOT ?>/Customer/Profile" >
+       
+          <img src="<?php echo ROOT ?>/image/bp.jpg"  style="width:35px;height:35px;  border-radius: 50%;"></a>
+        
+          </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <h1 class="up"> USER  PROFILE</h1>
   
-   <div class="main">
+            </div>
 
- <BR><BR><BR> 
-   
+         
+<br>
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Personal Details</h3>
+                    
+                     
+                    </div>
+ <br>
+                
+                            
+                               
+    <label for="fname"><b>First Name: </b></label>
+   <input type="text" value="<?php echo  $data['fname'] ?>" class="box3" readonly><br><br><br>
+   <label for="lname"><b>Last Name: </b></label>
+   <input type="text" value="<?php echo  $data['lname'] ?>" class="box3" readonly><br><br><br>
+   <label for="Email"><b>Email:</b> </label>
+   <input type="text" value="<?php echo  $data['email'] ?>" class="box3" readonly><br><br><br>
+   <label for="Contact No"><b>Contact No: </b></label>
+   <input type="text" value="<?php echo  $data['phone'] ?>" class="box3" readonly><br><br><br>
 
- <img class="round" src="<?php echo ROOT ?>/image/bp.jpg" width="150px" height="150px" alt="user" />
- <div class="row3">
-  <div class="column3" style="background-color:transparent;">
-  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  <label for="balance"><h3> First Name</h3> </label>
-  &nbsp;  &nbsp; <input type="text" value="<?php echo  $data['fname'] ?>" class="box" readonly><br>
-  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;   <label for="balance"><h3> Last Name</h3> </label>
-  &nbsp;  &nbsp; <input type="text" value="<?php echo  $data['lname'] ?>" class="box" readonly><br>
-  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;   <label for="balance"><h3> Email</h3> </label>
-  &nbsp;  &nbsp; <input type="text" value="<?php echo  $data['email'] ?>" class="box" readonly><br>
-  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;   <label for="balance"><h3> Contact</h3> </label>
-  &nbsp;  &nbsp; <input type="text" value="<?php echo  $data['phone'] ?>" class="box" readonly><br>
-  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  <label for="balance"><h3> Balance</h3> </label>
-  &nbsp;  &nbsp;  <input type="text" name="balance" value="<?php echo  $data['balance'] ?>" class="box" readonly ><br>
+    <label for="Contact No"><b>NIC: </b></label>
+    <input type="text" value="<?php echo  $data['NIC'] ?>" class="box3" readonly><br><br><br>
+
+    <label for="pp"><b>Petro Points: </b></label>            
+    <input type="text" value="<?php echo  $data['points'] ?>" name="points" value="" class="box3" readonly ><br><br>
+                            
+                        
+                        
+        
+            
+    </div>
 
 
 
-  </div>
-  <div class="column3" style="background-color:transparent;">
-  <br>
-<h2>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  <b>Vehicles</b></h2><br>
+     <!-- Vehicle Details -->
 
-               &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; <a href="<?php echo ROOT ?>/Customer/Updatevehicle1" class="vehicle"> <?php echo $data['vno']; ?> </a>
-			     &nbsp;  &nbsp;  &nbsp;     <a href="<?php echo ROOT ?>/Customer/Updatevehicle2" class="vehicle"> <?php echo $data['vno1']; ?> </a>
-			   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;    <a href="<?php echo ROOT ?>/Customer/Updatevehicle3" class="vehicle"> <?php echo $data['vno2']; ?> </a>
-               
-			<?php 
-		
-			$url="addvehicle.php";
-		$url2="addvehicle2.php";
-		$url3="addvehicle3.php";
-
+                <div class="todo">
+                    <div class="head">
+                        <h3>Vehicle & Machine Details</h3>
+                       
+                    </div>
+                    <ul class="todo-list">
+                    
+                  
+                        <li class="completed">
+                        <?php
 		if ($data['vno'] == "")
 {
-  echo ' <a href='.$url.' target="_blank" class="add">Add Vehicle 1</a>'; 
-}
-		if ($data['vno1'] == "")
-{
-  echo ' <a href='.$url2.' target="_blank" class="add">+ Add Vehicle 2</a>'; 
-}
-
-
-		if ($data['vno2'] == "")
-{
-  echo ' <a href='.$url3.' target="_blank" class="add">+ Add Vehicle 3</a>'; 
-}
-
-?><br>
-
-<h2><br>  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;<b>Machine</b></h2><br>
-&nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; 
- &nbsp;  &nbsp; &nbsp;   <a href="updatevehicle.php" class="vehicle"> <?php echo $data['sNo']; ?> </a>
-			<?php 
-
-$url="addmachine.php";
-if ($data['sNo'] == "")
-{
-echo ' <a href='.$url.' target="_blank" class="add">+Add a Machine</a>'; 
+  echo ' <a href='.$url1.'  class="add"> + Add Vehicle </a>'; 
 }
 ?>
-	  <br><br> &nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp;  &nbsp;  &nbsp;  &nbsp;
-	&nbsp;  &nbsp;  &nbsp;  &nbsp;&nbsp; &nbsp; <label for="balance"><h3> Petro Points</h3> </label>
-    &nbsp;  &nbsp;  <input type="text" name="balance" value="" class="box2" readonly ><br><br>
+ <a href="<?php echo ROOT ?>/Customer/Updatevehicle1" class="vehicle"> <?php echo $data['vno']; ?> </a>
+                      
+                        </li>
+                        
+
+                   
+                        <li class="completed">
+                        <?php
+		if ($data['vno1'] == "")
+{
+  echo ' <a href='.$url2.'  class="add"> + Add Vehicle </a>'; 
+}
+?>
+ <a href="<?php echo ROOT ?>/Customer/Updatevehicle2" class="vehicle"> <?php echo $data['vno1']; ?> </a>
+                           
+                        </li>
+                     
+
+               
+                        <li class="completed">
+                        <?php
+		if ($data['vno2'] == "")
+{
+  echo ' <a href='.$url3.'  class="add"> + Add Vehicle </a>'; 
+}
+?>
+ <a href="<?php echo ROOT ?>/Customer/Updatevehicle3" class="vehicle"> <?php echo $data['vno2']; ?> </a>
+                          
+                        </li>
+              
+
+                 
+                        <li class="completed">
+
+ <p class="vehicle"> <?php echo $data['sNo']; ?> </a>
+                       
+                        </li>
+                  
+                    
+                    </ul>
+                </div>
+            </div>
+    <br><br>
+
+
+
+
+
+
+  <form action="<?php echo ROOT?>/Customer/Profile/add" method="post">
+<a href="<?php echo ROOT ?>/Customer/Profileedit" class="edit"><b>Edit </b></a>
+<input type="hidden" value="<?php echo  $data['email'] ?>" name="delete" readonly>
+<button onclick="document.getElementById('id01').style.display='block'" type="button" class="delete">Remove</button><br>
+<br>
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+
+    <div class="container">
+        <br><br><br><br>  <br><br><br><br>
+      <h1>Remove Profile</h1>
+      <p>Are you sure you want to Remove your Profile?</p>
+    
+      <div class="clearfix">
+
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Remove</button>
+
+    
+      </div>
+    </div>
   </div>
-</div>
-<a href="mv.php" class="edit"><b>Edit </b></a>
-	<a href="mv.php" class="delete"><b>Delete </b></a>
+</form>
+
+
+<br><br>
+
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+    <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+
+    <script>
+
+
+
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+
+allSideMenu.forEach(item => {
+    const li = item.parentElement;
+
+    item.addEventListener('click', function () {
+        allSideMenu.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
+});
+
+
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+    sidebar.classList.toggle('hide');
+})
 
 
 
 
 
 
-<br><br><br>
 
-</div>
-</div>
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+    if (window.innerWidth < 576) {
+        e.preventDefault();
+        searchForm.classList.toggle('show');
+        if (searchForm.classList.contains('show')) {
+            searchButtonIcon.classList.replace('bx-search', 'bx-x');
+        } else {
+            searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        }
+    }
+})
 
 
 
 
-<footer class="footer">
-<div class="footer-left">
 
-				<p class="footer-links">
-					<a href="#" class="link-1">Home</a><br>
-					
-					<a href="#">Contact Us</a><br>
-				
-					<a href="#">Profile</a><br>
-				
-					<a href="logout.php">Logout</a>
-					
-		
-				</p>
+if (window.innerWidth < 768) {
+    sidebar.classList.add('hide');
+} else if (window.innerWidth > 576) {
+    searchButtonIcon.classList.replace('bx-x', 'bx-search');
+    searchForm.classList.remove('show');
+}
 
-			</div>
 
-			<div class="footer-center">
+window.addEventListener('resize', function () {
+    if (this.innerWidth > 576) {
+        searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+})
 
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>222/A,Colombo 07</span></p>
-				</div>
 
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>0717787990</p>
-				</div>
 
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-				</div>
 
-			</div>
-
-			<div class="footer-right">
-
-				<p class="about">
-					<span>About the company</span>
-					
-				</p>
-
-				<div class="footer-icons">
-
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				
-				</div>
-
-			</div>
-
-		</footer>
+    </script>
 
 
 </body>
+
 </html>
+
+
+
+
+
+
+

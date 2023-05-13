@@ -3,6 +3,7 @@
 
 class Home extends Controller
 {
+    public $home;
     public function __construct(){
         $this->home=$this->model('M_Home');
     }
@@ -10,7 +11,7 @@ class Home extends Controller
 
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'email'=>'',
 
         ];
@@ -25,7 +26,7 @@ class Home extends Controller
 
     public function store(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'err'=>'',
             
 

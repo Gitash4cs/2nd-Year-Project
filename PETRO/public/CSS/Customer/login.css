@@ -3,7 +3,22 @@
   width: 120px;
 }
 
-
+:root {
+	--poppins: 'Poppins', sans-serif;
+	--lato: 'Lato', sans-serif;
+ 
+	--light: #F9F9F9;
+	--blue: #3C91E6;
+	--light-blue: #CFE8FF;
+	--grey: #eee;
+	--dark-grey: #AAAAAA;
+	--dark: #342E37;
+	--red: #DB504A;
+	--yellow: #FFCE26;
+	--light-yellow: #FFF2C6;
+	--orange: #FD7238;
+	--light-orange: #FFE0D3;
+ }
 
 * {
 	box-sizing: border-box;
@@ -13,7 +28,6 @@
 }
 
 body {
-	background: linear-gradient(90deg, #ccd8e2, #718d99);	
   font-family: Arial, Helvetica, sans-serif;	
 }
 
@@ -25,7 +39,7 @@ body {
 }
 
 .screen {		
-	background: linear-gradient(90deg, #ccd8e2, #718d99);			
+	background: linear-gradient(90deg, #ccd8e2, #80c4e0);			
 	position: relative;	
 	height: 600px;
 	width: 460px;	
@@ -66,7 +80,7 @@ body {
 .screen__background__shape2 {
 	height: 220px;
 	width: 220px;
-	background: #091d2a;	
+	background: #5fb0e6;	
 	top: -172px;
 	right: 0;	
 	border-radius: 32px;
@@ -75,7 +89,7 @@ body {
 .screen__background__shape3 {
 	height: 540px;
 	width: 190px;
-	background: linear-gradient(270deg, #091d2a, #68899f);
+	background: linear-gradient(270deg, #3C91E6, #77b2d9);
 	top: -24px;
 	right: 0;	
 	border-radius: 32px;
@@ -84,7 +98,7 @@ body {
 .screen__background__shape4 {
 	height: 400px;
 	width: 200px;
-	background: #091d2a;	
+	background: #62a9d7;	
 	top: 420px;
 	right: 50px;	
 	border-radius: 60px;
@@ -104,12 +118,12 @@ body {
 .login__icon {
 	position: absolute;
 	top: 30px;
-	color: #7875B5;
+	color: #57b2cb;
 }
 
 .login__input {
 	border: none;
-	border-bottom: 2px solid #091d2a;
+	border-bottom: 2px solid #57aee8;
 	background: none;
 	padding: 10px;
 	padding-left: 20px;
@@ -188,4 +202,55 @@ a.rn{
 
 .social-login__icon:hover {
 	transform: scale(1.5);	
+}
+
+
+
+
+
+.navigation_bar {
+    margin: 30px auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+    animation: animate 3s linear infinite;
+}
+
+ul {
+    flex: 1;
+    text-align: center;
+}
+
+ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 25px;
+    font-size: 25px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 0 10px;
+    position: relative;
+}
+
+ul li a::after {
+    content: '';
+    width: 0;
+    height: 10px;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -55px;
+    transition: 0.5s;
+}
+
+ul li a:hover::after {
+    width: 100%;
 }

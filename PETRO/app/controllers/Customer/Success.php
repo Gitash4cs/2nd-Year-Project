@@ -3,6 +3,7 @@
 
 class Success extends Controller
 {
+    public $success;
     public function __construct(){
         $this->success=$this->model('M_Success');
     }
@@ -10,7 +11,7 @@ class Success extends Controller
 
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'email'=>'',
 
         ];

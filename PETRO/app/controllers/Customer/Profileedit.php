@@ -7,7 +7,7 @@ class Profileedit extends Controller
     }
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             
 
         ];
@@ -21,12 +21,13 @@ class Profileedit extends Controller
     public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
-            $id= $_SESSION['id'];
+            $id= $_SESSION['CUS_id'];
 
             $data=[
                 'fname' => trim($_POST['fname']),
                 'lname'=>trim($_POST['lname']),
                 'phone'=>trim($_POST['phone']),
+                'email'=>trim($_POST['email']),
          
                 'err'=>'',
 
@@ -37,6 +38,7 @@ class Profileedit extends Controller
           header('location:http://localhost/PETRO/public/Customer/Profileedit');
 
        }
+
 
        else {
       

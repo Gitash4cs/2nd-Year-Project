@@ -1,205 +1,437 @@
 
 
+<?php
+if(empty($data['message'])){
+    $data['message']=NULL;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Page Title</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="css/home.css">
- <link rel="stylesheet" href="css/orderv.css">
-    
- <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/ordervehicle.css" text="text/css">
-    
- <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/main.css" text="text/css">
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+   
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/ordervehicle.css" text="text/css">
+     <!-- My CSS -->
+    
+   
 
-</style>
+     <title>petro</title>
 </head>
+
 <body>
 
 
-<div class="navbar">
-<a href="<?php echo ROOT ?>/Customer/Home" class="">Home</a>
-  <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
-  <a href="<?php echo ROOT ?>/Customer/Mv" class="">Place an Order</a>
-  <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
-  <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/xx.png" width="40px" height="40px"></a> 
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Store">
+                <i class='bx bx-store'></i>
+                    <span class="text">Store</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pendingstore">
+                <i class='bx bxs-stopwatch'></i>
+                    <span class="text">Pending Orders</span>
+                </a>
+            </li>
 
-</div>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pumphistory">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Pumping History</span>
+                </a>
+            </li>
 
-<div class="row">
-  <div class="side">
- 
-  <a href="<?php echo ROOT ?>/Customer/Mv" class="active"> <i class="fa fa-car"></i> Place an Order</a>
-    <a href="<?php echo ROOT ?>/Customer/Pendingpetrol"> <i class="fa fa-car"></i> Pending Orders</a>
-   <a href="<?php echo ROOT ?>/Customer/Pumphistory"><i class="fa fa-user icon"></i> View Pumped History</a>
-  <a href="<?php echo ROOT ?>/Customer/Complaint" class=""><i class="fa fa-user icon"></i> Add a Complaint</a>
-    <a href="<?php echo ROOT ?>/Customer/Rating" class=""><i class="fa fa-user icon"></i> Add a Feedback</a>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Analyze">
+                <i class='bx bxs-bar-chart-alt-2' ></i>
+                    <span class="text">Fuel Analyze</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Storehistory">
+                <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Store History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Complaint">
+                <i class='bx bxs-envelope'></i>
+                    <span class="text">Complaints</span>
+                </a>
+            </li>
 
-  </div>
-  
-  <div class="main">
- 
-           
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Feedback">
+                <i class='bx bxs-message-dots'></i>
+                    <span class="text">Feedback</span>
+                </a>
+            </li>
 
-                
-                   
-                    <div class="form-container">
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Aboutus">
+                <i class='bx bxs-business' ></i>
+                    <span class="text">About Us</span>
+                </a>
+            </li>
 
-  
+
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Profile">
+                <i class='bx bxs-user'></i>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
 
 
-                        <form action="<?php echo ROOT ?>/Customer/Ordervehicle1/add " method="POST">
-                           
-                               <h1> Order Fuel </h1>
-							   
-							   
-			                    <input type="hidden" name="id" value="<?php echo $data['id']; ?>" class="box1" readonly > <br>
-								 <input type="text" name="vno" value="<?php echo $data['sNo']; ?>" class="box" readonly>
-                             
-			<br>
-                                 <input type="text" name="vtype" value="<?php echo $data['type']; ?>" class="box" readonly>
-                            <br>
-						
-                                <?php 
-  if($data['ftype3']=="92-Octane"){?>
-   
-                                <select name="ftype" class="box" required>
-                                    <option value="<?php echo $data['ftype3']; ?>"><?php echo $data['ftype3']; ?></option>
-                                 
-                                    <option value="95-Octane">95-Octane</option>
-								
-                                </select>
-								<?php } ?>
-								
-								
-								               <?php 
-  if($data['ftype3']=="95-Octane"){?>
-   
-                                <select name="ftype" class="box" required>
-                                    <option value="<?php echo $data['ftype3']; ?>"><?php echo $data['ftype3']; ?></option>
-                                 
-                                    <option value="92-Octane">92-Octane</option>
-								
-                                </select>
-								<?php } ?>
-								
-								
-															               <?php 
-  if($data['ftype3']=="Super-Diesel"){?>
-   
-                                <select name="ftype" class="box" required>
-                                    <option value="<?php echo $data['ftype3']; ?>"><?php echo $data['ftype3']; ?></option>
-                                 
-                                    <option value="Diesel">Diesel</option>
-								
-                                </select>
-								<?php } ?>
-								
-															               <?php 
-  if($data['ftype3']=="Diesel"){?>
-   
-                                <select name="ftype" class="box" required>
-                                    <option value="<?php echo $data['ftype3']; ?>"><?php echo $data['ftype3']; ?></option>
-                                 
-                                    <option value="Super-Diesel">Super-Diesel</option>
-								
-                                </select>
-								<?php } ?>
-								<br>
 
-                             
-                                
-							
-								   <input type="number" name="amount" placeholder="Fuel amount" class="box" min="1"  max="20 "required>
-								
-                           <br>
-						    <input type="hidden" name="balance" value="<?php echo $data['balance']; ?>" class="box" readonly > 
-						         
-                                <select name="pmethod" class="box" required>
-                                    <option value="">--Payment Method--</option>
-                                    <option value="Cash">Cash</option>
-                                    <option value="Card">Card</option>
-							
-                                </select>
-								
-                      <br><br><br>
-                                <button type="submit" name="submit" class="btn" required>Place Order</button>
-								<br><br>
-								
-                          
-                        </form>
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+        <i class='bx bx-menu'></i>
+          
+          <form action="#">
+              <div class="form-input">
+                  
+                  <button type="submit" class="search-btn"></button>
+              </div>
+          </form>
 
-                   
-                </div>
+          <p> <?php echo  $data['fname'] ?></p>
+    
+          <a href="<?php echo ROOT ?>/Customer/Profile" class="profile">
        
+          <img src="<?php echo ROOT ?>/image/bp.jpg"  style="width:35px;height:35px;"></a>
+        
+          </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+  
+            </div>
+
+            <ul class="box">
+            <li>
+            <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                        <h3> Auto Diesel </h3><br>
+                        <p class="av">Rs.<?php echo  $data['price_auto'] ?></p><br>
+                        <p class="av"><?php echo  $data['remain_auto'] ?> L</p>
+                    </span>
+                </li>
+                <li>
+                <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                    <h3> Octane 92</h3><br>
+                        <p class="av">Rs.<?php echo  $data['price_92'] ?></p><br>
+                        <p class="av"><?php echo  $data['remain_92'] ?> L</p>
+                    </span>
+                </li>
+                <li>
+                <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                    <h3> Octane 95 </h3><br>
+                        <p class="av">Rs.<?php echo  $data['price_95'] ?></p><br>
+                        <p class="av"><?php echo  $data['remain_95'] ?> L</p>
+                    </span>
+                </li>
+
+                <li>
+                <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                    <h3> Super Diesel </h3><br>
+                        <p class="av">Rs.<?php echo  $data['price_super'] ?></p><br>
+                        <p class="av"><?php echo  $data['remain_super'] ?> L</p>
+                    </span>
+                </li>
+            </ul>
+
+
+            <br><br>
+
+
+
+
+
+<div class="table-data">
+    <div class="order">
+        <div class="head">
+            <h3>Place an Order</h3>
+         
+        </div>
+    
+
+
+        <form action="<?php echo ROOT ?>/Customer/Ordermachine/add " method="POST">
+
+        <p class="err">        
+        <?php
+      
+    echo $data['message'];
+?>
+</p>
+<br>
+   
+
+   
+   
+    <input type="hidden" name="id" value="<?php echo $data['id']; ?>" class="box1" readonly >
+    <input type="hidden" name="email" value="<?php echo $data['email']; ?>" class="box1" readonly > <br>
+     <input type="text" name="vno" value="<?php echo $data['sNo']; ?>" class="box1" readonly><br><br>
+ 
+
+   
+
+
+
+
+    <select name="ftype" class="box1" required>
+        <option value="">--Fuel Type</option>
+      
+        <option value="octane 92">Octane 92</option>
+        <option value="octane 95">Octane 95</option>
+        <option value="super diesel">Super Diesel</option>
+        <option value="auto diesel">Auto Diesel</option>
+    
+    </select>
+ 
+    
+    
 
     
-  </div>
+    
+
+    
+
+    
+
+
+
+   <br><br>    <input type="number" name="amount" placeholder="Fuel amount" class="box1" min="1"  max="<?php echo "$max" ?>"required>
+    
+<br><br>
+     
+
+<input type="hidden" id="points" name="petropoints" value="<?php echo $data['points']; ?>">
+
+
+<br>
+
+
+
+  <?php  
+ if($data['points']>=300){?><br>
+   <p class="not"> Your <?php echo $data['points']; ?> Points will be reduce from your bill</p>
+
+  <input type="hidden" id="points" name="points" value="<?php echo $data['points']; ?>">
+  <?php }
+
+   else{?>
+<br>
+
+<input type="hidden" id="points" name="points" value="0">
+
+<?php } ?><br>
+    
+
+
+
+
+    <button type="submit" name="submit" class="btn4" required>Place Order</button>  <br><br>
+  
+    
+
+</form>
 </div>
 
 
-<footer class="footer">
-<div class="footer-left">
-
-				<h3>Company<span>logo</span></h3>
-
-				<p class="footer-links">
-					<a href="#" class="link-1">Home</a>
-					
-					<a href="#">Contact Us</a>
-				
-					<a href="#">About Us</a>
-				
-					<a href="#">Profile</a>
-					
-		
-				</p>
-
-				<p class="footer-company-name">Petro © 2022</p>
-			</div>
-
-			<div class="footer-center">
-
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>222/A,Colombo 07</span></p>
-				</div>
-
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>0717787990</p>
-				</div>
-
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-				</div>
-
-			</div>
-
-			<div class="footer-right">
-
-				<p class="about">
-					<span>About the company</span>
-					
-				</p>
-
-				<div class="footer-icons">
-
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				
-				</div>
-
-			</div>
-
-		</footer>
 
 
+
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="todo">
+    <h1>Maximum Amount at a Time</h1><br>
+        <div class="head">
+           
+       
+
+
+        <ul class="todo-list">
+        
+      
+        <li class="completed">
+       <p> All Machines  </p> <p class="max1"><?php echo $data['gene']; ?> L </p>
+       
+      
+        </li>
+        
+
+   
+  
+
+  <br>
+  <li class="point">
+              
+              <span class="text">
+                  <h2> Petro Points - <?php echo  $data['points'] ?></h2>
+                
+              </span>
+             
+          </li>
+          <p>You can redeem the petro points when points exceed 300 </p>
+  
+    
+    </ul> 
+        
+
+
+
+
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script>
+
+
+
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+
+allSideMenu.forEach(item => {
+    const li = item.parentElement;
+
+    item.addEventListener('click', function () {
+        allSideMenu.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
+});
+
+
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+    sidebar.classList.toggle('hide');
+})
+
+
+
+
+
+
+
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+    if (window.innerWidth < 576) {
+        e.preventDefault();
+        searchForm.classList.toggle('show');
+        if (searchForm.classList.contains('show')) {
+            searchButtonIcon.classList.replace('bx-search', 'bx-x');
+        } else {
+            searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        }
+    }
+})
+
+
+
+
+
+if (window.innerWidth < 768) {
+    sidebar.classList.add('hide');
+} else if (window.innerWidth > 576) {
+    searchButtonIcon.classList.replace('bx-x', 'bx-search');
+    searchForm.classList.remove('show');
+}
+
+
+window.addEventListener('resize', function () {
+    if (this.innerWidth > 576) {
+        searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+})
+
+
+
+const switchMode = document.getElementById('switch-mode');
+
+switchMode.addEventListener('change', function () {
+    if (this.checked) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+})
+    </script>
 </body>
+
 </html>

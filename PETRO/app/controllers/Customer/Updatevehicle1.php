@@ -11,7 +11,7 @@ public $Updatevehicle1;
     
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'email'=>'',
 
         ];

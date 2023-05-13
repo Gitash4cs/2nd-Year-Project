@@ -7,7 +7,7 @@ class Pendingstore extends Controller
     }
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'error'=>'',
         ];
         $result=($this->pendingstore->pendingstore($data));
@@ -19,4 +19,22 @@ class Pendingstore extends Controller
             $this->view('Customer/pendingstore',$data);
         }
     }
+
+
+    public function remove(){
+
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
+            $data=[
+                'Oid'=>trim($_POST['Oid']),
+                'amount'=>trim($_POST['amount']),
+                'ftype'=>trim($_POST['ftype']),
+            ];
+            $this->pendingstore->remove($data);
+            header('location:http://localhost/PETRO/public/Customer/Pendingstore');
+
+
+
+    }
+}
 }

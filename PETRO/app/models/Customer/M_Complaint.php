@@ -3,28 +3,34 @@
 class M_Complaint extends Model
 {
     protected $table = 'user_form';
-    protected $table1='comp';
+    protected $table2='complain';
 
     
     public function complaint($data){
     
 
-        $id = $data['id'];
+        $id = $_SESSION['CUS_id'];
+        $fname = $_SESSION['CUS_first_name'];
         $result=$this->connection();
         $sql = "select * from $this->table where id='".$id."'";
         $query=$result->query($sql);
         while($row = $query->fetch_array()){
             $id= $row['id'];
             $email = $row['email'];
-            $fname = $row['fname'];
+       
            
           
         }
+
+        $sql6="select *from $this->table2  where user_id = '".$id."'" ;
+        $query6 = $result->query($sql6);
 
         $arr=array(
             'id' => $id,
             'email'=>$email,
             'fname'=>$fname,
+           
+            'result'=>$query6,
           
           
         );
@@ -36,31 +42,77 @@ class M_Complaint extends Model
 
     public function add($data){
         $result1=$this->connection();
-        $id =$data ['id'];
-        $fname =$data ['fname'];
-        $email =$data ['email'];
-        $Oid =$data ['Oid'];
+        $id =$_SESSION ['CUS_id'];
+        $fname = $_SESSION['CUS_first_name'];
+      
+
         $complaint =$data ['complaint'];
       
   
 
-        echo $id;
-        echo $vno;
-        echo $vtype;
-        echo $ftype;
-        echo $amount;
-        echo $pmethod;
-
-         $sql = "INSERT INTO $this->table1 (id,email,Oid,complaint) VALUES('$id','$email','$Oid','$complaint')";
+         $sql = "INSERT INTO $this->table2 (user_id,complain) VALUES('$id','$complaint')";
          $query3 = $result1->query($sql); 
 
          if($query3){
+
+         $sql = "select * from $this->table where id='".$id."'";
+         $query=$result1->query($sql);
+         while($row = $query->fetch_array()){
+             
+             $email = $row['email'];
+             
+            
            
-            return 1;
-         }else{
-            return 5;
          }
-      }
+ 
+         $sql6="select *from $this->table2  where user_id = '".$id."'" ;
+         $query6 = $result1->query($sql6);
+
+         $error="Your Complaint Send Successfully";
+    
+         $data=[
+            'id' => $id,
+            'email'=>$email,
+            'fname'=>$fname,
+            
+            'result'=>$query6,
+             'error'=>$error,
+            
+         ];
+         return $data;
+        }
+
+        else{
+            $sql = "select * from $this->table where id='".$id."'";
+            $query=$result1->query($sql);
+            while($row = $query->fetch_array()){
+                
+                $email = $row['email'];
+                
+               
+              
+            }
+    
+            $sql6="select *from $this->table2  where user_id = '".$id."'" ;
+            $query6 = $result1->query($sql6);
+   
+            $error="Your Complaint didn't Send";
+       
+            $data=[
+               'id' => $id,
+               'email'=>$email,
+               'fname'=>$fname,
+               
+               'result'=>$query6,
+                'error'=>$error,
+               
+            ];
+            return $data;
+
+
+        }
+
+        }
            }
           
           

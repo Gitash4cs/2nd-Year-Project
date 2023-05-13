@@ -2,12 +2,13 @@
 
 class Storehistory extends Controller
 {
+    public $storehistory;
     public function __construct(){
         $this->storehistory=$this->model('M_Storehistory');
     }
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'error'=>'',
         ];
         $result=($this->storehistory->storehistory($data));
@@ -15,7 +16,7 @@ class Storehistory extends Controller
             $this->view('Customer/storehistory',$result);
         }
         else{
-            $data['error']="No Records";
+            $data['error']="No Records to Show";
             $this->view('Customer/storehistory',$data);
         }
     }

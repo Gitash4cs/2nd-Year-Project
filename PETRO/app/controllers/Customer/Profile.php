@@ -7,7 +7,7 @@ class Profile extends Controller
     }
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'email'=>'',
 
         ];

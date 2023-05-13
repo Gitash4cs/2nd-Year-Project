@@ -9,7 +9,7 @@ class Ordervehicle2 extends Controller
     
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'email'=>'',
 
         ];
@@ -22,7 +22,7 @@ class Ordervehicle2 extends Controller
     public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
-            $id= $_SESSION['id'];
+            $id= $_SESSION['CUS_id'];
 
             $data=[
 
@@ -41,16 +41,18 @@ class Ordervehicle2 extends Controller
             ];
 
           $insert= $this->ordervehicle2->add($data);
-          if($insert==1){
-            header('location:http://localhost/PETRO/public/Customer/Orderticketvehicle');
-
-         }
-       
-         else{
          
-          $this->view('Customer/Orderticketvehiclecard',$data);
-
-         }
+          if($insert==1){
+                header('location:http://localhost/PETRO/public/Customer/Orderticketvehicle');
+  
+             }
+         
+             else{
+  
+     
+                  $this->view('Customer/Ordervehicle2',$insert);
+  
+              }
                 
         }
 

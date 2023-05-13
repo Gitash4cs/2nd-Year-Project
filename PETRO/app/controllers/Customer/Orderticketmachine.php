@@ -2,6 +2,7 @@
 
 class Orderticketmachine extends Controller
 {
+    public $orderticketmachine;
     public function __construct(){
         $this->orderticketmachine=$this->model('M_Orderticketmachine');
         
@@ -9,7 +10,9 @@ class Orderticketmachine extends Controller
     
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
+      
+          
         
 
         ];
@@ -17,6 +20,7 @@ class Orderticketmachine extends Controller
         if($result){
             $this->view('Customer/orderticketmachine',$result);
         }
+       
     }
 
     public function add(){
@@ -34,23 +38,28 @@ class Orderticketmachine extends Controller
                 'ftype' => trim( $_POST['ftype']),
                 'amount' => trim( $_POST['amount']),
                 'price' => trim( $_POST['price']),
-                'cdate' => trim( $_POST['cdate']),
                 'ndate' => trim( $_POST['ndate']),
                 'status' => trim( $_POST['status']),
+                'usedpoints' => trim( $_POST['usedpoints']),
+                'petropoints' => trim( $_POST['petropoints']),
                
         
                 'err'=>'',
 
             ];
+            
 
           $insert= $this->orderticketmachine->add($data);
+        
         if($insert==1){
-              header('location:http://localhost/PETRO/public/Customer/Home');
+            $this->orderticketmachine->records($data);
+            
+              header('location:http://localhost/PETRO/public/Customer/Success');
 
            }
            else{
            
-            $this->view('Customer/Home',$data);
+            header('location:http://localhost/PETRO/public/Customer/Fail');
 
            }
                 

@@ -8,7 +8,7 @@
   .side {
    
     flex: 12%;
-    background-color: #091d2a;
+    background-color: #71b3e2;
     padding: 20px;
     width:30px; 
     
@@ -17,7 +17,7 @@
   .main {   
     
     flex: 78%;
-    background-color: white;
+    background-color: transparent;
     padding: 20px;
   }
   
@@ -52,39 +52,110 @@
     }
   }
   
+.input{
+  width: 50%;
+  padding:8px 10px;
+  font-size: 16px;
+  color:black;
+  margin:10px 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  text-align: center;
+  margin-left: 50px;
+
+
+ 
+  border-color:var(--dark);
   
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    text-align: center;
-    background-color:#04AA6D;
-   
-  }
+}
+
+label {
+  display: inline-block;
+  width: 150px;
+  text-align: right;
+}
+
+.No{
+  width: 50%;
+  padding:8px 10px;
+  font-size: 16px;
+  color:black;
+  margin:10px 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  text-align: center;
+ 
+  border-color:var(--dark);
+  margin: auto;
+  margin-left: 50px;
+
+}
+
+
+.button{
+  background-color: var(--blue);
+  width:130px;
+  height:40px;
+  font-size:15px;
+  transition: transform .4s;
+  display: inline-block;
+  color: white;
+ padding: 10px 20px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ border:1px #ddd;
+ margin: auto;
+ border-radius: 5px;
+ margin-left: 45%;
   
-  
-  
-  
-  a.card:link, a.card:visited {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
-      text-decoration: none;
-      font-size:25px;
-      color:black;
-    text-align: center;
-    background-color: #091d2a;
-    width:320px;
-    height:190px;
-    display: inline-block;
-    margin: 0 auto;
-    margin-left: 30px;
-    transition: transform .5s;
-    
-   
-  }
-  
-  a.card:hover, a.card:active {
-    background-color:  #091d2a;
-       -ms-transform: scale(1.2);
-    -webkit-transform: scale(1.2); 
-    transform: scale(1.2);
-  }
+}
+
+.button:hover{
+  background-color: var(--blue);
+      -ms-transform: scale(1.1);
+ -webkit-transform: scale(1.1); 
+ transform: scale(1.1);
+}
+
+
+.total{
+  margin-left: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

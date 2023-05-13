@@ -1,13 +1,13 @@
 <?php
-
 class Store extends Controller
 {
+    public $store;
     public function __construct(){
         $this->store=$this->model('M_Store');
     }
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'err'=>'',
             
 

@@ -2,6 +2,7 @@
 
 class Ordervehicle1 extends Controller
 {
+    public $ordervehicle1;
     public function __construct(){
         $this->ordervehicle1=$this->model('M_Ordervehicle1');
         
@@ -9,7 +10,7 @@ class Ordervehicle1 extends Controller
     
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
            
             'email'=>'',
 
@@ -26,7 +27,7 @@ class Ordervehicle1 extends Controller
     public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
-            $id= $_SESSION['id'];
+            $id= $_SESSION['CUS_id'];
 
             $data=[
 
@@ -36,6 +37,7 @@ class Ordervehicle1 extends Controller
                 'vtype' => trim( $_POST['vtype']),
                 'ftype' => trim( $_POST['ftype']),
                 'amount' => trim( $_POST['amount']),
+                
                 'points' => trim( $_POST['points']),
                 'petropoints' => trim( $_POST['petropoints']),
                 
@@ -51,6 +53,11 @@ class Ordervehicle1 extends Controller
               header('location:http://localhost/PETRO/public/Customer/Orderticketvehicle');
 
            }
+           
+           if($insert==2){
+            header('location:http://localhost/PETRO/public/Customer/Ordervehicle1');
+
+         }
        
            else{
 

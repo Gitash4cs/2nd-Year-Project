@@ -9,7 +9,7 @@ class Productdetails extends Controller
     
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'email'=>'',
 
         ];
@@ -31,6 +31,7 @@ class Productdetails extends Controller
                 'product_price'=>trim($_POST['product_price']),
                 'product_quantity'=>trim($_POST['product_quantity']),
                 'cdate'=>trim($_POST['cdate']),
+            
                 'ndate'=>trim($_POST['ndate']),
                 
             ];

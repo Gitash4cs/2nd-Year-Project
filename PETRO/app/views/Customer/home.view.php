@@ -1,203 +1,396 @@
 
+<?php
+    $flag='';
+    if(empty($data['error'])){
+        $flag=true;
+    }
+    else{
+        $flag=false;
+    }
+?>
+
+<?php
+if(empty($data['message'])){
+    $data['message']=NULL;
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Home</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
- <link rel="stylesheet" href="css/home.css">
- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
- <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/home.css" text="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/home2.css" text="text/css">
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/shop.css" text="text/css">
+    
+   
 
-
+    <title>petro</title>
 </head>
+
 <body>
 
 
-<div class="navbar">
-  <a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
-  <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
-  <a href="<?php echo ROOT ?>/Customer/Mv" class="">Place an Order</a>
-  <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
-  <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/xx.png" width="40px" height="40px"></a> 
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="active">
+                <a href="<?php echo ROOT ?>/Customer/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Store">
+                <i class='bx bx-store'></i>
+                    <span class="text">Store</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pendingstore">
+                <i class='bx bxs-stopwatch'></i>
+                    <span class="text">Pending Orders</span>
+                </a>
+            </li>
 
-</div>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pumphistory">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Pumping History</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Analyze">
+                <i class='bx bxs-bar-chart-alt-2' ></i>
+                    <span class="text">Fuel Analyze</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Storehistory">
+                <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Store History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Complaint">
+                <i class='bx bxs-envelope'></i>
+                    <span class="text">Complaints</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Feedback">
+                <i class='bx bxs-message-dots'></i>
+                    <span class="text">Feedback</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Aboutus">
+                <i class='bx bxs-business' ></i>
+                    <span class="text">About Us</span>
+                </a>
+            </li>
 
 
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Profile">
+                <i class='bx bxs-user'></i>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+        <i class='bx bx-menu'></i>
+          
+          <form action="#">
+              <div class="form-input">
+                  
+                  <button type="submit" class="search-btn"></button>
+              </div>
+          </form>
+
+          <p> <?php echo  $data['fname'] ?></p>
+    
+          <a href="<?php echo ROOT ?>/Customer/Profile" class="profile">
+       
+          <img src="<?php echo ROOT ?>/image/bp.jpg"  onclick="togglemenu()"style="width:35px;height:35px;">
+        
+          <div class="sub-menu-wrap" id="submenu">
+                <div class= "sub-menu">
+                    <a href="<?php echo ROOT ?>/Staff-manager/Profile" class="sub-menu-link">
+                        <img src="<?php echo ROOT ?>/image/profile_dropdown/profile.png">
+                        <p>Profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="<?php echo ROOT ?>/Staff-manager/Logout" class="sub-menu-link">
+                        <img src="<?php echo ROOT ?>/image/profile_dropdown/logout.png">
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
+</a>
+
+       
+
+
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+  
+            </div>
+
+
+            <ul class="box">
+                <li>
+                <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                        <h3> Auto Diesel </h3>
+                        <h3>Rs.<?php echo  $data['price_auto'] ?></h3>
+                        <p><?php echo  $data['remain_auto'] ?> L</p>
+                    </span>
+                </li>
+                <li>
+                <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                    <h3> Octane 92</h3>
+                        <h3>Rs.<?php echo  $data['price_92'] ?></h3>
+                        <p><?php echo  $data['remain_92'] ?> L</p>
+                    </span>
+                </li>
+                <li>
+                <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                    <h3> Octane 95 </h3>
+                        <h3>Rs.<?php echo  $data['price_95'] ?></h3>
+                        <p><?php echo  $data['remain_95'] ?> L</p>
+                    </span>
+                </li>
+
+                <li>
+                <i class='bx bxs-gas-pump'></i>
+                    <span class="text">
+                    <h3> Super Diesel </h3>
+                        <h3>Rs.<?php echo  $data['price_super'] ?></h3>
+                        <p><?php echo  $data['remain_super'] ?> L</p>
+                    </span>
+                </li>
+            </ul>
+
+
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Pending Fuel Orders</h3>
+                     
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                               
+            <th scope>Order ID</th>
+			  <th >V/M No</th>
+              
+			   <th scope>Fuel Type</th>
+			  <th scope>Amount(l)</th>
+			  <th scope>Price</th>
+			  <th scope>Order Date</th>
+			  <th scope>Exp Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        
+                 			 
+			 <?php
+    
 
   
-  <div class="main">
- 
+  
+  
 
-<div class="img">
-<img src="<?php echo ROOT ?>/image/pet3.jpg" class="mainimg">
-   
-   	<h1 class="ml122">PETRO</h1><br>
-	<h1 class="ml12">A new production</h1>
+        if (mysqli_num_rows($data['result']) > 0) {
+            while($row = mysqli_fetch_assoc($data['result'])) {
+
+	  
+				echo "<tr>
+			<td>".$row['Oid']."</td>
+            <td>".$row['VMno']."</td>
+            
+            <td>".$row['ftype']."</td>
+            <td>".$row['amount']."</td>
+            <td>".$row['price']."</td>
+			<td>".$row['cdate']."</td>
+			<td>".$row['ndate']."</td>
+		
+			
+        
+			</tr>";
+
+						
+					
+				
+			}}
+		
+		   ?>
+  
 
 
-	
-	</div>
-    <br><br>
+
+                        </tbody>
+                        
+                    </table><br>
+        
+                  
+                </div>
 
 
 
+                
 
 
-    <h1 class="available"> Fuel Availability </h1>
+
+                <div class="todo">
+                    <div class="head">
+                        <h3>Place an Order</h3>
+                       
+                    </div>
+                    <ul class="todo-list">
+                     <h3> My Vehicles </h3>   <br>
+                    
+                    <?php 
+  if($data['vno']!="" ){?>
+  <?php $_SESSION['o1']=$data['vno'];?>
+                        <li class="completed">
+                            
+                            <a class="VM" href="<?php echo ROOT ?>/Customer/Ordervehicle1"><?php echo  $data['vno'] ?></a>
+                            <i class='bx bxs-car'></i>
+                        </li>
+                        <?php } ?>
+
+                        <?php 
+  if($data['vno1']!="" ){?>
+  
+                        <li class="completed">
+                        <a class="VM" href="<?php echo ROOT ?>/Customer/Ordervehicle2"><?php echo  $data['vno1'] ?></a>
+                        <i class='bx bxs-car'></i>
+                        </li>
+                        <?php } ?>
+
+                        <?php 
+  if($data['vno2']!="" ){?>
+  <?php $_SESSION['o3']=$data['vno2'];?>
+                        <li class="completed">
+                        <a class="VM" href="<?php echo ROOT ?>/Customer/Ordervehicle3"><?php echo  $data['vno2'] ?></a>
+                        <i class='bx bxs-car'></i>
+                        </li>
+                        <?php } ?>
+                        <br>
+                        <h3> My Machines </h3>   <br>
+                        <?php 
+  if($data['sNo']!="" ){?>
+                        <li class="completed">
+                        <a class="VM" href="<?php echo ROOT ?>/Customer/Ordermachine"><?php echo  $data['sNo'] ?></a>
+                        <i class='bx bxs-checkbox-minus'></i>
+                       
+                        </li>
+                        <?php } ?>
+                    
+                    </ul>
 <br><br>
 
-   
-    <br>
-    <div id="pricing-table">
-    <div class="plan plan">
-        <div class="header">92-Octane</div>
-        <div class="price">Rs.400</div>  
-        <div class="monthly">per liter</div>      
-        <ul>
-         
-            <li><b>Available</b> 7000L</li>
-      
-        </ul>
-        <br><br>
-        <a class="signup" href="<?php echo ROOT ?>/Customer/Mv">Place Order</a>         
-    </div >
-    <div class="plan plan">
-        <div class="header">95-Octane</div>
-        <div class="price">Rs.420</div>
-        <div class="monthly">per liter</div>  
-        <ul>
-          
-            <li><b>Available</b> 10000L</li>
-        
-        </ul>
-        <br><br>
-        <a class="signup" href="<?php echo ROOT ?>/Customer/Mv">Place Order</a>            
-    </div>
-    <div class="plan plan">
-        <div class="header">Auto-Diesel</div>
-        <div class="price">Rs.400</div>
-        <div class="monthly">per liter</div>
-        <ul>
-           
-            <li><b>Available</b> 11000</li>
-     
-        </ul><br><br>
-        <a class="signup" href="<?php echo ROOT ?>/Customer/Mv">Place Order</a>        
-    </div>
-    <div class="plan plan">
-        <div class="header">Super-Diesel</div>
-        <div class="price">Rs 450</div>
-        <div class="monthly">per liter</div>
-        <ul>
-        
-            <li><b>Available</b> 5000L</li>
-      
-        </ul>
-        <br><br>
-        <a class="signup" href="<?php echo ROOT ?>/Customer/Mv">Place order</a>        
-    </div>  
-</div>
+                    <ul class="box2">
+                <li>
+                    <i class='bx bxs-calendar-check'></i>
+                    <span class="text">
+                        <h2> Petro Points <?php echo  $data['points'] ?></h2>
+                      
+                    </span>
+                </li>
+</ul>
 
-
-
-
-
-<br><br><br>
-
-
-
-
-<div class="splitview skewed">
-        <div class="panel bottom">
-            <div class="content">
-                <div class="description">
-                    <h1>PETRO Fuel.</h1>
-                    <p>This is how the image looks like before applying a duotone effect.</p>
                 </div>
-
-                <img src="<?php echo ROOT ?>/image/f11.jpg" alt="Original" width="200px">
             </div>
-        </div>
 
-        <div class="panel top">
-            <div class="content">
-                <div class="description">
-                    <h1>PETRO Store</h1>
-                    <p>This is how the image looks like after applying a duotone effect.</p>
-                </div>
-
-                <img src="<?php echo ROOT ?>/image/eo2.jpeg" alt="Duotone">
-            </div>
-        </div>
-
-        <div class="handle"></div>
-    </div>
+<br><br>
 
 
 
 
-	<br><br>
 
 
-
-
-    
-
-</div>
-
-
-
-</div>
-
-
-
+<div class="container-fluid">
 <div class="container">
+<div class="search">
+<h1>Latest Products</h1>
+
+</div>
+<div class="product-list">
+
+<?php
 
 
+   if (mysqli_num_rows($data['result1']) > 0) {
+            while($row = mysqli_fetch_assoc($data['result1'])) {
 
-
-
-  
-
-<div class="products">
-
-   <h1 class="heading">Latest Products</h1>
-
-   <div class="box-container">
-    
-   <?php
-   if (mysqli_num_rows($data['result']) > 0) {
-            while($row = mysqli_fetch_assoc($data['result'])) {
+              $tomorrow = date("Y/m/d", time() + 86400);
 				?>
-
-   <form method="post" class="box" action="">
-         <img src="<?php echo ROOT ?>/image/<?php echo $row['image']; ?>" alt="">
-         <div class="name"><?php echo $row['name']; ?></div>
+    <div class="product">
+	<form action="<?php echo ROOT ?>/Customer/Store/add " class="box" method="POST">
+         <img  class="imgg" src="<?php echo ROOT ?>/image/<?php echo $row['image']; ?>" alt="" width="100px"; height="100px"; >
+         <h3 class="name"><?php echo $row['name']; ?></h3>
          <div class="price">Rs.<?php echo $row['price']; ?></div>
-         
+		  <input type="hidden" name="p_id" value="<?php echo $row['p_id']; ?>">
          <input type="hidden" name="product_image" value="<?php echo $row['image']; ?>">
          <input type="hidden" name="product_name" value="<?php echo $row['name']; ?>">
          <input type="hidden" name="product_price" value="<?php echo $row['price']; ?>">
-    
+		
+        
+		
       </form>
-      <?php
+
+      </div>
+	  <?php
       };
    };
    ?>
-
- 
-      <a href="#" class="btn">Shop Now!</a>
-
-   </div>
+   
 
 </div>
 </div>
+<a class="shop" href="<?php echo ROOT ?>/Customer/Store"> Shop Now </a>
+</div><br><br>
 
 
 
@@ -205,192 +398,175 @@
 
 
 
-<figure class="snip">
-  <figcaption>
-    <blockquote>
-      <p>If you do the job badly enough, sometimes you don't get asked to do it again.</p>
-    </blockquote>
 
-    <h2><a href="<?php echo ROOT ?>/Customer/Complaint" class="comp">Complaint</a></h2>
-  </figcaption>
-</figure>
-<figure class="snip1">
-  <figcaption>
-    <blockquote>
-      <h3> PETRO believes that Sri Lanka<br> deserves a world-class petroleum <br>industry, and 
-is building a healthy <br>and competitive fuel network that<br> will both boost the nation’s economy, <br>and care for its environment</h3>
-    </blockquote>
-    <h3>A.R.Perera</h3>
-    <h4>Owner</h4>
-  </figcaption>
-</figure>
-<figure class="snip">
-  <figcaption>
-    <blockquote>
-      <p>The only skills I have the patience to learn are those that have no real application in life. </p>
-    </blockquote>
+
+
+<div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Pending Store Orders</h3>
+                      
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                               
+            <th scope="col">Order ID</th>
+			  <th scope="col">Product ID</th>
+			  <th scope="col">Product Name</th>
+			   <th scope="col">Price</th>
+			  <th scope="col">Quantity</th>
+			  <th scope="col">Ordered Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+        
+                 			 
+        <?php
+
+
+
+
+
+
+   if (mysqli_num_rows($data['result2']) > 0) {
+       while($row = mysqli_fetch_assoc($data['result2'])) {
+
  
-    <h2><a href="<?php echo ROOT ?>/Customer/Rating" class="comp">Feedback</a></h2>
-  </figcaption>
-</figure>
+           echo "<tr>
+       <td>".$row['Oid']."</td>
+       <td>".$row['p_id']."</td>
+       
+       <td>".$row['name']."</td>
+       <td>".$row['price']."</td>
+       <td>".$row['quantity']."</td>
+       <td>".$row['odt']."</td>
+      
+   
+       
+   
+       </tr>";
 
-
-
-<br><br>
-
-
-
-
-<footer class="footer">
-<div class="footer-left">
-
-				<p class="footer-links">
-					<a href="#" class="link-1">Home</a><br>
-					
-					<a href="#">Contact Us</a><br>
-				
-					<a href="#">Profile</a><br>
-				
-					<a href="<?php echo ROOT ?>/Home/Login">Logout</a>
-					
-		
-				</p>
-
-			</div>
-
-			<div class="footer-center">
-
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>222/A,Colombo 07</span></p>
-				</div>
-
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>0717787990</p>
-				</div>
-
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-				</div>
-
-			</div>
-
-			<div class="footer-right">
-
-				<p class="about">
-					<span>About the company</span>
-					
-				</p>
-
-				<div class="footer-icons">
-
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				
-				</div>
-
-			</div>
-
-		</footer>
+                   
+               
+           
+       }}
+   
+      ?>
 
 
 
 
+                   </tbody>
+
+                    </table>
+                    <br>
+                    <a class="pending" href="<?php echo ROOT ?>/Customer/Pendingstore"> See All </a>
+                  
+                </div>
+    </div>
+
+             
 
 
 
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script>
+        let submenu = document.getElementById("submenu");
+
+        function toggleMenu(){
+            submenu.classList.toggle("open-menu");
+        }
+    </script>
+
+
+    <script>
 
 
 
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
-    
-<script>
-var textWrapper = document.querySelector('.ml12');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+allSideMenu.forEach(item => {
+    const li = item.parentElement;
 
-anime.timeline({loop: true})
-  .add({
-    targets: '.ml12 .letter',
-    translateX: [40,0],
-    translateZ: 0,
-    opacity: [0,1],
-    easing: "easeOutExpo",
-    duration: 1200,
-    delay: (el, i) => 500 + 30 * i
-  }).add({
-    targets: '.ml12 .letter',
-    translateX: [0,-30],
-    opacity: [1,0],
-    easing: "easeInExpo",
-    duration: 1100,
-    delay: (el, i) => 100 + 30 * i
-  });
-  
-  
-  
-  
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    var parent = document.querySelector('.splitview'),
-        topPanel = parent.querySelector('.top'),
-        handle = parent.querySelector('.handle'),
-        skewHack = 0,
-        delta = 0;
-
-    // If the parent has .skewed class, set the skewHack var.
-    if (parent.className.indexOf('skewed') != -1) {
-        skewHack = 1000;
-    }
-
-    parent.addEventListener('mousemove', function(event) {
-        // Get the delta between the mouse position and center point.
-        delta = (event.clientX - window.innerWidth / 2) * 0.5;
-
-        // Move the handle.
-        handle.style.left = event.clientX + delta + 'px';
-
-        // Adjust the top panel width.
-        topPanel.style.width = event.clientX + skewHack + delta + 'px';
-    });
+    item.addEventListener('click', function () {
+        allSideMenu.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
 });
 
 
 
 
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+    sidebar.classList.toggle('hide');
+})
 
 
 
-var textWrapper = document.querySelector('.ml1 .letters');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-
-anime.timeline({loop: true})
-  .add({
-    targets: '.ml1 .letter',
-    scale: [0.3,1],
-    opacity: [0,1],
-    translateZ: 0,
-    easing: "easeOutExpo",
-    duration: 600,
-    delay: (el, i) => 70 * (i+1)
-  }).add({
-    targets: '.ml1 .line',
-    scaleX: [0,1],
-    opacity: [0.5,1],
-    easing: "easeOutExpo",
-    duration: 700,
-    offset: '-=875',
-    delay: (el, i, l) => 80 * (l - i)
-  }).add({
-    targets: '.ml1',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  });
-  </script>
 
 
+
+
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+    if (window.innerWidth < 576) {
+        e.preventDefault();
+        searchForm.classList.toggle('show');
+        if (searchForm.classList.contains('show')) {
+            searchButtonIcon.classList.replace('bx-search', 'bx-x');
+        } else {
+            searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        }
+    }
+})
+
+
+
+
+
+if (window.innerWidth < 768) {
+    sidebar.classList.add('hide');
+} else if (window.innerWidth > 576) {
+    searchButtonIcon.classList.replace('bx-x', 'bx-search');
+    searchForm.classList.remove('show');
+}
+
+
+window.addEventListener('resize', function () {
+    if (this.innerWidth > 576) {
+        searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+})
+
+
+
+const switchMode = document.getElementById('switch-mode');
+
+switchMode.addEventListener('change', function () {
+    if (this.checked) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+})
+    </script>
 </body>
+
 </html>
