@@ -1,11 +1,10 @@
 <?php
-    $flag='';
-    if(empty($data['error'])){
-        $flag=true;
-    }
-    else{
-        $flag=false;
-    }
+$flag = '';
+if (empty($data['error'])) {
+    $flag = true;
+} else {
+    $flag = false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,14 +16,13 @@
 
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <!-- My CSS -->
     <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
 
-    <title>AdminHub</title>
+    <title>Change Price</title>
 </head>
 
 <body>
@@ -37,7 +35,7 @@
             <span class="text">PETRO</span>
         </a>
         <ul class="side-menu top">
-            <li >
+            <li>
                 <a href="<?php echo ROOT ?>/Manager/Home">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
@@ -57,13 +55,13 @@
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Manager/Add_report">
-                <i class='bx bxs-report'></i>
+                    <i class='bx bxs-report'></i>
                     <span class="text">Add Daily Report</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Manager/Report_history">
-                <i class='bx bx-history'></i>
+                    <i class='bx bx-history'></i>
                     <span class="text">Report History</span>
                 </a>
             </li>
@@ -74,9 +72,9 @@
                 </a>
             </li>
             <li>
-                <a href=View_pumper>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">View Pumpers</span>
+                <a href=Max>
+                    <i class='bx bxs-gas-pump'></i>
+                    <span class="text">Maximum Fuel</span>
                 </a>
             </li>
             <li>
@@ -85,17 +83,12 @@
                     <span class="text">Add Products</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Product History</span>
-                </a>
-            </li>
+
         </ul>
         <ul class="side-menu">
             <li>
-                <a href="#">
-                <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
+                <a href="Update">
+                    <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
                     <span class="text">Back</span>
                 </a>
             </li>
@@ -127,11 +120,10 @@
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
             <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
+                <?php echo ($data['First_name']); ?><?php echo " "; ?><?php echo ($data['Last_name']); ?>
             </a>
             <a href="#" class="profile">
-                <img src="img/people.png">
+                <img src="<?php echo ROOT ?>/image/Manager/pro.png">
             </a>
         </nav>
         <!-- NAVBAR -->
@@ -159,13 +151,22 @@
             <div class="table-data">
                 <div class="todo">
                     <div class="head">
-                        <h3>Update Availability</h3>
+                        <h3>Change Prices</h3>
                     </div>
                     <div class="form-inner">
-                        <form action="<?php echo ROOT?>/Manager/Change_Price/change_price" method="POST">
+                        <div class="error">
+                            <?php if (!empty($_SESSION['error_message'])) : ?>
+                                <i class='bx bx-error-alt'></i>
+                                <span class="text"><?php echo $_SESSION['error_message']; ?></span>
+                            <?php endif; ?>
+                            <!-- Clear the error message from the session variable -->
+                            <?php unset($_SESSION['error_message']); ?>
+                        </div>
+                        <form action="<?php echo ROOT ?>/Manager/Change_Price/change_price" method="POST">
                             <div class="">
                                 <br>
                                 <select name="fuel_type">
+                                    <option value="" disabled selected hidden>Select Fuel Type</option>
                                     <option value="octane 92">Octane 92</option>
                                     <option value="octane 95">Octane 95</option>
                                     <option value="super diesel">Super Diesel</option>
@@ -186,80 +187,82 @@
                             </div>
 
                     </div>
-                </div>   
+                </div>
                 <div class="order">
                     <div class="head">
                         <h3>Chart</h3>
                     </div>
-                <div class="box-info">
-                    <canvas id="myChart" class="chartBox"></canvas>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script>
-                    window.onload = function () {
+                    <div class="box-info">
+                        <canvas id="myChart" class="chartBox"></canvas>
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                        <script>
+                            window.onload = function() {
 
-                        var xValues = ['Octane 92', 'Octane 95', 'Super Diesel', 'Auto Diesel'];
-                        var yValues = [20,15,10,8,0];
-                        var barColors = ["#0EBBEE", "#B0B9BB", "0588AF", "0D5CF0", "#091d2a"];
+                                var xValues = ['Octane 92', 'Octane 95', 'Super Diesel', 'Auto Diesel'];
+                                var yValues = [20, 15, 10, 8, 0];
+                                var barColors = ["#0EBBEE", "#B0B9BB", "0588AF", "0D5CF0", "#091d2a"];
 
-                        var chart2 = new Chart("myChart", {
-                            type: "line",
-                            data: {
-                                label: "No of Liters Arrived",
-                                labels: xValues,
-                                datasets: [{
-                                    backgroundColor: barColors,
-                                    data: yValues
-                                }]
-                            },
-                            options: {
-                                legend: { display: true },
-                                title: {
-                                    display: true,
-                                    text: "No of Liters Arrived"
-                                },
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
+                                var chart2 = new Chart("myChart", {
+                                    type: "line",
+                                    data: {
+                                        label: "No of Liters Arrived",
+                                        labels: xValues,
+                                        datasets: [{
+                                            backgroundColor: barColors,
+                                            data: yValues
+                                        }]
+                                    },
+                                    options: {
+                                        legend: {
+                                            display: true
+                                        },
+                                        title: {
+                                            display: true,
+                                            text: "No of Liters Arrived"
+                                        },
+                                        scales: {
+                                            y: {
+                                                beginAtZero: true
+                                            }
+                                        }
                                     }
-                                }
+                                });
                             }
-                        });
-                    }
-                    chart2.render();
-                </script>
+                            chart2.render();
+                        </script>
                     </div>
                 </div>
             </div>
             <div class="table-data">
                 <div class="order">
-                <div class="head">
+                    <div class="head">
                         <h3>Price History</h3>
-                </div>
-                <div class="attendance-list">
-                <input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search by Date" class="search">
-                    <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
-                        <thead>
-                            <tr>
+                    </div>
+                    <div class="attendance-list">
+                        <input type="text" id="myInput" onkeyup='tableSearch()' placeholder="Search by Date" class="search">
+                        <table class="table" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
+                            <thead>
+                                <tr>
 
-                                <th>ID</th>
-                                <th>Date</th>
-                                <th>Fuel Type</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-            if($flag==true){
-                if(mysqli_num_rows($data['result']) > 0){
-                    while($row = mysqli_fetch_assoc($data['result'])){
-                        echo "<tr data-href = more.html><td>". $row["id"]. "</td><td>". $row["date"]."</td><td>". $row["fuel_type"]."</td><td>". $row["price"]."</td></ data-href>";
-                    }
-                }
-            }
-        ?>
-                        </tbody>
-                    </table>
-                </div>
+                                    <th>ID</th>
+                                    <th>Date</th>
+                                    <th>Fuel Type</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                if ($flag == true) {
+                                    if (mysqli_num_rows($data['result']) > 0) {
+                                        while ($row = mysqli_fetch_assoc($data['result'])) {
+                                            echo "<tr data-href = more.html><td>" . $row["id"] . "</td><td>" . $row["date"] . "</td><td>" . $row["fuel_type"] . "</td><td>" . $row["price"] . "</td></ data-href>";
+                                        }
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
 
 
         </main>
@@ -269,7 +272,7 @@
 
     <script src="calender.js"></script>
     <script src="<?php echo ROOT ?>/JS/Manager/script.js"></script>
-    
+
     <script src="todo.js"></script>
     <script type="application/javascript">
         function tableSearch() {
@@ -298,4 +301,3 @@
 </body>
 
 </html>
-

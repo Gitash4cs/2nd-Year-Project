@@ -1,26 +1,29 @@
 <?php
-  if(!empty($data)){
-    $v1=$data['O92'];
-    $v2=$data['O95'];
-    $v3=$data['SDL'];
-    $v4=$data['ADL'];
- 
-  
-  }
-  else{
-    $v1=NULL;
-    $v9=NULL;
-    $v2=NULL;
-    $v3=NULL;
-    $v4=NULL;
-    $v5=NULL;
-    $v6=NULL;
-    $v7=NULL;
-    $v8=NULL;
-    $V10=NULL;
-    $V11=NULL;
-  
-  }
+if (!empty($data)) {
+    $v1 = $data['O92'];
+    $v2 = $data['O95'];
+    $v3 = $data['SDL'];
+    $v4 = $data['ADL'];
+} else {
+    $v1 = NULL;
+    $v9 = NULL;
+    $v2 = NULL;
+    $v3 = NULL;
+    $v4 = NULL;
+    $v5 = NULL;
+    $v6 = NULL;
+    $v7 = NULL;
+    $v8 = NULL;
+    $V10 = NULL;
+    $V11 = NULL;
+}
+?>
+
+<?php
+
+$first = $_SESSION['fuel_first_name'];
+$last = $_SESSION['fuel_last_name'];
+
 ?>
 
 <!DOCTYPE html>
@@ -32,14 +35,13 @@
 
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <!-- My CSS -->
     <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Manager/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
 
-    <title>AdminHub</title>
+    <title>Analize</title>
 </head>
 
 <body>
@@ -52,13 +54,13 @@
             <span class="text">PETRO</span>
         </a>
         <ul class="side-menu top">
-            <li >
+            <li>
                 <a href="<?php echo ROOT ?>/Manager/Home">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li >
+            <li>
                 <a href="<?php echo ROOT ?>/Manager/Update">
                     <i class='bx bxs-shopping-bag-alt'></i>
                     <span class="text">Update Fuel Details</span>
@@ -72,13 +74,13 @@
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Manager/Add_report">
-                <i class='bx bxs-report'></i>
+                    <i class='bx bxs-report'></i>
                     <span class="text">Add Daily Report</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Manager/Report_history">
-                <i class='bx bx-history'></i>
+                    <i class='bx bx-history'></i>
                     <span class="text">Report History</span>
                 </a>
             </li>
@@ -89,9 +91,9 @@
                 </a>
             </li>
             <li>
-                <a href=View_pumper>
-                    <i class='bx bxs-group'></i>
-                    <span class="text">View Pumpers</span>
+                <a href=Max>
+                    <i class='bx bxs-gas-pump'></i>
+                    <span class="text">Maximum Fuel</span>
                 </a>
             </li>
             <li>
@@ -100,17 +102,12 @@
                     <span class="text">Add Products</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Product History</span>
-                </a>
-            </li>
+
         </ul>
         <ul class="side-menu">
             <li>
-                <a href="#">
-                <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
+                <a href="View_history">
+                    <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
                     <span class="text">Back</span>
                 </a>
             </li>
@@ -142,11 +139,10 @@
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
             <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
+                <?php echo $first; ?><?php echo " "; ?><?php echo $last; ?>
             </a>
             <a href="#" class="profile">
-                <img src="img/people.png">
+                <img src="<?php echo ROOT ?>/image/Manager/pro.png">
             </a>
         </nav>
         <!-- NAVBAR -->
@@ -178,7 +174,7 @@
                     </div>
                     <div class="form-inner">
 
-                        <form action="<?php echo ROOT?>/Manager/Analize/Analize" method="POST">
+                        <form action="<?php echo ROOT ?>/Manager/Analize/Analize" method="POST">
                             <div class="field">
                                 <input type="date" name="startDate" placeholder="">
                             </div>
@@ -192,55 +188,57 @@
                             </div>
 
                     </div>
-                </div>   
+                </div>
                 <div class="order">
                     <div class="head">
                         <h3>Chart</h3>
                     </div>
                     <canvas id="myChart" class="chartBox"></canvas>
-                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                <script>
-                    window.onload = function () {
-                        var x1 = " <?php echo "$v1" ; ?>";
-                        var x2 = " <?php echo "$v2" ; ?>";
-                        var x3 = " <?php echo "$v3" ; ?>";
-                        var x4 = " <?php echo "$v4" ; ?>";
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+                        window.onload = function() {
+                            var x1 = " <?php echo "$v1"; ?>";
+                            var x2 = " <?php echo "$v2"; ?>";
+                            var x3 = " <?php echo "$v3"; ?>";
+                            var x4 = " <?php echo "$v4"; ?>";
 
-                        var xValues = ['Octane 92', 'Octane 95', 'Super Diesel', 'Auto Diesel'];
-                        var yValues = [x1,x2,x3,x4,0];
-                        var barColors = ["#0EBBEE", "#B0B9BB", "0588AF", "0D5CF0", "#091d2a"];
+                            var xValues = ['Octane 92', 'Octane 95', 'Super Diesel', 'Auto Diesel'];
+                            var yValues = [x1, x2, x3, x4, 0];
+                            var barColors = ["#0EBBEE", "#B0B9BB", "0588AF", "0D5CF0", "#091d2a"];
 
-                        var chart2 = new Chart("myChart", {
-                            type: "bar",
-                            data: {
-                                label: "No of Liters Arrived",
-                                labels: xValues,
-                                datasets: [{
-                                    backgroundColor: barColors,
-                                    data: yValues
-                                }]
-                            },
-                            options: {
-                                legend: { display: true },
-                                title: {
-                                    display: true,
-                                    text: "No of Liters Arrived"
+                            var chart2 = new Chart("myChart", {
+                                type: "bar",
+                                data: {
+                                    label: "No of Liters Arrived",
+                                    labels: xValues,
+                                    datasets: [{
+                                        backgroundColor: barColors,
+                                        data: yValues
+                                    }]
                                 },
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
+                                options: {
+                                    legend: {
+                                        display: true
+                                    },
+                                    title: {
+                                        display: true,
+                                        text: "No of Liters Arrived"
+                                    },
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true
+                                        }
                                     }
                                 }
-                            }
-                        });
-                    }
-                    chart2.render();
-                </script>
-                    
+                            });
+                        }
+                        chart2.render();
+                    </script>
+
                 </div>
             </div>
 
-               
+
 
 
         </main>
@@ -252,4 +250,3 @@
 </body>
 
 </html>
-
