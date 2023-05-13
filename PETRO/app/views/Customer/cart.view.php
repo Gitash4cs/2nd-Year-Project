@@ -1,41 +1,190 @@
 
+
+
+
+
+
+
+<?php
+if(empty($data['error'])){
+    $flag=TRUE;
+}
+else{
+    $data['points']=NULL;
+  $flag=FALSE;
+}
+
+if(empty($data['count1'])){
+    $data['count1']=NULL;
+}
+
+if(empty($data['erro'])){
+    $data['erro']=NULL;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>shopping cart</title>
-   <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/main.css" text="text/css">
-   <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/shop.css" text="text/css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <!-- custom css file link  -->
-
-
-
-
-
-
-</head>
-<body>
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/home2.css" text="text/css">
+     <!-- My CSS -->
+     <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/cart.css" text="text/css">
    
-<div class="navbar">
-  <a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
-  <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
-  <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
-  <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/pro.png" width="40px" height="40px"></a> 
 
-</div>
-<br><br><br><br>
+    <title>PETRO</title>
+</head>
+
+<body>
+
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Store">
+                <i class='bx bx-store'></i>
+                    <span class="text">Store</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pendingstore">
+                <i class='bx bxs-stopwatch'></i>
+                    <span class="text">Pending Orders</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pumphistory">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Pumping History</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Analyze">
+                <i class='bx bxs-bar-chart-alt-2' ></i>
+                    <span class="text">Fuel Analyze</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Storehistory">
+                <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Store History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Complaint">
+                <i class='bx bxs-envelope'></i>
+                    <span class="text">Complaints</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Feedback">
+                <i class='bx bxs-message-dots'></i>
+                    <span class="text">Feedback</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Aboutus">
+                <i class='bx bxs-business' ></i>
+                    <span class="text">About Us</span>
+                </a>
+            </li>
+
+
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Profile">
+                <i class='bx bxs-user'></i>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+        <i class='bx bx-menu'></i>
+          
+          <form action="#">
+              <div class="form-input">
+                  
+                  <button type="submit" class="search-btn"></button>
+              </div>
+          </form>
+
+          <p> <?php echo  $data['fname'] ?></p>
+    
+          <a href="<?php echo ROOT ?>/Customer/Profile" class="profile">
+       
+          <img src="<?php echo ROOT ?>/image/bp.jpg"  style="width:35px;height:35px;"></a>
+        
+          </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <h1>Shopping Cart
+  
+            </div>
+
+
+
+
+<br>
 <?php
- $grand_total=0;
+// Set the new timezone
+date_default_timezone_set('Asia/Kolkata');
+$date = date('d-m-y h:i:s');
+
+?>
+
+
+            <?php
+              $grand_total=0;
+
  ?>
  
 <div class="container">
 
 <div class="shopping-cart">
-
+<?php echo $data['error']?>
  
 
    <table>
@@ -44,28 +193,58 @@
          <th>Name</th>
          <th>Price</th>
          <th>Quantity</th>
+         
          <th>Total Price</th>
         
       </thead>
       <tbody>
+  
       <?php
+      if($flag==TRUE){
          if (mysqli_num_rows($data['result']) > 0) {
             while($row = mysqli_fetch_assoc($data['result'])) {
 				?>
+                
          <tr>
-            <td><img src="images/<?php echo $row['image']; ?>" height="100" alt=""></td>
-            <td><?php echo $row['name']; ?></td>
-            <td>$<?php echo $row['price']; ?>/-</td>
+       
+            <td><img src="<?php echo ROOT ?>/image/<?php echo $row['image']; ?>" height="50" alt=""></td>
+            <td><input class="box5" type="text" value="<?php echo $row['name']; ?>" name="name"></td>
+            <td><input type="text" value="Rs.<?php echo $row['price']; ?>" name="price" class="box6"></td>
+    
             <td>
-            <form action="<?php echo ROOT ?>/Customer/Cart/add " method="POST">
-                  <input type="hidden" name="cart_id" value="<?php echo $row['id']; ?>">
-				
-                  <input type="number" min="1" name="cart_quantity" value="<?php echo $row['quantity']; ?>">
-                  <input type="submit" name="update_cart" value="update" class="option-btn"><a href="<?php echo ROOT ?>/Customer/Shop/update"></a>
-               </form>
+
+                  <input class="box"type="hidden" name="Oid" value="<?php echo $row['Oid']; ?>">
+                  <input class="box"type="hidden" name="user_id" value="<?php echo $row['user_id']; ?>">
+                  <input class="box"type="hidden" name="p_id" value="<?php echo $row['p_id']; ?>">
+                 
+                  <input class="box6"type="number" min="1" name="quantity" value="<?php echo $row['quantity']; ?>" readonly >
+
+                     
             </td>
-            <td>Rs.<?php echo $sub_total = ($row['price'] * $row['quantity']); ?>/-</td>
-            <td><a href="index.php?remove=<?php echo $rowy['id']; ?>" class="delete-btn" onclick="return confirm('remove item from cart?');">remove</a></td>
+
+            
+            
+      
+      
+           
+         
+         
+
+            <td><input class="box6"type="text" value="<?php echo $sub_total = ($row['price'] * $row['quantity']); ?>" name="total"></td>
+           
+            <td> 
+                
+            
+      
+             
+            <form action="<?php echo ROOT ?>/Customer/Cart/remove " method="POST">
+         
+              <input type="hidden" value="<?php echo  $row['Oid'] ?>" name="Oid" readonly>
+              <input type="hidden" value="<?php echo  $row['p_id'] ?>" name="p_id" readonly>
+              <input type="hidden" min="1" name="quantity" value="<?php echo $row['quantity']; ?>" >
+               <button type="submit" class="delete-btn" onclick="">remove</a></td>
+          
+            </form>
          </tr>
       <?php
          $grand_total += $sub_total;
@@ -73,79 +252,202 @@
          }else{
             echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">no item added</td></tr>';
          }
+        }
       ?>
       <tr class="table-bottom">
          <td colspan="4">Total :</td>
-         <td>Rs.<?php echo $grand_total; ?>/-</td>
-         <td><a href="index.php?delete_all" onclick="return confirm('delete all from cart?');" class="delete-btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">Remove all</a></td>
+         <td>Rs.<input class="box6"type="text" value="<?php echo $grand_total; ?>" name="total"></td>
+        
+        
+
       </tr>
    </tbody>
    </table>
-
-   <div class="cart-btn"> 
-
-      <a href="payment.php" name="pay" class="btn <?php echo ($grand_total > 1)?'':'disabled'; ?>">proceed to checkout</a>
-	
-   </div>
+</div></div>
 
 </div>
-<br><br>
-</div>
+<a href="<?php echo ROOT ?>/Customer/Store" class="store"> <-Store </a>
+<br>
+
+<form action="<?php echo ROOT ?>/Customer/Cart/add " method="POST">
+<br>
 
 
-<footer class="footer">
-<div class="footer-left">
+<div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        
+                    <?php
+if($data['count1']>=1){
+    ?>
 
-				<p class="footer-links">
-					<a href="#" class="link-1">Home</a><br>
-					
-					<a href="#">Contact Us</a><br>
-				
-					<a href="#">Profile</a><br>
-				
-					<a href="logout.php">Logout</a>
-					
-		
-				</p>
 
-			</div>
-
-			<div class="footer-center">
-
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>222/A,Colombo 07</span></p>
-				</div>
-
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>0717787990</p>
-				</div>
-
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-				</div>
-
-			</div>
-
-			<div class="footer-right">
-
-				<p class="about">
-					<span>About the company</span>
-					
-				</p>
-
-				<div class="footer-icons">
-
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				
-				</div>
-
-			</div>
-
-		</footer>
+                        <div class="address">
+                        <h3>Delivery Details</h3><br>
+                   <p class="er">     <?php
       
+      echo $data['erro'];
+  ?></p><br>
+    <p class="details"> All the products are cash on delivery </p>
+    <br>
+   <input type="hidden" name="pids" value="<?php echo $data['result1']; ?>">
+   <input class="box"type="hidden" name="user_id" value="<?php echo $data['id']; ?>">
+
+   <input type="text" value="" name="address" placeholder="address" class="box12" required max="100"><br><br>
+   <input type="text" value="" name="phone" placeholder="phone" class="box12" pattern="[0-9]{10}" ><br><br>
+
+   <input type="text" value="Cash" name="pmethod" class="box12" required ><br><br>
+ 
+  
+
+
+
+  <?php 
+   if($data['points']>=300){?><br>
+   <p class="not"> Your <?php echo $data['points']; ?> Points will be reduce from your bill</p><br>
+
+  <input type="hidden" id="points" name="points" value="<?php echo $data['points']; ?>">
+  <input type="hidden" id="points" name="total" value="<?php echo  $grand_total -  $data['points'];?>">
+  <?php }
+
+   else{?>
+
+<input type="hidden" id="points" name="points" value="0">
+<input type="hidden" id="points" name="total" value="<?php echo  $grand_total?>"><br>
+
+<?php } ?>
+
+
+      <input type="submit" name="Payment" value="Place Order" class="place">
+      <br><br>
+      </div>
+	<br>
+  
+    <?php } ?>
+
+   	
+   </form>
+<br><br>
+
+                     
+                    </div>
+
+  
+
+
+
+                </div>
+                <div class="todo">
+                <h3>Return Regulations</h3><br>
+                    <div class="head">
+                    
+                       <p>Returns must be made immediately upon checking the goods on delivery , only if the received goods are either damaged and or wrong product /size subject however to the condition that the product packaging /seal is not broken .
+                         Returns shall be handed over to the courier and the refund will be made to the credit card within 7 working days </p>
+                 </div>
+
+                 <li class="point">
+              
+              <span class="text">
+                  <h2> Petro Points - <?php echo  $data['points'] ?></h2>
+                
+              </span>
+             
+          </li>
+          <p>You can redeem the petro points </p>
+                 <br><br> <br>
+                </div>
+            </div>
+
+
+
+
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script>
+
+
+
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+
+allSideMenu.forEach(item => {
+    const li = item.parentElement;
+
+    item.addEventListener('click', function () {
+        allSideMenu.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
+});
+
+
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+    sidebar.classList.toggle('hide');
+})
+
+
+
+
+
+
+
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+    if (window.innerWidth < 576) {
+        e.preventDefault();
+        searchForm.classList.toggle('show');
+        if (searchForm.classList.contains('show')) {
+            searchButtonIcon.classList.replace('bx-search', 'bx-x');
+        } else {
+            searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        }
+    }
+})
+
+
+
+
+
+if (window.innerWidth < 768) {
+    sidebar.classList.add('hide');
+} else if (window.innerWidth > 576) {
+    searchButtonIcon.classList.replace('bx-x', 'bx-search');
+    searchForm.classList.remove('show');
+}
+
+
+window.addEventListener('resize', function () {
+    if (this.innerWidth > 576) {
+        searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+})
+
+
+
+const switchMode = document.getElementById('switch-mode');
+
+switchMode.addEventListener('change', function () {
+    if (this.checked) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+})
+    </script>
 </body>
+
 </html>

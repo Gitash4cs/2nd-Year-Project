@@ -1,153 +1,409 @@
 
+
+
+
+
+
+<?php
+if(empty($data['message'])){
+    $data['message']=NULL;
+}
+?>
+
+
+<?php
+if(empty($data['error'])){
+    $data['error']=NULL;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport"
-       content="width=device-width, initial-scale=1.0">  
 
-       <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/main.css" text="text/css">  
-       <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/comp.css" text="text/css">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/home2.css" text="text/css">
+     <!-- My CSS -->
+     <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/comp.css" text="text/css">
+   
+     <title>petro</title>
 </head>
 
 <body>
-<div class="navbar">
-<a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
-  <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
-  <a href="<?php echo ROOT ?>/Customer/Mv" class="">Place an Order</a>
-  <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
-  <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/xx.png" width="40px" height="40px"></a> 
-
-</div>
-
-<div class="row">
-<div class="side">
-
-  <a href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-car"></i> Place an Order</a>
-    <a href="<?php echo ROOT ?>/Customer/Pendingpetrol"> <i class="fa fa-car"></i> Pending Orders</a>
-   <a href="<?php echo ROOT ?>/Customer/Pumphistory"><i class="fa fa-user icon"></i> View Pumped History</a>
-  <a href="<?php echo ROOT ?>/Customer/Complaint" class="active"><i class="fa fa-user icon"></i> Add a Complaint</a>
-    <a href="<?php echo ROOT ?>/Customer/Rating" class=""><i class="fa fa-user icon"></i> Add a Feedback</a>
-
-</div>
-
-<div class="main">
 
 
-<br><br>
-<form action="<?php echo ROOT ?>/Customer/Complaint/add " method="POST">
-  <div class="container">
-    <div class="screen">
-      <div class="screen-header">
-        <div class="screen-header-left">
-   
-        </div>
-        <div class="screen-header-right">
-    
-        </div>
-      </div>
-      <div class="screen-body">
-        <div class="screen-body-item left">
-          <div class="app-title">
-            <span>COMPLAINT</span>
-         
-          </div>
-          <div class="app-contact">CONTACT INFO : 077 6765456</div>
-        </div>
-        <div class="screen-body-item">
-          <div class="app-form">
-            <div class="app-form-group">
-              <input class="app-form-control" placeholder="NAME" value="<?php echo $data['fname']; ?>" name="fname">
-              <input type="hidden" class="app-form-control" placeholder="NAME" value="<?php echo $data['id']; ?>" name="id">
-            </div><br>
-            <div class="app-form-group">
-              <input class="app-form-control" placeholder="EMAIL"value=" <?php echo $data['email']; ?>" name="email">
-            </div><br>
-
-            <div class="app-form-group">
-              <input class="app-form-control" placeholder="ORDER ID" name="Oid">
-            </div><br>
-          
-          
-            <div class="app-form-group message">
-              <input class="app-form-control" placeholder="MESSAGE" name="complaint">
-            </div><br><br><br>
-            <div class="app-form-group buttons">
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Store">
+                <i class='bx bx-store'></i>
+                    <span class="text">Store</span>
+                </a>
+            </li>
             
-              <button type="submit" class="app-form-button">SEND</button>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pendingstore">
+                <i class='bx bxs-stopwatch'></i>
+                    <span class="text">Pending Orders</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pumphistory">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Pumping History</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Analyze">
+                <i class='bx bxs-bar-chart-alt-2' ></i>
+                    <span class="text">Fuel Analyze</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Storehistory">
+                <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Store History</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="<?php echo ROOT ?>/Customer/Complaint">
+                <i class='bx bxs-envelope'></i>
+                    <span class="text">Complaints</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Feedback">
+                <i class='bx bxs-message-dots'></i>
+                    <span class="text">Feedback</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Aboutus">
+                <i class='bx bxs-business' ></i>
+                    <span class="text">About Us</span>
+                </a>
+            </li>
+
+
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Profile">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+        <i class='bx bx-menu'></i>
+          
+          <form action="#">
+              <div class="form-input">
+                  
+                  <button type="submit" class="search-btn"></button>
+              </div>
+          </form>
+
+          <p> <?php echo  $data['fname'] ?></p>
+    
+          <a href="<?php echo ROOT ?>/Customer/Profile" class="profile">
+       
+          <img src="<?php echo ROOT ?>/image/bp.jpg"  style="width:35px;height:35px;"></a>
+        
+          </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+  <h1 class="head">Make a Complaint</h1>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<br>
+
+
+
+
+
+<div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Complaint Box</h3><br>
+ 
+                     
+                    </div>
+
+                    <p class="complete">  <?php
+      
+      echo $data['error'];
+?></p>
+                    <div class="comp">
+                    <form action="<?php echo ROOT ?>/Customer/Complaint/add " method="POST">
+               <br>
+              <input type="hidden" class="" placeholder="NAME" value="CUS<?php echo $data['id']; ?>" name="id" required>
+              <input class="complaint" placeholder="EMAIL"value=" <?php echo $data['email']; ?>" name="email"><br><br>
+          
+                                <input class="complaint2" placeholder="Message" name="complaint" required><br><br>
+</div><br>
+              <button type="submit" class="button">SEND</button>
 </form>
-
-  </div>
-
-
-<br><br><br><br><br>
+  
 
 
 
+                </div>
+                <div class="todo">
+                    <div class="head">
+                        <h3>Contact Us</h3>
+                       
+                    </div>
+                  
 
-</div>
-<footer class="footer">
-<div class="footer-left">
-
-             <p class="footer-links">
-                 <a href="#" class="link-1">Home</a><br>
+                    <ul class="todo-list">
+                    
                  
-                 <a href="#">Contact Us</a><br>
-             
-                 <a href="#">Profile</a><br>
-             
-                 <a href="logout.php">Logout</a>
+
+                        <li class="completed">
+                            <p> 077 - 2987654 </p>
+                          
+                        </li>
                  
-     
-             </p>
 
-         </div>
+  
+                        <li class="completed">
+                        <p> petro@gmail.com</p>
+                     
+                        </li>
 
-         <div class="footer-center">
+                        
+                        <li class="completed">
+                        <p> 172/A,Flower rd, Colombo 07</p>
+                     
+                        </li>
+                
 
-             <div>
-                 <i class="fa fa-map-marker"></i>
-                 <p><span>222/A,Colombo 07</span></p>
-             </div>
+                     
+                    
+                    </ul>
 
-             <div>
-                 <i class="fa fa-phone"></i>
-                 <p>0717787990</p>
-             </div>
+                </div>
+            </div>
 
-             <div>
-                 <i class="fa fa-envelope"></i>
-                 <p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-             </div>
 
-         </div>
 
-         <div class="footer-right">
 
-             <p class="about">
-                 <span>About the company</span>
-                 
-             </p>
 
-             <div class="footer-icons">
 
-                 <a href="#"><i class="fa fa-facebook"></i></a>
-                 <a href="#"><i class="fa fa-twitter"></i></a>
-             
-             </div>
 
-         </div>
 
-     </footer>
+
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Complain Response</h3>
+                      
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                               
+            <th scope="col">Complain ID</th>
+			  <th scope="col">Complain</th>
+			  <th scope="col">Date-Time</th>
+			   <th scope="col">Response</th>
+			
+                            </tr>
+                        </thead>
+
+                        <tbody>
+        
+                 			 
+        <?php
+
+
+
+
+
+
+   if (mysqli_num_rows($data['result']) > 0) {
+       while($row = mysqli_fetch_assoc($data['result'])) {
 
  
- 
+           echo "<tr>
+       <td>".$row['com_id']."</td>
+       <td>".$row['complain']."</td>
+       
+       <td>".$row['date_time']."</td>
+       <td>".$row['response']."</td>
+   
+      
+   
+       
+   
+       </tr>";
+
+                   
+               
+           
+       }}
+   
+      ?>
+
+
+
+
+                   </tbody>
+
+                    </table>
+                    <br>
+                 
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script>
+
+
+
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
+
+allSideMenu.forEach(item => {
+    const li = item.parentElement;
+
+    item.addEventListener('click', function () {
+        allSideMenu.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
+});
+
+
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+    sidebar.classList.toggle('hide');
+})
+
+
+
+
+
+
+
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+    if (window.innerWidth < 576) {
+        e.preventDefault();
+        searchForm.classList.toggle('show');
+        if (searchForm.classList.contains('show')) {
+            searchButtonIcon.classList.replace('bx-search', 'bx-x');
+        } else {
+            searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        }
+    }
+})
+
+
+
+
+
+if (window.innerWidth < 768) {
+    sidebar.classList.add('hide');
+} else if (window.innerWidth > 576) {
+    searchButtonIcon.classList.replace('bx-x', 'bx-search');
+    searchForm.classList.remove('show');
+}
+
+
+window.addEventListener('resize', function () {
+    if (this.innerWidth > 576) {
+        searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+})
+
+
+
+const switchMode = document.getElementById('switch-mode');
+
+switchMode.addEventListener('change', function () {
+    if (this.checked) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+})
+    </script>
 </body>
+
 </html>

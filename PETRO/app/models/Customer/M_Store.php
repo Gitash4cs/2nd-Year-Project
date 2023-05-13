@@ -3,43 +3,69 @@
 class M_Store extends Model
 {
     protected $table = 'products';
-    protected $table1 ='cart';
+    protected $table1 ='productdetails';
+    protected $table2 ='user_form';
+    protected $table3 ='cart';
 
     public function store($data){
     
 
-        $id = $data['id'];
+        $id = $_SESSION['CUS_id'];
         $result=$this->connection();
-        $sql = "select * from $this->table";
+        $sql = "select * from $this->table where quantity >=1";
         $query=$result->query($sql);
+
+        $fname=$_SESSION['CUS_first_name'];
+
+        $select2 =  "SELECT COUNT(Oid)AS count FROM $this->table3 WHERE user_id = '".$id."'";
+        $query2 = $result->query($select2);
+       
+
+           while($row=$query2->fetch_array()){
+               $count1=$row['count'];
+           }
 
         $data=[
             'result'=>$query,
+            'fname'=>$fname,
+            'count1'=>$count1,
+
+
            
         ];
         return $data;
               
     }
-    public function cart($data){
+
+
+
+
+    public function add($data){
         $result=$this->connection();
-        $p_id=$data['p_id'];
-        $image = $data['product_image'];
-        $product_name = $data['product_name'];
-        $product_price = $data['product_price'];
-        $cdate = $data['cdate'];
-        $ndate = $data['ndate'];
-        $quantity = $data['quantity'];
+        $p_id=$_SESSION['p_id'];
+      
         $id = $_SESSION['id'];
-        $sql = "INSERT INTO $this->table1 (user_id,p_id,name,price,quantity,cdate,ndate,image) VALUES('$id', '$p_id','$product_name','$product_price','$quantity','$cdate','$ndate','$image')";
+        $sql = "SELECT *FROM $this->table where p_id='".$p_id."'";
         $query3 = $result->query($sql); 
 
-        $sql = "select * from $this->table1";
-        $query=$result->query($sql);
-
-        $data=[
-            'result1'=>$query,
-           
+        while($row=$query3->fetch_array()){
+            $p_id = $row['p_id'];
+            $name = $row['name'];
+            $price = $row['price'];
+            $image = $row['image'];
+            $quantity = $row['quantity'];
+        }
+        $data = [
+            'p_id'=>$p_id,
+            'name'=>$name,
+            'price'=>$price,
+            'image'=>$image,
+            'quantity'=>$quantity,
         ];
+
+        
+
+      
         return $data;
 
 

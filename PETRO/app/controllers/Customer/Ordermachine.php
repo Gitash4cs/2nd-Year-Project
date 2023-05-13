@@ -9,7 +9,7 @@ class Ordermachine extends Controller
     
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'email'=>'',
 
         ];
@@ -22,7 +22,7 @@ class Ordermachine extends Controller
     public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
-            $id= $_SESSION['id'];
+            $id= $_SESSION['CUS_id'];
 
             $data=[
 
@@ -30,7 +30,7 @@ class Ordermachine extends Controller
                 'email' => trim( $_POST['email']),
                 'vno' => trim( $_POST['vno']),
 
-                'vtype' => trim( $_POST['vtype']),
+                
                 'ftype' => trim( $_POST['ftype']),
                 'amount' => trim( $_POST['amount']),
                 'points' => trim( $_POST['points']),
@@ -52,7 +52,7 @@ class Ordermachine extends Controller
          else{
 
  
-              $this->view('Customer/Ordervehicle1',$insert);
+              $this->view('Customer/Ordermachine',$insert);
 
           }
                 

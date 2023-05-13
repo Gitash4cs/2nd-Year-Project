@@ -18,16 +18,14 @@ class Register extends Controller
 
                 'fname' => trim( $_POST['fname']),
                 'lname' => trim( $_POST['lname']),
-              
+                'NIC' => trim( $_POST['NIC']),
                 'email' => trim( $_POST['email']),
                 'phone' => trim( $_POST['phone']),
                 'vno' => trim( $_POST['vno']),
                 'vtype' => trim( $_POST['vtype']),
                 'ftype' => trim( $_POST['ftype']),
                 
-                'sNo' => trim( $_POST['sNo']),
-                'type' => trim( $_POST['type']),
-                'ftype2' => trim( $_POST['ftype2']),
+          
                 
                 'pass' => trim($_POST['password']),
                 'cpass' => trim($_POST['cpassword']),
@@ -38,6 +36,8 @@ class Register extends Controller
                 'err'=>'',
 
             ];
+
+         
 
           $insert= $this->register->register($data);
         if($insert==1){
@@ -52,12 +52,38 @@ class Register extends Controller
 
             }
             else if($insert==3){
-                $message = 'user with that vehicle no already exists!';
+                $message = 'user with that vehicle number already exists!';
                 $data['message']=$message;
                 $this->view('Customer/register',$data);
             }
+
+            else if($insert==5){
+                $message = 'user with that mobile number already exists!';
+                $data['message']=$message;
+                $this->view('Customer/register',$data);
+            }
+
+        
+
+            else if($insert==7){
+                $message = 'required fields must be filled!';
+                $data['message']=$message;
+                $this->view('Customer/register',$data);
+            } 
+
+            else if($insert==10){
+                $message = 'required length of NIC not fulfilled!';
+                $data['message']=$message;
+                $this->view('Customer/register',$data);
+            } 
+
+            else if($insert==11){
+                $message = 'required length of Password not fulfilled!';
+                $data['message']=$message;
+                $this->view('Customer/register',$data);
+            } 
             else{
-            $message = 'user already exist';
+            $message = 'user with that Email already exist';
             $data['message']=$message;
             $this->view('Customer/register',$data);
             }

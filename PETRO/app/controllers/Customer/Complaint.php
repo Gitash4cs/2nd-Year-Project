@@ -2,13 +2,14 @@
 
 class Complaint extends Controller
 {
+    public $complaint;
     public function __construct(){
         $this->complaint=$this->model('M_Complaint');
     }
   
     public function index(){
         $data=[
-            'id'=>$_SESSION['id'],
+            'id'=>$_SESSION['CUS_id'],
             'email'=>'',
 
         ];
@@ -23,7 +24,7 @@ class Complaint extends Controller
     public function add(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $_POST=filter_input_array(INPUT_POST,FILTER_UNSAFE_RAW);
-            $id= $_SESSION['id'];
+            $id= $_SESSION['CUS_id'];
 
             $data=[
 

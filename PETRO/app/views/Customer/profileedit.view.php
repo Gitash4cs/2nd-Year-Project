@@ -1,162 +1,317 @@
 
 
+
+
+<?php
+if(empty($data['error'])){
+    $data['error']=NULL;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <title>update profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <!-- custom css file link  -->
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/home2.css" text="text/css">
+     <!-- My CSS -->
+     <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/profileedit.css" text="text/css">
+   
 
-   <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/profileedit.css" text="text/css">
-   <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/main.css" text="text/css">
-
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
+     <title>petro</title>
 </head>
+
 <body>
-<div class="navbar">
-  <a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
-  <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
-  <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
-  <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/pro.png" width="40px" height="40px"></a> 
-
-</div>
-
-<div class="row">
-  <div class="side">
 
 
-  <a href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-car"></i> Place an Order</a>
-    <a href="<?php echo ROOT ?>/Customer/Pendingpetrol"> <i class="fa fa-car"></i> Pending Orders</a>
-   <a href="<?php echo ROOT ?>/Customer/Pumphistory"><i class="fa fa-user icon"></i> View Pumped History</a>
-  <a href="<?php echo ROOT ?>/Customer/Complaint" class=""><i class="fa fa-user icon"></i> Add a Complaint</a>
-    <a href="<?php echo ROOT ?>/Customer/Rating" class=""><i class="fa fa-user icon"></i> Add a Feedback</a>
- 
-  </div>
-  
-   <div class="main">
-
-     
-   
-<div class="form-container">
-
-
-   
-
-<form action="<?php echo ROOT?>/Customer/Profileedit/add" method="POST">
-    
-   
-      <div class="container">
-	  
-	 <h2> Update Profile </h2>
-	
-	     
-       <br>
-     
-       
-		
-            <input type="text" name="fname" value="<?php echo $data['fname']; ?>" class="box">
-			<br>
-
-      <input type="text" name="lname" value="<?php echo $data['lname']; ?>" class="box">
-			<br>
-         
-            <input type="email" name="email" value="<?php echo $data['email']; ?>" class="box" readonly >
-			<br>
-			
-            <input type="text" name="NIC" value="<?php echo $data['NIC']; ?>" class="box" readonly>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Store">
+                <i class='bx bx-store'></i>
+                    <span class="text">Store</span>
+                </a>
+            </li>
             
-     
-            <input type="hidden" name="id" value="<?php echo $data['id']; ?>" readonly><br>
-			
-		
-            <input type="password" name="update_pass" placeholder="enter previous password" class="box">
-			<br>
-           
-            <input type="password" name="new_pass" placeholder="enter new password" class="box">
-		
-			<br>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pendingstore">
+                <i class='bx bxs-stopwatch'></i>
+                    <span class="text">Pending Orders</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pumphistory">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Pumping History</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Analyze">
+                <i class='bx bxs-bar-chart-alt-2' ></i>
+                    <span class="text">Fuel Analyze</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Storehistory">
+                <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Store History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Complaint">
+                <i class='bx bxs-envelope'></i>
+                    <span class="text">Complaints</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Feedback">
+                <i class='bx bxs-message-dots'></i>
+                    <span class="text">Feedback</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Aboutus">
+                <i class='bx bxs-business' ></i>
+                    <span class="text">About Us</span>
+                </a>
+            </li>
+
+
+        </ul>
+        <ul class="side-menu">
+            <li class="active">
+                <a href="<?php echo ROOT ?>/Customer/Profile">
+                <i class='bx bxs-user'></i>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>   
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+        <i class='bx bx-menu'></i>
           
-            <input type="password" name="confirm_pass" placeholder="confirm new password" class="box">
-         </div><br>
-		   <input type="submit" value="update profile" name="update_profile" class="btn"><br><br>
-		<a href="profile.php" class="back">Back</a>
-     
-	  
-	    </div>  
-     
+          <form action="#">
+              <div class="form-input">
+                  
+                  <button type="submit" class="search-btn"></button>
+              </div>
+          </form>
+
+          <p> <?php echo  $data['fname'] ?></p>
     
-   </form>
-   
-   
-   
-   
-   
-   
+          <a href="<?php echo ROOT ?>/Customer/Profile" >
+       
+          <img src="<?php echo ROOT ?>/image/bp.jpg"  style="width:35px;height:35px;  border-radius: 50%;"></a>
+        
+          </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            
+            <div class="head-title">
+             <h1 class="head1">Edit Your Profile </h1>
+            </div>
+
+
+
+
+<div class="table-data">
+                <div class="order">
+                    <div class="head">
+                        <h3>Personal Details</h3>
+                     
+                    </div>
+                    <br>
+                    
+         <div class="form2">                   
+                               
+    <label for="fname">First Name: </label>
+    <input type="text" value="<?php echo  $data['fname'] ?>" class="box3" readonly><br><br><br>
+    <label for="lname">Last Name: </label>
+     <input type="text" value="<?php echo  $data['lname'] ?>" class="box3" readonly><br><br><br>
+    <label for="Email">Email: </label>
+    <input type="text" value="<?php echo  $data['email'] ?>" class="box3" readonly><br><br><br>
+    <label for="Contact No">Contact No: </label>
+    <input type="text" value="<?php echo  $data['phone'] ?>" class="box3" readonly><br><br><br>
+    <label for="Contact No">NIC: </label>
+    <input type="text" value="<?php echo  $data['NIC'] ?>" class="box3" readonly><br><br><br>
+         
+
+</div>
+                            
+                        
+                        
+
+                </div>
+                <div class="todo">
+                    <div class="head">
+                   
+
+
+                        
+<form action="<?php echo ROOT?>/Customer/Profileedit/add" method="POST">
+<h1> Update Profile </h1>
+    
+
+     <br>
+   <div class="form">
+   <p class="mobile"><?php echo $data['error']?> </p>
+    
+      
+            <input type="text" name="fname" value="<?php echo $data['fname']; ?>" class="box" >
+            <input type="text" name="lname" value="<?php echo $data['lname']; ?>" class="box" >
+            <input type="text" name="phone" value="<?php echo $data['phone']; ?>" class="box" >
+            <input type="hidden" name="email" value="<?php echo $data['email']; ?>" class="box" >
+    <br><br>
   
+             <a href="<?php echo ROOT ?>/Customer/Change_password" class="btn5">Change Password</a><br>
    
+          
+       
+     
+          
    
-
+          <input type="hidden" name="id" value="<?php echo $data['id']; ?>" readonly>
+          
+  
+<br><br>
+   
+          <input type="submit" value="Update" name="update_profile" class="btn4"><br><br>
 </div>
-</div>
-<footer class="footer">
-<div class="footer-left">
+ </form>
 
-				
+                       
+                    </div>
 
-				<p class="footer-links">
-					<a href="#" class="link-1">Home</a>
-					
-					<a href="#">Contact Us</a>
-				
-					<a href="#">About Us</a>
-				
-					<a href="#">Profile</a>
-					
-		
-				</p>
+                </div>
+            </div><br><br>
 
-				<p class="footer-company-name">Petro © 2022</p>
-			</div>
+    
 
-			<div class="footer-center">
 
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>222/A,Colombo 07</span></p>
-				</div>
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
 
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>0717787990</p>
-				</div>
 
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-				</div>
+    <script>
 
-			</div>
 
-			<div class="footer-right">
 
-				<p class="about">
-					<span>About the company</span>
-					
-				</p>
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
-				<div class="footer-icons">
+allSideMenu.forEach(item => {
+    const li = item.parentElement;
 
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				
-				</div>
+    item.addEventListener('click', function () {
+        allSideMenu.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
+});
 
-			</div>
 
-		</footer>
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+    sidebar.classList.toggle('hide');
+})
+
+
+
+
+
+
+
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+    if (window.innerWidth < 576) {
+        e.preventDefault();
+        searchForm.classList.toggle('show');
+        if (searchForm.classList.contains('show')) {
+            searchButtonIcon.classList.replace('bx-search', 'bx-x');
+        } else {
+            searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        }
+    }
+})
+
+
+
+
+
+if (window.innerWidth < 768) {
+    sidebar.classList.add('hide');
+} else if (window.innerWidth > 576) {
+    searchButtonIcon.classList.replace('bx-x', 'bx-search');
+    searchForm.classList.remove('show');
+}
+
+
+window.addEventListener('resize', function () {
+    if (this.innerWidth > 576) {
+        searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+})
+
+
+
+    </script>
+
 </body>
+
 </html>
+
+
+
+
+
+
+

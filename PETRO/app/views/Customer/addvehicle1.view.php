@@ -2,99 +2,245 @@
 
 
 
+
+
+
+<?php
+if(empty($data['error'])){
+    $data['error']=NULL;
+}
+?>
+
+<?php 
+		
+		$url1="/PETRO/public/Customer/Addvehicle1";
+		$url2="/PETRO/public/Customer/Addvehicle2";
+		$url3="/PETRO/public/Customer/Addvehicle3";
+    $url4="/PETRO/public/Customer/Addmachine";
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <title>Add Vehicle</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <!-- custom css file link  -->
-   
-   <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/main.css" text="text/css">
-   <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/addvehicle.css" text="text/css">
-   
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/home2.css" text="text/css">
+     <!-- My CSS -->
+     <link rel="stylesheet" href="<?php echo ROOT?>/CSS/Customer/addvehicle.css" text="text/css">
    
 
+     <title>petro</title>
 </head>
+
 <body>
-<div class="navbar">
-<a href="<?php echo ROOT ?>/Customer/Home" class="active">Home</a>
-  <a href="<?php echo ROOT ?>/Customer/Shop" class="">Store</a>
-  <a href="<?php echo ROOT ?>/Customer/Contact">Contact Us</a>
-  <a href="<?php echo ROOT ?>/Customer/About">About Us</a>
-  <a href="<?php echo ROOT ?>/Customer/Profile" class="right"><img src="<?php echo ROOT ?>/image/pro.png" width="40px" height="40px"></a> 
 
-</div>
 
-<div class="row">
-  <div class="side">
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-gas-pump'></i>
+            <span class="text">PETRO</span>
+        </a>
+        <ul class="side-menu top">
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Home">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="<?php echo ROOT ?>/Customer/Store">
+                <i class='bx bx-store'></i>
+                    <span class="text">Store</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pendingstore">
+                <i class='bx bxs-stopwatch'></i>
+                    <span class="text">Pending Orders</span>
+                </a>
+            </li>
 
-  <a href="<?php echo ROOT ?>/Customer/Mv"> <i class="fa fa-car"></i> Place an Order</a>
-    <a href="<?php echo ROOT ?>/Customer/Pendingpetrol"> <i class="fa fa-car"></i> Pending Orders</a>
-   <a href="<?php echo ROOT ?>/Customer/Pumphistory"><i class="fa fa-user icon"></i> View Pumped History</a>
-  <a href="<?php echo ROOT ?>/Customer/Complaint" class=""><i class="fa fa-user icon"></i> Add a Complaint</a>
-    <a href="<?php echo ROOT ?>/Customer/Rating" class=""><i class="fa fa-user icon"></i> Add a Feedback</a>
- 
-  </div>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Pumphistory">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Pumping History</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Analyze">
+                <i class='bx bxs-bar-chart-alt-2' ></i>
+                    <span class="text">Fuel Analyze</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Storehistory">
+                <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Store History</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Complaint">
+                <i class='bx bxs-envelope'></i>
+                    <span class="text">Complaints</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Feedback">
+                <i class='bx bxs-message-dots'></i>
+                    <span class="text">Feedback</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="<?php echo ROOT ?>/Customer/Aboutus">
+                <i class='bx bxs-business' ></i>
+                    <span class="text">About Us</span>
+                </a>
+            </li>
+
+
+        </ul>
+        <ul class="side-menu">
+            <li class="active">
+                <a href="<?php echo ROOT ?>/Customer/Profile">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+        <i class='bx bx-menu'></i>
+          
+          <form action="#">
+              <div class="form-input">
+                  
+                  <button type="submit" class="search-btn"></button>
+              </div>
+          </form>
+
+          <p> <?php echo  $data['fname'] ?></p>
+    
+          <a href="<?php echo ROOT ?>/Customer/Profile" class="profile">
+       
+          <img src="<?php echo ROOT ?>/image/bp.jpg"  style="width:35px;height:35px;"></a>
+        
+          </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <h1 class="add1"> Add Vehicle 1</h1>
   
-   <div class="main">
+            </div>
 
-     <br><br><br>
-   
-<div class="form-container">
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+            <div class="table-data">
+                <div class="order">
+                    <div class="head">
+                     
+                     
+                    </div>
+                
+
+                            
+                        
+            
 
    
 <form action="<?php echo ROOT?>/Customer/Addvehicle1/add" method="POST">
     
-   
-      <div class="container">
+  
 	  
-	 <h2> Update Vehicle </h2>
+	 
 	     
-       <br>
-       <?php
-      if(isset($message)){
-         foreach($message as $message){
-            echo '<div class="message">'.$message.'</div>';
-         }
-      }
-      ?>
+      
+<p class="err">  <?php
+      
+      echo $data['error'];
+?>
+</p>
+   
+    
        
 		
-            <input type="text" name="vno" value="<?php echo $data['vno']; ?>" class="box">
-			<br>
-         	   <select name="vtype" class="box" id="vno1" value="<?php echo $data['vtype']; ?>"  >
-                                   
+            <input type="text" name="vno" value="<?php echo $data['vno']; ?>" class="box" placeholder="Vehicle Number"  required>
+			
+         	   <select name="vtype" class="box" id="vno1" value="<?php echo $data['vtype']; ?>" required >
+				                    <option value="" disabled selected hidden >--Vehicle Type--</option>
                                     <option value="car">Car</option>
                                     <option value="van">Van</option>
+                                    <option value="threewheel">Three - Wheel</option>
+                                    <option value="mcycle">Motor-Cycle</option>
+                                    <option value="bus">Bus</option>
+                                    <option value="heavy">Heavy Vehicles</option>
                                 </select>
         
-			<br>
-			  <select name="ftype" class="box" id="vno1" value="<?php echo $data['ftype']; ?>"  >
-                                   
-                                    <option value="92-Octane">92 Petrol</option>
-                                    <option value="95-Octane">95 Petrol</option>
+			
+			  <select name="ftype" class="box" id="vno1" value="<?php echo $data['ftype']; ?>" required >
+			                       <option value=""disabled selected hidden  >--Fuel Type--</option>
+                                    <option value="petrol">Petrol</option>
+                                    <option value="diesel">Diesel</option>
 									
 								
-									  <option value="Super-Diesel">Super - Diesel</option>
-                                    <option value="Diesel">Auto - Diesel</option>
+									
                                 </select>
 			 
-			  <br>
-			
+			  
+                                <input type="hidden" name="phone" value="<?php echo $data['phone']; ?>" >
         
-            
+            <br><br>
      
-         </div><br>
-		   <input type="submit" value="Update" name="Update vehicle" class="btn"><br><br>
        
-		<a href="profile.php">Back</a>
+		   <input type="submit" value="Add Vehicle 1" name="Update vehicle" class="btn4"><br><br>
+       
+		<a href="<?php echo ROOT ?>/Customer/Profile" class="back2">Back</a>
      
 	  
-	    </div>  
+
      
     
    </form>
+</div>
    
    
    
@@ -103,69 +249,191 @@
    
   
    
-   <br><br><br><br>
-
-</div>
-<br><br>
-</div>
 
 
-<footer class="footer">
-<div class="footer-left">
 
-				
 
-				<p class="footer-links">
-					<a href="#" class="link-1">Home</a>
-					
-					<a href="#">Contact Us</a>
-				
-					<a href="#">About Us</a>
-				
-					<a href="#">Profile</a>
-					
+
+
+
+                
+                <div class="todo">
+                <h1>Vehicles & Machines</h1><br>
+                    <div class="head">
+                       
+                   
+
+
+                    <ul class="todo-list">
+                    
+                  
+                    <li class="completed">
+                    <?php
+    if ($data['vno'] == "")
+{
+echo ' <a href='.$url1.' target="_blank" class="add"> + Add Vehicle </a>'; 
+}
+?>
+<a href="<?php echo ROOT ?>/Customer/Updatevehicle1" class="vehicle"> <?php echo $data['vno']; ?> </a>
+                  
+                    </li>
+                    
+
+               
+                    <li class="completed">
+                    <?php
+    if ($data['vno1'] == "")
+{
+echo ' <a href='.$url2.' target="_blank" class="add"> + Add Vehicle </a>'; 
+}
+?>
+<a href="<?php echo ROOT ?>/Customer/Updatevehicle2" class="vehicle"> <?php echo $data['vno1']; ?> </a>
+                       
+                    </li>
+                 
+
+           
+                    <li class="completed">
+                    <?php
+    if ($data['vno2'] == "")
+{
+echo ' <a href='.$url3.' target="_blank" class="add"> + Add Vehicle </a>'; 
+}
+?>
+<a href="<?php echo ROOT ?>/Customer/Updatevehicle1" class="vehicle"> <?php echo $data['vno2']; ?> </a>
+                      
+                    </li>
+          
+
+             
+                    <li class="completed">
+                    <?php
+    if ($data['sNo'] == "")
+{
+echo ' <a href='.$url4.' target="_blank" class="add"> + Add Machine </a>'; 
+}
+?>
+<a href="<?php echo ROOT ?>/Customer/Updatevehicle1" class="vehicle"> <?php echo $data['sNo']; ?> </a>
+                   
+                    </li>
+              
+                
+                </ul> 
+                    
+
+
+
+
+            </div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
-				</p>
 
-				<p class="footer-company-name">Petro © 2022</p>
-			</div>
 
-			<div class="footer-center">
 
-				<div>
-					<i class="fa fa-map-marker"></i>
-					<p><span>222/A,Colombo 07</span></p>
-				</div>
 
-				<div>
-					<i class="fa fa-phone"></i>
-					<p>0717787990</p>
-				</div>
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
 
-				<div>
-					<i class="fa fa-envelope"></i>
-					<p><a href="mailto:support@company.com">petro@gmail.com</a></p>
-				</div>
 
-			</div>
+    <script>
 
-			<div class="footer-right">
 
-				<p class="about">
-					<span>About the company</span>
-					
-				</p>
 
-				<div class="footer-icons">
+const allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a');
 
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-				
-				</div>
+allSideMenu.forEach(item => {
+    const li = item.parentElement;
 
-			</div>
+    item.addEventListener('click', function () {
+        allSideMenu.forEach(i => {
+            i.parentElement.classList.remove('active');
+        })
+        li.classList.add('active');
+    })
+});
 
-		</footer>
 
+
+
+// TOGGLE SIDEBAR
+const menuBar = document.querySelector('#content nav .bx.bx-menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBar.addEventListener('click', function () {
+    sidebar.classList.toggle('hide');
+})
+
+
+
+
+
+
+
+const searchButton = document.querySelector('#content nav form .form-input button');
+const searchButtonIcon = document.querySelector('#content nav form .form-input button .bx');
+const searchForm = document.querySelector('#content nav form');
+
+searchButton.addEventListener('click', function (e) {
+    if (window.innerWidth < 576) {
+        e.preventDefault();
+        searchForm.classList.toggle('show');
+        if (searchForm.classList.contains('show')) {
+            searchButtonIcon.classList.replace('bx-search', 'bx-x');
+        } else {
+            searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        }
+    }
+})
+
+
+
+
+
+if (window.innerWidth < 768) {
+    sidebar.classList.add('hide');
+} else if (window.innerWidth > 576) {
+    searchButtonIcon.classList.replace('bx-x', 'bx-search');
+    searchForm.classList.remove('show');
+}
+
+
+window.addEventListener('resize', function () {
+    if (this.innerWidth > 576) {
+        searchButtonIcon.classList.replace('bx-x', 'bx-search');
+        searchForm.classList.remove('show');
+    }
+})
+
+
+
+const switchMode = document.getElementById('switch-mode');
+
+switchMode.addEventListener('change', function () {
+    if (this.checked) {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+})
+    </script>
 </body>
+
 </html>

@@ -7,8 +7,15 @@ class Aboutus extends Controller{
     }
 
     public function index(){
-        $this->view('Customer/aboutus');
-    }
+        $data=[
+            'id'=>$_SESSION['CUS_id'],
+            
 
+        ];
+        $result=$this->aboutus->aboutus($data);
+        if($result){
+            $this->view('Customer/aboutus',$result);
+        }
+    }
 
 }
