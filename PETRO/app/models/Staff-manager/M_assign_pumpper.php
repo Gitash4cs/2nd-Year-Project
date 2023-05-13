@@ -79,10 +79,10 @@ class M_assign_pumpper extends Model{
         
     }
 
-    public function mashineColour($mashineID){
+    public function mashineColour($machineID){
        
         $result = $this->connection();
-        $pumper = "select pumperID from pumper_mashine where PumpID  = '".$mashineID."'";
+        $pumper = "select pumperID from pumper_mashine where PumpID  = '".$machineID."'";
         $queryactivePumper = $result->query($pumper);
         $data = $queryactivePumper->fetch_array();
         $id= $data['pumperID'];

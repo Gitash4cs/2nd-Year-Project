@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <title>Manager Home</title>
     <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/home.css" text="text/css" />
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/style.css" text="text/css" />
+
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- to get calander move icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
@@ -30,26 +32,26 @@
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Assign_pumpper">
-                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <i class='bx bxs-pointer'></i>
                     <span class="text">Assign Pumper</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Complain">
-                    <i class='bx bxs-doughnut-chart'></i>
+                    <i class='bx bxs-comment-dots' ></i>
                     <span class="text">View & Responds to complaint</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/view_pumper">
-                    <i class='bx bxs-message-dots'></i>
+                    <i class='bx bx-male'></i>
                     <span class="text">View Pumpers</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Pumper_registration">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Add Pumpers</span>
+                <i class='bx bxs-book-bookmark' ></i>
+                    <span class="text">Pumper Registration</span>
                 </a>
             </li>
             <li>
@@ -60,7 +62,7 @@
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Salary_Rate">
-                    <i class='bx bxs-group'></i>
+                    <i class='bx bx-line-chart'></i>
                     <span class="text">Salary Percentage </span>
                 </a>
             </li>
@@ -74,13 +76,13 @@
         <ul class="side-menu">
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Profile">
-                    <i class='bx bxs-cog'></i>
+                    <i class='bx bxs-face' ></i>
                     <span class="text">Profile</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Logout" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
+                    <i class='bx bxs-log-out' ></i>
                     <span class="text">Logout</span>
                 </a>
             </li>
@@ -93,24 +95,21 @@
 
     <!-- CONTENT -->
     <section id="content">
-        <!-- NAV BAR -->
+        <!-- Top NAV BAR -->
         <nav>
             <i class='bx bx-menu'></i>
             <a href="#" class="nav-link"></a>
             <form action="#">
                 <div class="form-input">
-                    <!-- <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button> -->
+                    
                 </div>
             </form>
-            <input type="checkbox" id="switch-mode" hidden>
+            
             
             <!-- Display logged user's name  -->
             <h3><?php echo $_SESSION['manager_name']," ",$_SESSION['manager_name_Last']?></h3>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+            
+            <!-- profile pic -->
             <a href="#" class="profile">
                 <img src="<?php echo ROOT ?>/image/proIcon.png" onclick="toggleMenu()">
             </a>
@@ -131,7 +130,7 @@
                 </div>
             </div>
         </nav>
-        <!-- NAVBAR -->
+        <!-- Top NAV BAR -->
 
         <!-- MAIN -->
         <main>
@@ -141,23 +140,24 @@
                 </div>
             </div>
 
+            <!-- manger's function boxes -->
             <ul class="box-info">
                 <li>
-                    <i class='bx bxs-calendar-check'></i>
+                    <i class='bx bxs-pointer'></i>
                     <span class="text">
                         <a href="<?php echo ROOT ?>/Staff-manager/Assign_pumpper"><b>Assign Pumper</b></a>
                        
                     </span>
                 </li>
                 <li>
-                    <i class='bx bxs-dollar-circle'></i>
+                    <i class='bx bxs-comment-dots' ></i>
                     <span class="text">
                         <a href="<?php echo ROOT ?>/Staff-manager/Complain"><b>View & Responds to complaint</b></a>
                         
                     </span>
                 </li>
                 <li>
-                    <i class='bx bxs-calendar-check'></i>
+                    <i class='bx bx-line-chart'></i>
                     <span class="text">
                         <a href="<?php echo ROOT ?>/Staff-manager/Salary_Rate"><b>Salary Percentage</b></a>
                         
@@ -166,14 +166,14 @@
             </ul>
             <ul class="box-info">
                 <li>
-                    <i class='bx bxs-calendar-check'></i>
+                    <i class='bx bx-male'></i>
                     <span class="text">
                         <a href="<?php echo ROOT ?>/Staff-manager/view_pumper"><b>View Pumpers</b></a>
                        
                     </span>
                 </li>
                 <li>
-                    <i class='bx bxs-dollar-circle'></i>
+                    <i class='bx bxs-book-bookmark' ></i>
                     <span class="text">
                         <a href="<?php echo ROOT ?>/Staff-manager/Pumper_registration"><b>Pumper Registration</b></a>
                         
@@ -191,6 +191,8 @@
 
 
             <div class="table-data">
+
+                <!-- calander -->
                 <div class="todo">
                     <header>
                         <p class="current-date"></p>
@@ -213,11 +215,11 @@
                     </div>
 
                 </div>
+
+                <!-- Members & Complains section  -->
                 <div class="todo">
                     <div class="head">
                         <h3>Members & Complains</h3>
-                        <i class='bx bx-plus'></i>
-                        <i class='bx bx-filter'></i>
                     </div>
 
                     <table class="table">
@@ -237,12 +239,13 @@
 
                 </div>
 
+                <!-- Pumper Mashine Details Section -->
                 <div class="order">
                     <div class="head">
                         <h3>Pumper Mashine Details</h3>
-                        <i class='bx bx-plus'></i>
-                        <i class='bx bx-filter'></i>
+                        
                     </div>
+                    <!-- pumper status colour code -->
                     <div class="flex-container-tag">
                         <div class="pump-colour"> <?php
                             $color = $this->dashboard->mashineColour('D001');
@@ -280,6 +283,7 @@
                            echo "<h3 style='background-color: $color;'>P4</h3>"; 
                         ?></div>
                     </div>
+
                     <table class="table">
                         <tr><td>Total Diesel Mashine :</td>
                             <?php echo "<td> 4 </td>"?></tr>
@@ -299,9 +303,12 @@
     </section>
     <!-- CONTENT -->
 
-
+    <!-- JS for side bar movement -->
     <script src="<?php echo ROOT ?>/JS/Staff-manager/script.js"></script>
+    <!-- JS for Calander -->
     <script src="<?php echo ROOT ?>/JS/Staff-manager/calender.js"></script>
+
+    <!-- JS for profile icon drop down -->
     <script>
         let submenu = document.getElementById("submenu");
 

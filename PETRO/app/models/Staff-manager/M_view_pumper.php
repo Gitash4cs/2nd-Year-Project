@@ -15,6 +15,8 @@ class M_view_pumper extends Model{
             $data=[
                 'result'=>$query,
                 'error'=>'',
+                'success'=>'',
+
             ];
             return $data;
         }
@@ -26,13 +28,13 @@ class M_view_pumper extends Model{
     public function pump_remove($email){
         $result = $this->connection();
 
-        $sql="SELECT * from `pumper` WHERE `status` = 'assigned';";
+        $sql="SELECT * from `pumper` WHERE `email` = '$email' AND `status` = 'assigned';";
         $query = $result->query($sql);
+
         if($query->num_rows>0){
             return 'assigned';
         }
 
-        
         $sql="UPDATE `registered_users` SET `status` = 0 WHERE `email` = '$email';";
         $query = $result->query($sql);
 
@@ -40,10 +42,10 @@ class M_view_pumper extends Model{
         $query = $result->query($sql);
        
         if($query){
-            return true;
+            return 1;
         }
         else{
-            return false;
+            return 0;
         }
     }
 
