@@ -11,8 +11,8 @@ class M_home extends Model{
         $totalCustomer="SELECT count(email) from registered_users where status = 1 AND role = 'customer'";
         $Viewed="SELECT count(com_id) AS COUNT1 from complain where status= 'Viewed'";
         $Pending="SELECT count(com_id) AS COUNT2 from complain where status= 'Pending'";
-        $workingDiesel="SELECT count(MashineID) from pumper_mashine where pumperID != '0' and fuelType = 'Diesel'";
-        $workingPetrol="SELECT count(MashineID) from pumper_mashine where pumperID != '0' and fuelType = 'Petrol'";
+        $workingDiesel="SELECT count(MachineID) from pumper_mashine where pumperID != '0' and fuelType = 'Diesel'";
+        $workingPetrol="SELECT count(MachineID) from pumper_mashine where pumperID != '0' and fuelType = 'Petrol'";
 
         //execute all queries
         $querytotalPumper = $result->query($totalPumper);
@@ -60,11 +60,11 @@ class M_home extends Model{
     }
 
     //funtion for display color of pumper mashine status by checking assigment
-    public function mashineColour($mashineID){
+    public function mashineColour($machineID){
        
         $result = $this->connection();
         //check which pumper assigned to the mashine.
-        $pumper = "select pumperID from pumper_mashine where PumpID  = '".$mashineID."'";
+        $pumper = "select pumperID from pumper_mashine where PumpID  = '".$machineID."'";
         $queryactivePumper = $result->query($pumper);
         $data = $queryactivePumper->fetch_array();
         $id= $data['pumperID'];

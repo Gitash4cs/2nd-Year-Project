@@ -9,6 +9,8 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
     <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/view_customer.css" />
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/style.css" text="text/css" />
+    
     <!-- Font Awesome Cdn Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
@@ -16,7 +18,8 @@
 <body>
     
 
-    <!-- SIDEBAR -->
+    <!-- SIDE BAR -->
+
     <section id="sidebar">
         <a href="#" class="brand">
             <i class='bx bxs-gas-pump'></i>
@@ -31,26 +34,26 @@
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Assign_pumpper">
-                    <i class='bx bxs-shopping-bag-alt'></i>
+                    <i class='bx bxs-pointer'></i>
                     <span class="text">Assign Pumper</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Complain">
-                    <i class='bx bxs-doughnut-chart'></i>
+                    <i class='bx bxs-comment-dots' ></i>
                     <span class="text">View & Responds to complaint</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/view_pumper">
-                    <i class='bx bxs-message-dots'></i>
+                    <i class='bx bx-male'></i>
                     <span class="text">View Pumpers</span>
                 </a>
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Pumper_registration">
-                    <i class='bx bxs-group'></i>
-                    <span class="text">Add Pumpers</span>
+                <i class='bx bxs-book-bookmark' ></i>
+                    <span class="text">Pumper Registration</span>
                 </a>
             </li>
             <li class="active">
@@ -61,53 +64,75 @@
             </li>
             <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Salary_Rate">
-                    <i class='bx bxs-group'></i>
+                    <i class='bx bx-line-chart'></i>
                     <span class="text">Salary Percentage </span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <!-- <i class='bx bxs-group'></i>
+                    <span class="text">Salary Percentage </span> -->
                 </a>
             </li>
         </ul>
         <ul class="side-menu">
             <li>
-                <a href="#">
-                    <i class='bx bxs-cog'></i>
-                    <span class="text">Settings</span>
+                <a href="<?php echo ROOT ?>/Staff-manager/Home">
+                    <i class='bx bxs-left-arrow-circle'></i>
+                    <span class="text">Back</span>
                 </a>
             </li>
             <li>
-                <a href="#" class="logout">
-                    <i class='bx bxs-log-out-circle'></i>
+                <a href="<?php echo ROOT ?>/Staff-manager/Logout" class="logout">
+                    <i class='bx bxs-log-out' ></i>
                     <span class="text">Logout</span>
                 </a>
             </li>
         </ul>
     </section>
-    <!-- SIDEBAR -->
+
+    <!-- SIDE BAR -->
 
 
 
     <!-- CONTENT -->
     <section id="content">
-        <!-- NAVBAR -->
-        <nav>
+       <!-- Top NAV BAR -->
+       <nav>
             <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Categories</a>
+            <a href="#" class="nav-link"></a>
             <form action="#">
                 <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                    
                 </div>
             </form>
-            <input type="checkbox" id="switch-mode" hidden>
+            
+            
+            <!-- Display logged user's name  -->
             <h3><?php echo $_SESSION['manager_name']," ",$_SESSION['manager_name_Last']?></h3>
-            <a href="#" class="notification">
-                <i class='bx bxs-bell'></i>
-                <span class="num">8</span>
-            </a>
+            
+            <!-- profile pic -->
             <a href="#" class="profile">
-                <img src="<?php echo ROOT ?>/image/proIcon.png">
+                <img src="<?php echo ROOT ?>/image/proIcon.png" onclick="toggleMenu()">
             </a>
+
+            <!-- profile Drop down menu -->
+            <div class="sub-menu-wrap" id="submenu">
+                <div class= "sub-menu">
+                    <a href="<?php echo ROOT ?>/Staff-manager/Profile" class="sub-menu-link">
+                        <img src="<?php echo ROOT ?>/image/profile_dropdown/profile.png">
+                        <p>Profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="<?php echo ROOT ?>/Staff-manager/Logout" class="sub-menu-link">
+                        <img src="<?php echo ROOT ?>/image/profile_dropdown/logout.png">
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
         </nav>
-        <!-- NAVBAR -->
+        <!-- Top NAV BAR -->
 
         <!-- MAIN -->
         <main>
@@ -117,11 +142,11 @@
                     <h1>View Customer</h1>
                     <ul class="breadcrumb">
                         <li>
-                            <a href="<?php echo ROOT ?>/Staff-manager/Home">Dashboard</a>
+                            <a class="active" href="<?php echo ROOT ?>/Staff-manager/Home">Dashboard</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">View Customer</a>
+                            <a class="active" href="<?php echo ROOT ?>/Staff-manager/view_customer">View Customer</a>
                         </li>
                     </ul>
                 </div>
@@ -132,8 +157,7 @@
                 <div class="order">
                     <div class="head">
                         <h3>Filter :</h3>
-                        <i class='bx bx-search'></i>
-                        <i class='bx bx-filter'></i>
+                        
                     </div>
                     <div class= "filter">
                         <Select name= "filter" id="filter">
@@ -148,8 +172,7 @@
                 <div class="todo">
                     <div class="head">
                         <h3>Todos</h3>
-                        <i class='bx bx-plus'></i>
-                        <i class='bx bx-filter'></i>
+                        
                     </div>
 
                 </div>
@@ -267,6 +290,13 @@
     
         
         });
+
+        // JS for profile icon drop down
+        let submenu = document.getElementById("submenu");
+
+        function toggleMenu(){
+            submenu.classList.toggle("open-menu");
+        }
 
     </script>
 </body>

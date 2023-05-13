@@ -1083,3 +1083,27 @@ table thead tr {
     text-align: right;
     width: 10%;
 }
+
+
+
+/* error handle */
+.errorMsg{
+    color: red;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+/* success massaginh */
+.successMsg{
+    color: #3C91E6;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+}
+
+ 
