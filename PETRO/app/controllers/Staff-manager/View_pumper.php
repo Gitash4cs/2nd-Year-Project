@@ -27,9 +27,37 @@ class View_pumper extends Controller
     {
         $pump_Email = $_GET['pump_email'];
         $result=$this->pumper->pump_remove($pump_Email);
-       
+        $data = $this->pumper->pumper_list();
+        
+        if($result == 'assigned'){
+            $data['error'] = "Selected Pumper Assigned to a Machine";
+        }
+        elseif($result == '1'){
+            
+            $data['error'] = '';
+            $data['success'] = "Successfully Pumper Suspended";
+            
+            
+        }else{
 
-        header('location:http://localhost/PETRO/public/Staff-manager/view_pumper');
+            $data['error'] = "Failed to Suspend Pumper";
+        }
+        $this->view('Staff-manager/View_pumper',$data);
+       
+    }
+
+    public function add_pumper()
+    {
+        $cus_Email = $_GET['pump_email'];
+        $result=$this->pumper->pump_add($cus_Email);
+        $data = $this->pumper->pumper_list();
+
+        if($result){
+            $data['success'] = "Successfully Pumper Made Active";
+        }else{
+            $data['error'] = "Failed to Activate Pumper";
+        }
+        $this->view('Staff-manager/View_pumper',$data);
     }
 
 }

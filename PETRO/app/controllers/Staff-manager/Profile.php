@@ -22,7 +22,7 @@ class Profile extends Controller
 
         }
         else{
-            $this->view('Staff-manager/profile',$data);
+            $this->view('Staff-manager/profile');
         }
     }
 

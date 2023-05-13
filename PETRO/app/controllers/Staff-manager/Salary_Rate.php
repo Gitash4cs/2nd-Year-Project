@@ -19,16 +19,23 @@ class Salary_Rate extends Controller
         //get user data and asign in to variables (escape special character)
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $record=[
-                'Basic'=>trim($_POST['Basic']),
+                'Basic_salary'=>trim($_POST['Basic']),
                 'HRA'=>trim($_POST['HRA']),
                 'Daily_allowances'=>trim($_POST['Daily_allowances']),
-                'Provident_fund'=>trim($_POST['Provident_fund']),
+                'provident_fund'=>trim($_POST['Provident_fund']),
                 'OT'=>trim($_POST['OT']),
                 'error'=>'',
+                'success'=>'',
+
             ];
             
             $result = $this->order->submit_record($record);
-            header('location:http://localhost/PETRO/Public/Staff-manager/Salary_Rate');
+            if($result){
+                $record['success'] = 'Successfully Rates Changed';
+            }else{
+                $record['error'] = 'Submission Failed';
+            }
+            $this->view('Staff-manager/Salary_Rate',$record);
             
         }
 

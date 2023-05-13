@@ -28,12 +28,15 @@ class Pumper_registration extends Controller
                 'password'=>trim($_POST['password']),
                 'confirmPassword'=>trim($_POST['cpassword']),
                 'error'=>'',
+
             ];
             
-            $userExist = $this->order->user_exist($record['email']);
+            //check the user email is already registerd to the system
+            $userExist = $this->order->user_exist($record);
+            
             if($userExist){
-                $editdata['error']="user already exist!";
-                $this->view('Staff-manager/Pumper_registration',$record);
+                $error['error']="user already exist!";
+                $this->view('Staff-manager/Pumper_registration',$error);
             }
             else{
                 $result = $this->order->submit_record($record);
@@ -42,8 +45,8 @@ class Pumper_registration extends Controller
         
                 }
                 else{
-                    $editdata['error']="Password not matched";
-                    $this->view('Staff-manager/Pumper_registration',$record);
+                    $error['error']="Password not matched";
+                    $this->view('Staff-manager/Pumper_registration',$error);
                 }
             }
 

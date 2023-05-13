@@ -15,7 +15,7 @@ class View_customer_Profile extends Controller
         $result=$this->Profile->profile($cus_ID);
         
         if($result['status'] == "0"){
-            $result['status'] = "Removed Customer";
+            $result['status'] = "Suspend Customer";
         }else{
             $result['status'] = "Active Customer";
         }

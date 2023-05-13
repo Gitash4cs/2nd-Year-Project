@@ -14,7 +14,7 @@ class View_pumper_Profile extends Controller
         $result=$this->Profile->profile($Pump_ID);
         
         if($result['status'] == "0"){
-            $result['status'] = "Removed Pumper";
+            $result['status'] = "Suspend Pumper";
         }else{
             $result['status'] = "Active Pumper";
         }

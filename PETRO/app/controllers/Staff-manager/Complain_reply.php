@@ -15,14 +15,25 @@ class Complain_reply extends Controller{
     }
     public function register(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
+            $full_id = trim($_POST['com_id']);
+            $id=substr($full_id,3);     //get sub string after 3rd position of full_id
+            
             $data=[
+                'com_id'=>$id,
+                'user_id'=>trim($_POST['user_id']),
+                'complain'=>trim($_POST['complain']),
                 'response'=>trim($_POST['response']),
-                'id'=>trim($_POST['com_id']),
+                'date_time'=>trim($_POST['date_time']),
                 'status'=>trim($_POST['status']),
             ];
         
-        $this->complain->register($data);
-        header('location:http://localhost/PETRO/public/Staff-manager/Complain');
+        $result = $this->complain->register($data);
+        if($result){
+            $data['success'] = 'Successfully Submission Saved';
+        }else{
+            $data['error'] = 'Submission Failed';
+        }
+        $this->view('Staff-manager/Complain_reply',$data);
         
         }
     }
