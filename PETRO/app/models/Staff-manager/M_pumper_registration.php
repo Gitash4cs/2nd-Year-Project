@@ -36,9 +36,14 @@ class M_pumper_registration extends Model{
         $result = $this->connection();
         //select records from table which is given email
         $select = "SELECT * FROM registered_users WHERE email = '".$data['email']."' ";
+        $query = $result->query($select);
+        //check the given user account already has or not
+        if(mysqli_num_rows($query) > 0){
+            return true;
+        }
+
         //select records from table which is given user ID
         $select = "SELECT * FROM pumper WHERE id = '".$data['id']."' ";
-
         $query = $result->query($select);
         //check the given user account already has or not
         if(mysqli_num_rows($query) > 0){

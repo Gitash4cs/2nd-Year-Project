@@ -67,6 +67,12 @@
                 </a>
             </li>
             <li>
+                <a href="<?php echo ROOT ?>/Staff-manager/Feedback">
+                    <i class='bx bxs-message-rounded-check'></i>
+                    <span class="text">User Feedback</span>
+                </a>
+            </li>
+            <li>
                 <a href="">
                     <!-- <i class='bx bxs-group'></i>
                     <span class="text">Salary Percentage </span> -->
@@ -158,8 +164,8 @@
                         <h3>Filter :</h3>
                     </div>
                     <div class= "filter">
-                        <Select name= "filter" id="filter">
-                            <option vlaue="All Customers">All Pumper</option>
+                        <Select name= "filter" id="pumpfilter">
+                            <option vlaue="All Pumper">All Pumper</option>
                             <option vlaue="Active">Active Pumper</option>
                             <option vlaue="Remove">Suspend Pumper</option>
 
@@ -242,14 +248,15 @@
 
     <script>
         //get action of the filter drop down
-        let selectMenu = document.querySelector("#filter");
+        let selectMenu = document.getElementById("pumpfilter");
         //take recode of the output table
         let table = document.querySelector("#table");
 
         //do this when changes happen on filter drop down
         selectMenu.addEventListener('change',()=>{
         const searchTerm = selectMenu.value.toLowerCase();
-        
+        console.log(searchTerm);
+        console.log("hi");
         //when select All Pumper show all records
         if(searchTerm == "all pumper"){
             for (let i = 1; i < table.rows.length; i++) {
@@ -285,13 +292,17 @@
         
         });
 
+        
+
+    </script>
+
+    <script>
         // JS for profile icon drop down
         let submenu = document.getElementById("submenu");
 
         function toggleMenu(){
             submenu.classList.toggle("open-menu");
         }
-
     </script>
 </body>
 </html>
