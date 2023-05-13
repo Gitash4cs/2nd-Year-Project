@@ -3,6 +3,8 @@
 class Assign_pumpper extends Controller
 {
     public $order;
+    public $error;
+    
     public function __construct()
     {
         $this->order=$this->model('M_assign_pumpper');
@@ -12,10 +14,8 @@ class Assign_pumpper extends Controller
     {
         
         $result = $this->order->assign_pumpper();
-
         if($result){
             $this->view('Staff-manager/Assign_pumpper',$result);
-
         }
         else{
             $this->view('Staff-manager/Assign_pumpper',);
@@ -32,12 +32,23 @@ class Assign_pumpper extends Controller
             ];
             
             $result = $this->order->assign($editdata);
-          
-            //redirect to the email's page
-            header('location:http://localhost/PETRO/Public/Staff-manager/Email?Mashine='.$editdata["pumperMashine"].'&pumperid='.$editdata["pumperid"].'&type='.$result.'');
-                
-           
 
+            if($result == "assign error"){
+                $result = $this->order->assign_pumpper();
+                $result['error'] = "Oops! Already a pumper work on this machine";
+                $this->view('Staff-manager/Assign_pumpper',$result);
+
+            }elseif($result == "remove error"){
+                $result = $this->order->assign_pumpper();
+                $result['error'] = "Oops! This Machine hasn't working a pumper";
+                $this->view('Staff-manager/Assign_pumpper',$result);
+            }
+            
+            else{
+                //redirect to the email's page
+                header('location:http://localhost/PETRO/Public/Staff-manager/Email?Mashine='.$editdata["pumperMashine"].'&pumperid='.$editdata["pumperid"].'&type='.$result.'');
+                
+            }
         }
 
     }

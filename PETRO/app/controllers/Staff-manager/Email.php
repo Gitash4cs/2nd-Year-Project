@@ -13,7 +13,7 @@ class Email extends Controller{
 
         if($type != 1){
             $pumperid = $type;
-            $type = 0;  //type = 0 mean this email foe remove
+            $type = 0;  //type = 0 mean this email for remove
         }
 
         $data=[

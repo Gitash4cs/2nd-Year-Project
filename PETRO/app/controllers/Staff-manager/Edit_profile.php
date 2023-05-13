@@ -34,19 +34,28 @@ class Edit_profile extends Controller
                 'last_name'=>trim($_POST['lastName']),
                 'phone_no'=>trim($_POST['phoneNumber']),
                 'nic'=>trim($_POST['nic']),
-                'gender'=>trim($_POST['gender']),
+                'email'=>trim($_POST['email']),
                 'password'=>trim($_POST['password']),
                 'editRetype_password'=>trim($_POST['retype_password']),
-                'error'=>'Password not matched',
+                'error'=>'',
+                'success'=>'',
+
             ];
+            
             $result = $this->order->submit_edit($editdata);
             
             if($result){
-                header('location:http://localhost/PETRO/Public/Staff-manager/Edit_profile');
+                // header('location:http://localhost/PETRO/Public/Staff-manager/Edit_profile');
+                $editdata['success']="Successfully Changes Saved";
+                // $result = $this->order->edit_manager($_SESSION['manager_ID']);
+                // $result = 
+                $this->view('Staff-manager/Edit_profile',$editdata);
     
             }
             else{
                 $editdata['error']="Password not matched";
+                // $result = $this->order->edit_manager($_SESSION['manager_ID']);
+                // $result = 
                 $this->view('Staff-manager/Edit_profile',$editdata);
             }
         }
