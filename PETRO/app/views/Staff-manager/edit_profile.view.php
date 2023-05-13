@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Manager Home</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/style.css" text="text/css" />
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/Edit_profile.css" text="text/css" />
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- to get calander move icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
@@ -129,6 +129,15 @@
             <div class="table-data">
                 <div class="todo">
                     <div class="form-inner">
+                        <!-- print error massage -->
+                        <?php
+                            if(isset($data['error'])){ 
+                                echo '<span class="errorMsg">' .$data['error'].'</span>';
+                            };
+                            if(isset($data['success'])){ 
+                                echo '<span class="successMsg">' .$data['success'].'</span>';
+                            };
+                        ?>
                     <form action="<?php echo ROOT ?>/Staff-manager/Edit_profile/submit_edit" method="post">
                         <div class="field">
                         <input value="<?php echo $data['first_name']?>" type="text" name="firstName" placeholder="Change First name">
@@ -141,25 +150,20 @@
                         </div>
                         <div class="field">
                         <input value="<?php echo $data["nic" ]?>" type="text" name="nic" placeholder="Change NIC">
-                        </div><br>
-                        <div>
-                        <select class="profile-gender" name="gender" selected value="<?php echo $data["gender"]?>">
-                                <option value="">--Select Gender--</option>
-                                <option selected value="<?php echo $data["gender"]?>"><?php echo $data["gender"]?></option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                            </select>
+                        </div>
+                        <div class="field">
+                        <input value="<?php echo $data["email" ]?>" type="" name="email" readonly>
                         </div>
                         <div>
                         <div class="field">
-                        <input type="password" class="form-control" name="password" placeholder="Change password (Leave empty to keep old password)">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Change password (Leave empty to keep old password)">
                         </div>
                         <div class="field">
                         <input type="password" class="form-control" name="retype_password" placeholder="Retype new password">
                         </div><br>
                         <div class="btn">
                         <div class="btn-layer"></div>
-                            <input type="submit" name="submit" value="Save" >
+                            <input type="submit" name="submit" value="Save" onclick="test_str()">
                         </div>
                     </form>
                 </div>
@@ -176,6 +180,27 @@
 
     <script src="<?php echo ROOT ?>/JS/Staff-manager/script.js"></script>
     <script src="<?php echo ROOT ?>/JS/Staff-manager/calender.js"></script>
+
+    <script>
+        //
+        function test_str() {
+            var res;
+            //get string by password id
+            var str = document.getElementById("password").value;
+            //regular expression(/ /),  tested against all possible matches in a string globaly (/ /g)
+
+            //simple letters (/[a-z]/g) 
+            //capital letters (/[A-Z]/g) 
+            //numbers (/[0-9]/g)
+            //symbols (/[^a-zA-Z\d]/g)
+            if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && str.match(/[0-9]/g) && str.match(/[^a-zA-Z\d]/g) && str.length >= 8)
+                res = "TRUE";
+            else if(str.length > 0){
+                alert("Please use strong password with lowercase, uppercase, special character, digit and password should Minimum 8 characters");
+            }
+        }
+
+    </script>
 </body>
 
 

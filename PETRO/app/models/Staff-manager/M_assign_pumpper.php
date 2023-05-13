@@ -9,19 +9,26 @@ class M_assign_pumpper extends Model{
         $sql="SELECT * from pumper_mashine";
         $sqlPumper="SELECT * from pumper where status = 'not assigned'";
         
-        $query = $result->query($sql);
+        $querymashine = $result->query($sql);
         $queryPumper = $result->query($sqlPumper);
+ 
+       
         
-        if($query->num_rows>0){
+        if($queryPumper->num_rows<=0){
             $data=[
-                'result'=>$query,
+                'result'=>$querymashine,
+                'resultPumper'=>$queryPumper,
+                'error'=>'No more pumpers to assign the machine',
+            ];
+            return $data;
+        }
+        elseif($querymashine->num_rows>0){
+            $data=[
+                'result'=>$querymashine,
                 'resultPumper'=>$queryPumper,
                 'error'=>'',
             ];
             return $data;
-        }
-        else{
-            return false;
         }
         
     }
@@ -90,7 +97,12 @@ class M_assign_pumpper extends Model{
     }
 
     public function assign($data){
-        $result = $this->connection();
+         $result = $this->connection();
+
+        $pumper = "select pumperID from pumper_mashine where PumpID  = '".$data['pumperMashine']."'";
+        $queryactivePumper = $result->query($pumper);
+        $pumperCheck = $queryactivePumper->fetch_array();
+        $id= $pumperCheck['pumperID'];
 
         //remover pumper from mashine
         if($data['pumperid'] == "remove"){
@@ -100,7 +112,12 @@ class M_assign_pumpper extends Model{
             while($row = $querypumper->fetch_assoc()){
                 $pumperid=$row['pumperID'];
             }
- 
+
+            //make error massage when try to remove pumper from non assign mashine
+            if($pumperid == 0){
+                $error = "remove error";
+                return $error;
+            }
             //update the pumper status
             $insertstatus = "Update pumper set status = 'not assigned' where id = '".$pumperid."' "; 
             $query = $result->query($insertstatus);
@@ -117,7 +134,12 @@ class M_assign_pumpper extends Model{
             return $pumperid;
 
         }
-        else{
+        //make error massage when try to add a pumper to alredy a pumper work on that machine
+        elseif($id != '0'){
+            $error = "assign error";
+            return $error;
+
+        }else{    
              //update the pumper_mashine table after assign the pumper
             $insert = "Update pumper_mashine set pumperID = '".$data['pumperid']."' where PumpID  = '".$data['pumperMashine']."'"; 
             $query = $result->query($insert);

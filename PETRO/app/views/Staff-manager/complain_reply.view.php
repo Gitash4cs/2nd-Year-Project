@@ -125,6 +125,15 @@
                      
         </div>
             <div class="container3">
+                <!-- print error massage -->
+                <?php
+                    if(isset($data['error'])){ 
+                        echo '<span class="errorMsg">' .$data['error'].'</span>';
+                    };
+                    if(isset($data['success'])){ 
+                        echo '<span class="successMsg">' .$data['success'].'</span>';
+                    };
+                ?>
             
             <form action="<?php echo ROOT?>/Staff-manager/complain_reply/register" method="POST">
                 <label for="fname">Complain ID:</label>

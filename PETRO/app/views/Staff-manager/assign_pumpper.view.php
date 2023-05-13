@@ -66,12 +66,18 @@
                     <span class="text">Salary Percentage </span>
                 </a>
             </li>
+            <li>
+                <a href="">
+                    <!-- <i class='bx bxs-group'></i>
+                    <span class="text">Salary Percentage </span> -->
+                </a>
+            </li>
         </ul>
         <ul class="side-menu">
             <li>
                 <a href="#">
-                    <i class='bx bxs-cog'></i>
-                    <span class="text">Settings</span>
+                    <i class='bx bx-left-arrow-circle bx-fade-left-hover'></i>
+                    <span class="text">Back</span>
                 </a>
             </li>
             <li>
@@ -152,10 +158,17 @@
                                             echo "<option value='".$rows['id']."'>".$rows['id']."</option>";
                                         }
                                     ?> 
+                                    
                                     <option value="remove" name='remove'>Remove Pumper</option> 
                                 </select>
                             </div>
-                            <br>
+                            <!-- print error massage -->
+                                <?php
+                                    if($data['error']!=0 || isset($data['error'])){ 
+                                        echo '<span class="errorMsg">&nbsp' .$data['error'].'</span>';
+                                    };
+                                ?>
+                             
                             <div class="btn">
                             <div class="btn-layer"></div>
                                 <input type="submit" name="submit" value="Assign" >
@@ -170,18 +183,14 @@
                 
                 <div class="todo">
                     <div class="flex-container">
-                        
-                        <h2>Total Pumpers count &nbsp : &nbsp </h2> <?php
-                            $totalpumper = $this->order->pumpercount();
-                            echo "<h2 value>'"  .$totalpumper."'</h2>"; 
-                        ?> 
-                    </div>
-                   
-                    <div class="flex-container">
-                        <h2>Total Assigned Pumpers count &nbsp : &nbsp </h2> <?php
-                            $totalpumper = $this->order->activepumpercount();
-                            echo "<h2 value>'"  .$totalpumper."'</h2>"; 
-                        ?>
+                        <table class="table">
+                            <tr><td>Total Pumpers count :</td>
+                                <?php $totalpumper = $this->order->pumpercount();
+                                echo "<td> "  .$totalpumper." </td>"?></tr>
+                            <tr><td>Total Assigned Pumpers :</td>
+                                <?php $totalpumper = $this->order->activepumpercount();
+                                echo "<td> "  .$totalpumper." </td>"?></tr>
+                        </table>
                     </div>
                     <br>
                     <div class="flex-container-tag">
@@ -262,7 +271,7 @@
                     <li>
                         <i class='bx bxs-gas-pump'></i>
                         <span class="text">
-                            <h3>Pump 03 (P003)</h3>
+                            <h3>Pump 03 (D003)</h3>
                             <p><?php
                                     $assignedpumper = $this->order->show_assign_pumpper('D003');
                                     echo "<p value>'".$assignedpumper."'</p>"; 

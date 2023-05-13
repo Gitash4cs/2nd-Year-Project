@@ -2,30 +2,27 @@
 
 class M_profile extends Model{
 
-    protected $table = 'customer_manager';
+    protected $table = 'all_manager';
 
     public function view_manager($data){
         $result = $this->connection();
         $manager_ID = $data['manager_ID'];
-        $sql="select * from $this->table where customer_manager_id ='".$manager_ID."'";
+        $sql="select * from $this->table inner join registered_users on all_manager.email = registered_users.email where $this->table.manager_id ='".$manager_ID."'";
         $query = $result->query($sql);
         if($query->num_rows>0){
             while($row = $query->fetch_array()){
-                $id= $row['customer_manager_id'];
-                $first_name = $row['First_name'];
-                $last_name = $row['Last_name'];
+                $id= $row['manager_id'];
+                $first_name = $row['fname'];
+                $last_name = $row['lname'];
                 $nic = $row['NIC'];
-                $gender = $row['gender'];
                 $email  = $row['email'];
-                $phone_no = $row['phone_number'];
-                
+                $phone_no = $row['phone'];
             }
             $arr =array(
                 'id'=> $id,
                 'first_name' => $first_name,
                 'last_name' => $last_name,
                 'nic' => $nic,
-                'gender'=> $gender,
                 'email'=>$email,
                 'phone_no'=> $phone_no,
                 'loading'=>'1',

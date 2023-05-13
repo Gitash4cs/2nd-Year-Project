@@ -14,10 +14,8 @@ class M_complain_reply extends Model{
         $result=$this->connection();
         $response=$data['response'];
         $status=$data['status'];
-        // date_default_timezone_set('Asia/Kolkata');
-        // $date = date('Y-m-d');
-        $fullid=$data['id'];
-        $id=substr($fullid,3);
+        $id=$data['com_id'];
+        
     
         if ($response){
             $sql="UPDATE $this->table SET response='".$response."',status='Replied' WHERE com_id ='".$id."'"; 
@@ -26,6 +24,12 @@ class M_complain_reply extends Model{
             $sql="UPDATE $this->table SET status='".$status."' WHERE com_id ='".$id."'"; 
         }
         $query=$result->query($sql);
+        if($query){
+            return 1;
+        }
+        else{
+            return 0;
+        }
         
     }
 }

@@ -2,7 +2,7 @@
 
 class M_salary_rate extends Model{
 
-    protected $table = 'salary_rate';
+    protected $table = 'salary_precentage';
 
 
 
@@ -10,7 +10,7 @@ class M_salary_rate extends Model{
     public function currentRate(){
         $result = $this->connection();
         
-        $sql="select * from salary_rate ORDER BY KeyNum DESC LIMIT 1";
+        $sql="select * from salary_precentage ORDER BY id DESC LIMIT 1";
         $query = $result->query($sql);
         $data = $query->fetch_array();
         return $data;
@@ -18,8 +18,14 @@ class M_salary_rate extends Model{
     
     public function submit_record($data){
         $result = $this->connection();
-        $insert = "Insert into salary_rate set Basic = '".$data['Basic']."', HRA = '".$data['HRA']."', Daily_allowances = '".$data['Daily_allowances']."', Provident_fund = '".$data['Provident_fund']."', OT ='".$data['OT']."' ";
+        $insert = "Insert into salary_precentage set Basic_salary = '".$data['Basic_salary']."', HRA = '".$data['HRA']."', Daily_allowances = '".$data['Daily_allowances']."', provident_fund = '".$data['provident_fund']."', OT ='".$data['OT']."' ";
         $query = $result->query($insert);
+        if($query){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
     
 }

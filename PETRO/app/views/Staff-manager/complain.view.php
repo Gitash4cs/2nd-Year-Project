@@ -165,25 +165,7 @@
                                 <td> <?php echo $row['complain'];?> </td>
                                 <td> <?php echo $row['date_time'];?> </td>
                                 <td> <?php echo $row['status'];?> </td>
-                                <!-- <td><select class="com-status" name="com-status" selected value="<?php echo $row['status']?>">
-                                    <option value="">--Select Status--</option>
-                                    <option selected value="<?php echo $row['status']?>"><?php echo $row['status']?></option>
-                                    <?php
-                                        if($row['status'] == "Pending"){ ?>
-                                            <option value="Viewed">Viewed</option>
-                                            <option value="replied ">Replied</option>
-                                    <?php   
-                                        } elseif ($row['status'] == "Viewed"){  ?> 
-
-                                            <option value="Viewed">Pending</option>
-                                            <option value="replied ">Replied</option>
-                                    <?php       
-                                        }else {?> 
-                                            <option value="Viewed">Viewed</option>
-                                            <option value="replied ">Pending</option>
-                                    <?php } ?> 
-
-                                </select></td> -->
+                               
                                 <td><button value="<?php echo $row['com_id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/Complain_reply?com_id=<?php echo $row['com_id'];?>';">Add Response</button></td>
                         </tr>
                         <?php
