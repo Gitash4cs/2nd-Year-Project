@@ -32,16 +32,17 @@ class M_pumper_registration extends Model{
     
     }
     
-    public function user_exist($email){
+    public function user_exist($data){
         $result = $this->connection();
-        //select records from table which is given email amd password
-        $select = " SELECT * FROM pumper WHERE email = '$email' ";
+        //select records from table which is given email
+        $select = "SELECT * FROM registered_users WHERE email = '".$data['email']."' ";
+        //select records from table which is given user ID
+        $select = "SELECT * FROM pumper WHERE id = '".$data['id']."' ";
+
         $query = $result->query($select);
-        
-        
         //check the given user account already has or not
         if(mysqli_num_rows($query) > 0){
-            true;
+            return true;
         }
     }
     

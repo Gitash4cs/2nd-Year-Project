@@ -2,7 +2,7 @@
 
 class M_home extends Model{
    
-
+    //funtion for get different count of customer, manager and complains
     public function getCount(){
         $result = $this->connection();
         $totalPumper="SELECT count(id) from pumper where status != '0'";
@@ -14,6 +14,7 @@ class M_home extends Model{
         $workingDiesel="SELECT count(MashineID) from pumper_mashine where pumperID != '0' and fuelType = 'Diesel'";
         $workingPetrol="SELECT count(MashineID) from pumper_mashine where pumperID != '0' and fuelType = 'Petrol'";
 
+        //execute all queries
         $querytotalPumper = $result->query($totalPumper);
         $queryactivePumper = $result->query($activePumper);
         $querywaitingPumper = $result->query($waitingPumper);
@@ -23,6 +24,7 @@ class M_home extends Model{
         $queryDiesel = $result->query($workingDiesel);
         $queryPetrol = $result->query($workingPetrol);
 
+        //fetch results and assign wanterd data to veriable
         $data = $querytotalPumper->fetch_array();
         $data1= $data['count(id)'];
         $data = $queryactivePumper->fetch_array();
@@ -40,7 +42,7 @@ class M_home extends Model{
         $data = $queryPetrol->fetch_array();
         $data8= $data[0];
 
-
+        //create array with data of different counts from database
         $array=[
             'totalPumper'=>$data1,
             'activepumper'=>$data2,
@@ -54,25 +56,27 @@ class M_home extends Model{
         ];
         
         return $array;
-        
-
 
     }
 
-    
+    //funtion for display color of pumper mashine status by checking assigment
     public function mashineColour($mashineID){
        
         $result = $this->connection();
+        //check which pumper assigned to the mashine.
         $pumper = "select pumperID from pumper_mashine where PumpID  = '".$mashineID."'";
         $queryactivePumper = $result->query($pumper);
         $data = $queryactivePumper->fetch_array();
         $id= $data['pumperID'];
+        //change colour based on the pumper assigment on the mashine
         if($id == 0){
+            //red
             $color = "#e3361c";
         }else{
+            //green
             $color = "#35ca41";
         }
-        
+        //return the coulor
         return  $color;
         
     }

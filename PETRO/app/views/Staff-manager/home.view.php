@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <!-- SIDEBAR -->
+
+    <!-- SIDE BAR -->
+
     <section id="sidebar">
         <a href="#" class="brand">
             <i class='bx bxs-gas-pump'></i>
@@ -62,6 +64,12 @@
                     <span class="text">Salary Percentage </span>
                 </a>
             </li>
+            <li>
+                <a href="">
+                    <!-- <i class='bx bxs-group'></i>
+                    <span class="text">Salary Percentage </span> -->
+                </a>
+            </li>
         </ul>
         <ul class="side-menu">
             <li>
@@ -78,32 +86,50 @@
             </li>
         </ul>
     </section>
-    <!-- SIDEBAR -->
+
+    <!-- SIDE BAR -->
 
 
 
     <!-- CONTENT -->
     <section id="content">
-        <!-- NAVBAR -->
+        <!-- NAV BAR -->
         <nav>
             <i class='bx bx-menu'></i>
-            <a href="#" class="nav-link">Categories</a>
+            <a href="#" class="nav-link"></a>
             <form action="#">
                 <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+                    <!-- <input type="search" placeholder="Search...">
+                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button> -->
                 </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden>
             
+            <!-- Display logged user's name  -->
             <h3><?php echo $_SESSION['manager_name']," ",$_SESSION['manager_name_Last']?></h3>
             <a href="#" class="notification">
                 <i class='bx bxs-bell'></i>
                 <span class="num">8</span>
             </a>
             <a href="#" class="profile">
-                <img src="<?php echo ROOT ?>/image/proIcon.png">
+                <img src="<?php echo ROOT ?>/image/proIcon.png" onclick="toggleMenu()">
             </a>
+
+            <!-- profile Drop down menu -->
+            <div class="sub-menu-wrap" id="submenu">
+                <div class= "sub-menu">
+                    <a href="<?php echo ROOT ?>/Staff-manager/Profile" class="sub-menu-link">
+                        <img src="<?php echo ROOT ?>/image/profile_dropdown/profile.png">
+                        <p>Profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="<?php echo ROOT ?>/Staff-manager/Logout" class="sub-menu-link">
+                        <img src="<?php echo ROOT ?>/image/profile_dropdown/logout.png">
+                        <p>Logout</p>
+                        <span>></span>
+                    </a>
+                </div>
+            </div>
         </nav>
         <!-- NAVBAR -->
 
@@ -112,15 +138,6 @@
             <div class="head-title">
                 <div class="left">
                     <h1>Dashboard</h1>
-                    <ul class="breadcrumb">
-                        <li>
-                            <a href="#">Dashboard</a>
-                        </li>
-                        <li><i class='bx bx-chevron-right'></i></li>
-                        <li>
-                            <a class="active" href="#">Home</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
 
@@ -128,21 +145,21 @@
                 <li>
                     <i class='bx bxs-calendar-check'></i>
                     <span class="text">
-                        <a href="<?php echo ROOT ?>/Staff-manager/Assign_pumpper">Assign Pumper</a>
+                        <a href="<?php echo ROOT ?>/Staff-manager/Assign_pumpper"><b>Assign Pumper</b></a>
                        
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-dollar-circle'></i>
                     <span class="text">
-                        <a href="<?php echo ROOT ?>/Staff-manager/Complain">View & Responds to complaint</a>
+                        <a href="<?php echo ROOT ?>/Staff-manager/Complain"><b>View & Responds to complaint</b></a>
                         
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-calendar-check'></i>
                     <span class="text">
-                        <a href="<?php echo ROOT ?>/Staff-manager/Salary_Rate">Salary Percentage</a>
+                        <a href="<?php echo ROOT ?>/Staff-manager/Salary_Rate"><b>Salary Percentage</b></a>
                         
                     </span>
                 </li>
@@ -151,21 +168,21 @@
                 <li>
                     <i class='bx bxs-calendar-check'></i>
                     <span class="text">
-                        <a href="<?php echo ROOT ?>/Staff-manager/view_pumper">View Pumpers</a>
+                        <a href="<?php echo ROOT ?>/Staff-manager/view_pumper"><b>View Pumpers</b></a>
                        
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-dollar-circle'></i>
                     <span class="text">
-                        <a href="<?php echo ROOT ?>/Staff-manager/Pumper_registration">Add Pumpers</a>
+                        <a href="<?php echo ROOT ?>/Staff-manager/Pumper_registration"><b>Pumper Registration</b></a>
                         
                     </span>
                 </li>
                 <li>
                     <i class='bx bxs-group'></i>
                     <span class="text">
-                        <a href="<?php echo ROOT ?>/Staff-manager/view_customer">View Customer</a>
+                        <a href="<?php echo ROOT ?>/Staff-manager/view_customer"><b>View Customer</b></a>
                         
                     </span>
                 </li>
@@ -285,6 +302,13 @@
 
     <script src="<?php echo ROOT ?>/JS/Staff-manager/script.js"></script>
     <script src="<?php echo ROOT ?>/JS/Staff-manager/calender.js"></script>
+    <script>
+        let submenu = document.getElementById("submenu");
+
+        function toggleMenu(){
+            submenu.classList.toggle("open-menu");
+        }
+    </script>
 </body>
 
 

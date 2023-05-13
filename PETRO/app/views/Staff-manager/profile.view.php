@@ -134,7 +134,6 @@
                         <tr><th>Email</th><td><?php echo $data["email" ]?> </td></tr>
                         <tr><th>NIC</th><td><?php echo $data["nic" ]?>  </td></tr>
                         <tr><th>Phone Number</th><td><?php echo $data["phone_no"]?>  </td></tr>
-                        <tr><th>Gender</th><td><?php echo $data["gender"]?>  </td></tr>
                     </table>
                 </div>
                 

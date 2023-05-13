@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Manager Home</title>
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/style.css" text="text/css" />
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/pumper_registration.css" text="text/css" />
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- to get calander move icon -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
@@ -123,17 +123,17 @@
                 </div>
             </div>
 
-            
-
-            <!-- print error massage -->
-            <?php
-                if(isset($data['error'])){   
-                    echo '<span class="errorMsg"> : '.$data['error'].'</span>';
-                };
-            ?> 
+           
             <div class="table-data">
                 <div class="todo">
-                    <div class="form-inner">
+                    <div class="form-inner">            
+
+                    <!-- print error massage -->
+                    <?php
+                        if(isset($data['error'])){   
+                            echo '<span class="errorMsg"> '.$data['error'].'</span>';
+                        };
+                    ?> 
                     <form action="<?php echo ROOT ?>/Staff-manager/Pumper_registration/pumperRegistration" method="post">
                         <div class="field">
                         <input type="text" name = "id" required placeholder="Enter Pumper's ID">
@@ -175,7 +175,6 @@
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
-
 
     <script src="<?php echo ROOT ?>/JS/Staff-manager/script.js"></script>
     <script src="<?php echo ROOT ?>/JS/Staff-manager/calender.js"></script>

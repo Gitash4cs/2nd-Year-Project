@@ -139,7 +139,7 @@
                         <Select name= "filter" id="filter">
                             <option vlaue="All Customers">All Customers</option>
                             <option vlaue="Active">Active Customers</option>
-                            <option vlaue="Remove">Removed Customers</option>
+                            <option vlaue="Remove">Suspend Customers</option>
 
                         </Select>
                     </div>
@@ -154,7 +154,18 @@
 
                 </div>
             </div>
-
+            
+            <!-- print error massage -->
+            <?php
+                if(isset($data['error'])){  ?>
+                    <span class="errorMsg">  <?php echo $data['error']?></span>
+             <?php
+             };
+                if(isset($data['success'])){ ?>
+                    <span class="successMsg"> <?php echo $data['success']?></span>
+            <?php    
+            };
+            ?>
 
             <div class="table-data">
                 <table class="table" id="table">
@@ -167,7 +178,7 @@
                             <th> NIC </th>
                             <th style="display : none;"> Status</th>
                             <th> View </th>
-                            <th> Delete </th>
+                            <th> Suspend/Active </th>
                         </tr>
                     </thead>
                     <tbody id="ans">
@@ -182,9 +193,19 @@
                             <td> <?php echo $row["lname"];?> </td>
                             <td> <?php echo $row["phone"];?> </td>
                             <td> <?php echo $row["NIC"];?> </td>
-                            <td style="display : none;"><?php echo $row["status"]==1 ?'Active Customers' : 'Removed Customers' ?>
+                            <td style="display : none;"><?php echo $row["status"]==1 ?'Active Customers' : 'Suspend Customers' ?>
                             <td> <button value="<?php echo $row['id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_customer_Profile?cus_id=<?php echo $row['id'];?>';">View</button> </td>
-                            <td> <div class = "delete"><button value="<?php echo $row['email'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_customer/remove_customers?cus_email=<?php echo $row['email'];?>';">Delete</button></div></td>
+                            <?php
+                                if($row["status"] == 0){
+                            ?>
+                                    <td> <div class = "add"><button value="<?php echo $row['email'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_customer/add_customers?cus_email=<?php echo $row['email'];?>';">Activate</button></div></td>
+                            <?php    
+                                }else{
+                            ?>
+                                    <td> <div class = "delete"><button value="<?php echo $row['email'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_customer/remove_customers?cus_email=<?php echo $row['email'];?>';">Suspend</button></div></td>
+                            <?php    
+                                }
+                            ?>
                         </tr>
                         <?php
                             }

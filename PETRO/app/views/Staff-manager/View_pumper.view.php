@@ -138,7 +138,7 @@
                         <Select name= "filter" id="filter">
                             <option vlaue="All Customers">All Pumper</option>
                             <option vlaue="Active">Active Pumper</option>
-                            <option vlaue="Remove">Removed Pumper</option>
+                            <option vlaue="Remove">Suspend Pumper</option>
 
                         </Select>
                     </div>
@@ -154,6 +154,18 @@
                 </div>
             </div>
 
+            <!-- print error massage -->
+            <?php
+                if(isset($data['error'])){  ?>
+                    <span class="errorMsg">  <?php echo $data['error']?></span>
+             <?php
+             };
+                if(isset($data['success'])){ ?>
+                    <span class="successMsg"> <?php echo $data['success']?></span>
+            <?php    
+            };
+            ?>
+
             <div class="table-data">
                 <table class="table" id="table">
                     <thead>
@@ -165,7 +177,7 @@
                             <th> Email </th>
                             <th style="display : none;"> Status</th>
                             <th> View </th>
-                            <th> Delete </th>
+                            <th> Suspend/Active </th>
                         </tr>
                     </thead>
                         <tr>
@@ -178,9 +190,20 @@
                             <td> <?php echo $row["lname"];?> </td>
                             <td> <?php echo $row["phone"];?> </td>
                             <td> <?php echo $row["email"];?> </td>
-                            <td style="display : none;"><?php echo $row["status"]==0 ?'Removed Pumper' : 'Active Pumper' ?>
+                            <td style="display : none;"><?php echo $row["status"]==0 ?'Suspend Pumper' : 'Active Pumper' ?>
                             <td> <button value="<?php echo $row['id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper_Profile?pump_id=<?php echo $row['id'];?>';">View</button> </td>
-                            <td>  <div class = "delete"><button value="<?php echo $row['email'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper/remove_pumper?pump_email=<?php echo $row['email'];?>';">Delete</button></div></td>
+                            
+                            <?php
+                                if($row["status"] == 0){
+                            ?>
+                                    <td> <div class = "add"><button value="<?php echo $row['email'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper/add_pumper?pump_email=<?php echo $row['email'];?>';">Activate</button></div></td>
+                            <?php    
+                                }else{
+                            ?>
+                                    <td>  <div class = "delete"><button value="<?php echo $row['email'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper/remove_pumper?pump_email=<?php echo $row['email'];?>';">Suspend</button></div></td>
+                            <?php    
+                                }
+                            ?>
                         </tr>
                         <?php
                             }

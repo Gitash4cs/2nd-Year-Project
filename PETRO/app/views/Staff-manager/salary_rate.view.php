@@ -123,15 +123,6 @@
                 </div>
             </div>
 
-            
-
-            <!-- print error massage -->
-            <?php
-                if(isset($data['error'])){   
-                    echo '<span class="errorMsg"> : '.$data['error'].'</span>';
-                };
-            ?> 
-
 
             <div class="table-data">
                 <div class="order">
@@ -140,11 +131,20 @@
                         <i class='bx bx-search'></i>
                         <i class='bx bx-filter'></i>
                     </div>
+                    <!-- print error massage -->
+                    <?php
+                        if(isset($data['error'])){
+                            echo '<span class="errorMsg">' .$data['error'].'</span>';
+                        };
+                        if(isset($data['success'])){ 
+                            echo '<span class="successMsg">' .$data['success'].'</span>';
+                        };
+                    ?>
                     <table>
-                        <tr><td> Basic</td> <td>-</td> <td>Rs.<?php echo $data['Basic']?>/=</td></tr>
+                        <tr><td> Basic Salary</td> <td>-</td> <td>Rs.<?php echo $data['Basic_salary']?>/=</td></tr>
                         <tr><td> Home Rental Allowances Rate</td> <td>-</td> <td><?php echo $data['HRA']?>%</td></tr>
                         <tr><td> Daily Allowances Rate</td> <td>-</td> <td><?php echo $data['Daily_allowances']?>%</td></tr>
-                        <tr><td> Provident Fund Rate</td> <td>-</td> <td><?php echo $data['Provident_fund']?>%</td></tr>
+                        <tr><td> Provident Fund Rate</td> <td>-</td> <td><?php echo $data['provident_fund']?>%</td></tr>
                         <tr><td> Over Time (per hour)</td> <td>-</td> <td>Rs.<?php echo $data['OT']?>/=</td></tr>
 
                     </table>
@@ -159,24 +159,24 @@
                     <div class="form-inner">
                     <form class="form-container" action="<?php echo ROOT ?>/Staff-manager/Salary_Rate/editRates" method="post">
                         <div class="field">
-                        <span class="form-tag">Update Basic Salary Rate : </span>
-                        <input type="text" name = "Basic" required placeholder="Enter New Basic Salary Rate">
+                        <span class="form-tag">Update Basic Salary : </span>
+                        <input type="text" name = "Basic" required placeholder="Enter New Basic Salary " require>
                         </div>
                         <div class="field">
                         <span class="form-tag">Update HRA Rate : </span>
-                        <input type="text" name = "HRA" required placeholder="Enter New HRA Rate">
+                        <input type="text" name = "HRA" required placeholder="Enter New HRA Rate" require>
                         </div>
                         <div class="field">
                         <span class="form-tag">Update Daily_allowances Rate : </span>
-                        <input type="text" name = "Daily_allowances" required placeholder="Enter New Daily_allowances Rate">
+                        <input type="text" name = "Daily_allowances" required placeholder="Enter New Daily_allowances Rate" require>
                         </div>
                         <div class="field">
                         <span class="form-tag">Update Provident_fund Rate : </span>
-                        <input type="text" name = "Provident_fund" required placeholder="Enter New Provident_fund Rate">
+                        <input type="text" name = "Provident_fund" required placeholder="Enter New Provident_fund Rate" require>
                         </div>
                         <div class="field">
                         <span class="form-tag">OT Salary Rate (per hour) : </span>
-                        <input type="text" name = "OT" required placeholder="Enter New OT rate">
+                        <input type="text" name = "OT" required placeholder="Enter New OT rate" require>
                         </div>
                         <br><br>
                         <div class="btn">

@@ -113,14 +113,14 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>View Customer</h1>
+                    <h1>View <?php echo $data["fname"]. " ".$data["lname"]?>'s Profile</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a href="<?php echo ROOT ?>/Staff-manager/Home">Dashboard</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="#">View Customer Profile</a>
+                            <a class="active" href="#">View Pumper Profile</a>
                         </li>
                     </ul>
                 </div>
@@ -150,7 +150,7 @@
                 <?php endif; ?>
             </ul>
 
-            <div class="table-data">
+            <!-- <div class="table-data">
                 <div class="order">
                     <div class="head">
                         <h3>Recent Orders</h3>
@@ -168,7 +168,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div> -->
 
         </main>
 
