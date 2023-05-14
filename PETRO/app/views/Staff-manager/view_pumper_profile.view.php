@@ -7,7 +7,7 @@
     <title>PETRO</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/view_pumper.css"/>
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/view_pumper_profile.css"/>
     <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/style.css" text="text/css" />
 
     <!-- Font Awesome Cdn Link -->

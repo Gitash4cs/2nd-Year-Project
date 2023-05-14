@@ -44,23 +44,20 @@ class Edit_profile extends Controller
             
             $result = $this->order->submit_edit($editdata);
             
+            //succes massage
             if($result == 1){
-                // header('location:http://localhost/PETRO/Public/Staff-manager/Edit_profile');
                 $editdata['success']="Successfully Changes Saved";
-                // $result = $this->order->edit_manager($_SESSION['manager_ID']);
-                // $result = 
                 $this->view('Staff-manager/Edit_profile',$editdata);
     
             }
+            //both passwords not match
             elseif($result == 0){
                 $editdata['error']="Password not matched";
-                // $result = $this->order->edit_manager($_SESSION['manager_ID']);
-                // $result = 
                 $this->view('Staff-manager/Edit_profile',$editdata);
+            
+            //weak password
             }else{
                 $editdata['error']="Please Use Strong Password";
-                // $result = $this->order->edit_manager($_SESSION['manager_ID']);
-                // $result = 
                 $this->view('Staff-manager/Edit_profile',$editdata);
             }
         }

@@ -46,13 +46,13 @@ class M_edit_profile extends Model{
         $lowercase = preg_match('@[a-z]@', $password);
         $number    = preg_match('@[0-9]@', $password);
         $specialChars = preg_match('@[^\w]@', $password);
-
+        
         //check both password are match
         if($data['password'] != $data['editRetype_password']){
             return 0;
 
         // Validate password strength   
-        }elseif(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+        }elseif((!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8 ) && !empty($data['password'])) {
             return 2;    
 
         }else{

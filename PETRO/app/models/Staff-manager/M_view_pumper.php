@@ -8,12 +8,15 @@ class M_view_pumper extends Model{
         $result = $this->connection();
         
         $sql="select * from pumper inner join registered_users on pumper.email = registered_users.email";
-
         $query = $result->query($sql);
 
-        if($query->num_rows>0){
+        $sql1="select * from complete_order ";
+        $query1 = $result->query($sql1);
+
+        if($query->num_rows>0 || $query1->num_rows>0){
             $data=[
                 'result'=>$query,
+                'pumperResult'=>$query1,
                 'error'=>'',
                 'success'=>'',
 
