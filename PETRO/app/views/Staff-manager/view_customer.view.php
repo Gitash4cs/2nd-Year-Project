@@ -161,10 +161,7 @@
 
             <div class="table-data">
                 <div class="order">
-                    <div class="head">
                         <h3>Filter :</h3>
-                        
-                    </div>
                     <div class= "filter">
                         <Select name= "filter" id="filter">
                             <option vlaue="All Customers">All Customers</option>
@@ -175,13 +172,7 @@
                     </div>
                     
                 </div>
-                <div class="todo">
-                    <div class="head">
-                        <h3>Todos</h3>
-                        
-                    </div>
-
-                </div>
+                
             </div>
             
             <!-- print error massage -->
