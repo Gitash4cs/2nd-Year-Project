@@ -214,7 +214,8 @@
 
 
     <script src="<?php echo ROOT ?>/JS/Staff-manager/script.js"></script>
-
+    
+    <!-- Password Validation -->
     <script>
         //
         function test_str() {
@@ -230,17 +231,18 @@
             if (str.match(/[a-z]/g) && str.match(/[A-Z]/g) && str.match(/[0-9]/g) && str.match(/[^a-zA-Z\d]/g) && str.length >= 8)
                 res = "TRUE";
             else if(str.length > 0){
-                alert("Please use strong password with lowercase, uppercase, special character, digit and password should Minimum 8 characters");
+                alert("Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.");
             }
         }
+    </script>
 
-        // JS for profile icon drop down
+    <!-- JS for profile icon drop down -->
+    <script>
         let submenu = document.getElementById("submenu");
 
         function toggleMenu(){
             submenu.classList.toggle("open-menu");
         }
-
     </script>
 </body>
 

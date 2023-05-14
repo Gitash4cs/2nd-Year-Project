@@ -8,10 +8,21 @@ class M_pumper_registration extends Model{
     public function submit_record($data){
         $result = $this->connection();
         
+        $password = $data['password'];
+        // Validate password strength
+        $uppercase = preg_match('@[A-Z]@', $password);      //preg_match() returns whether a match was found in a string.
+        $lowercase = preg_match('@[a-z]@', $password);
+        $number    = preg_match('@[0-9]@', $password);
+        $specialChars = preg_match('@[^\w]@', $password);
+        
         //check both password are match
         if($data['password'] != $data['confirmPassword']){
-            return false;
-            
+            return 0;
+        
+        // Validate password strength 
+        }elseif(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 8) {
+            return 2;    
+
         }else{
             $hash = password_hash($data['password'],PASSWORD_DEFAULT);
             //update user record given data to the data base table
@@ -25,7 +36,7 @@ class M_pumper_registration extends Model{
             $query1 = $result->query($insertpumper);
 
             //redirect to the staff manager's page
-            return true;
+            return 1;
             
         };
         
