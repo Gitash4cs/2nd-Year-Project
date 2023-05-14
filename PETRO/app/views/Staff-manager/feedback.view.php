@@ -3,6 +3,8 @@
     $count1=$data['result1'];
     $count2=$data['result2'];
     $count3=$data['result3'];
+    $count4=$data['result4'];
+    $count5=$data['result5'];
    }
    
         
@@ -17,7 +19,7 @@
     <title>Complain</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- My CSS -->
-    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/complain.css" />
+    <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/feedback.css" />
     <link rel="stylesheet" href="<?php echo ROOT ?>/CSS/Staff-manager/style.css" text="text/css" />
 
     <!-- Font Awesome Cdn Link -->
@@ -54,7 +56,7 @@
                     <span class="text">Assign Pumper</span>
                 </a>
             </li>
-            <li class="active">
+            <li>
                 <a href="<?php echo ROOT ?>/Staff-manager/Complain">
                     <i class='bx bxs-comment-dots' ></i>
                     <span class="text">View & Responds to complaint</span>
@@ -84,7 +86,7 @@
                     <span class="text">Salary Percentage </span>
                 </a>
             </li>
-            <li>
+            <li  class="active">
                 <a href="<?php echo ROOT ?>/Staff-manager/Feedback">
                     <i class='bx bxs-message-rounded-check'></i>
                     <span class="text">User Feedback</span>
@@ -160,14 +162,14 @@
         <main>
             <div class="head-title">
                 <div class="left">
-                    <h1>View & Responds to complaint</h1>
+                    <h1>User Feedback</h1>
                     <ul class="breadcrumb">
                         <li>
                             <a class="active" href="<?php echo ROOT ?>/Staff-manager/Home">Dashboard</a>
                         </li>
                         <li><i class='bx bx-chevron-right'></i></li>
                         <li>
-                            <a class="active" href="<?php echo ROOT ?>/Staff-manager/Complain">View complaint</a>
+                            <a class="active" href="<?php echo ROOT ?>/Staff-manager/Feedback">User Feedback</a>
                         </li>
                     </ul>
                 </div>
@@ -176,15 +178,19 @@
 
             <div class="table-data">
                 <div class="order">
-                    <h3>Count of Complains</h3>
+                    <h3>Feedback Analysis</h3>
                     <div class="flex-container">
                         <table class="table">
-                            <tr><td>Total Pending Complains :</td>
-                                <?php echo "<td> "  .$count2." </td>"?></tr>
-                            <tr><td>Total Viewed Complains :</td>
+                            <tr><td>Number of Very Satisfied :</td>
                                 <?php echo "<td> "  .$count1." </td>"?></tr>
-                            <tr><td>Total Replied Complains :</td>
+                            <tr><td>Number of Satisfied :</td>
+                                <?php echo "<td> "  .$count2." </td>"?></tr>
+                            <tr><td>Number of Neutral :</td>
                                 <?php echo "<td> "  .$count3." </td>"?></tr>
+                            <tr><td>Number of Dissatisfied :</td>
+                                <?php echo "<td> "  .$count4." </td>"?></tr>
+                            <tr><td>Number of Very Dissatisfied :</td>
+                                <?php echo "<td> "  .$count5." </td>"?></tr>
                         </table>
                     </div>
 
@@ -200,11 +206,13 @@
                                 var x1 =" <?php echo "$count1" ; ?>";
                                 var x2 =" <?php echo "$count2" ; ?>";
                                 var x3 =" <?php echo "$count3" ; ?>";
+                                var x4 =" <?php echo "$count4" ; ?>";
+                                var x5 =" <?php echo "$count5" ; ?>";
                                 
 
-                            var xValues = ["Viewed", "Pending", "Replied"];
-                            var yValues = [ x1,x2,x3,0];
-                            var barColors = ["#43A6C6", "#296E85","#8AC7DB","#091d2a","#091d2a"];
+                            var xValues = ["Very Satisfied", "Satisfied" ,"Neutral", "Dissatisfied","Very Dissatisfied"];
+                            var yValues = [ x1,x2,x3,x4,x5,0];
+                            var barColors = ["#BFD7ED", "#60A3D9","#0074B7","#003B73","#0C2D48"];
 
                             var chart2=new Chart("myChart", {
                             type: "bar",
@@ -219,7 +227,7 @@
                                 legend: {display: false},
                                 title: {
                                 display: true,
-                                text: "PERCENTAGES OF PAYMENT"
+                                text: "Feedback Analysis Chart"
                                 }
                             }
                             });
@@ -233,12 +241,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th> Complaint ID </th>
+                            <th> Feedback ID </th>
                             <th> User ID </th>
-                            <th> Complaint </th>
-                            <th> Date & Time </th>
-                            <th> Status </th>
-                            <th> Response </th>
+                            <th> Date </th>
+                            <th> Rating </th>
+                            <th> Feedback </th>
                         </tr>
                     </thead>
                         <tr>
@@ -246,14 +253,12 @@
                             while($row = mysqli_fetch_assoc($data['result'])){
                                 
                         ?>
-                            <td name="com-id"> COM<?php echo $row['com_id'];?> </td>
+                            <td name="com-id"> FB<?php echo $row['feedback_id'];?> </td>
                                 <td> <?php echo $row['user_id'];?> </td>
-                                <td> <?php echo $row['complain'];?> </td>
-                                <td> <?php echo $row['date_time'];?> </td>
-                                <td> <?php echo $row['status'];?> </td>
-                               
-                                <td><button value="<?php echo $row['com_id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/Complain_reply?com_id=<?php echo $row['com_id'];?>';">Add Response</button></td>
-                        </tr>
+                                <td> <?php echo $row['date'];?> </td>
+                                <td> <?php echo $row['rating'];?> </td>
+                                <td> <?php echo $row['feedback'];?> </td>
+                            </tr>
                         <?php
                             }
                         ?>

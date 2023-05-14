@@ -40,12 +40,16 @@ class Pumper_registration extends Controller
             }
             else{
                 $result = $this->order->submit_record($record);
-                if($result){
+                if($result == 1){
                     header('location:http://localhost/PETRO/Public/Staff-manager/View_pumper');
         
                 }
-                else{
+                elseif($result == 0){
                     $error['error']="Password not matched";
+                    $this->view('Staff-manager/Pumper_registration',$error);
+                }
+                else{
+                    $error['error']="Password should be at least 8 characters in length and should include " . PHP_EOL . " at least one upper case letter, " . PHP_EOL . " one number, and " . PHP_EOL . " one special character";
                     $this->view('Staff-manager/Pumper_registration',$error);
                 }
             }
