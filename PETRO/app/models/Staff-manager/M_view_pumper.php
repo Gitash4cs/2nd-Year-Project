@@ -7,7 +7,7 @@ class M_view_pumper extends Model{
     public function pumper_list(){
         $result = $this->connection();
         
-        $sql="select * from pumper inner join registered_users on pumper.email = registered_users.email";
+        $sql="select * from pumper inner join registered_users on pumper.email = registered_users.email order by fname";
         $query = $result->query($sql);
 
         $sql1="select * from complete_order ";

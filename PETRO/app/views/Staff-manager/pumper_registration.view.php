@@ -180,6 +180,14 @@
                         <div class="field">
                         <input type="text" name = "phoneNumber" required placeholder="Enter Pumper's Phone Number">
                         </div>
+                        <br>
+                        <div>
+                        <Select name= "shift" id="shift">
+                            <option vlaue="">--Select Shift time--</option>
+                            <option vlaue="morning">Morning </option>
+                            <option vlaue="evening">Evening </option>
+                        </Select>
+                        </div>
                         <div>
                         <div class="field">
                             <input type="text" name = "email" required placeholder="Enter Pumper's Email">

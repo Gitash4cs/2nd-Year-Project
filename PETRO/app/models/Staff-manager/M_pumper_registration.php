@@ -26,7 +26,7 @@ class M_pumper_registration extends Model{
         }else{
             $hash = password_hash($data['password'],PASSWORD_DEFAULT);
             //update user record given data to the data base table
-            $insertpumper = "INSERT INTO pumper (id, email, status) VALUES('".$data['id']."','".$data['email']."','not assigned')";
+            $insertpumper = "INSERT INTO pumper (id, email, status, Shift) VALUES('".$data['id']."','".$data['email']."','not assigned','".$data['shift']."')";
 
             //inster to total user table
             $insertlogin = "INSERT INTO registered_users (email , password, fname, lname, NIC, phone, role, status) VALUES('".$data['email']."','".$hash."','".$data['first_name']."','".$data['last_name']."','".$data['nic']."','".$data['phone_no']."','pumper',1)";

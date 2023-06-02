@@ -228,6 +228,7 @@
                             <th> Last Name </th>
                             <th> Phone Number </th>
                             <th> Email </th>
+                            <th> Shift Time </th>
                             <th style="display : none;"> Status</th>
                             <th> View </th>
                             <th> Suspend/Active </th>
@@ -243,6 +244,8 @@
                             <td> <?php echo $row["lname"];?> </td>
                             <td> <?php echo $row["phone"];?> </td>
                             <td> <?php echo $row["email"];?> </td>
+                            <td> <?php echo $row["shift"];?> </td>
+
                             <td style="display : none;"><?php echo $row["status"]==0 ?'Suspend Pumper' : 'Active Pumper' ?>
                             <td> <button value="<?php echo $row['id'];?>" onclick="window.location.href= '<?php echo ROOT ?>/Staff-manager/View_pumper_Profile?pump_id=<?php echo $row['id'];?>';">View</button> </td>
                             
