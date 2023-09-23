@@ -10,4 +10,5 @@ This Project is done by 2nd-year undergraduate students of the University of Col
 
 ## Screenshots 📸 
 
-![Home Page](https://github.com/Gitash4cs/2nd-Year-Project/blob/master/PETRO/public/image/Common/ss%20home.jpeg)
+![Home Page](https://github.com/Gitash4cs/2nd-Year-Project/blob/master/PETRO/public/image/Common/ss%20landing.jpeg)
+![Login page](https://github.com/Gitash4cs/2nd-Year-Project/blob/master/PETRO/public/image/Common/ss%20login.jpeg)
